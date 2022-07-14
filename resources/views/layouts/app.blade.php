@@ -1,44 +1,106 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg"
+      data-sidebar-image="none">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8" />
+    <title>{{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title' }} | Pendaftaran Unit Layanan Statistik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Platform Pendaftaran Unit Layanan Statistik" name="description" />
+    <meta content="Abdul Aziz" name="author" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
-        <!-- Styles -->
-        @livewireStyles
+    <!-- Bootstrap Css -->
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    @vite(['resources/js/app.js'])
+    <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
+<body>
+<!-- Begin page -->
+<div id="layout-wrapper">
+    <x-header />
+    <!-- ========== App Menu ========== -->
+    <x-navbar />
+    <!-- Left Sidebar End -->
+    <!-- Vertical Overlay-->
+    <div class="vertical-overlay"></div>
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+                <!-- start page title -->
+                {{Breadcrumbs::render()}}
+                <!-- end page title -->
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                <div class="row">
+                    <div class="col">
+                        <div class="h-100">
+                            {{$slot}}
+                        </div>
+                        <!-- end .h-100-->
                     </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                    <!-- end col -->
+                </div>
+            </div>
+            <!-- container-fluid -->
         </div>
+        <!-- End Page-content -->
 
-        @stack('modals')
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        © Bimbingin.
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end d-none d-sm-block">
+                            Design & Develop by <a class="fw-bold" href="https://facebook.com/lazizdev">Abdul
+                                Aziz</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
 
-        @livewireScripts
-    </body>
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+</div>
+<!-- END layout-wrapper -->
+<!-- JAVASCRIPT -->
+<script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+<script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
+<script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+<!-- App js -->
+<script src="{{asset('assets/js/app.js')}}"></script>
+@livewireScripts
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<x-livewire-alert::scripts />
+@stack('scripts')
+</body>
+
 </html>
