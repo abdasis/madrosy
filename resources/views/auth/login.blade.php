@@ -49,8 +49,11 @@
                                     <h5 class="text-primary">Selamat Datang Kembali !</h5>
                                     <p class="text-muted">Silahkan login untuk mendapatkan akses ke Madrosy.</p>
                                 </div>
+                                <div class="mt-2 text-center">
+                                    <lord-icon src="https://cdn.lordicon.com/huwchbks.json" trigger="loop" colors="primary:#0ab39c" class="avatar-xl"></lord-icon>
+                                </div>
 
-                                <div class="mt-4">
+                                <div class="mt-2">
                                     <form action="{{route('login')}}" method="POST">
 
                                         <div class="mb-3">
@@ -75,7 +78,7 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <button class="btn btn-success w-100" type="submit">Sign In</button>
+                                            <button class="btn btn-success btn-border w-100" type="submit">Masuk</button>
                                         </div>
 
                                     </form>

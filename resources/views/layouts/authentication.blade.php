@@ -42,7 +42,7 @@
                 <div class="col-lg-12">
                     <div class="text-center">
                         <p class="mb-0">&copy;
-                            <script>document.write(new Date().getFullYear())</script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                            {{now()->year}} Madrosy, Develop By <a href="https://www.instagram.com/idabdasis/" class="fw-bold text-white" target="_blank">Abdul Aziz</a>
                         </p>
                     </div>
                 </div>
