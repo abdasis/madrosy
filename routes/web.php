@@ -28,5 +28,7 @@ Route::middleware([
     Route::group(['prefix' => 'santri'], function (){
         Route::get('/', \App\Http\Livewire\Santri\Semua::class)->name('santri.semua');
         Route::get('tambah', \App\Http\Livewire\Santri\Tambah::class)->name('santri.tambah');
+        Route::get('detail/{id}', \App\Http\Livewire\Santri\Detail::class)->name('santri.detail');
+        Route::get('edit/{id}', \App\Http\Livewire\Santri\Edit::class)->name('santri.edit');
     });
 });

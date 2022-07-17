@@ -22,3 +22,13 @@ Breadcrumbs::for('santri.tambah', function (BreadcrumbTrail $trail){
     $trail->parent('santri.semua');
     $trail->push('Tambah Santri', route('santri.tambah'));
 });
+
+Breadcrumbs::for('santri.detail', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('santri.semua');
+    $trail->push('Detail Santri', route('santri.detail', $id));
+});
+
+Breadcrumbs::for('santri.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('santri.semua');
+    $trail->push('Edit Santri', route('santri.edit', $id));
+});

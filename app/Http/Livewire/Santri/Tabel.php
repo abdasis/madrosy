@@ -15,7 +15,10 @@ class Tabel extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')
+            ->setTableRowUrl(function ($id) {
+                return route('santri.detail', $id);
+            });
     }
 
     public function filters(): array
@@ -34,38 +37,60 @@ class Tabel extends DataTableComponent
         ];
     }
 
-
     public function columns(): array
     {
         return [
-            Column::make("Nama", "nama_lengkap")
-                ->searchable()
-                ->sortable(),
+            Column::make('#', 'id')->searchable()->sortable(),
             Column::make("NISN", "nisn")
                 ->searchable()
                 ->sortable(),
+            Column::make("Nama", "nama_lengkap")
+                ->searchable()
+                ->html()
+                ->format(function ($nama){
+                    return "<span class='fw-bold text-dark'>$nama</span>";
+                })
+                ->sortable(),
             Column::make("Jenis Kelamin", "jenis_kelamin")
                 ->searchable()
+                ->unclickable()
                 ->sortable(),
             Column::make("Tempat Lahir", "tempat_lahir")
                 ->searchable()
+                ->unclickable()
                 ->sortable(),
             Column::make("Tanggal Lahir", "tanggal_lahir")
                 ->searchable()
+                ->unclickable()
                 ->format(fn($tanggal_lahir) => Carbon::parse($tanggal_lahir)->format('d F Y'))
                 ->sortable(),
             Column::make('Agama', 'agama')
                 ->searchable()
+                ->unclickable()
                 ->sortable(),
             Column::make('Status Keluarga', 'status_keluarga')
                 ->searchable()
+                ->unclickable()
                 ->sortable(),
             Column::make('Anak Ke', 'anak_ke')
                 ->searchable()
+                ->unclickable()
                 ->sortable(),
             Column::make('Jumlah Saudara', 'jumlah_saudara')
                 ->searchable()
+                ->unclickable()
                 ->sortable(),
+            Column::make('Aksi', 'id')
+                ->html()
+                ->format(function ($id) {
+                    return view('tombol-aksi', [
+                        'edit' => route('santri.edit', $id),
+                        'hapus' => $id
+                    ]);
+                })
+                ->sortable()
+                ->unclickable()
+                ->excludeFromColumnSelect(),
         ];
     }
 }
