@@ -20,6 +20,11 @@ yang memberikan Ide-ide fitur aplikasi supaya bisa mempermudah management Pondok
 - Management Keuangan
 - Management Inventaris
 
+Ada beberapa fitur yang tidak bisa dijelaskan disini, teruntuk kamu yang ingin mencoba aplikasi silahkan gunakan credensial berikut:
+
+    - Username: id.abdasis@gmail.com
+    - Password: rahasia123
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
