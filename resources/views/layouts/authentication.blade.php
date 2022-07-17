@@ -9,16 +9,16 @@
     <meta content="Themesbrand" name="author" />
     <meta content="{{csrf_token()}}" name="csrf-token" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ secure_asset('assets/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
     <!-- Bootstrap Css -->
-    <link href="{{ secure_asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{ secure_asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ secure_asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <link href="{{ secure_asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -54,12 +54,12 @@
 <!-- end auth-page-wrapper -->
 
 <!-- JAVASCRIPT -->
-<script src="{{ secure_asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ secure_asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
-<script src="{{ secure_asset('assets/libs/node-waves/waves.min.js')}}"></script>
-<script src="{{ secure_asset('assets/libs/feather-icons/feather.min.js')}}"></script>
-<script src="{{ secure_asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
-<script src="{{ secure_asset('assets/js/plugins.js')}}"></script>
+<script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+<script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
+<script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+<script src="{{asset('assets/js/plugins.js')}}"></script>
 
 </body>
 </html>
