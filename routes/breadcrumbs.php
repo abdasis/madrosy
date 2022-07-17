@@ -12,3 +12,13 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
+
+Breadcrumbs::for('santri.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Santri', route('santri.semua'));
+});
+
+Breadcrumbs::for('santri.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('santri.semua');
+    $trail->push('Tambah Santri', route('santri.tambah'));
+});
