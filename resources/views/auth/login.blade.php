@@ -55,7 +55,7 @@
 
                                 <div class="mt-2">
                                     <form action="{{route('login')}}" method="POST">
-
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username</label>
                                             <input type="text" name="email" value="{{old('email')}}" class="form-control" id="username" autofocus placeholder="Enter username">

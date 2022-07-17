@@ -46,8 +46,13 @@
         <div class="page-content">
             <div class="container-fluid">
                 <!-- start page title -->
-                {{Breadcrumbs::render()}}
+                <div class="row">
+                    <div class="col-12">
+                        {{ Breadcrumbs::render() }}
+                    </div>
+                </div>
                 <!-- end page title -->
+
 
                 <div class="row">
                     <div class="col">
@@ -70,7 +75,7 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        © Bimbingin.
+                        © Madrosy.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">

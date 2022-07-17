@@ -75,13 +75,13 @@
                             @endif
                         >
                             @lang('Filters')
-            
+
                             @if ($count = $component->getFilterBadgeCount())
                                 <span class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900">
                                     {{ $count }}
                                 </span>
                             @endif
-            
+
                             <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -89,7 +89,7 @@
                             </svg>
                         </button>
                     </div>
-            
+
                     @if ($component->isFilterLayoutPopover())
                         <div
                             x-cloak
@@ -113,7 +113,7 @@
                                                 class="block text-sm font-medium leading-5 text-gray-700 dark:text-white">
                                                 {{ $filter->getName() }}
                                             </label>
-                
+
                                             {{ $filter->render($component) }}
                                         </div>
                                     </div>
@@ -225,14 +225,14 @@
                                     aria-expanded="true"
                                 >
                                     @lang('Columns')
-            
+
                                     <svg class="-mr-1 ml-2 w-5 h-5" x-description="Heroicon name: chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                     </svg>
                                 </button>
                             </span>
                         </div>
-            
+
                         <div
                             x-cloak
                             x-show="open"
@@ -393,13 +393,13 @@
                                 @endif
                             >
                                 @lang('Filters')
-                
+
                                 @if ($count = $component->getFilterBadgeCount())
                                     <span class="badge badge-info">
                                         {{ $count }}
                                     </span>
                                 @endif
-                
+
                                 <span class="caret"></span>
                             </button>
                         </div>
@@ -591,20 +591,22 @@
 
             @if ($component->searchIsEnabled() && $component->searchVisibilityIsEnabled())
                 <div class="mb-3 mb-md-0 input-group">
-                    <input
-                        wire:model{{ $component->getSearchOptions() }}="{{ $component->getTableName() }}.search"
-                        placeholder="{{ __('Search') }}"
-                        type="text"
-                        class="form-control"
-                    >
-
-                    @if ($component->hasSearch())
-                        <button wire:click.prevent="clearSearch"  class="btn btn-outline-secondary" type="button">
+                    <div class="search-box w-100">
+                        <input
+                            wire:model{{ $component->getSearchOptions() }}="{{ $component->getTableName() }}.search"
+                            placeholder="{{ __('Masukan Pencarian') }}"
+                            type="text"
+                            class="form-control"
+                        >
+                        <i class="ri-search-line search-icon"></i>
+                    </div>
+                    {{--@if ($component->hasSearch())
+                        <button wire:click.prevent="clearSearch"  class="btn btn-secondary" type="button">
                             <svg style="width:.75em;height:.75em" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
-                    @endif
+                    @endif--}}
                 </div>
             @endif
 
@@ -622,7 +624,7 @@
                         <div>
                             <button
                                 type="button"
-                                class="btn dropdown-toggle d-block w-100 d-md-inline"
+                                class="btn btn-light border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
 
                                 @if ($component->isFilterLayoutPopover())
                                     x-on:click="open = !open"
@@ -635,49 +637,55 @@
                                     x-on:click="filtersOpen = !filtersOpen"
                                 @endif
                             >
+                                <i class="ri-filter-2-line"></i>
                                 @lang('Filters')
-                
+
                                 @if ($count = $component->getFilterBadgeCount())
-                                    <span class="badge bg-info">
+                                    <span class="badge badge-soft-info border-info border rounded-circle ms-2">
                                         {{ $count }}
                                     </span>
                                 @endif
-                
+
                                 <span class="caret"></span>
                             </button>
                         </div>
 
                         @if ($component->isFilterLayoutPopover())
-                            <ul
+                            <div
                                 x-cloak
-                                class="dropdown-menu w-100"
+                                class="dropdown-menu mt-2"
                                 x-bind:class="{'show' : open}"
                                 role="menu"
+                                style="min-width: 300px"
                             >
-                                @foreach($component->getFilters() as $filter)
-                                    @if($filter->isVisibleInMenus())
-                                        <div wire:key="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}" class="p-2">
-                                            <label for="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}" class="mb-2">
-                                                {{ $filter->getName() }}
-                                            </label>
+                                <div class="card-header border-bottom-dashed">Filter Data Berdasarkan:</div>
+                                <div class="card-body p-0">
+                                    @foreach($component->getFilters() as $filter)
+                                        @if($filter->isVisibleInMenus())
+                                            <div wire:key="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}" class="p-2">
+                                                <label for="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}" class="mb-2">
+                                                    {{ $filter->getName() }}
+                                                </label>
 
-                                            {{ $filter->render($component) }}
-                                        </div>
+                                                {{ $filter->render($component) }}
+                                            </div>
+                                        @endif
+                                    @endforeach
+
+                                    @if ($component->hasAppliedVisibleFiltersWithValuesThatCanBeCleared())
+                                        <div class="dropdown-divider"></div>
+
+                                        <button
+                                            wire:click.prevent="setFilterDefaults"
+                                            x-on:click="open = false"
+                                            class="dropdown-item text-center"
+                                        >
+                                            @lang('Clear')
+                                        </button>
                                     @endif
-                                @endforeach
+                                </div>
 
-                                @if ($component->hasAppliedVisibleFiltersWithValuesThatCanBeCleared())
-                                    <div class="dropdown-divider"></div>
-
-                                    <button
-                                        wire:click.prevent="setFilterDefaults"
-                                        x-on:click="open = false"
-                                        class="dropdown-item text-center"
-                                    >
-                                        @lang('Clear')
-                                    </button>
-                                @endif
-                            </ul>
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -696,7 +704,8 @@
             @if ($component->showBulkActionsDropdown())
                 <div class="mb-3 mb-md-0">
                     <div class="dropdown d-block d-md-inline">
-                        <button class="btn dropdown-toggle d-block w-100 d-md-inline" type="button" id="{{ $component->getTableName() }}-bulkActionsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-light border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1" type="button" id="{{ $component->getTableName() }}-bulkActionsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ri-check-double-line"></i>
                             @lang('Bulk Actions')
                         </button>
 
@@ -727,40 +736,46 @@
                     >
                         <button
                             x-on:click="open = !open"
-                            class="btn dropdown-toggle d-block w-100 d-md-inline"
+                            class="btn btn-light border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
                             type="button"
                             id="columnSelect-{{ $component->getTableName() }}"
                             aria-haspopup="true"
                             x-bind:aria-expanded="open"
                         >
+                            <i class="ri-layout-2-line"></i>
                             @lang('Columns')
                         </button>
 
                         <div
-                            class="dropdown-menu dropdown-menu-end w-100"
+                            class="dropdown-menu dropdown-menu-end mt-2"
                             x-bind:class="{'show' : open}"
                             aria-labelledby="columnSelect-{{ $component->getTableName() }}"
                         >
-                            @foreach($component->getColumns() as $column)
-                                @if ($column->isVisible() && $column->isSelectable())
-                                    <div wire:key="columnSelect-{{ $loop->index }}-{{ $component->getTableName() }}">
-                                        <label
-                                            wire:loading.attr="disabled"
-                                            wire:target="selectedColumns"
-                                            class="px-2 {{ $loop->last ? 'mb-0' : 'mb-1' }}"
-                                        >
-                                            <input
-                                                wire:model="selectedColumns"
-                                                wire:target="selectedColumns"
+                            <div class="card-header border-bottom-dashed">
+                                Pilih Kolom
+                            </div>
+                            <div class="card-body p-1 pt-2">
+                                @foreach($component->getColumns() as $column)
+                                    @if ($column->isVisible() && $column->isSelectable())
+                                        <div wire:key="columnSelect-{{ $loop->index }}-{{ $component->getTableName() }}">
+                                            <label
                                                 wire:loading.attr="disabled"
-                                                type="checkbox"
-                                                value="{{ $column->getHash() }}"
-                                            />
-                                            <span class="ml-2">{{ $column->getTitle() }}</span>
-                                        </label>
-                                    </div>
-                                @endif
-                            @endforeach
+                                                wire:target="selectedColumns"
+                                                class="px-2 {{ $loop->last ? 'mb-0' : 'mb-1' }}"
+                                            >
+                                                <input
+                                                    wire:model="selectedColumns"
+                                                    wire:target="selectedColumns"
+                                                    wire:loading.attr="disabled"
+                                                    type="checkbox"
+                                                    value="{{ $column->getHash() }}"
+                                                />
+                                                <span class="ml-2">{{ $column->getTitle() }}</span>
+                                            </label>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

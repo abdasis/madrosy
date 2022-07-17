@@ -15,10 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            SantriSeeder::class
+        ]);
+         \App\Models\User::factory()->create([
+             'name' => 'Abdul Aziz',
+             'email' => 'id.abdasis@gmail.com',
+             'password' => bcrypt('rahasiasekali'),
+         ]);
     }
 }

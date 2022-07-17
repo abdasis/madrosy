@@ -25,4 +25,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::group(['prefix' => 'santri'], function (){
+        Route::get('/', \App\Http\Livewire\Santri\Semua::class)->name('santri.semua');
+        Route::get('tambah', \App\Http\Livewire\Santri\Tambah::class)->name('santri.tambah');
+    });
 });

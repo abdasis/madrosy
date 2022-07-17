@@ -97,8 +97,7 @@
     <div>
         @if ($component->sortingPillsAreEnabled() && $component->hasSorts())
             <div class="mb-3">
-                <small>@lang('Applied Sorting'):</small>
-
+                <p class="fw-bolder p-1 m-0">Diurut Berdasarkan:</p>
                 @foreach($component->getSorts() as $columnSelectName => $direction)
                     @php
                         $column = $component->getColumnBySelectName($columnSelectName);
@@ -110,30 +109,27 @@
 
                     <span
                         wire:key="sorting-pill-{{ $columnSelectName }}"
-                        class="badge rounded-pill bg-info d-inline-flex align-items-center"
+                        class="badge badge-soft-success border-success border rounded-pill py-2 px-3 d-inline-flex align-items-center"
                     >
                         {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirection($component, $direction) }}
 
                         <a
                             href="#"
                             wire:click="clearSort('{{ $columnSelectName }}')"
-                            class="text-white ms-2"
+                            class="text-success d-flex align-items-center ms-2"
                         >
                             <span class="visually-hidden">@lang('Remove sort option')</span>
-                            <svg style="width:.5em;height:.5em" stroke="currentColor" fill="none" viewBox="0 0 8 8">
-                                <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
-                            </svg>
+                            <i class="ri-close-circle-line"></i>
                         </a>
                     </span>
                 @endforeach
-
-                <a
+                {{--<a
                     href="#"
                     wire:click.prevent="clearSorts"
                     class="badge rounded-pill bg-light text-dark text-decoration-none"
                 >
                     @lang('Clear')
-                </a>
+                </a>--}}
             </div>
         @endif
     </div>
