@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Santri;
 
+use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -11,7 +12,9 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class Tabel extends DataTableComponent
 {
+    use KonfirmasiHapus;
     protected $model = Santri::class;
+    protected $listeners = ['hapus' => 'dihapus'];
 
     public function configure(): void
     {
@@ -92,5 +95,16 @@ class Tabel extends DataTableComponent
                 ->unclickable()
                 ->excludeFromColumnSelect(),
         ];
+    }
+
+    public function dihapus()
+    {
+        if ($this->model_id){
+            $santri = Santri::find($this->model_id);
+            $santri->delete();
+            $this->alert('success', "Data berhasil dihapus");
+        }else{
+            $this->alert('error', "Data gagal dihapus");
+        }
     }
 }

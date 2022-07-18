@@ -1,4 +1,4 @@
-<ul class="list-inline hstack gap-2 mb-0">
+<ul class="list-inline hstack gap-2 mb-0" wire:ignore>
     @if(!empty($edit))
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Edit">
@@ -10,7 +10,7 @@
     @if(!empty($hapus))
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Hapus">
-            <a wire:click.prevent="delete({{$hapus}})" href="javascript:void(0);" class="text-danger d-inline-block">
+            <a wire:click.prevent="hapus({{$hapus}})" href="javascript:void(0);" class="text-danger d-inline-block">
                 <i class="ri-delete-bin-line fs-16"></i>
             </a>
         </li>

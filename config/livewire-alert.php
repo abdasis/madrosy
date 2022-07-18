@@ -21,7 +21,26 @@ return [
         'showConfirmButton' => true,
         'showCancelButton' => true,
         'cancelButtonText' => 'No',
-        'confirmButtonColor' => '#3085d6',
-        'cancelButtonColor' => '#d33'
-    ]
+        'customClass' => [
+            'container' => '',
+            'popup' => '',
+            'header' => '',
+            'title' => 'fw-bolder',
+            'closeButton' => '',
+            'icon' => '',
+            'image' => '',
+            'content' => 'fs-12',
+            'htmlContainer' => '',
+            'input' => '',
+            'inputLabel' => '',
+            'validationMessage' => '',
+            'actions' => '',
+            'confirmButton' => '',
+            'denyButton' => 'btn btn-danger btn-border',
+            'cancelButton' => 'btn btn-danger btn-border',
+            'loader' => '',
+            'footer' => '',
+            'text' => 'fs-12',
+        ]
+    ],
 ];

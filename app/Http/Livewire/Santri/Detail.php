@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\Santri;
 
 use App\Models\Santri;
+use App\Traits\KonfirmasiHapus;
 use Livewire\Component;
 
 class Detail extends Component
 {
+    use KonfirmasiHapus;
+
     public $santri;
     public function mount($id)
     {
