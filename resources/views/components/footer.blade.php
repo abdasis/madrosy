@@ -1,3 +1,15 @@
-<div>
-    <!-- He who is contented is rich. - Laozi -->
-</div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                {{now()->year}} &copy; {{config('app.name')}}
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    Design & Develop by <a class="fw-bold" href="https://facebook.com/lazizdev">Abdul
+                        Aziz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

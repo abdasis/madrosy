@@ -9,25 +9,8 @@
     <meta content="Platform Pendaftaran Unit Layanan Statistik" name="description" />
     <meta content="Abdul Aziz" name="author" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
-
-    <!-- Bootstrap Css -->
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet" type="text/css" />
     @vite(['resources/js/app.js'])
-    <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/6/tinymce.min.js"
-            referrerpolicy="origin"></script>
-    <style>
-        [x-cloak] { display: none !important; }
-    </style>
+    <x-head/>
     @stack('styles')
 </head>
 
@@ -70,24 +53,7 @@
         </div>
         <!-- End Page-content -->
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>
-                        © Madrosy.
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by <a class="fw-bold" href="https://facebook.com/lazizdev">Abdul
-                                Aziz</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <x-footer />
     </div>
     <!-- end main content-->
 

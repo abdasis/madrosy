@@ -72,7 +72,6 @@
                             </ul>
                         </div>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                             <i class="ri-health-book-line"></i> <span data-key="t-layouts">Kesehatan</span>
@@ -88,7 +87,6 @@
                             </ul>
                         </div>
                     </li> <!-- end Dashboard Menu -->
-
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                             <i class="ri-book-3-line"></i> <span data-key="t-layouts">Konseling</span>
@@ -104,7 +102,6 @@
                             </ul>
                         </div>
                     </li> <!-- end Dashboard Menu -->
-
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                             <i class="ri-book-2-line"></i> <span data-key="t-layouts">Perizinan</span>
@@ -120,6 +117,8 @@
                             </ul>
                         </div>
                     </li> <!-- end Dashboard Menu -->
+                    <li class="menu-title"><span data-key="t-menu">Keuangan</span></li>
+
 
 
                 </ul>

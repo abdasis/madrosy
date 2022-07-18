@@ -55,7 +55,6 @@ class Tabel extends DataTableComponent
                 })
                 ->sortable(),
             Column::make("Jenis Kelamin", "jenis_kelamin")
-                ->searchable()
                 ->unclickable()
                 ->sortable(),
             Column::make("Tempat Lahir", "tempat_lahir")
@@ -68,21 +67,13 @@ class Tabel extends DataTableComponent
                 ->format(fn($tanggal_lahir) => Carbon::parse($tanggal_lahir)->format('d F Y'))
                 ->sortable(),
             Column::make('Agama', 'agama')
-                ->searchable()
-                ->unclickable()
-                ->sortable(),
+                ->unclickable(),
             Column::make('Status Keluarga', 'status_keluarga')
-                ->searchable()
-                ->unclickable()
-                ->sortable(),
+                ->unclickable(),
             Column::make('Anak Ke', 'anak_ke')
-                ->searchable()
-                ->unclickable()
-                ->sortable(),
+                ->unclickable(),
             Column::make('Jumlah Saudara', 'jumlah_saudara')
-                ->searchable()
-                ->unclickable()
-                ->sortable(),
+                ->unclickable(),
             Column::make('Aksi', 'id')
                 ->html()
                 ->format(function ($id) {
@@ -91,7 +82,6 @@ class Tabel extends DataTableComponent
                         'hapus' => $id
                     ]);
                 })
-                ->sortable()
                 ->unclickable()
                 ->excludeFromColumnSelect(),
         ];
