@@ -97,7 +97,7 @@ class Tambah extends Component
                 'jabatan' => $this->jabatan,
                 'status_guru' => $this->status_guru,
                 'tanggal_masuk' => $this->tanggal_masuk,
-                'foto' => $this->foto,
+                'foto' => "https://ui-avatars.com/api/?background=random&color=fff&name={$this->nama}",
                 'user_id' => $user->id,
             ]);
 
