@@ -596,7 +596,7 @@
                             wire:model{{ $component->getSearchOptions() }}="{{ $component->getTableName() }}.search"
                             placeholder="{{ __('Masukan Pencarian') }}"
                             type="text"
-                            class="form-control"
+                            class="form-control border"
                         >
                         <i class="ri-search-line search-icon"></i>
                     </div>
@@ -624,7 +624,7 @@
                         <div>
                             <button
                                 type="button"
-                                class="btn btn-light border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
+                                class="btn border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
 
                                 @if ($component->isFilterLayoutPopover())
                                     x-on:click="open = !open"
@@ -704,7 +704,7 @@
             @if ($component->showBulkActionsDropdown())
                 <div class="mb-3 mb-md-0">
                     <div class="dropdown d-block d-md-inline">
-                        <button class="btn btn-light border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1" type="button" id="{{ $component->getTableName() }}-bulkActionsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1" type="button" id="{{ $component->getTableName() }}-bulkActionsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="ri-check-double-line"></i>
                             @lang('Bulk Actions')
                         </button>
@@ -736,7 +736,7 @@
                     >
                         <button
                             x-on:click="open = !open"
-                            class="btn btn-light border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
+                            class="btn border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
                             type="button"
                             id="columnSelect-{{ $component->getTableName() }}"
                             aria-haspopup="true"

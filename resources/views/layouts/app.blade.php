@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg"
       data-sidebar-image="none">
-
 <head>
     <meta charset="utf-8" />
     <title>{{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title' }} | Pendaftaran Unit Layanan Statistik</title>
@@ -57,7 +56,7 @@
     </div>
     <!-- end main content-->
 
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+    <button onclick="topFunction()" class="btn btn-light btn-icon rounded-circle" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
 </div>
@@ -75,7 +74,5 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
 @stack('scripts')
-
 </body>
-
 </html>

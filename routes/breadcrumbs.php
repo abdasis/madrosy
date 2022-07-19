@@ -32,3 +32,23 @@ Breadcrumbs::for('santri.edit', function (BreadcrumbTrail $trail, $id){
     $trail->parent('santri.semua');
     $trail->push('Edit Santri', route('santri.edit', $id));
 });
+
+Breadcrumbs::for('guru.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Guru', route('guru.semua'));
+});
+
+Breadcrumbs::for('guru.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('guru.semua');
+    $trail->push('Tambah Guru', route('guru.tambah'));
+});
+
+Breadcrumbs::for('guru.detail', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('guru.semua');
+    $trail->push('Detail Guru', route('guru.detail', $id));
+});
+
+Breadcrumbs::for('guru.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('guru.semua');
+    $trail->push('Edit Guru', route('guru.edit', $id));
+});
