@@ -3,6 +3,10 @@
 namespace App\Http\Livewire\Guru;
 
 use App\Models\Guru;
+use App\Models\Kabupaten;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
+use App\Models\Provinsi;
 use App\Models\User;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
@@ -115,30 +119,23 @@ class Tambah extends Component
 
     public function render()
     {
-        $semua_provinsi = \Indonesia::allProvinces()->lazy()->each(function ($item, $key) {
-            $item->text = $item->name;
-            $item->value = $item->id;
+        $semua_provinsi = \Indonesia::allProvinces()->lazy(function ($provinces) {
+            foreach ($provinces as $key => $province) {
+                $provinsi[$key] = $province->name;
+            }
         });
 
         if (isset($this->provinsi)) {
-            $kabupaten = \Indonesia::allCities()->where('province_code', $this->provinsi)->lazy()->each(function ($item, $key) {
-                $item->text = $item->name;
-                $item->value = $item->id;
-            });
+            $kabupaten = Kabupaten::where('province_code', $this->provinsi)->get();
         }
 
         if (isset($this->kabupaten)) {
-            $kecamatan = \Indonesia::allDistricts()->where('city_code', $this->kabupaten)->lazy()->each(function ($item, $key) {
-                $item->text = $item->name;
-                $item->value = $item->id;
-            });
+            $kecamatan = Kecamatan::where('city_code', $this->kabupaten)->get();
         }
 
+
         if (isset($this->kecamatan)) {
-            $kelurahan = \Indonesia::allVillages()->where('district_code', $this->kecamatan)->lazy()->each(function ($item, $key) {
-                $item->text = $item->name;
-                $item->value = $item->id;
-            });
+            $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->get();
         }
 
         return view('livewire.guru.tambah',[
