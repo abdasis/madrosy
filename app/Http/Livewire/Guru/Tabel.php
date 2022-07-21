@@ -19,7 +19,7 @@ class Tabel extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("NIK", "NIK")
+            Column::make("NIK", "nik")
                 ->sortable(),
             Column::make('Nama Lengkap', 'nama')
                 ->sortable()
