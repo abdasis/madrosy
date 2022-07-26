@@ -2,14 +2,8 @@
 <html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg"
       data-sidebar-image="none">
 <head>
-    <meta charset="utf-8" />
-    <title>{{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title' }} | Pendaftaran Unit Layanan Statistik</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Platform Pendaftaran Unit Layanan Statistik" name="description" />
-    <meta content="Abdul Aziz" name="author" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <x-head/>
-    @vite(['resources/js/app.js'])
+    @vite('resources/js/app.js')
     @stack('styles')
 </head>
 
