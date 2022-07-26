@@ -5,6 +5,23 @@
 <meta content="Abdul Aziz" name="author" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<!-- App favicon -->
+<link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
+
+<!-- Layout config Js -->
+<script src="{{asset('assets/js/layout.js')}}"></script>
+<!-- Bootstrap Css -->
+<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- Icons Css -->
+<link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- App Css-->
+<link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- custom Css-->
+<link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 <style>
     .loader-wrapper {
         width: 100%;
@@ -57,20 +74,3 @@
         $(".loader-wrapper").fadeOut("slow");
     });
 </script>
-
-<!-- App favicon -->
-<link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
-
-<!-- Layout config Js -->
-<script src="{{asset('assets/js/layout.js')}}"></script>
-<!-- Bootstrap Css -->
-<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-<!-- Icons Css -->
-<link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-<!-- App Css-->
-<link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
-<!-- custom Css-->
-<link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
-
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
