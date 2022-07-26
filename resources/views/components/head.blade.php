@@ -8,6 +8,8 @@
 <!-- App favicon -->
 <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+
 <!-- Layout config Js -->
 <script src="{{asset('assets/js/layout.js')}}"></script>
 <!-- Bootstrap Css -->
@@ -19,8 +21,6 @@
 <!-- custom Css-->
 <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <style>
     .loader-wrapper {
