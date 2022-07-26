@@ -13,12 +13,19 @@ class Tabel extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')
+        ->setTableRowUrl(function ($model) {
+            return route('guru.detail', $model->id);
+        });
+
+        $this->setDefaultReorderSort('order', 'desc');
+
     }
 
     public function columns(): array
     {
         return [
+            Column::make('id')->sortable(),
             Column::make("NIK", "nik")
                 ->sortable(),
             Column::make('Nama Lengkap', 'nama')
@@ -33,9 +40,7 @@ class Tabel extends DataTableComponent
             Column::make('No. HP', 'no_hp')
                 ->sortable()
                 ->searchable(),
-            BooleanColumn::make('Active', 'status')
-                ->sortable()
-                ->searchable(),
+            BooleanColumn::make('Active', 'status'),
         ];
     }
 }

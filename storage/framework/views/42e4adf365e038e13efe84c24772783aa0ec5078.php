@@ -1,7 +1,7 @@
 <div>
     <div class="position-relative mx-n4 mt-n4">
         <div class="profile-wid-bg profile-setting-img">
-            <img src="{{asset('assets/images/profile-bg.jpg')}}" class="profile-wid-img" alt="">
+            <img src="<?php echo e(asset('assets/images/profile-bg.jpg')); ?>" class="profile-wid-img" alt="">
             <div class="overlay-content">
                 <div class="text-end p-3">
                     <div class="p-0 ms-auto rounded-circle profile-photo-edit">
@@ -20,7 +20,7 @@
                 <div class="card-body p-4">
                     <div class="text-center">
                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                            <img src="{{'https://ui-avatars.com/api/?background=random&color=fff&name=' . $guru->nama}}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                            <img src="<?php echo e('https://ui-avatars.com/api/?background=random&color=fff&name=' . $guru->nama); ?>" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
@@ -30,8 +30,8 @@
                                 </label>
                             </div>
                         </div>
-                        <h5 class="fs-16 mb-1">{{$guru->nama}}</h5>
-                        <p class="text-muted mb-0">{{$guru->nik}}</p>
+                        <h5 class="fs-16 mb-1"><?php echo e($guru->nama); ?></h5>
+                        <p class="text-muted mb-0"><?php echo e($guru->nik); ?></p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">Umur</h6>
-                                        <small class="text-muted">{{\Carbon\Carbon::parse($guru->tanggal_lahir)->diffInYears()}} thn</small>
+                                        <small class="text-muted"><?php echo e(\Carbon\Carbon::parse($guru->tanggal_lahir)->diffInYears()); ?> thn</small>
                                     </div>
                                 </div>
                             </li>
@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">Telepon</h6>
-                                        <small class="text-muted">{{$guru->no_hp}}</small>
+                                        <small class="text-muted"><?php echo e($guru->no_hp); ?></small>
                                     </div>
                                 </div>
                             </li>
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">Email</h6>
-                                        <small class="text-muted">{{$guru->email}}</small>
+                                        <small class="text-muted"><?php echo e($guru->email); ?></small>
                                     </div>
                                 </div>
                             </li>
@@ -129,7 +129,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="mb-1">Tempat Tinggal</p>
-                                            <h6 class="text-truncate mb-0">{{$guru->tempat_tinggal}}</h6>
+                                            <h6 class="text-truncate mb-0"><?php echo e($guru->tempat_tinggal); ?></h6>
                                         </div>
                                     </div>
 
@@ -141,7 +141,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="mb-1">Tanggal Lahir</p>
-                                            <h6 class="text-truncate mb-0">{{\Carbon\Carbon::parse($guru->tanggal_lahir)->format('d F, Y')}}</h6>
+                                            <h6 class="text-truncate mb-0"><?php echo e(\Carbon\Carbon::parse($guru->tanggal_lahir)->format('d F, Y')); ?></h6>
                                         </div>
                                     </div>
 
@@ -153,7 +153,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="mb-1">Agama</p>
-                                            <h6 class="text-truncate mb-0">{{$guru->agama}}</h6>
+                                            <h6 class="text-truncate mb-0"><?php echo e($guru->agama); ?></h6>
                                         </div>
                                     </div>
 
@@ -165,7 +165,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="mb-1">Jenis Kelamin</p>
-                                            <h6 class="text-truncate mb-0">{{$guru->jenis_kelamin}}</h6>
+                                            <h6 class="text-truncate mb-0"><?php echo e($guru->jenis_kelamin); ?></h6>
                                         </div>
                                     </div>
 
@@ -177,7 +177,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="mb-1">Pendidikan Terakhir</p>
-                                            <h6 class="text-truncate mb-0">{{$guru->pendidikan_terakhir}}</h6>
+                                            <h6 class="text-truncate mb-0"><?php echo e($guru->pendidikan_terakhir); ?></h6>
                                         </div>
                                     </div>
 
@@ -190,7 +190,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="mb-1">Jabatan</p>
-                                            <h6 class="text-truncate mb-0">{{$guru->jabatan}}</h6>
+                                            <h6 class="text-truncate mb-0"><?php echo e($guru->jabatan); ?></h6>
                                         </div>
                                     </div>
                                     <!--end col-->
@@ -225,3 +225,4 @@
     </div>
 
 </div>
+<?php /**PATH E:\GitHub\madrosy\resources\views/livewire/guru/detail.blade.php ENDPATH**/ ?>

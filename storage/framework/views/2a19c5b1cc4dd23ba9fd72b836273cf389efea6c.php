@@ -4,21 +4,21 @@
         <!-- LOGO -->
         <div class="navbar-brand-box">
             <!-- Dark Logo-->
-            <a href="{{route('dashboard')}}" class="logo logo-dark">
+            <a href="<?php echo e(route('dashboard')); ?>" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="30">
+                        <img src="<?php echo e(asset('assets/images/logo-sm.png')); ?>" alt="" height="30">
                     </span>
                 <span class="logo-lg">
-                        <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="30">
+                        <img src="<?php echo e(asset('assets/images/logo-dark.png')); ?>" alt="" height="30">
                     </span>
             </a>
             <!-- Light Logo-->
-            <a href="{{route('dashboard')}}" class="logo logo-light">
+            <a href="<?php echo e(route('dashboard')); ?>" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22">
+                        <img src="<?php echo e(asset('assets/images/logo-sm.png')); ?>" alt="" height="22">
                     </span>
                 <span class="logo-lg">
-                        <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="17">
+                        <img src="<?php echo e(asset('assets/images/logo-light.png')); ?>" alt="" height="17">
                     </span>
             </a>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -34,7 +34,7 @@
 
                 <ul class="navbar-nav" id="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="{{route('dashboard')}}" aria-expanded="false">
+                        <a class="nav-link menu-link" href="<?php echo e(route('dashboard')); ?>" aria-expanded="false">
                             <i class="ri-dashboard-2-line"></i> <span data-key="t-widgets">Dashboard</span>
                         </a>
                     </li>
@@ -48,10 +48,10 @@
                         <div class="collapse menu-dropdown" id="sidebarDashboards">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{route('santri.tambah')}}" class="nav-link" data-key="t-analytics"> Tambah Santri </a>
+                                    <a href="<?php echo e(route('santri.tambah')); ?>" class="nav-link" data-key="t-analytics"> Tambah Santri </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('santri.semua')}}" class="nav-link" data-key="t-crm"> Semua Santri </a>
+                                    <a href="<?php echo e(route('santri.semua')); ?>" class="nav-link" data-key="t-crm"> Semua Santri </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="index-2.html" class="nav-link" data-key="t-ecommerce"> PPDB Management </a>
@@ -129,25 +129,25 @@
                         <div class="collapse menu-dropdown" id="dataGuru">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{route('guru.tambah')}}" class="nav-link" data-key="t-analytics"> Tambah Pengajar </a>
+                                    <a href="<?php echo e(route('guru.tambah')); ?>" class="nav-link" data-key="t-analytics"> Tambah Pengajar </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Semua Pengajar </a>
+                                    <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Semua Pengajar </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Sekolah </a>
+                                    <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Sekolah </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Pelatihan </a>
+                                    <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Pelatihan </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Jabatan </a>
+                                    <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Jabatan </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Mengajar </a>
+                                    <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Mengajar </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Penghargaan </a>
+                                    <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Penghargaan </a>
                                 </li>
                             </ul>
                         </div>
@@ -158,3 +158,4 @@
         </div>
     </div>
 </div>
+<?php /**PATH E:\GitHub\madrosy\resources\views/components/navbar.blade.php ENDPATH**/ ?>

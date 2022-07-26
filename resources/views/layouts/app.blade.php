@@ -8,14 +8,17 @@
     <meta content="Platform Pendaftaran Unit Layanan Statistik" name="description" />
     <meta content="Abdul Aziz" name="author" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @vite(['resources/js/app.js'])
     <x-head/>
+    @vite(['resources/js/app.js'])
     @stack('styles')
 </head>
 
 <body>
+
+
 <!-- Begin page -->
 <div id="layout-wrapper">
+
     <x-header />
     <!-- ========== App Menu ========== -->
     <x-navbar />
@@ -26,6 +29,10 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
     <div class="main-content">
         <div class="page-content">
             <div class="container-fluid">
@@ -61,15 +68,18 @@
     </button>
 </div>
 <!-- END layout-wrapper -->
+
 <!-- JAVASCRIPT -->
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
 <script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
 <script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
-<script src="{{asset('assets/js/pages/sweetalerts.init.js')}}"></script>
+<script src="{{asset('assets/js/plugins.js')}}"></script>
+
 <!-- App js -->
 <script src="{{asset('assets/js/app.js')}}"></script>
+
 @livewireScripts
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />

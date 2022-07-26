@@ -13,6 +13,7 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 class Tabel extends DataTableComponent
 {
     use KonfirmasiHapus;
+
     protected $model = Santri::class;
     protected $listeners = ['hapus' => 'dihapus'];
 
@@ -22,6 +23,8 @@ class Tabel extends DataTableComponent
             ->setTableRowUrl(function ($id) {
                 return route('santri.detail', $id);
             });
+        $this->setDefaultReorderSort('order', 'desc');
+
     }
 
     public function filters(): array
@@ -50,7 +53,7 @@ class Tabel extends DataTableComponent
             Column::make("Nama", "nama_lengkap")
                 ->searchable()
                 ->html()
-                ->format(function ($nama){
+                ->format(function ($nama) {
                     return "<span class='fw-bold text-dark'>$nama</span>";
                 })
                 ->sortable(),
@@ -69,11 +72,11 @@ class Tabel extends DataTableComponent
             Column::make('Agama', 'agama')
                 ->unclickable(),
             Column::make('Status Keluarga', 'status_keluarga')
-                ->unclickable(),
+                ->unclickable()->deselected(),
             Column::make('Anak Ke', 'anak_ke')
-                ->unclickable(),
+                ->unclickable()->deselected(),
             Column::make('Jumlah Saudara', 'jumlah_saudara')
-                ->unclickable(),
+                ->unclickable()->deselected(),
             Column::make('Aksi', 'id')
                 ->html()
                 ->format(function ($id) {
@@ -89,11 +92,11 @@ class Tabel extends DataTableComponent
 
     public function dihapus()
     {
-        if ($this->model_id){
+        if ($this->model_id) {
             $santri = Santri::find($this->model_id);
             $santri->delete();
             $this->alert('success', "Data berhasil dihapus");
-        }else{
+        } else {
             $this->alert('error', "Data gagal dihapus");
         }
     }

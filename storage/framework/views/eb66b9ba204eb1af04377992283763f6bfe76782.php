@@ -1,16 +1,16 @@
 <!-- App favicon -->
-<link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
+<link rel="shortcut icon" href="<?php echo e(asset('assets/images/favicon.ico')); ?>">
 
 <!-- Layout config Js -->
-<script src="{{asset('assets/js/layout.js')}}"></script>
+<script src="<?php echo e(asset('assets/js/layout.js')); ?>"></script>
 <!-- Bootstrap Css -->
-<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>" rel="stylesheet" type="text/css" />
 <!-- Icons Css -->
-<link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="<?php echo e(asset('assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css" />
 <!-- App Css-->
-<link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="<?php echo e(asset('assets/css/app.min.css')); ?>" rel="stylesheet" type="text/css" />
 <!-- custom Css-->
-<link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="<?php echo e(asset('assets/css/custom.min.css')); ?>" rel="stylesheet" type="text/css" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
@@ -44,7 +44,7 @@
         animation: loader-inner 2s infinite ease-in;
     }
 
-    @keyframes loader {
+    @keyframes  loader {
         0% { transform: rotate(0deg);}
         25% { transform: rotate(180deg);}
         50% { transform: rotate(180deg);}
@@ -52,7 +52,7 @@
         100% { transform: rotate(360deg);}
     }
 
-    @keyframes loader-inner {
+    @keyframes  loader-inner {
         0% { height: 0%;}
         25% { height: 0%;}
         50% { height: 100%;}
@@ -66,3 +66,4 @@
         $(".loader-wrapper").fadeOut("slow");
     });
 </script>
+<?php /**PATH E:\GitHub\madrosy\resources\views/components/head.blade.php ENDPATH**/ ?>

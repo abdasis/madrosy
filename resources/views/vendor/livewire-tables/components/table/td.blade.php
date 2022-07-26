@@ -32,9 +32,9 @@
 
         {{
             $attributes->merge($customAttributes)
-                ->class(['' => $customAttributes['default'] ?? true])
-                ->class(['d-none d-sm-table-cell' => $column && $column->shouldCollapseOnMobile()])
-                ->class(['d-none d-md-table-cell' => $column && $column->shouldCollapseOnTablet()])
+                ->class([' align-middle' => $customAttributes['default'] ?? true])
+                ->class(['d-none align-middle d-sm-table-cell' => $column && $column->shouldCollapseOnMobile()])
+                ->class(['d-none align-middle d-md-table-cell' => $column && $column->shouldCollapseOnTablet()])
                 ->except('default')
         }}
     >

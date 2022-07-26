@@ -35,7 +35,7 @@ Route::middleware([
     Route::group(['prefix' => 'guru'], function (){
         Route::get('/', \App\Http\Livewire\Guru\Semua::class)->name('guru.semua');
         Route::get('/tambah', \App\Http\Livewire\Guru\Tambah::class)->name('guru.tambah');
-        Route::get('/detail/{id}', \App\Http\Livewire\Guru\Detail::class)->name('guru.detail');
-        Route::get('/edit/{id}', \App\Http\Livewire\Guru\Edit::class)->name('guru.edit');
+        Route::get('/detail/{guru}', \App\Http\Livewire\Guru\Detail::class)->name('guru.detail');
+        Route::get('/edit/{guru}', \App\Http\Livewire\Guru\Edit::class)->name('guru.edit');
     });
 });
