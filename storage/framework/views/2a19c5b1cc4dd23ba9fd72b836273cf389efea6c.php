@@ -60,10 +60,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                        <a class="nav-link menu-link" href="#tahfidz" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tahfidz">
                             <i class="ri-book-2-fill"></i> <span data-key="t-apps">Tahfid</span>
                         </a>
-                        <div class="collapse menu-dropdown" id="sidebarApps">
+                        <div class="collapse menu-dropdown" id="tahfidz">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Rekam Hafalan </a>
@@ -75,10 +75,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
+                        <a class="nav-link menu-link" href="#kesehatan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="kesehatan">
                             <i class="ri-health-book-line"></i> <span data-key="t-layouts">Kesehatan</span>
                         </a>
-                        <div class="collapse menu-dropdown" id="sidebarLayouts">
+                        <div class="collapse menu-dropdown" id="kesehatan">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Rekap Medis</a>
@@ -90,10 +90,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
+                        <a class="nav-link menu-link" href="#konseling" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="konseling">
                             <i class="ri-book-3-line"></i> <span data-key="t-layouts">Konseling</span>
                         </a>
-                        <div class="collapse menu-dropdown" id="sidebarLayouts">
+                        <div class="collapse menu-dropdown" id="konseling">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Rekap Medis</a>
@@ -135,7 +135,7 @@
                                     <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Semua Pengajar </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Sekolah </a>
+                                    <a href="<?php echo e(route('riwayat-pendidikan.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Sekolah </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?php echo e(route('guru.semua')); ?>" class="nav-link" data-key="t-crm"> Riwayat Pelatihan </a>

@@ -52,3 +52,24 @@ Breadcrumbs::for('guru.edit', function (BreadcrumbTrail $trail, $id){
     $trail->parent('guru.semua');
     $trail->push('Edit Guru', route('guru.edit', $id));
 });
+
+
+Breadcrumbs::for('riwayat-pendidikan.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Riwayat Pendidikan', route('riwayat-pendidikan.semua'));
+});
+
+Breadcrumbs::for('riwayat-pendidikan.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('riwayat-pendidikan.semua');
+    $trail->push('Tambah Riwayat Pendidikan', route('riwayat-pendidikan.tambah'));
+});
+
+Breadcrumbs::for('riwayat-pendidikan.detail', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('riwayat-pendidikan.semua');
+    $trail->push('Detail Riwayat Pendidikan', route('riwayat-pendidikan.detail', $id));
+});
+
+Breadcrumbs::for('riwayat-pendidikan.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('riwayat-pendidikan.semua');
+    $trail->push('Edit Riwayat Pendidikan', route('riwayat-pendidikan.edit', $id));
+});
