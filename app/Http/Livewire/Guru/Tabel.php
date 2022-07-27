@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Guru;
 
+use App\Traits\KonfirmasiHapus;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Guru;
@@ -9,7 +10,23 @@ use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class Tabel extends DataTableComponent
 {
+    use KonfirmasiHapus;
     protected $model = Guru::class;
+
+    protected $listeners = ['hapus' => 'dihapus'];
+
+    public function dihapus()
+    {
+        if ($this->model_id){
+            $guru = Guru::find($this->model_id)->delete();
+
+            if ($guru){
+                $this->alert('success', 'Data berhasil dihapus');
+            }else{
+                $this->alert('error', 'Data gagal dihapus');
+            }
+        }
+    }
 
     public function configure(): void
     {
@@ -46,7 +63,7 @@ class Tabel extends DataTableComponent
                     'hapus' => $id,
                     'edit' => route('guru.edit', $model)
                 ]);
-            })
+            })->unclickable()->excludeFromColumnSelect(),
         ];
     }
 }

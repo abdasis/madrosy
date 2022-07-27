@@ -22,6 +22,10 @@ class Guru extends Model
         static::updating(function ($guru) {
             $guru->diubah_oleh = auth()->id();
         });
+
+        static::deleted(function ($guru){
+            $guru->user->delete();
+        });
     }
 
     public function user()
