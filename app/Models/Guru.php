@@ -23,4 +23,9 @@ class Guru extends Model
             $guru->diubah_oleh = auth()->id();
         });
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault();
+    }
 }

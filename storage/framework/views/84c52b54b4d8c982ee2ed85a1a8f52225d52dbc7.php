@@ -22,8 +22,9 @@
 </head>
 
 <body>
-
-
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
 <!-- Begin page -->
 <div id="layout-wrapper">
 
@@ -65,9 +66,7 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-    <div class="loader-wrapper">
-        <span class="loader"><span class="loader-inner"></span></span>
-    </div>
+
 
     <div class="main-content">
         <div class="page-content">

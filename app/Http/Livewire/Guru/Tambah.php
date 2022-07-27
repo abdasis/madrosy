@@ -103,6 +103,13 @@ class Tambah extends Component
                 'tanggal_masuk' => $this->tanggal_masuk,
                 'foto' => "https://ui-avatars.com/api/?background=random&color=fff&name={$this->nama}",
                 'user_id' => $user->id,
+
+                'provinsi' => $this->provinsi,
+                'kabupaten' => $this->kabupaten,
+                'kecamatan' => $this->kecamatan,
+                'kelurahan' => $this->kelurahan,
+                'dusun' => $this->dusun,
+                'kode_pos' => $this->pos,
             ]);
 
             $this->alert('success', 'Data guru berhasil disimpan');

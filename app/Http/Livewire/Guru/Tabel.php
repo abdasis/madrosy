@@ -41,6 +41,12 @@ class Tabel extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             BooleanColumn::make('Active', 'status'),
+            Column::make('Opsi', 'id')->format(function ($id, $model, $baris){
+                return view('tombol-aksi', [
+                    'hapus' => $id,
+                    'edit' => route('guru.edit', $model)
+                ]);
+            })
         ];
     }
 }
