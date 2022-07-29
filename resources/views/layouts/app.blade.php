@@ -3,6 +3,7 @@
       data-sidebar-image="none">
 <head>
     <x-head/>
+
     @vite('resources/js/app.js')
     @stack('styles')
 </head>
@@ -70,12 +71,12 @@
 <script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 
-<!-- App js -->
-<script src="{{asset('assets/js/app.js')}}"></script>
-
 @livewireScripts
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <x-livewire-alert::scripts />
 @stack('scripts')
+<script src="{{asset('assets/js/pages/sweetalerts.init.js')}}"></script>
+<script src="{{asset('assets/js/app.js')}}"></script>
+
 </body>
 </html>

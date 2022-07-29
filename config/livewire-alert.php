@@ -11,7 +11,9 @@ return [
         'toast' => true,
         'text' => null,
         'showCancelButton' => false,
-        'showConfirmButton' => false
+        'showConfirmButton' => false,
+        'background' => '#fff',
+        'timerProgressBar' => true,
     ],
     'confirm' => [
         'icon' => 'warning',
@@ -20,7 +22,10 @@ return [
         'timer' => null,
         'showConfirmButton' => true,
         'showCancelButton' => true,
-        'cancelButtonText' => 'No',
+        'cancelButtonText' => 'Batal',
+        'confirmButtonText' => 'Ya, Yakin',
+        'confirmButtonColor' => '#0AB39C',
+        'cancelButtonColor' => '#F06548',
         'customClass' => [
             'container' => '',
             'popup' => '',
@@ -35,7 +40,7 @@ return [
             'inputLabel' => '',
             'validationMessage' => '',
             'actions' => '',
-            'confirmButton' => '',
+            'confirmButton' => 'btn btn-success btn-border',
             'denyButton' => 'btn btn-danger btn-border',
             'cancelButton' => 'btn btn-danger btn-border',
             'loader' => '',

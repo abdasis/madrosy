@@ -10,6 +10,7 @@
 
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 
+<link href="{{asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css">
 <!-- Layout config Js -->
 <script src="{{asset('assets/js/layout.js')}}"></script>
 <!-- Bootstrap Css -->

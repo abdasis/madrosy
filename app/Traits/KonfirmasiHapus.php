@@ -15,7 +15,7 @@ trait KonfirmasiHapus
         $this->confirm('Yakin hapus data ini?', [
             'text' => 'Data yang dihapus tidak dapat dikembalikan',
             'showConfirmButton' => true,
-            'confirmButtonText' => 'Ya',
+            'confirmButtonText' => 'Ya, Yakin',
             'denyButtonText' => 'Tidak',
             'cancelButtonText' => 'Batal',
             'onConfirmed' => 'hapus',

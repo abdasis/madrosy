@@ -55,9 +55,7 @@ class Tambah extends Component
                 'alamat' => $this->alamat,
             ]);
 
-            $this->alert('success', 'Berhasil', [
-                'text' => "Santri {$santri->nama_lengkap} berhasil ditambahkan",
-            ]);
+            $this->alert('success', "Santri {$santri->nama_lengkap} berhasil ditambahkan");
 
             $this->reset();
         }catch (\Exception $e) {

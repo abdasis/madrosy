@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('riyawat_pendidikans', function (Blueprint $table) {
+        Schema::create('riwayat_pendidikans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('guru_id')->constrained();
             $table->string('nama_sekolah');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('jurusan')->nullable();
             $table->string('dibuat_oleh');
             $table->string('diubah_oleh')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('riyawat_pendidikans');
+        Schema::dropIfExists('riwayat_pendidikans');
     }
 };

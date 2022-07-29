@@ -10,6 +10,7 @@
 
 <script src="<?php echo e(asset('assets/js/jquery-3.6.0.min.js')); ?>"></script>
 
+<link href="<?php echo e(asset('assets/libs/sweetalert2/sweetalert2.min.css')); ?>" rel="stylesheet" type="text/css">
 <!-- Layout config Js -->
 <script src="<?php echo e(asset('assets/js/layout.js')); ?>"></script>
 <!-- Bootstrap Css -->

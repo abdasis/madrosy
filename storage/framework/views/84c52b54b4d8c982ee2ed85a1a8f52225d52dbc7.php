@@ -17,6 +17,7 @@
 <?php $component = $__componentOriginal0ffb0a0d50d0f581dbd60338c0b56c81fed4e7d6; ?>
 <?php unset($__componentOriginal0ffb0a0d50d0f581dbd60338c0b56c81fed4e7d6); ?>
 <?php endif; ?>
+
     <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
     <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
@@ -128,12 +129,9 @@
 <script src="<?php echo e(asset('assets/js/pages/plugins/lord-icon-2.1.0.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/plugins.js')); ?>"></script>
 
-<!-- App js -->
-<script src="<?php echo e(asset('assets/js/app.js')); ?>"></script>
-
 <?php echo \Livewire\Livewire::scripts(); ?>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="<?php echo e(asset('assets/libs/sweetalert2/sweetalert2.min.js')); ?>"></script>
 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'livewire-alert::components.scripts','data' => []] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('livewire-alert::scripts'); ?>
@@ -150,6 +148,9 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
 <?php echo $__env->yieldPushContent('scripts'); ?>
+<script src="<?php echo e(asset('assets/js/pages/sweetalerts.init.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/app.js')); ?>"></script>
+
 </body>
 </html>
 <?php /**PATH E:\GitHub\madrosy\resources\views/layouts/app.blade.php ENDPATH**/ ?>
