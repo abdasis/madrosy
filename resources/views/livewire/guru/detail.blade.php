@@ -85,12 +85,12 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab" aria-selected="true">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#biodata" role="tab" aria-selected="true">
                                 <i class="fas fa-home"></i> Biodata
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab" aria-selected="false">
+                            <a class="nav-link" data-bs-toggle="tab" href="#riwayat-sekolah" role="tab" aria-selected="false">
                                 <i class="far fa-user"></i> Riwayat Sekolah
                             </a>
                         </li>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="card-body p-4">
                     <div class="tab-content">
-                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                        <div class="tab-pane active" id="biodata" role="tabpanel">
                             <form action="javascript:void(0);">
                                 <div class="row gy-3">
                                     <div class="d-flex mt-4">
@@ -199,9 +199,9 @@
                             </form>
                         </div>
                         <!--end tab-pane-->
-                        <div class="tab-pane" id="changePassword" role="tabpanel">
+                        <div class="tab-pane" id="riwayat-sekolah" role="tabpanel">
                             <div class="">
-                                <h5 class="text-center">Coming Soon</h5>
+                                <livewire:guru.riwayat-pendidikan-tabel :id="$guru->id">
                             </div>
                         </div>
                         <!--end tab-pane-->

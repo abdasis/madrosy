@@ -1,8 +1,16 @@
-<ul class="list-inline hstack gap-2 mb-0" wire:ignore>
+<ul class="list-inline hstack gap-2 mb-0" wire:ignore.self>
+    @if(!empty($detail))
+        <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+            title="Lihat Details">
+            <a  href="{{$detail}}" class="text-muted d-inline-block">
+                <i class="ri-eye-fill fs-16"></i>
+            </a>
+        </li>
+    @endif
     @if(!empty($edit))
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Edit">
-            <a href="{{$edit}}" class="text-muted d-inline-block">
+            <a href="{{$edit}}" class="text-warning d-inline-block">
                 <i class="ri-edit-2-line fs-16"></i>
             </a>
         </li>

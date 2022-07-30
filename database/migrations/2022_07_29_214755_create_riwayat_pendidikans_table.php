@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('alamat_sekolah');
             $table->date('tahun_masuk');
             $table->date('tahun_lulus');
-            $table->string('jurusan')->nullable();
+            $table->string('jurusan')->nullable()->default('tidak ada');
             $table->string('dibuat_oleh');
             $table->string('diubah_oleh')->nullable();
             $table->softDeletes();
