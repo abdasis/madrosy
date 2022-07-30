@@ -69,12 +69,14 @@
 <script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
 <script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/libs/flatpickr/flatpickr.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 
 @livewireScripts
+@stack('scripts')
+
 <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <x-livewire-alert::scripts />
-@stack('scripts')
 <script src="{{asset('assets/js/pages/sweetalerts.init.js')}}"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>
 

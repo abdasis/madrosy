@@ -15,7 +15,7 @@ class Guru extends Model
     {
         parent::boot();
         static::creating(function ($guru) {
-            $guru->dibuat_oleh = auth()->id();
+            $guru->dibuat_oleh = auth()->id() ?? 1;
             $guru->status = 'aktif';
         });
 
@@ -26,6 +26,11 @@ class Guru extends Model
         static::deleted(function ($guru){
             $guru->user->delete();
         });
+    }
+
+    public function pendidikan()
+    {
+        return $this->hasOne(RiwayatPendidikan::class);
     }
 
     public function user()
