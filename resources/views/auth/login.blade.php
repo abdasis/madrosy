@@ -52,7 +52,15 @@
                                 <div class="mt-2 text-center">
                                     <lord-icon src="https://cdn.lordicon.com/huwchbks.json" trigger="loop" colors="primary:#0ab39c" class="avatar-xl"></lord-icon>
                                 </div>
-
+                                @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul class="list-unstyled m-0 py-0">
+                                            @foreach($errors->all() as $error)
+                                                <li>{{$error}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="mt-2">
                                     <form action="{{route('login')}}" method="POST">
                                         @csrf
