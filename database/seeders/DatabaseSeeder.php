@@ -37,10 +37,10 @@ class DatabaseSeeder extends Seeder
             ]);
         }else{
             $this->call([
-                ProvincesSeeder::class,
+                /*ProvincesSeeder::class,
                 CitiesSeeder::class,
                 DistrictsSeeder::class,
-                VillagesSeeder::class,
+                VillagesSeeder::class,*/
             ]);
         }
     }
