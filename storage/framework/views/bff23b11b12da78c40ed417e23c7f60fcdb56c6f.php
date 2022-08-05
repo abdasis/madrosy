@@ -60,7 +60,15 @@
                                 <div class="mt-2 text-center">
                                     <lord-icon src="https://cdn.lordicon.com/huwchbks.json" trigger="loop" colors="primary:#0ab39c" class="avatar-xl"></lord-icon>
                                 </div>
-
+                                <?php if($errors->any()): ?>
+                                    <div class="alert alert-danger">
+                                        <ul class="list-unstyled m-0 py-0">
+                                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <li><?php echo e($error); ?></li>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </ul>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="mt-2">
                                     <form action="<?php echo e(route('login')); ?>" method="POST">
                                         <?php echo csrf_field(); ?>
