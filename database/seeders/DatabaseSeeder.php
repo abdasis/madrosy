@@ -21,18 +21,26 @@ class DatabaseSeeder extends Seeder
          \App\Models\User::factory()->create([
              'name' => 'Abdul Aziz',
              'email' => 'id.abdasis@gmail.com',
-             'password' => bcrypt('rahasiasekali'),
+             'password' => bcrypt('rahasia123'),
          ]);
 
         // \App\Models\User::factory(10)->create();
-        $this->call([
-            ProvincesSeeder::class,
-            CitiesSeeder::class,
-            DistrictsSeeder::class,
-            VillagesSeeder::class,
-
-            SantriSeeder::class,
-            GuruSeeder::class,
-        ]);
+        if (\App::environment('local')){
+            $this->call([
+                ProvincesSeeder::class,
+                CitiesSeeder::class,
+                DistrictsSeeder::class,
+                VillagesSeeder::class,
+                SantriSeeder::class,
+                GuruSeeder::class,
+            ]);
+        }else{
+            $this->call([
+                ProvincesSeeder::class,
+                CitiesSeeder::class,
+                DistrictsSeeder::class,
+                VillagesSeeder::class,
+            ]);
+        }
     }
 }
