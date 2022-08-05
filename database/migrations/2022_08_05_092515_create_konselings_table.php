@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('santri_id')->constrained();
             $table->date('tanggal');
-            $table->fullText('kasus');
-            $table->fullText('layanan');
+            $table->text('kasus');
+            $table->text('layanan');
             $table->unsignedBigInteger('dibuat_oleh');
             $table->unsignedBigInteger('diubah_oleh')->nullable();
             $table->softDeletes();
