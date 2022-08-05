@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Laravolt\Indonesia\Seeds\CitiesSeeder;
@@ -18,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory()->create([
+         User::create([
              'name' => 'Abdul Aziz',
              'email' => 'id.abdasis@gmail.com',
              'password' => bcrypt('rahasia123'),
