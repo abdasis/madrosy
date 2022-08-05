@@ -152,6 +152,44 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#penggajian" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="penggajian">
+                            <i class="ri-book-2-fill"></i> <span data-key="t-apps">Penggajian</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="penggajian">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Pengaturan Gaji </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Data Penggajian </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-title">
+                        <span data-key="t-menu">Akademik</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#jadwal" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="jadwal">
+                            <i class="ri-book-2-fill"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="jadwal">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Tambah Jadwal </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Data Jadwal </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#absensi">
+                            <i class="ri-book-2-fill"></i> <span>Absensi</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->
