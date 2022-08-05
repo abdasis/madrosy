@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\RiwayatPendidikan;
 
+use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -9,6 +10,22 @@ use App\Models\RiwayatPendidikan;
 
 class Tabel extends DataTableComponent
 {
+    use KonfirmasiHapus;
+
+    protected $listeners = ['hapus' => 'dihapus'];
+
+    public function dihapus()
+    {
+        if ($this->model_id){
+            $pendidikan = RiwayatPendidikan::find($this->model_id);
+            $pendidikan->delete();
+            $this->alert('success', 'Data berhasil dihapus' );
+        }else{
+            $this->alert('error', 'Data gagal dihapus' );
+        }
+    }
+
+
     protected $model = RiwayatPendidikan::class;
 
     public function configure(): void
@@ -22,11 +39,14 @@ class Tabel extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable()
                 ->deselected(),
+            Column::make('Jenjang', 'jenjang_pendidikan')
+                ->sortable(),
             Column::make('Guru', 'guru.nama')
                 ->sortable()
                 ->searchable(),
             Column::make('NIK', 'guru.nik')
                 ->sortable()
+                ->deselected()
                 ->searchable(),
             Column::make('Nama Sekolah', 'nama_sekolah')
                 ->sortable()
@@ -49,11 +69,11 @@ class Tabel extends DataTableComponent
                 ->deselected(),
             Column::make('Aksi', 'guru.id')->format(function ($id, $model, $baris){
                 return view('tombol-aksi', [
-                    'hapus' => $id,
-                    'edit' => route('riwayat-pendidikan.edit', $id),
+                    'hapus' => $model->id,
+                    'edit' => route('riwayat-pendidikan.edit', $model->id),
                     'detail' => route('guru.detail', $id),
                 ]);
-            })
+            })->excludeFromColumnSelect()
         ];
     }
 }

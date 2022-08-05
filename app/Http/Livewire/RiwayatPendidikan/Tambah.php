@@ -17,6 +17,7 @@ class Tambah extends Component
     public $tahun_lulus;
     public $tahun_masuk;
     public $jurusan;
+    public $jenjang_pendidikan;
 
     public function rules()
     {
@@ -26,6 +27,7 @@ class Tambah extends Component
             'alamat_sekolah' => 'required',
             'tahun_lulus' => 'required',
             'tahun_masuk' => 'required',
+            'jenjang_pendidikan' => 'required'
         ];
     }
 
@@ -44,6 +46,7 @@ class Tambah extends Component
             'tahun_masuk.max' => 'Tahun masuk harus berupa tanggal',
             'tahun_masuk.min' => 'Tahun masuk harus berupa tanggal',
             'guru_id.numeric' => 'Guru harus berupa angka',
+            'jenjang_pendidikan.required' => 'Jenjang pendidikan harus diisi'
         ];
     }
 
@@ -60,11 +63,13 @@ class Tambah extends Component
                 'tahun_lulus' => Carbon::parse($this->tahun_lulus)->format('Y-m-d'),
                 'jurusan' => $this->jurusan,
                 'tahun_masuk' => Carbon::parse($this->tahun_masuk)->format('Y-m-d'),
+                'jenjang_pendidikan' => $this->jenjang_pendidikan
             ]);
 
             $this->alert('success', 'Berhasil menambahkan Data');
+
+            $this->reset();
         }catch (\Exception $e) {
-            dd($e);
             $this->alert('warning', 'Kesalahan dalam menyimpan Data');
         }
     }

@@ -2,14 +2,30 @@
 
 namespace App\Http\Livewire\Guru;
 
+use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\RiwayatPendidikan;
 
 class RiwayatPendidikanTabel extends DataTableComponent
 {
+    use KonfirmasiHapus;
+
+    protected $listeners = ['hapus' => 'dihapus'];
+
+    public function dihapus()
+    {
+        if ($this->model_id){
+            $pendidikan = RiwayatPendidikan::find($this->model_id);
+            $pendidikan->delete();
+            $this->alert('success', 'Data berhasil dihapus' );
+        }else{
+            $this->alert('error', 'Data gagal dihapus' );
+        }
+    }
 
     public function mount($id)
     {
@@ -27,6 +43,8 @@ class RiwayatPendidikanTabel extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable()
                 ->deselected(),
+            Column::make('Jenjang', 'jenjang_pendidikan')
+                ->sortable(),
             Column::make("Nama Sekolah", "nama_sekolah")
                 ->searchable()
                 ->sortable(),

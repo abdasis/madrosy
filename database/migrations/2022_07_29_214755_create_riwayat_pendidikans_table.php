@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('riwayat_pendidikans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('guru_id')->constrained();
+            $table->enum('jenjang_pendidikan', ['Tidak Sekolah', 'SD', 'SMP', 'SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3'])->nullable();
             $table->string('nama_sekolah');
             $table->text('alamat_sekolah');
             $table->date('tahun_masuk');
