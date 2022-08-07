@@ -32,7 +32,7 @@
                 <div id="two-column-menu">
                 </div>
 
-                <ul class="navbar-nav" id="navbar-nav">
+                <ul class="navbar-nav fw-medium" id="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="<?php echo e(route('dashboard')); ?>" aria-expanded="false">
                             <i class="ri-dashboard-2-line"></i> <span data-key="t-widgets">Dashboard</span>
@@ -96,10 +96,13 @@
                         <div class="collapse menu-dropdown" id="konseling">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Rekap Medis</a>
+                                    <a href="<?php echo e(route('konseling.tambah')); ?>" class="nav-link" data-key="t-horizontal">Catat Konseling</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Semua Riwayat</a>
+                                    <a href="<?php echo e(route('pelanggaran.semua')); ?>" class="nav-link" data-key="t-detached">Jenis Pelanggaran</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('konseling.semua')); ?>" class="nav-link" data-key="t-detached">Riwayat Konseling</a>
                                 </li>
                             </ul>
                         </div>
@@ -154,7 +157,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#penggajian" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="penggajian">
-                            <i class="ri-book-2-fill"></i> <span data-key="t-apps">Penggajian</span>
+                            <i class=" ri-hand-coin-line"></i> <span data-key="t-apps">Penggajian</span>
                         </a>
                         <div class="collapse menu-dropdown" id="penggajian">
                             <ul class="nav nav-sm flex-column">
@@ -172,7 +175,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#jadwal" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="jadwal">
-                            <i class="ri-book-2-fill"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
+                            <i class=" ri-todo-line"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
                         </a>
                         <div class="collapse menu-dropdown" id="jadwal">
                             <ul class="nav nav-sm flex-column">
@@ -187,7 +190,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#absensi">
-                            <i class="ri-book-2-fill"></i> <span>Absensi</span>
+                            <i class=" ri-fingerprint-2-line"></i> <span>Presensi</span>
                         </a>
                     </li>
                 </ul>

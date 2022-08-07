@@ -4,7 +4,7 @@
 <head>
     <x-head/>
 
-    @vite('resources/js/app.js')
+    @vite(['resources/js/app.js'])
     @stack('styles')
 </head>
 
@@ -79,6 +79,5 @@
 <x-livewire-alert::scripts />
 <script src="{{asset('assets/js/pages/sweetalerts.init.js')}}"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>
-
 </body>
 </html>

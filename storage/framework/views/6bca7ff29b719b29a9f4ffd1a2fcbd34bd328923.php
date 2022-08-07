@@ -18,7 +18,7 @@
 <?php unset($__componentOriginal0ffb0a0d50d0f581dbd60338c0b56c81fed4e7d6); ?>
 <?php endif; ?>
 
-    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/js/app.js']); ?>
     <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
 
@@ -152,7 +152,6 @@
 <?php endif; ?>
 <script src="<?php echo e(asset('assets/js/pages/sweetalerts.init.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/app.js')); ?>"></script>
-
 </body>
 </html>
 <?php /**PATH /home/aziz/Project/madrosy/resources/views/layouts/app.blade.php ENDPATH**/ ?>

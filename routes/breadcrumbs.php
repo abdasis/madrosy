@@ -70,3 +70,28 @@ Breadcrumbs::for('riwayat-pendidikan.edit', function (BreadcrumbTrail $trail, $i
     $trail->parent('riwayat-pendidikan.semua');
     $trail->push('Edit Riwayat Pendidikan', route('riwayat-pendidikan.edit', $id));
 });
+
+Breadcrumbs::for('konseling.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Konseling', route('konseling.semua'));
+});
+
+Breadcrumbs::for('konseling.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('konseling.semua');
+    $trail->push('Tambah Konseling', route('konseling.tambah'));
+});
+
+Breadcrumbs::for('konseling.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('konseling.semua');
+    $trail->push('Edit Konseling', route('konseling.edit', $id));
+});
+
+Breadcrumbs::for('pelanggaran.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Pelanggaran', route('pelanggaran.semua'));
+});
+
+Breadcrumbs::for('pelanggaran.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('pelanggaran.semua');
+    $trail->push('Edit Pelanggaran', route('pelanggaran.edit', $id));
+});

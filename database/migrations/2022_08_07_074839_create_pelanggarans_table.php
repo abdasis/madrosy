@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('konselings', function (Blueprint $table) {
+        Schema::create('pelanggarans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('santri_id')->constrained();
-            $table->date('tanggal');
-            $table->foreignId('pelanggaran_id')->constrained();
-            $table->text('keterangan')->nullable();
+            $table->text('kasus');
+            $table->integer('bobot');
             $table->unsignedBigInteger('dibuat_oleh');
-            $table->unsignedBigInteger('diubah_oleh')->nullable();
+            $table->unsignedBigInteger('diedit_oleh')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('konselings');
+        Schema::dropIfExists('pelanggarans');
     }
 };
