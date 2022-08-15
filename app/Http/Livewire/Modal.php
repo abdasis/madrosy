@@ -20,15 +20,20 @@ class Modal extends Component
     {
         $this->title = 'Tambah Data';
         $this->body = $data;
-        $this->emit('modalOpen');
+    }
+
+    public function closeModal()
+    {
+        $this->reset();
     }
 
     public function bukaModalEdit($data, $model)
     {
-        $this->title = 'Edit Data ' . $model;
+
+        $this->reset();
+        $this->title = 'Edit Data ';
         $this->body = $data;
         $this->model = $model;
-        $this->emit('modalOpen');
     }
     public function render()
     {

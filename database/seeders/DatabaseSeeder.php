@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Rekening;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,23 +26,14 @@ class DatabaseSeeder extends Seeder
              'password' => bcrypt('rahasia123'),
          ]);
 
-        // \App\Models\User::factory(10)->create();
-        if (\App::environment('local')){
-            $this->call([
-                ProvincesSeeder::class,
-                CitiesSeeder::class,
-                DistrictsSeeder::class,
-                VillagesSeeder::class,
-                SantriSeeder::class,
-                GuruSeeder::class,
-            ]);
-        }else{
-            $this->call([
-                /*ProvincesSeeder::class,
-                CitiesSeeder::class,
-                DistrictsSeeder::class,
-                VillagesSeeder::class,*/
-            ]);
-        }
+        $this->call([
+            ProvincesSeeder::class,
+            CitiesSeeder::class,
+            DistrictsSeeder::class,
+            VillagesSeeder::class,
+            SantriSeeder::class,
+            GuruSeeder::class,
+            RekeningSeeder::class,
+        ]);
     }
 }

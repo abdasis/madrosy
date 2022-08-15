@@ -95,3 +95,62 @@ Breadcrumbs::for('pelanggaran.edit', function (BreadcrumbTrail $trail, $id){
     $trail->parent('pelanggaran.semua');
     $trail->push('Edit Pelanggaran', route('pelanggaran.edit', $id));
 });
+
+Breadcrumbs::for('rekening.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Rekening', route('rekening.semua'));
+});
+
+Breadcrumbs::for('rekening.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('rekening.semua');
+    $trail->push('Tambah Rekening', route('rekening.tambah'));
+});
+
+Breadcrumbs::for('rekening.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('rekening.semua');
+    $trail->push('Edit Rekening', route('rekening.edit', $id));
+});
+
+Breadcrumbs::for('tahun-ajaran.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Tahun Ajaran', route('tahun-ajaran.semua'));
+});
+
+Breadcrumbs::for('tahun-ajaran.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('tahun-ajaran.semua');
+    $trail->push('Tambah Tahun Ajaran', route('tahun-ajaran.tambah'));
+});
+Breadcrumbs::for('tahun-ajaran.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('tahun-ajaran.semua');
+    $trail->push('Edit Tahun Ajaran', route('tahun-ajaran.edit', $id));
+});
+
+Breadcrumbs::for('kategori-tagihan.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Kategori Tagihan', route('kategori-tagihan.semua'));
+});
+
+Breadcrumbs::for('kategori-tagihan.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('kategori-tagihan.semua');
+    $trail->push('Tambah Kategori Tagihan', route('kategori-tagihan.tambah'));
+});
+
+Breadcrumbs::for('kategori-tagihan.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('kategori-tagihan.semua');
+    $trail->push('Edit Kategori Tagihan', route('kategori-tagihan.edit', $id));
+});
+
+Breadcrumbs::for('kelas.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Kelas', route('kelas.semua'));
+});
+
+Breadcrumbs::for('kelas.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('kelas.semua');
+    $trail->push('Tambah Kelas', route('kelas.tambah'));
+});
+
+Breadcrumbs::for('kelas.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('kelas.semua');
+    $trail->push('Edit Kelas', route('kelas.edit', $id));
+});

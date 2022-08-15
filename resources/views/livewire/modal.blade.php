@@ -1,6 +1,5 @@
 <div>
     {{-- The whole world belongs to you. --}}
-    <!-- Default Modals -->
     <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
@@ -20,12 +19,6 @@
 
 @push('scripts')
     <script>
-        Livewire.on('modalOpen', () => {
-            $('#myModal').modal('show');
-        });
 
-        Livewire.on('claseModal', () => {
-            $('#myModal').modal('hide');
-        });
     </script>
 @endpush

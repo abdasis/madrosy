@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Livewire\KategoriTagihan\Edit;
+use App\Http\Livewire\KategoriTagihan\Semua;
+use App\Http\Livewire\KategoriTagihan\Tambah;
+use App\Http\Livewire\Rekening\Detail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,32 +35,49 @@ Route::middleware([
         Route::get('detail/{id}', \App\Http\Livewire\Santri\Detail::class)->name('santri.detail');
         Route::get('edit/{id}', \App\Http\Livewire\Santri\Edit::class)->name('santri.edit');
     });
-
     Route::group(['prefix' => 'guru'], function (){
         Route::get('/', \App\Http\Livewire\Guru\Semua::class)->name('guru.semua');
         Route::get('/tambah', \App\Http\Livewire\Guru\Tambah::class)->name('guru.tambah');
         Route::get('/detail/{guru}', \App\Http\Livewire\Guru\Detail::class)->name('guru.detail');
         Route::get('/edit/{guru}', \App\Http\Livewire\Guru\Edit::class)->name('guru.edit');
     });
-
     Route::group(['prefix' => 'pendidikan'], function (){
         Route::get('/', \App\Http\Livewire\RiwayatPendidikan\Semua::class)->name('riwayat-pendidikan.semua');
         Route::get('/tambah', \App\Http\Livewire\RiwayatPendidikan\Tambah::class)->name('riwayat-pendidikan.tambah');
         Route::get('/detail/{pendidikan}', \App\Http\Livewire\RiwayatPendidikan\Detail::class)->name('riwayat-pendidikan.detail');
         Route::get('/edit/{pendidikan}', \App\Http\Livewire\RiwayatPendidikan\Edit::class)->name('riwayat-pendidikan.edit');
     });
-
     Route::group(['prefix' => 'konseling'], function (){
         Route::get('/', \App\Http\Livewire\Konseling\Semua::class)->name('konseling.semua');
         Route::get('/tambah', \App\Http\Livewire\Konseling\Tambah::class)->name('konseling.tambah');
         Route::get('/detail/{konseling}', \App\Http\Livewire\Konseling\Detail::class)->name('konseling.detail');
         Route::get('/edit/{konseling}', \App\Http\Livewire\Konseling\Edit::class)->name('konseling.edit');
     });
-
     Route::group(['prefix' => 'pelanggaran'], function (){
         Route::get('/', \App\Http\Livewire\Pelanggaran\Semua::class)->name('pelanggaran.semua');
         Route::get('/tambah', \App\Http\Livewire\Pelanggaran\Tambah::class)->name('pelanggaran.tambah');
         Route::get('/detail/{pelanggaran}', \App\Http\Livewire\Pelanggaran\Detail::class)->name('pelanggaran.detail');
         Route::get('/edit/{pelanggaran}', \App\Http\Livewire\Pelanggaran\Edit::class)->name('pelanggaran.edit');
+    });
+    Route::group(['prefix' => 'rekening'], function (){
+        Route::get('/', \App\Http\Livewire\Rekening\Semua::class)->name('rekening.semua');
+        Route::get('/tambah', \App\Http\Livewire\Rekening\Tambah::class)->name('rekening.tambah');
+        Route::get('/detail/{rekening}', Detail::class)->name('rekening.detail');
+        Route::get('/edit/{rekening}', \App\Http\Livewire\Rekening\Edit::class)->name('rekening.edit');
+    });
+    Route::group(['prefix' => 'tahun-ajaran'], function (){
+        Route::get('/', \App\Http\Livewire\TahunAjaran\Semua::class)->name('tahun-ajaran.semua');
+        Route::get('/tambah', \App\Http\Livewire\TahunAjaran\Tambah::class)->name('tahun-ajaran.tambah');
+        Route::get('/edit/{tahun_ajaran}', \App\Http\Livewire\TahunAjaran\Edit::class)->name('tahun-ajaran.edit');
+    });
+    Route::group(['prefix' => 'kategori-tagihan'], function (){
+        Route::get('/', Semua::class)->name('kategori-tagihan.semua');
+        Route::get('tambah', Tambah::class)->name('kategori-tagihan.tambah');
+        Route::get('edit/{kategori_tagihan}', Edit::class)->name('kategori-tagihan.edit');
+    });
+    Route::group(['prefix' => 'kelas'], function (){
+        Route::get('/', \App\Http\Livewire\Kelas\Semua::class)->name('kelas.semua');
+        Route::get('/tambah', \App\Http\Livewire\Kelas\Tambah::class)->name('kelas.tambah');
+        Route::get('/edit/{kelas}', \App\Http\Livewire\Kelas\Edit::class)->name('kelas.edit');
     });
 });

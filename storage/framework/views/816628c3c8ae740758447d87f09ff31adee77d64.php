@@ -53,7 +53,7 @@
         animation: loader-inner 2s infinite ease-in;
     }
 
-    @keyframes  loader {
+    @keyframes loader {
         0% { transform: rotate(0deg);}
         25% { transform: rotate(180deg);}
         50% { transform: rotate(180deg);}
@@ -61,7 +61,7 @@
         100% { transform: rotate(360deg);}
     }
 
-    @keyframes  loader-inner {
+    @keyframes loader-inner {
         0% { height: 0%;}
         25% { height: 0%;}
         50% { height: 100%;}

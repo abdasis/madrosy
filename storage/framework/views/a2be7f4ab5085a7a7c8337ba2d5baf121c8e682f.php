@@ -123,6 +123,47 @@
                         </div>
                     </li>
                     <li class="menu-title">
+                        <span data-key="t-menu">Keuangan</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#keuangan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="keuangan">
+                            <i class="ri-bank-fill"></i> <span data-key="t-layouts">e-Money</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="keuangan">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('rekening.semua')); ?>" target="_self" class="nav-link" data-key="t-horizontal">Data Rekening</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Data Transaksi</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="<?php echo e(route('dashboard')); ?>" aria-expanded="false">
+                            <i class="ri-wallet-fill"></i> <span data-key="t-widgets">Tabungan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#tagihan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tagihan">
+                            <i class="ri-file-list-3-line"></i> <span data-key="t-layouts">Tagihan</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="tagihan">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('kategori-tagihan.semua')); ?>" target="_self" class="nav-link" data-key="t-horizontal">Kategori Tagihan</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Data Tagihan</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Riwayat Pembayaran</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-title">
                         <span data-key="t-menu">Kepegawaian</span>
                     </li>
                     <li class="nav-item">
@@ -193,7 +234,23 @@
                             <i class=" ri-fingerprint-2-line"></i> <span>Presensi</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="<?php echo e(route('tahun-ajaran.semua')); ?>">
+                            <i class="ri-calendar-event-line"></i> <span>Tahun Ajaran</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="<?php echo e(route('kelas.semua')); ?>">
+                            <i class="bx bxs-door-open fs-20"></i> <span>Kelas</span>
+                        </a>
+                    </li>
                 </ul>
+                <div class="my-3 d-grid px-3">
+                    <button class="btn btn-light waves-effect waves-light align-items-center d-flex gap-1 justify-content-center rounded-pill btn-border ">
+                        <i class="bx bxs-book-bookmark"></i>
+                        <span class="fs-14">Documentasi</span>
+                    </button>
+                </div>
             </div>
             <!-- Sidebar -->
         </div>

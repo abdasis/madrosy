@@ -10,7 +10,7 @@
     <?php if(!empty($editWithModal)): ?>
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Edit">
-            <a wire:click.prevent="$emit('editModal', '<?php echo e($editWithModal); ?>', <?php echo e($id); ?>)" href="/edit/<?php echo e($editWithModal); ?>"  class="text-warning d-inline-block">
+            <a wire:click.prevent="$emit('editModal', '<?php echo e($editWithModal); ?>', <?php echo e($id); ?>)" href="/edit/"  class="text-warning d-inline-block">
                 <i class="ri-edit-2-line fs-16"></i>
             </a>
         </li>

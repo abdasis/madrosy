@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Konseling;
+use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
 
 class Tabel extends DataTableComponent
 {
@@ -15,6 +16,13 @@ class Tabel extends DataTableComponent
     protected $model = Konseling::class;
 
     protected $listeners = ['hapus' => 'dihapus'];
+
+    public function filters():array
+    {
+        return [
+            'tanggal' => DateFilter::make('Tanggal')
+        ];
+    }
 
     public function dihapus()
     {
