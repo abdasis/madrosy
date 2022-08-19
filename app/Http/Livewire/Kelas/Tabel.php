@@ -2,15 +2,29 @@
 
 namespace App\Http\Livewire\Kelas;
 
+use App\Traits\KonfirmasiHapus;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Kelas;
 
 class Tabel extends DataTableComponent
 {
+    use KonfirmasiHapus;
+
     protected $model = Kelas::class;
 
-    protected $listeners = ['kelasDitambah'];
+    protected $listeners = ['kelasDitambah', 'hapus' => 'dihapus'];
+
+    public function dihapus()
+    {
+        if ($this->model_id){
+            $kelas = Kelas::find($this->model_id);
+            $kelas->delete();
+            $this->alert('success', 'Data berhasil dihapus');
+        }else{
+            $this->alert('error', 'Data tidak ditemukan');
+        }
+    }
 
     public function kelasDitambah($kelas)
     {
@@ -20,6 +34,16 @@ class Tabel extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+    }
+
+    public function edit($id)
+    {
+        $this->emit('editModal', [
+            'title' => 'Edit Data',
+            'body' => 'kelas.edit',
+            'model' => $id,
+            'status' => 'edit',
+        ]);
     }
 
     public function columns(): array

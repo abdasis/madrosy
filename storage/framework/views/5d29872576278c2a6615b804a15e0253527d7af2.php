@@ -10,11 +10,11 @@
     <?php if(!empty($editWithModal)): ?>
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Edit">
-            <a wire:click.prevent="$emit('editModal', '<?php echo e($editWithModal); ?>', <?php echo e($id); ?>)" href="/edit/"  class="text-warning d-inline-block">
+            <a wire:click.prevent="$emitTo('<?php echo e($editWithModal); ?>' , 'edit' , <?php echo e($id); ?>)" href="/edit/"  class="text-warning d-inline-block">
                 <i class="ri-edit-2-line fs-16"></i>
             </a>
         </li>
-    <?php endif; ?>
+        <?php endif; ?>
     <?php if(!empty($edit)): ?>
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Edit">

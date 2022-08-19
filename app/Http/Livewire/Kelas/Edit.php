@@ -2,51 +2,50 @@
 
 namespace App\Http\Livewire\Kelas;
 
+use App\Http\Livewire\Modal;
 use App\Models\Kelas;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
-class Edit extends Component
+class Edit extends Modal
 {
 
     use LivewireAlert;
     public $kode_kelas;
     public $nama_kelas;
-    public $model_id;
+    public $kelas_id;
+    protected $listeners = ['edit' => 'show'];
 
     public function rules()
     {
+        $kelas_kode = $this->kelas_id;
         return[
-            'kode_kelas' => 'required|unique:kelas,kode_kelas',
+            'kode_kelas' => 'required|unique:kelas,kode_kelas,' . $kelas_kode,
             'nama_kelas' => 'required',
         ];
     }
-
-    public function mount($model_id)
+    public function show($id)
     {
-        $total_kelas = Kelas::count();
-        $this->kode_kelas = 'KLS'.str_pad($total_kelas + 1, 5, '0', STR_PAD_LEFT);
-        $kelas = Kelas::find($model_id);
+        $kelas = Kelas::find($id);
         $this->kode_kelas = $kelas->kode_kelas;
         $this->nama_kelas = $kelas->nama_kelas;
-        $this->model_id = $kelas->id;
+        $this->kelas_id = $kelas->id;
+        $this->emit('modalEdit', 'edit-kelas');
     }
 
-    public function simpan()
+    public function update()
     {
-        dd($this->model_id);
         $this->validate();
         try {
-            $kelas = Kelas::create([
+            $kelas = Kelas::where('id', $this->kelas_id)->update([
                 'kode_kelas' => $this->kode_kelas,
                 'nama_kelas' => $this->nama_kelas,
             ]);
-            $this->alert('success', 'Data berhasil ditambahkan');
+            $this->alert('success', 'Data berhasil dipebarui');
             $this->emit('kelasDitambah', $kelas);
-            $this->reset('nama_kelas');
             $this->mount();
         }catch (\Exception $e) {
-            $this->alert('error', 'Data gagal ditambahkan');
+            $this->alert('error', 'Data gagal diperbarui');
         }
     }
 

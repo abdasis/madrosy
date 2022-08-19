@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire\Kelas;
 
+use App\Http\Livewire\Modal;
 use App\Models\Kelas;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
-class Tambah extends Component
+class Tambah extends Modal
 {
     use LivewireAlert;
     public $kode_kelas;
@@ -18,6 +19,13 @@ class Tambah extends Component
             'kode_kelas' => 'required|unique:kelas,kode_kelas',
             'nama_kelas' => 'required',
         ];
+    }
+
+    protected $listeners = ['tambah' => 'show'];
+
+    public function show()
+    {
+        $this->emit('modalTambah', 'tambah-kelas');
     }
 
     public function mount()

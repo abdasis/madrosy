@@ -6,35 +6,26 @@ use Livewire\Component;
 
 class Modal extends Component
 {
-
-    public $title;
-    public $body;
-    public $model;
+    public $show = false;
 
     protected $listeners = [
-        'modalTambah' => 'bukaModalTambah',
-        'editModal' => 'bukaModalEdit',
+        'tambah' => 'tambah',
+        'edit' => 'edit'
     ];
 
-    public function bukaModalTambah($data)
+    public function tambah()
     {
-        $this->title = 'Tambah Data';
-        $this->body = $data;
+        $this->emit('modalTambah');
     }
 
-    public function closeModal()
+    public function edit($id)
     {
-        $this->reset();
+        $this->emit('modalEdit', [
+            'modal' => 'edit-kelas',
+            'id' => $id
+        ]);
     }
 
-    public function bukaModalEdit($data, $model)
-    {
-
-        $this->reset();
-        $this->title = 'Edit Data ';
-        $this->body = $data;
-        $this->model = $model;
-    }
     public function render()
     {
         return view('livewire.modal');

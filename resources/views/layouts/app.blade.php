@@ -77,6 +77,15 @@
 
 <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <x-livewire-alert::scripts />
+<script>
+    Livewire.on('modalTambah', function (component) {
+        $('#'+component).modal('show');
+    });
+
+    Livewire.on('modalEdit', function (component) {
+        $('#' + component).modal('show');
+    });
+</script>
 <script src="{{asset('assets/js/pages/sweetalerts.init.js')}}"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>
 </body>
