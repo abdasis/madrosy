@@ -3,6 +3,8 @@
 use App\Http\Livewire\KategoriTagihan\Edit;
 use App\Http\Livewire\KategoriTagihan\Semua;
 use App\Http\Livewire\KategoriTagihan\Tambah;
+use App\Http\Livewire\Kelas\Migrasi;
+use App\Http\Livewire\Kelas\PindahKelasForm;
 use App\Http\Livewire\Rekening\Detail;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +27,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
+])->group(callback: function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -79,5 +81,7 @@ Route::middleware([
         Route::get('/', \App\Http\Livewire\Kelas\Semua::class)->name('kelas.semua');
         Route::get('/tambah', \App\Http\Livewire\Kelas\Tambah::class)->name('kelas.tambah');
         Route::get('/edit/{kelas}', \App\Http\Livewire\Kelas\Edit::class)->name('kelas.edit');
+        Route::get('/pindah-kelas', Migrasi::class)->name('kelas.migrasi');
+        Route::get('/konfirmasi-kelas', PindahKelasForm::class)->name('kelas.konfirmasi');
     });
 });

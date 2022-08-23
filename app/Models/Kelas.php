@@ -14,4 +14,9 @@ class Kelas extends Model
     protected $casts = [
         'created_at' => 'datetime:Y-m-d',
     ];
+
+    public function santri()
+    {
+        return $this->belongsToMany(Santri::class, 'kelas_santri');
+    }
 }

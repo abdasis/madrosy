@@ -1,5 +1,5 @@
 <div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+    
     <div class="row">
         <div class="col-md-3">
             <div class="card ribbon-box ribbon-fill ribbon-sm">
@@ -7,11 +7,11 @@
                     <div class="ribbon ribbon-success"><i class="ri-checkbox-circle-fill"></i></div>
                     <a class="d-flex align-items-center" data-bs-toggle="collapse" href="#contactInitiated1" role="button" aria-expanded="false" aria-controls="contactInitiated1">
                         <div class="flex-shrink-0">
-{{--                            <img src="assets/images/users/avatar-5.jpg" alt="" class="avatar-xs rounded-circle">--}}
+
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <h6 class="fs-14 mb-1">{{$santri->nama_lengkap}} @if($santri->nama_panggilan)({{$santri->nama_panggilan}})@endif</h6>
-                            <p class="text-muted mb-0">{{$santri->nisn}}</p>
+                            <h6 class="fs-14 mb-1"><?php echo e($santri->nama_lengkap); ?> <?php if($santri->nama_panggilan): ?>(<?php echo e($santri->nama_panggilan); ?>)<?php endif; ?></h6>
+                            <p class="text-muted mb-0"><?php echo e($santri->nisn); ?></p>
                         </div>
                     </a>
                 </div>
@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">Umur</h6>
-                                        <small class="text-muted">{{\Carbon\Carbon::parse($santri->tanggal_lahir)->diffInYears(now())}} thn</small>
+                                        <small class="text-muted"><?php echo e(\Carbon\Carbon::parse($santri->tanggal_lahir)->diffInYears(now())); ?> thn</small>
                                     </div>
                                 </div>
                             </li>
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">Telepon</h6>
-                                        <small class="text-muted">{{$santri->no_hp}}</small>
+                                        <small class="text-muted"><?php echo e($santri->no_hp); ?></small>
                                     </div>
                                 </div>
                             </li>
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">Email</h6>
-                                        <small class="text-muted">{{$santri->email}}</small>
+                                        <small class="text-muted"><?php echo e($santri->email); ?></small>
                                     </div>
                                 </div>
                             </li>
@@ -98,42 +98,42 @@
                                 <tr>
                                     <td>Nama Lengkap</td>
                                     <td>:</td>
-                                    <td>{{$santri->nama_lengkap}}</td>
+                                    <td><?php echo e($santri->nama_lengkap); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Nama Panggilan</td>
                                     <td>:</td>
-                                    <td>{{$santri->nama_panggilan ?? '-'}}</td>
+                                    <td><?php echo e($santri->nama_panggilan ?? '-'); ?></td>
                                 </tr>
                                 <tr>
                                     <td>NISN</td>
                                     <td>:</td>
-                                    <td>{{$santri->nisn}}</td>
+                                    <td><?php echo e($santri->nisn); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Kelas</td>
                                     <td>:</td>
-                                    <td>{{$santri->kelas->first()->nama_kelas}}</td>
+                                    <td><?php echo e($santri->kelas->first()->nama_kelas); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Kelamin</td>
                                     <td>:</td>
-                                    <td>{{$santri->jenis_kelamin}}</td>
+                                    <td><?php echo e($santri->jenis_kelamin); ?></td>
                                 </tr>
                                 <tr>
                                     <td>TTL</td>
                                     <td>:</td>
-                                    <td>{{$santri->tempat_lahir}}, {{\Carbon\Carbon::parse($santri->tanggal_lahir)->format('d F Y')}}</td>
+                                    <td><?php echo e($santri->tempat_lahir); ?>, <?php echo e(\Carbon\Carbon::parse($santri->tanggal_lahir)->format('d F Y')); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Agama</td>
                                     <td>:</td>
-                                    <td>{{$santri->agama}}</td>
+                                    <td><?php echo e($santri->agama); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Alamat</td>
                                     <td>:</td>
-                                    <td>{{$santri->alamat}}</td>
+                                    <td><?php echo e($santri->alamat); ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -162,3 +162,4 @@
         </div>
     </div>
 </div>
+<?php /**PATH /home/aziz/Project/madrosy/resources/views/livewire/santri/detail.blade.php ENDPATH**/ ?>

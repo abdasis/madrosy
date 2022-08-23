@@ -43,15 +43,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                            <i class="las la-user-friends fs-21"></i> <span data-key="t-dashboards">Santri</span>
+                            <i class="las la-user-friends fs-21"></i> <span data-key="t-dashboards">Siswa</span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebarDashboards">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{route('santri.tambah')}}" class="nav-link" data-key="t-analytics"> Tambah Santri </a>
+                                    <a href="{{route('santri.tambah')}}" class="nav-link" data-key="t-analytics"> Tambah Siswa </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('santri.semua')}}" class="nav-link" data-key="t-crm"> Semua Santri </a>
+                                    <a href="{{route('santri.semua')}}" class="nav-link" data-key="t-crm"> Semua Siswa </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="index-2.html" class="nav-link" data-key="t-ecommerce"> PPDB Management </a>
@@ -59,7 +59,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
                         <a class="nav-link menu-link" href="#tahfidz" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tahfidz">
                             <i class="ri-book-2-fill"></i> <span data-key="t-apps">Tahfid</span>
                         </a>
@@ -73,8 +73,8 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
-                    <li class="nav-item">
+                    </li>--}}
+                    {{--<li class="nav-item">
                         <a class="nav-link menu-link" href="#kesehatan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="kesehatan">
                             <i class="ri-health-book-line"></i> <span data-key="t-layouts">Kesehatan</span>
                         </a>
@@ -88,7 +88,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#konseling" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="konseling">
                             <i class="ri-book-3-line"></i> <span data-key="t-layouts">Konseling</span>
@@ -107,7 +107,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                             <i class="ri-book-2-line"></i> <span data-key="t-layouts">Perizinan</span>
                         </a>
@@ -121,7 +121,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li>--}}
                     <li class="menu-title">
                         <span data-key="t-menu">Keuangan</span>
                     </li>

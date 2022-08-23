@@ -154,3 +154,13 @@ Breadcrumbs::for('kelas.edit', function (BreadcrumbTrail $trail, $id){
     $trail->parent('kelas.semua');
     $trail->push('Edit Kelas', route('kelas.edit', $id));
 });
+
+Breadcrumbs::for('kelas.migrasi', function (BreadcrumbTrail $trail){
+    $trail->parent('kelas.semua');
+    $trail->push('Pindah Kelas', route('kelas.migrasi'));
+});
+
+Breadcrumbs::for('kelas.konfirmasi', function (BreadcrumbTrail $trail){
+    $trail->parent('kelas.semua');
+    $trail->push('Pindah Kelas', route('kelas.konfirmasi'));
+});

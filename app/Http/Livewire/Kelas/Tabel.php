@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Kelas;
 
 use App\Traits\KonfirmasiHapus;
+use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Kelas;
@@ -11,7 +12,6 @@ class Tabel extends DataTableComponent
 {
     use KonfirmasiHapus;
 
-    protected $model = Kelas::class;
 
     protected $listeners = ['kelasDitambah', 'hapus' => 'dihapus'];
 
@@ -57,9 +57,12 @@ class Tabel extends DataTableComponent
             Column::make('Nama Kelas')
                 ->searchable()
                 ->sortable(),
-            Column::make("Dibuat Oleh", "created_at")
+            Column::make('Total Santri', 'id')->format(function ($id, $model){
+                return $model->santri_count;
+            }),
+            Column::make("Dibuat Pada", "created_at")
                 ->sortable(),
-            Column::make("Updated at", "updated_at")
+            Column::make("Diedit Pada", "updated_at")
                 ->sortable(),
             Column::make('Opsi', 'id')->format(function ($id){
                 return view('tombol-aksi', [
@@ -69,5 +72,10 @@ class Tabel extends DataTableComponent
                 ]);
             })->excludeFromColumnSelect()
         ];
+    }
+
+    public function builder(): Builder
+    {
+        return Kelas::query()->withCount('santri');
     }
 }
