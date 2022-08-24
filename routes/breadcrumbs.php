@@ -164,3 +164,20 @@ Breadcrumbs::for('kelas.konfirmasi', function (BreadcrumbTrail $trail){
     $trail->parent('kelas.semua');
     $trail->push('Pindah Kelas', route('kelas.konfirmasi'));
 });
+
+
+Breadcrumbs::for('tagihan.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Tagihan', route('tagihan.semua'));
+});
+
+Breadcrumbs::for('tagihan.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('tagihan.semua');
+    $trail->push('Tambah Tagihan', route('tagihan.tambah'));
+});
+
+Breadcrumbs::for('tagihan.atur-perkelas', function (BreadcrumbTrail $trail){
+    $trail->parent('tagihan.semua');
+    $trail->push('Atur Tagihan Perkelas', route('tagihan.atur-perkelas'));
+});
+

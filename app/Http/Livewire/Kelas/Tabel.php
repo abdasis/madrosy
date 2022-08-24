@@ -57,7 +57,7 @@ class Tabel extends DataTableComponent
             Column::make('Nama Kelas')
                 ->searchable()
                 ->sortable(),
-            Column::make('Total Santri', 'id')->format(function ($id, $model){
+            Column::make('Total Siswa', 'id')->format(function ($id, $model){
                 return $model->santri_count;
             }),
             Column::make("Dibuat Pada", "created_at")

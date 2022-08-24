@@ -39,6 +39,11 @@ class Tabel extends DataTableComponent
             Column::make('Tahun Ajaran', 'tapel.tahun_awal')
                 ->sortable(),
             Column::make('Nama Kategori','nama_kategori')
+                ->format(function ($nama_kategori, $model){
+                    $link = route('tagihan.atur-perkelas', $model->id);
+                    return "<a href='{$link}' class='fw-bold text-success'>{$nama_kategori}</a>";
+                })
+                ->html()
                 ->sortable()
                 ->searchable(),
             Column::make('Jenis Tagihan', 'jenis_tagihan')

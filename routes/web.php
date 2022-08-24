@@ -6,6 +6,7 @@ use App\Http\Livewire\KategoriTagihan\Tambah;
 use App\Http\Livewire\Kelas\Migrasi;
 use App\Http\Livewire\Kelas\PindahKelasForm;
 use App\Http\Livewire\Rekening\Detail;
+use App\Http\Livewire\Tagihan\AturPerkelas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,11 +73,20 @@ Route::middleware([
         Route::get('/tambah', \App\Http\Livewire\TahunAjaran\Tambah::class)->name('tahun-ajaran.tambah');
         Route::get('/edit/{tahun_ajaran}', \App\Http\Livewire\TahunAjaran\Edit::class)->name('tahun-ajaran.edit');
     });
+
+    //moodule tagihan
     Route::group(['prefix' => 'kategori-tagihan'], function (){
         Route::get('/', Semua::class)->name('kategori-tagihan.semua');
         Route::get('tambah', Tambah::class)->name('kategori-tagihan.tambah');
         Route::get('edit/{kategori_tagihan}', Edit::class)->name('kategori-tagihan.edit');
     });
+
+    Route::group(['prefix' => 'tagihan'], function (){
+        Route::get('/', \App\Http\Livewire\Tagihan\Semua::class)->name('tagihan.semua');
+        Route::get('/tambah', \App\Http\Livewire\Tagihan\Tambah::class)->name('tagihan.tambah');
+        Route::get('atur-perkelas', AturPerkelas::class)->name('tagihan.atur-perkelas');
+    });
+
     Route::group(['prefix' => 'kelas'], function (){
         Route::get('/', \App\Http\Livewire\Kelas\Semua::class)->name('kelas.semua');
         Route::get('/tambah', \App\Http\Livewire\Kelas\Tambah::class)->name('kelas.tambah');
