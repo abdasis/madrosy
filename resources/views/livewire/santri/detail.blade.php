@@ -113,7 +113,7 @@
                                 <tr>
                                     <td>Kelas</td>
                                     <td>:</td>
-                                    <td>{{$santri->kelas->first()->nama_kelas}}</td>
+                                    <td>{{$santri->kelas->first()->nama_kelas ?? 'none'}}</td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Kelamin</td>
