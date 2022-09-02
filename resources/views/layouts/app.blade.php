@@ -3,7 +3,6 @@
       data-sidebar-image="none">
 <head>
     <x-head/>
-
     @vite(['resources/js/app.js'])
     @stack('styles')
 </head>

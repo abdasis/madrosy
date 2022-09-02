@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire\Tagihan;
 
-use App\Billing\PaymentGateway;
 use App\Models\KategoriTagihan;
 use App\Models\Kelas;
 use App\Models\Tagihan;
 use App\Models\TahunAjaran;
-use Carbon\Carbon;
+use App\Services\PaymentGateway\Midtrans;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -51,6 +50,7 @@ class AturPerkelas extends Component
 
     public function simpan()
     {
+        \Log::debug($this->all());
         $this->validate();
 
         //1. Ambil data kelas
@@ -64,11 +64,20 @@ class AturPerkelas extends Component
         {
             \DB::beginTransaction();
             if ($data_siswa){
+                //mengambil kode kategori tagihan
+                $kategori = KategoriTagihan::find($this->kategori_id);
+
+                if ($kategori){
+                    $kode = $kategori->kode;
+                }
+
+                //mengambil nomor tagihan terkahir
                 foreach ($data_siswa as $key => $siswa){
+                    $nomor_tagihan = Tagihan::max('id') + 1;
                     $tagihan = Tagihan::create([
                         'santri_id' => $siswa->id,
                         'kategori_tagihan_id' =>$this->kategori_id,
-                        'kode_tagihan' => \Str::uuid(),
+                        'kode_tagihan' => $kode . str_pad($nomor_tagihan, 8, '0', STR_PAD_LEFT),
                         'tgl_dibuat' => $this->tgl_tagihan,
                         'tgl_jatuh_tempo' => $this->tgl_jatuh_tempo,
                         'status' => 'belum dibayar',
@@ -77,13 +86,8 @@ class AturPerkelas extends Component
                         'dibuat_oleh' => auth()->id()
                     ]);
 
-                    $billing = new PaymentGateway();
-
-                    $pembayaran = $billing->charge($tagihan);
-
-                    dd($pembayaran);
-
-
+                    $billing = new Midtrans();
+                    $billing->buatTransaksi($tagihan);
                 }
             }
 
@@ -91,8 +95,8 @@ class AturPerkelas extends Component
 
             \DB::commit();
         }catch (\Exception $exception){
-            dd($exception);
             \DB::rollBack();
+            \Debugbar::info($exception);
             $this->alert('error', 'Terjadi kesalahan saat menyimpan data');
         }
 

@@ -43,13 +43,17 @@ class Tambah extends Component
                 'cicilan' => $this->cicilan,
                 'tahun_ajaran_id' => $this->tahun_ajaran_id,
                 'keterangan' => $this->keterangan,
+                'kode' => karakterPertama($this->nama_kategori),
             ]);
             $this->alert('success', 'Data berhasil disimpan');
             $this->reset();
         }catch (\Exception $e) {
+            \Debugbar::info($e);
             $this->alert('error','Data gagal disimpan');
         }
     }
+
+
     public function render()
     {
         return view('livewire.kategori-tagihan.tambah',[

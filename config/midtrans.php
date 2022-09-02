@@ -7,7 +7,10 @@ return [
         // Set sanitization on (default)
         'sanitize' => \Midtrans\Config::$isSanitized = env('MIDTRANS_SANITIZED', true),
         // Set 3DS transaction for credit card to true
-        '3ds' => \Midtrans\Config::$is3ds = env('MIDTRANS_3DS', true)
+        '3ds' => \Midtrans\Config::$is3ds = env('MIDTRANS_3DS', true),
+
+        // Optional
+        'midtrans_url' => env('MIDTRANS_URL', 'https://api.sandbox.midtrans.com/v2/'),
     ]
 
 ?>

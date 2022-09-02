@@ -24,6 +24,7 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -95,3 +96,6 @@ Route::middleware([
         Route::get('/konfirmasi-kelas', PindahKelasForm::class)->name('kelas.konfirmasi');
     });
 });
+
+Route::post('midtrans-response', [\App\Http\Controllers\TransaksiController::class, 'midtransResponse'])->name('midtrans.notif');
+Route::get('pembayaran-selesai', [\App\Http\Controllers\TransaksiController::class, 'pembayaranSelesai'])->name('midtrans.selesai');

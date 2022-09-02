@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('kategori_tagihans', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
             $table->foreignId('tahun_ajaran_id')->constrained();
             $table->string('nama_kategori');
             $table->enum('jenis_tagihan', ['bulanan', 'tahunan', 'insidental']);

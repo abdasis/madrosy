@@ -38,7 +38,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files" : [
-            "app/Helpers/MataUang.php"
+            "app/Helpers/MataUang.php",
+            "app/Helpers/AmbilKarakterPertama.php"
         ]
     },
     "autoload-dev": {
