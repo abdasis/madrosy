@@ -86,6 +86,7 @@ Route::middleware([
         Route::get('/', \App\Http\Livewire\Tagihan\Semua::class)->name('tagihan.semua');
         Route::get('/tambah', \App\Http\Livewire\Tagihan\Tambah::class)->name('tagihan.tambah');
         Route::get('atur-perkelas', AturPerkelas::class)->name('tagihan.atur-perkelas');
+        Route::get('/detail/{kode}', \App\Http\Livewire\Tagihan\Detail::class)->name('tagihan.detail');
     });
 
     Route::group(['prefix' => 'kelas'], function (){

@@ -8,6 +8,7 @@ use Carbon\Carbon;
 class Midtrans
 {
 
+
     public function generateSnapToken($tagihan)
     {
         $params = [

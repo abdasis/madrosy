@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Tagihan;
 
+use App\Jobs\MembuatTagihan;
 use App\Models\KategoriTagihan;
 use App\Models\Kelas;
 use App\Models\Tagihan;
@@ -74,10 +75,11 @@ class AturPerkelas extends Component
                 //mengambil nomor tagihan terkahir
                 foreach ($data_siswa as $key => $siswa){
                     $nomor_tagihan = Tagihan::max('id') + 1;
+                    $nomor_kode = str_pad($nomor_tagihan, 8, '0', STR_PAD_LEFT);
                     $tagihan = Tagihan::create([
                         'santri_id' => $siswa->id,
                         'kategori_tagihan_id' =>$this->kategori_id,
-                        'kode_tagihan' => $kode . str_pad($nomor_tagihan, 8, '0', STR_PAD_LEFT),
+                        'kode_tagihan' => "INV-{$kode}{$nomor_kode}",
                         'tgl_dibuat' => $this->tgl_tagihan,
                         'tgl_jatuh_tempo' => $this->tgl_jatuh_tempo,
                         'status' => 'belum dibayar',
@@ -86,8 +88,7 @@ class AturPerkelas extends Component
                         'dibuat_oleh' => auth()->id()
                     ]);
 
-                    $billing = new Midtrans();
-                    $billing->buatTransaksi($tagihan);
+                   MembuatTagihan::dispatch($tagihan);
                 }
             }
 

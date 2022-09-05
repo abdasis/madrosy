@@ -181,3 +181,7 @@ Breadcrumbs::for('tagihan.atur-perkelas', function (BreadcrumbTrail $trail){
     $trail->push('Atur Tagihan Perkelas', route('tagihan.atur-perkelas'));
 });
 
+Breadcrumbs::for('tagihan.detail', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('tagihan.semua');
+    $trail->push('Detail Tagihan', route('tagihan.detail', $id));
+});
