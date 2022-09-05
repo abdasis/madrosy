@@ -18,7 +18,7 @@ class TransaksiController extends Controller
             'keterangan_status' => $request->status_message,
             'kode_status' => $request->status_code,
             'tanda_terima' => $request->signature_key,
-            'waktu_penyelesaian' => $request->settlement_time,
+            'waktu_penyelesaian' => now()->toDateTimeString(),
             'jenis_pembayaran' => $request->payment_type,
             'kode_pembayaran' => $request->payment_code,
             'order_id' => $request->order_id,
@@ -28,12 +28,18 @@ class TransaksiController extends Controller
             'kode_persetujuan' => $request->approval_code ?? 'belum diketahui',
             'penipuan_status' => $request->fraud_status ?? 'belum diketahui',
         ]);
-        
+
     }
 
     public function pembayaranSelesai(Request $request)
     {
         $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
         return view('midtrans.pembayaran-selesai', compact('transaksi'));
+    }
+
+    public function pembayaranPending(Request $request)
+    {
+        $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
+        return view('midtrans.pembayaran-pending', compact('transaksi'));
     }
 }

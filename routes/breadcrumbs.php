@@ -171,6 +171,11 @@ Breadcrumbs::for('tagihan.semua', function (BreadcrumbTrail $trail){
     $trail->push('Semua Tagihan', route('tagihan.semua'));
 });
 
+Breadcrumbs::for('tagihan.bayar', function (BreadcrumbTrail $trial, $kode){
+    $trial->parent('tagihan.semua');
+    $trial->push('Bayar Tagihan', route('tagihan.bayar', $kode));
+});
+
 Breadcrumbs::for('tagihan.tambah', function (BreadcrumbTrail $trail){
     $trail->parent('tagihan.semua');
     $trail->push('Tambah Tagihan', route('tagihan.tambah'));

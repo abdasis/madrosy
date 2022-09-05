@@ -20,4 +20,9 @@ class Tagihan extends Model
     {
         return $this->belongsTo(Santri::class);
     }
+
+    public function transaksi()
+    {
+        return $this->belongsTo(Transaksi::class, 'kode_tagihan', 'transaksi_id');
+    }
 }
