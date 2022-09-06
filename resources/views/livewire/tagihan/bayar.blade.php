@@ -62,7 +62,7 @@
 
 @push('scripts')
     <script type="text/javascript"
-            src="{{config('midtrans.midtrans_url')}}"
+            src="{{config('midtrans.midtrans_snap_url')}}"
             data-client-key="{{config('midtrans.client_key')}}">
     </script>
 

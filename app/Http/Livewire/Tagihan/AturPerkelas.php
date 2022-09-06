@@ -9,6 +9,7 @@ use App\Models\Tagihan;
 use App\Models\TahunAjaran;
 use App\Services\PaymentGateway\CreateTokenService;
 use App\Services\PaymentGateway\Midtrans;
+use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -68,7 +69,6 @@ class AturPerkelas extends Component
             if ($data_siswa){
                 //mengambil kode kategori tagihan
                 $kategori = KategoriTagihan::find($this->kategori_id);
-
                 if ($kategori){
                     $kode = $kategori->kode;
                 }
@@ -76,11 +76,10 @@ class AturPerkelas extends Component
                 //mengambil nomor tagihan terkahir
                 foreach ($data_siswa as $key => $siswa){
                     $nomor_tagihan = Tagihan::max('id') + 1;
-                    $nomor_kode = str_pad($nomor_tagihan, 8, '0', STR_PAD_LEFT);
                     $tagihan = Tagihan::create([
                         'santri_id' => $siswa->id,
                         'kategori_tagihan_id' =>$this->kategori_id,
-                        'kode_tagihan' => "INV-{$kode}{$nomor_kode}",
+                        'kode_tagihan' => "{$kode}-".Carbon::now()->format('dmy-') . $nomor_tagihan . "-" . $siswa->id,
                         'tgl_dibuat' => $this->tgl_tagihan,
                         'tgl_jatuh_tempo' => $this->tgl_jatuh_tempo,
                         'status' => 'belum dibayar',

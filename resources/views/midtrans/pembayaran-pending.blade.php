@@ -4,7 +4,11 @@
             <div class="col-md-5">
                 <div class="card border-light shadow-sm">
                     <div class="card-body text-center">
-                        <i class="ri-checkbox-circle-line icon-success text-success py-0 my-0" style="font-size: 100px"></i>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/osvvqecf.json"
+                            trigger="hover"
+                            style="width:100px;height:100px">
+                        </lord-icon>
                         <h3 class="">Pembayaran di Proses</h3>
                         <small class="text-muted">Tunggu sebentar kami akan informasikan lagi setelah pembayaran berhasil</small>
                     </div>
@@ -20,12 +24,13 @@
                         </div>
                         <div class="d-flex justify-content-between py-2 border-bottom border-light">
                             <div class="text-muted">Total Pembayaran</div>
-                            <div class="text-muted">Rp.</div>
+                            <div class="text-muted">Rp. {{rupiah($transaksi->total)}}</div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="d-grid">
-                            <button class="btn btn-dark">
+                        <div class="d-grid gap-2">
+                            <a href="{{route('midtrans.ganti', ['id' => $transaksi->transaksi_id])}}"></a>
+                            <button id="btnPay" class="btn btn-dark">
                                 Bayar Sekarang
                             </button>
                         </div>
@@ -34,13 +39,15 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+    <script type="text/javascript"
+            src="{{config('midtrans.midtrans_url')}}"
+            data-client-key="{{config('midtrans.client_key')}}">
+    </script>
 
-@push('styles')
-    <style>
-        .icon-success{
-            color: #4caf50;
-            text-align: center;
-        }
-    </style>
-@endpush
+    <script>
+        let btnPay = document.getElementById('btnPay');
+        btnPay.addEventListener('click', function () {
+            window.snap.pay("{{$transaksi->token}}");
+        });
+    </script>
+</x-guest-layout>

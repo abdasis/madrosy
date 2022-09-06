@@ -2,6 +2,7 @@
 
 namespace App\Services\PaymentGateway;
 
+use App\Models\KategoriTagihan;
 use App\Models\Transaksi;
 use Carbon\Carbon;
 use Midtrans\Snap;
@@ -18,6 +19,7 @@ class CreateTokenService extends Midtrans
 
     public function generateSnapToken()
     {
+
         $params = [
             'transaction_details' => [
                 'order_id' => $this->tagihan->kode_tagihan,

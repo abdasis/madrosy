@@ -62,7 +62,7 @@
 
 <?php $__env->startPush('scripts'); ?>
     <script type="text/javascript"
-            src="<?php echo e(config('midtrans.midtrans_url')); ?>"
+            src="<?php echo e(config('midtrans.midtrans_snap_url')); ?>"
             data-client-key="<?php echo e(config('midtrans.client_key')); ?>">
     </script>
 

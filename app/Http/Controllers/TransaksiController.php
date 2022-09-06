@@ -10,11 +10,12 @@ class TransaksiController extends Controller
 {
     public function midtransResponse(Request $request)
     {
+
         $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
         if ($request->payment_type == 'cstore'){
             $jenis_pembayaran = \Str::title($request->store);
         }elseif($request->payment_type == 'bank_transfer'){
-            $jenis_pembayaran = \Str::upper($request->va_numbers['bank']);
+            $jenis_pembayaran = \Str::upper($request->va_numbers[0]['bank']);
         }else{
             $jenis_pembayaran = \Str::title($transaksi->jenis_pembayaran);
         }
@@ -32,8 +33,8 @@ class TransaksiController extends Controller
             'merchant_id' => $request->merchant_id,
             'total' => $request->gross_amount,
             'mata_uang' => 'IDR',
-            'kode_persetujuan' => $request->approval_code ?? 'belum diketahui',
-            'penipuan_status' => $request->fraud_status ?? 'belum diketahui',
+            'kode_persetujuan' => $request->approval_code,
+            'penipuan_status' => $request->fraud_status,
         ]);
 
         if ($transaksi){
@@ -61,4 +62,22 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
         return view('midtrans.kesalahan-pembayaran', compact('transaksi'));
     }
+
+    public function statusPembayaran(Request $request)
+    {
+        if ($request->transaction_status == 'pending'){
+            return redirect()->route('midtrans.pending', ['order_id' => $request->order_id]);
+        }elseif($request->transaction_status == 'settlement'){
+            return redirect()->route('midtrans.selesai', ['order_id' => $request->order_id]);
+        }else{
+            return redirect()->route('midtrans.kesalahan', ['order_id' => $request->order_id]);
+        }
+    }
+
+    public function gantiPembayaran($id)
+    {
+        $transaksi = Transaksi::where('transaksi_id', $id)->first();
+        return view('midtrans.ganti-pembayaran', compact('transaksi'));
+    }
+
 }

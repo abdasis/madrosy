@@ -103,3 +103,5 @@ Route::get('pembayaran-selesai', [\App\Http\Controllers\TransaksiController::cla
 Route::get('pembayaran-pending', [\App\Http\Controllers\TransaksiController::class, 'pembayaranPending'])->name('midtrans.pending');
 Route::get('kesalahan-pembayaran', [\App\Http\Controllers\TransaksiController::class, 'kesalahanPembayaran'])->name('midtrans.kesalahan');
 Route::get('bayar/{kode}', \App\Http\Livewire\Tagihan\Bayar::class)->name('tagihan.bayar');
+Route::get('status-pembayaran', [\App\Http\Controllers\TransaksiController::class, 'statusPembayaran'])->name('midtrans.status');
+Route::get('ganti-pembayaran', [\App\Http\Controllers\TransaksiController::class, 'gantiPembayaran'])->name('midtrans.ganti');
