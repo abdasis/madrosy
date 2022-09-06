@@ -35,6 +35,7 @@
             <?php echo e($slot); ?>
 
         </div>
+        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
         <script src="<?php echo e(asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
         <script src="<?php echo e(asset('assets/libs/simplebar/simplebar.min.js')); ?>"></script>
         <script src="<?php echo e(asset('assets/libs/node-waves/waves.min.js')); ?>"></script>

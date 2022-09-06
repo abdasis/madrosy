@@ -101,4 +101,5 @@ Route::middleware([
 Route::post('midtrans-response', [\App\Http\Controllers\TransaksiController::class, 'midtransResponse'])->name('midtrans.notif');
 Route::get('pembayaran-selesai', [\App\Http\Controllers\TransaksiController::class, 'pembayaranSelesai'])->name('midtrans.selesai');
 Route::get('pembayaran-pending', [\App\Http\Controllers\TransaksiController::class, 'pembayaranPending'])->name('midtrans.pending');
+Route::get('kesalahan-pembayaran', [\App\Http\Controllers\TransaksiController::class, 'kesalahanPembayaran'])->name('midtrans.kesalahan');
 Route::get('bayar/{kode}', \App\Http\Livewire\Tagihan\Bayar::class)->name('tagihan.bayar');
