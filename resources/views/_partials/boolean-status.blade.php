@@ -6,7 +6,6 @@
     <div class="badge badge-outline-warning">
         {{Str::title($status)}}
     </div>
-
 @elseif($status == 'jatuh tempo')
     <div class="badge badge-danger">
         {{Str::title($status)}}

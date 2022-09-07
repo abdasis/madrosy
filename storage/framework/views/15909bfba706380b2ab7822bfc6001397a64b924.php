@@ -8,7 +8,6 @@
         <?php echo e(Str::title($status)); ?>
 
     </div>
-
 <?php elseif($status == 'jatuh tempo'): ?>
     <div class="badge badge-danger">
         <?php echo e(Str::title($status)); ?>
