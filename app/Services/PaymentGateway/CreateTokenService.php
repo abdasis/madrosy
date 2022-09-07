@@ -9,12 +9,12 @@ use Midtrans\Snap;
 
 class CreateTokenService extends Midtrans
 {
-    protected $tagihan;
+    protected $transaksi;
 
-    public function __construct($tagihan)
+    public function __construct($transaksi)
     {
         parent::__construct();
-        $this->tagihan = $tagihan;
+        $this->transaksi = $transaksi;
     }
 
     public function generateSnapToken()
@@ -22,15 +22,15 @@ class CreateTokenService extends Midtrans
 
         $params = [
             'transaction_details' => [
-                'order_id' => $this->tagihan->kode_tagihan,
-                'gross_amount' => $this->tagihan->total_tagihan,
+                'order_id' => $this->transaksi->order_id,
+                'gross_amount' => $this->transaksi->total,
             ],
 
             'customer_details' => [
-                'first_name' => $this->tagihan->santri->nama_lengkap,
+                'first_name' => $this->transaksi->tagihan->santri->nama_lengkap,
                 'last_name' => '',
-                'email' => $this->tagihan->santri->email,
-                'phone' => $this->tagihan->santri->no_hp,
+                'email' => $this->transaksi->tagihan->santri->email,
+                'phone' => $this->transaksi->tagihan->santri->no_hp,
             ],
         ];
 

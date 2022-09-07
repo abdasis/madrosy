@@ -1,5 +1,5 @@
 @if ($status == 'lunas')
-    <div class="badge badge-success">
+    <div class="badge badge-outline-success">
         {{Str::title($status)}}
     </div>
 @elseif($status == 'belum dibayar')

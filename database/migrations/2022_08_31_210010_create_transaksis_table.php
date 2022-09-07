@@ -31,8 +31,7 @@ return new class extends Migration
             $table->string('mata_uang');
             $table->string('kode_persetujuan')->nullable();
             $table->string('penipuan_status')->nullable();
-            $table->string('token');
-            $table->string('link_pembayaran');
+            $table->string('token')->unique();
             $table->timestamps();
         });
     }

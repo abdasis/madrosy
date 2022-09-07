@@ -72,7 +72,6 @@ class AturPerkelas extends Component
                 if ($kategori){
                     $kode = $kategori->kode;
                 }
-
                 //mengambil nomor tagihan terkahir
                 foreach ($data_siswa as $key => $siswa){
                     $nomor_tagihan = Tagihan::max('id') + 1;
@@ -87,7 +86,6 @@ class AturPerkelas extends Component
                         'keterangan' => $this->notes,
                         'dibuat_oleh' => auth()->id()
                     ]);
-
                    MembuatTagihan::dispatch($tagihan);
                 }
             }

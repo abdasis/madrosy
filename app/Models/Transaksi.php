@@ -13,6 +13,6 @@ class Transaksi extends Model
 
     public function tagihan()
     {
-        return $this->belongsTo(Tagihan::class, 'kode_tagihan', 'transaksi_id');
+        return $this->belongsTo(Tagihan::class, 'transaksi_id', 'kode_tagihan');
     }
 }

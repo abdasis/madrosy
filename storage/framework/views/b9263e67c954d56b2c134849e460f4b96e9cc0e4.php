@@ -1,5 +1,5 @@
 <div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+    
     <div class="container">
         <div class="row justify-content-center align-items-center" style="min-height: 90vh">
             <div class="col-md-5">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="d-flex gap-2 px-1 align-items-center my-2">
                             <h5 class="mb-0">Invoice</h5>
-                            <span> #{{$tagihan->kode_tagihan}}</span>
+                            <span> #<?php echo e($tagihan->kode_tagihan); ?></span>
                         </div>
                         <div class=" my-3 rounded-3">
                             <table class="table">
@@ -41,9 +41,9 @@
                                <tbody>
                                <tr class="mx-0 px-0">
                                    <td>1. </td>
-                                   <td>{{$tagihan->kategori->nama_kategori}}</td>
-                                   <td>{{$tagihan->kategori->tapel->tahun_awal}}/{{$tagihan->kategori->tapel->tahun_akhir}}</td>
-                                   <td class="text-end">{{rupiah($tagihan->total_tagihan)}}</td>
+                                   <td><?php echo e($tagihan->kategori->nama_kategori); ?></td>
+                                   <td><?php echo e($tagihan->kategori->tapel->tahun_awal); ?>/<?php echo e($tagihan->kategori->tapel->tahun_akhir); ?></td>
+                                   <td class="text-end"><?php echo e(rupiah($tagihan->total_tagihan)); ?></td>
                                </tr>
                                </tbody>
                             </table>
@@ -60,10 +60,10 @@
     </div>
 </div>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script type="text/javascript"
-            src="{{config('midtrans.midtrans_snap_url')}}"
-            data-client-key="{{config('midtrans.client_key')}}">
+            src="<?php echo e(config('midtrans.midtrans_snap_url')); ?>"
+            data-client-key="<?php echo e(config('midtrans.client_key')); ?>">
     </script>
 
     <script type="text/javascript">
@@ -71,4 +71,5 @@
             window.snap.pay(data);
         })
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php /**PATH /home/aziz/SKA Project/madrosy/resources/views/livewire/tagihan/bayar.blade.php ENDPATH**/ ?>

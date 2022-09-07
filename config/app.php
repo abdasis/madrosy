@@ -197,6 +197,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         Laravolt\Indonesia\ServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
     ],
 
     /*

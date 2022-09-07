@@ -11,7 +11,8 @@ class TransaksiController extends Controller
     public function midtransResponse(Request $request)
     {
 
-        $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
+        $transaksi = Transaksi::where('order_id', $request->order_id)->first();
+
         if ($request->payment_type == 'cstore'){
             $jenis_pembayaran = \Str::title($request->store);
         }elseif($request->payment_type == 'bank_transfer'){
@@ -37,6 +38,17 @@ class TransaksiController extends Controller
             'penipuan_status' => $request->fraud_status,
         ]);
 
+        if ($request->transaction_status != 'settlement') {
+           $status = 'belum dibayar';
+        }else{
+            $status = 'lunas';
+        }
+
+        //update tagihan
+        $transaksi->tagihan->update([
+            'status' => $status,
+        ]);
+
         if ($transaksi){
             return response()->json($transaksi, '200' , [], JSON_PRETTY_PRINT);
         }else{
@@ -47,19 +59,33 @@ class TransaksiController extends Controller
 
     public function pembayaranSelesai(Request $request)
     {
-        $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
+        $transaksi = Transaksi::where('order_id', $request->order_id)->first();
         return view('midtrans.pembayaran-selesai', compact('transaksi'));
     }
 
     public function pembayaranPending(Request $request)
     {
-        $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
+        $transaksi = Transaksi::where('order_id', $request->order_id)->firstOrFail();
+
+        $tagihan = $transaksi->tagihan;
+
+        if ($tagihan->status == 'lunas'){
+            return  redirect()->route('midtrans.selesai', ['order_id' => $request->order_id]);
+        }
+
         return view('midtrans.pembayaran-pending', compact('transaksi'));
     }
 
     public function kesalahanPembayaran(Request $request)
     {
-        $transaksi = Transaksi::where('transaksi_id', $request->order_id)->first();
+        $transaksi = Transaksi::where('order_id', $request->order_id)->first();
+
+        $tagihan = $transaksi->tagihan;
+
+        if ($tagihan->status == 'lunas'){
+            return  redirect()->route('midtrans.selesai', ['order_id' => $request->order_id]);
+        }
+
         return view('midtrans.kesalahan-pembayaran', compact('transaksi'));
     }
 
@@ -70,7 +96,7 @@ class TransaksiController extends Controller
         }elseif($request->transaction_status == 'settlement'){
             return redirect()->route('midtrans.selesai', ['order_id' => $request->order_id]);
         }else{
-            return redirect()->route('midtrans.kesalahan', ['order_id' => $request->order_id]);
+            return redirect()->route('midtrans.pending', ['order_id' => $request->order_id]);
         }
     }
 

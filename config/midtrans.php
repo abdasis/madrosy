@@ -12,8 +12,10 @@ return [
     '3ds' => \Midtrans\Config::$is3ds = env('MIDTRANS_3DS', true),
 
     // Optional
-    'midtrans_url' => env('MIDTRANS_URL', ''),
-    'midtrans_snap_url' => env('MIDTRANS_SNAP_URL', 'https://api.sandbox.midtrans.com/v2/'),
+    'midtrans_url' => env('MIDTRANS_URL', 'https://api.sandbox.midtrans.com/v2/'),
+
+
+    'midtrans_snap_url' => env('MIDTRANS_SNAP_URL', 'https://app.sandbox.midtrans.com/snap/snap.js'),
 ]
 
 ?>
