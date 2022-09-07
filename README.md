@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="E:\GitHub\madrosy\public\assets\images\logo-light.png" width="187" height="40"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/abdasis/madrosy/blob/adccbd5b8fc23702e9b0d1c722fd546c08dce469/public/assets/images/logo-light.png" width="187" height="40"></a></p>
 
 ## Tentang
 
