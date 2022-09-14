@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kelas;
+use App\Models\Jadwal;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class KelasSeeder extends Seeder
+class JadwalSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class KelasSeeder extends Seeder
      */
     public function run()
     {
-        Kelas::factory()->count(11)->create();
+        Jadwal::factory()->count(32)->create();
     }
 }

@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mapels', function (Blueprint $table) {
+        Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
             $table->string('kode')->unique();
-            $table->string('nama');
-            $table->unsignedBigInteger('dibuat_oleh');
-            $table->unsignedInteger('diubah_oleh')->nullable();
+            $table->foreignId('kelas_id')->constrained('kelas');
+            $table->foreignId('guru_id')->constrained('gurus');
+            $table->foreignId('mapel_id')->constrained('mapels');
+            $table->time('jam_mulai');
+            $table->time('jam_selesai');
+            $table->string('hari');
+            $table->enum('status', ['aktif', 'nonaktif']);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mapels');
+        Schema::dropIfExists('jadwals');
     }
 };

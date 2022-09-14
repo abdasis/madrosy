@@ -53,9 +53,9 @@ class Tabel extends DataTableComponent
                 ->sortable()->searchable(),
              Column::make('Dibuat Oleh', 'pembuat.name')
                 ->sortable()->searchable(),
-            Column::make("Created at", "created_at")
+            Column::make("Dibuat Pada", "created_at")
                 ->sortable(),
-            Column::make("Updated at", "updated_at")
+            Column::make("Terakhir Diedit", "updated_at")
                 ->sortable(),
             Column::make('Opsi', 'id')->format(function ($id){
                 return view('tombol-aksi', [

@@ -179,10 +179,10 @@
                         <div class="collapse menu-dropdown" id="jadwal">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Tambah Jadwal </a>
+                                    <a href="<?php echo e(route('jadwal.tambah')); ?>" class="nav-link" data-key="t-calendar"> Tambah Jadwal </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Data Jadwal </a>
+                                    <a href="<?php echo e(route('jadwal.semua')); ?>" class="nav-link" data-key="t-chat"> Data Jadwal </a>
                                 </li>
                             </ul>
                         </div>

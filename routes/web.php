@@ -107,6 +107,13 @@ Route::middleware([
         Route::get('/detail/{mapel}', \App\Http\Livewire\Mapel\Detail::class)->name('mapel.detail');
     });
 
+    Route::group(['prefix' => 'jadwal'], function (){
+        Route::get('/', \App\Http\Livewire\Jadwal\Semua::class)->name('jadwal.semua');
+        Route::get('/tambah', \App\Http\Livewire\Jadwal\Tambah::class)->name('jadwal.tambah');
+        Route::get('/edit/{jadwal}', \App\Http\Livewire\Jadwal\Edit::class)->name('jadwal.edit');
+        Route::get('/detail/{jadwal}', \App\Http\Livewire\Jadwal\Detail::class)->name('jadwal.detail');
+    });
+
     Route::group(['prefix' => 'absensi'], function (){
         Route::get('scan', Scan::class)->name('absensi.scan');
     });
