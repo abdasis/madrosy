@@ -244,6 +244,11 @@
                             <i class="bx bxs-door-open fs-20"></i> <span>Kelas</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{route('mapel.semua')}}">
+                            <i class="ri-book-line fs-20"></i> <span>Mata Pelajaran</span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="my-3 d-grid px-3">
                     <button class="btn btn-light waves-effect waves-light align-items-center d-flex gap-1 justify-content-center rounded-pill btn-border ">

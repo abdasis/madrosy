@@ -33,7 +33,8 @@ class Tabel extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')
+        ->setDefaultSort('kode_kelas', 'asc');
     }
 
     public function edit($id)

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Kelas;
 
 use App\Http\Livewire\Modal;
+use App\Models\Guru;
 use App\Models\Kelas;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -14,6 +15,7 @@ class Edit extends Modal
     public $kode_kelas;
     public $nama_kelas;
     public $kelas_id;
+    public $wali_kelas;
     protected $listeners = ['edit' => 'show'];
 
     public function rules()
@@ -22,6 +24,7 @@ class Edit extends Modal
         return[
             'kode_kelas' => 'required|unique:kelas,kode_kelas,' . $kelas_kode,
             'nama_kelas' => 'required',
+            'wali_kelas' => 'required'
         ];
     }
     public function show($id)
@@ -30,6 +33,7 @@ class Edit extends Modal
         $this->kode_kelas = $kelas->kode_kelas;
         $this->nama_kelas = $kelas->nama_kelas;
         $this->kelas_id = $kelas->id;
+        $this->wali_kelas = $kelas->wali_kelas;
         $this->emit('modalEdit', 'edit-kelas');
     }
 
@@ -40,6 +44,7 @@ class Edit extends Modal
             $kelas = Kelas::where('id', $this->kelas_id)->update([
                 'kode_kelas' => $this->kode_kelas,
                 'nama_kelas' => $this->nama_kelas,
+                'wali_kelas' => $this->wali_kelas,
             ]);
             $this->alert('success', 'Data berhasil dipebarui');
             $this->emit('kelasDitambah', $kelas);
@@ -51,6 +56,9 @@ class Edit extends Modal
 
     public function render()
     {
-        return view('livewire.kelas.edit');
+        return view('livewire.kelas.edit',[
+            'data_guru' => Guru::orderBy('nama', 'asc')->get()
+
+        ]);
     }
 }

@@ -190,3 +190,23 @@ Breadcrumbs::for('tagihan.detail', function (BreadcrumbTrail $trail, $id){
     $trail->parent('tagihan.semua');
     $trail->push('Detail Tagihan', route('tagihan.detail', $id));
 });
+
+Breadcrumbs::for('mapel.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Mata Pelajaran', route('mapel.semua'));
+});
+
+Breadcrumbs::for('mapel.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('mapel.semua');
+    $trail->push('Tambah Mata Pelajaran', route('mapel.tambah'));
+});
+
+Breadcrumbs::for('mapel.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('mapel.semua');
+    $trail->push('Edit Mata Pelajaran', route('mapel.edit', $id));
+});
+
+Breadcrumbs::for('mapel.detail', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('mapel.semua');
+    $trail->push('Detail Mata Pelajaran', route('mapel.detail', $id));
+});

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TransaksiController;
+use App\Http\Livewire\Absensi\Scan;
 use App\Http\Livewire\KategoriTagihan\Edit;
 use App\Http\Livewire\KategoriTagihan\Semua;
 use App\Http\Livewire\KategoriTagihan\Tambah;
@@ -7,6 +9,7 @@ use App\Http\Livewire\Kelas\Migrasi;
 use App\Http\Livewire\Kelas\PindahKelasForm;
 use App\Http\Livewire\Rekening\Detail;
 use App\Http\Livewire\Tagihan\AturPerkelas;
+use App\Http\Livewire\Tagihan\Bayar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,12 +99,23 @@ Route::middleware([
         Route::get('/pindah-kelas', Migrasi::class)->name('kelas.migrasi');
         Route::get('/konfirmasi-kelas', PindahKelasForm::class)->name('kelas.konfirmasi');
     });
+
+    Route::group(['prefix' => 'mata-pelajaran'], function (){
+        Route::get('/', \App\Http\Livewire\Mapel\Semua::class)->name('mapel.semua');
+        Route::get('/tambah', \App\Http\Livewire\Mapel\Tambah::class)->name('mapel.tambah');
+        Route::get('/edit/{mapel}', \App\Http\Livewire\Mapel\Edit::class)->name('mapel.edit');
+        Route::get('/detail/{mapel}', \App\Http\Livewire\Mapel\Detail::class)->name('mapel.detail');
+    });
+
+    Route::group(['prefix' => 'absensi'], function (){
+        Route::get('scan', Scan::class)->name('absensi.scan');
+    });
 });
 
-Route::post('midtrans-response', [\App\Http\Controllers\TransaksiController::class, 'midtransResponse'])->name('midtrans.notif');
-Route::get('pembayaran-selesai', [\App\Http\Controllers\TransaksiController::class, 'pembayaranSelesai'])->name('midtrans.selesai');
-Route::get('pembayaran-pending', [\App\Http\Controllers\TransaksiController::class, 'pembayaranPending'])->name('midtrans.pending');
-Route::get('kesalahan-pembayaran', [\App\Http\Controllers\TransaksiController::class, 'kesalahanPembayaran'])->name('midtrans.kesalahan');
-Route::get('bayar/{kode}', \App\Http\Livewire\Tagihan\Bayar::class)->name('tagihan.bayar');
-Route::get('status-pembayaran', [\App\Http\Controllers\TransaksiController::class, 'statusPembayaran'])->name('midtrans.status');
-Route::get('ganti-pembayaran', [\App\Http\Controllers\TransaksiController::class, 'gantiPembayaran'])->name('midtrans.ganti');
+Route::post('midtrans-response', [TransaksiController::class, 'midtransResponse'])->name('midtrans.notif');
+Route::get('pembayaran-selesai', [TransaksiController::class, 'pembayaranSelesai'])->name('midtrans.selesai');
+Route::get('pembayaran-pending', [TransaksiController::class, 'pembayaranPending'])->name('midtrans.pending');
+Route::get('kesalahan-pembayaran', [TransaksiController::class, 'kesalahanPembayaran'])->name('midtrans.kesalahan');
+Route::get('bayar/{kode}', Bayar::class)->name('tagihan.bayar');
+Route::get('status-pembayaran', [TransaksiController::class, 'statusPembayaran'])->name('midtrans.status');
+Route::get('ganti-pembayaran', [TransaksiController::class, 'gantiPembayaran'])->name('midtrans.ganti');

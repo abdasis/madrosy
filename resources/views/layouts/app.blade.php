@@ -70,7 +70,7 @@
 <script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/libs/flatpickr/flatpickr.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
-
+<script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
 @livewireScripts
 @stack('scripts')
 

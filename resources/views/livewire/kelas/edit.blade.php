@@ -9,6 +9,14 @@
                 <x-form-input name="nama_kelas" wire:model="nama_kelas" placeholder="Masukan Nama Kelas" label="Nama Kelas"/>
             </div>
             <div class="form-group mb-3">
+                <x-form-select wire:model="wali_kelas" label="Wali Kelas" name="wali_kelas">
+                    <option value="">Pilih Wali Kelas</option>
+                    @foreach($data_guru as $key => $guru)
+                        <option value="{{$guru->id}}">{{$guru->nama}}</option>
+                    @endforeach
+                </x-form-select>
+            </div>
+            <div class="form-group mb-3">
                 <button class="btn btn-border btn-success d-flex gap-1 align-items-center float-end">
                     <i class="ri-save-line"></i>
                     Simpan

@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
             SantriSeeder::class,
             GuruSeeder::class,
             RekeningSeeder::class,
+            TahunAjaranSeeder::class,
+            KelasSeeder::class,
         ]);
     }
 }

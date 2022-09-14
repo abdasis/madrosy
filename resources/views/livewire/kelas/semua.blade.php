@@ -4,7 +4,7 @@
         <div class="card-header border-0 d-flex align-items-center gap-1">
             <h1 class="card-title flex-grow-1">Data Semua Kelas</h1>
             <button
-                class="btn btn-light btn-border d-flex align-items-center gap-1"
+                class="btn btn-light btn-border waves-effect d-flex align-items-center gap-1"
                 wire:click.prevent="$emitTo('kelas.tambah', 'tambah')"
             >
                 <i class="ri-add-line"></i>

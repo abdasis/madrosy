@@ -15,11 +15,11 @@ class Rekening extends Model
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->dibuat_oleh = auth()->id();
+            $model->dibuat_oleh = auth()->id() ?? 1;
         });
 
         self::updating(function ($model) {
-            $model->diubah_oleh = auth()->id();
+            $model->diubah_oleh = auth()->id() ?? 1;
         });
     }
 

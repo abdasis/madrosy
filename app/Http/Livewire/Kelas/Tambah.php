@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Kelas;
 
 use App\Http\Livewire\Modal;
+use App\Models\Guru;
 use App\Models\Kelas;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -12,12 +13,14 @@ class Tambah extends Modal
     use LivewireAlert;
     public $kode_kelas;
     public $nama_kelas;
+    public $wali_kelas;
 
     public function rules()
     {
         return[
             'kode_kelas' => 'required|unique:kelas,kode_kelas',
             'nama_kelas' => 'required',
+            'wali_kelas' => 'required'
         ];
     }
 
@@ -41,6 +44,7 @@ class Tambah extends Modal
             $kelas = Kelas::create([
                 'kode_kelas' => $this->kode_kelas,
                 'nama_kelas' => $this->nama_kelas,
+                'wali_kelas' => $this->wali_kelas,
             ]);
             $this->alert('success', 'Data berhasil ditambahkan');
             $this->emit('kelasDitambah', $kelas);
@@ -52,6 +56,8 @@ class Tambah extends Modal
     }
     public function render()
     {
-        return view('livewire.kelas.tambah');
+        return view('livewire.kelas.tambah',[
+            'data_guru' => Guru::orderBy('nama', 'asc')->get()
+        ]);
     }
 }
