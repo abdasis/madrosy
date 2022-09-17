@@ -10,7 +10,7 @@ class Transaksi implements TransaksiInterface
     public function create(array $tagihan)
     {
         try {
-            $transaksi = \App\Models\Transaksi::create([
+            $transaksi = \App\Models\Keuangan\Transaksi::create([
                 'waktu_transaksi' => Carbon::now()->toDateTimeString(),
                 'status_transaksi' => 'pending',
                 'transaksi_id' => $tagihan['kode_tagihan'],

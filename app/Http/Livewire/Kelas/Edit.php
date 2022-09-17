@@ -3,10 +3,9 @@
 namespace App\Http\Livewire\Kelas;
 
 use App\Http\Livewire\Modal;
-use App\Models\Guru;
-use App\Models\Kelas;
+use App\Models\Akademik\Kelas;
+use App\Models\Kepegawaian\Guru;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Component;
 
 class Edit extends Modal
 {

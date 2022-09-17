@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Rekening;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Keuangan\Rekening;
 use Illuminate\Database\Seeder;
 
 class RekeningSeeder extends Seeder

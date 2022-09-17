@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\RiwayatPendidikan;
 
-use App\Models\Guru;
-use App\Models\RiwayatPendidikan;
-use Barryvdh\Debugbar\Facades\Debugbar;
+use App\Models\Kepegawaian\Guru;
+use App\Models\Kepegawaian\RiwayatPendidikan;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;

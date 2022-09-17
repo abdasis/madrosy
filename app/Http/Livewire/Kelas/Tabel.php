@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Kelas;
 
+use App\Models\Akademik\Kelas;
 use App\Traits\KonfirmasiHapus;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Kelas;
 
 class Tabel extends DataTableComponent
 {

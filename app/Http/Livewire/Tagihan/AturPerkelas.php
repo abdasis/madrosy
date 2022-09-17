@@ -3,12 +3,10 @@
 namespace App\Http\Livewire\Tagihan;
 
 use App\Jobs\MembuatTagihan;
-use App\Models\KategoriTagihan;
-use App\Models\Kelas;
-use App\Models\Tagihan;
-use App\Models\TahunAjaran;
-use App\Services\PaymentGateway\CreateTokenService;
-use App\Services\PaymentGateway\Midtrans;
+use App\Models\Akademik\Kelas;
+use App\Models\Akademik\TahunAjaran;
+use App\Models\Keuangan\KategoriTagihan;
+use App\Models\Keuangan\Tagihan;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Commons;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KriteriaKonseling extends Model
+class Kecamatan extends Model
 {
     use HasFactory;
+
+    protected $table = 'indonesia_districts';
 }

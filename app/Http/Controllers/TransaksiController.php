@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaksi;
-use Carbon\Carbon;
+use App\Models\Keuangan\Transaksi;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller

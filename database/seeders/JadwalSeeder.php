@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Jadwal;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Akademik\Jadwal;
 use Illuminate\Database\Seeder;
 
 class JadwalSeeder extends Seeder

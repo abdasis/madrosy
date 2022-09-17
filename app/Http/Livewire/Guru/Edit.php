@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire\Guru;
 
-use App\Models\Guru;
-use App\Models\Kabupaten;
-use App\Models\Kecamatan;
-use App\Models\Kelurahan;
-use App\Models\Provinsi;
-use App\Models\User;
+use App\Models\Commons\Kabupaten;
+use App\Models\Commons\Kecamatan;
+use App\Models\Commons\Kelurahan;
+use App\Models\Commons\Provinsi;
+use App\Models\Kepegawaian\Guru;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;

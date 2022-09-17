@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\RiwayatPendidikan;
-use App\Models\User;
+use App\Models\Commons\User;
+use App\Models\Kepegawaian\RiwayatPendidikan;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class RiwayatPendidikanPolicy
@@ -13,7 +13,7 @@ class RiwayatPendidikanPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Commons\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(User $user)
@@ -24,8 +24,8 @@ class RiwayatPendidikanPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Commons\User  $user
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(User $user, RiwayatPendidikan $riwayatPendidikan)
@@ -36,7 +36,7 @@ class RiwayatPendidikanPolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Commons\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(User $user)
@@ -47,8 +47,8 @@ class RiwayatPendidikanPolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Commons\User  $user
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(User $user, RiwayatPendidikan $riwayatPendidikan)
@@ -59,8 +59,8 @@ class RiwayatPendidikanPolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Commons\User  $user
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(User $user, RiwayatPendidikan $riwayatPendidikan)
@@ -71,8 +71,8 @@ class RiwayatPendidikanPolicy
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Commons\User  $user
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(User $user, RiwayatPendidikan $riwayatPendidikan)
@@ -83,8 +83,8 @@ class RiwayatPendidikanPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Commons\User  $user
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(User $user, RiwayatPendidikan $riwayatPendidikan)

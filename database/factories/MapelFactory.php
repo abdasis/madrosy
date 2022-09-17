@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Mapel>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Akademik\Mapel>
  */
 class MapelFactory extends Factory
 {

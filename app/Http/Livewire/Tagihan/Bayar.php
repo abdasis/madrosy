@@ -2,11 +2,10 @@
 
 namespace App\Http\Livewire\Tagihan;
 
-use App\Models\KategoriTagihan;
-use App\Models\Tagihan;
-use App\Models\Transaksi;
+use App\Models\Keuangan\KategoriTagihan;
+use App\Models\Keuangan\Tagihan;
+use App\Models\Keuangan\Transaksi;
 use App\Services\PaymentGateway\CreateTokenService;
-use App\Services\PaymentGateway\Midtrans;
 use Carbon\Carbon;
 use Livewire\Component;
 

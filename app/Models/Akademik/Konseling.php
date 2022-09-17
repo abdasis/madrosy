@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Akademik;
 
+use App\Models\Commons\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

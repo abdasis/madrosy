@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Santri;
 
+use App\Models\Akademik\Santri;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Santri;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class Tabel extends DataTableComponent
@@ -54,7 +54,7 @@ class Tabel extends DataTableComponent
                 ->searchable()
                 ->html()
                 ->format(function ($nama) {
-                    return "<span class='fw-bold text-dark'>$nama</span>";
+                    return "<span class='fw-bold text-success'>$nama</span>";
                 })
                 ->sortable(),
             Column::make("Jenis Kelamin", "jenis_kelamin")

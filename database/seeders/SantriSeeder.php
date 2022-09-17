@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Santri;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Akademik\Santri;
 use Illuminate\Database\Seeder;
 
 class SantriSeeder extends Seeder

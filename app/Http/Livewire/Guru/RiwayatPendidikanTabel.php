@@ -2,13 +2,12 @@
 
 namespace App\Http\Livewire\Guru;
 
+use App\Models\Kepegawaian\RiwayatPendidikan;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\RiwayatPendidikan;
 
 class RiwayatPendidikanTabel extends DataTableComponent
 {

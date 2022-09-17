@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\TahunAjaran;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Akademik\TahunAjaran;
 use Illuminate\Database\Seeder;
 
 class TahunAjaranSeeder extends Seeder

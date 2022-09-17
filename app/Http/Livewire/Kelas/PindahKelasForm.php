@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire\Kelas;
 
-use App\Http\Livewire\Modal;
-use App\Models\Kelas;
-use App\Models\Santri;
+use App\Models\Akademik\Kelas;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Tagihan;
 
-use App\Models\Tagihan;
+use App\Models\Keuangan\Tagihan;
 use Livewire\Component;
 
 class Detail extends Component

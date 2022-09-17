@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\KategoriTagihan;
 
-use App\Models\KategoriTagihan;
-use App\Models\TahunAjaran;
+use App\Models\Akademik\TahunAjaran;
+use App\Models\Keuangan\KategoriTagihan;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 

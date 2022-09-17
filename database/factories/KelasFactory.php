@@ -2,11 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Kelas;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kelas>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Akademik\Kelas>
  */
 class KelasFactory extends Factory
 {

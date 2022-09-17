@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Mapel;
 
-use App\Models\Mapel;
+use App\Models\Akademik\Mapel;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 

@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Guru;
-use App\Models\User;
-use Database\Factories\GuruFactory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Commons\User;
+use App\Models\Kepegawaian\Guru;
 use Illuminate\Database\Seeder;
 
 class GuruSeeder extends Seeder

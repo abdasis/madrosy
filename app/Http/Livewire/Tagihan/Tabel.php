@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire\Tagihan;
 
+use App\Models\Keuangan\Tagihan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Tagihan;
-use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class Tabel extends DataTableComponent
 {

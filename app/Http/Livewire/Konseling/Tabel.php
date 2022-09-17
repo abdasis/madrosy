@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Konseling;
 
+use App\Models\Akademik\Konseling;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Konseling;
 use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
 
 class Tabel extends DataTableComponent

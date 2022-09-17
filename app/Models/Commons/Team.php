@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Commons;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Jetstream\Events\TeamCreated;

@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Mapel;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Akademik\Mapel;
 use Illuminate\Database\Seeder;
 
 class MapelSeeder extends Seeder

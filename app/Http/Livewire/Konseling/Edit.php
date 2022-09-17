@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Konseling;
 
-use App\Models\Konseling;
-use App\Models\Pelanggaran;
-use App\Models\Santri;
+use App\Models\Akademik\Konseling;
+use App\Models\Akademik\Pelanggaran;
+use App\Models\Akademik\Santri;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;

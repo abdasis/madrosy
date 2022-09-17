@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Guru;
 
+use App\Models\Kepegawaian\Guru;
 use App\Traits\KonfirmasiHapus;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Guru;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class Tabel extends DataTableComponent

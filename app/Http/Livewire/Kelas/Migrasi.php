@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Kelas;
 
-use App\Models\Kelas;
+use App\Models\Akademik\Kelas;
 use Livewire\Component;
 
 class Migrasi extends Component

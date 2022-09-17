@@ -157,9 +157,6 @@
                                 <li class="nav-item">
                                     <a href="{{route('tagihan.semua')}}" target="_self" class="nav-link" data-key="t-detached">Data Tagihan</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Riwayat Pembayaran</a>
-                                </li>
                             </ul>
                         </div>
                     </li>

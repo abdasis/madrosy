@@ -3,10 +3,8 @@
 namespace App\Http\Livewire\Mapel;
 
 use App\Http\Livewire\Modal;
-use App\Models\Mapel;
+use App\Models\Akademik\Mapel;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Component;
-use Symfony\Component\ErrorHandler\Debug;
 
 class Tambah extends Modal
 {

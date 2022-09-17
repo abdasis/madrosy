@@ -2,11 +2,10 @@
 
 namespace App\Http\Livewire\Pelanggaran;
 
+use App\Models\Akademik\Pelanggaran;
 use App\Traits\KonfirmasiHapus;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Pelanggaran;
 
 class Tabel extends DataTableComponent
 {

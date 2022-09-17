@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Mapel;
 
+use App\Models\Akademik\Mapel;
 use App\Traits\KonfirmasiHapus;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Mapel;
 
 class Tabel extends DataTableComponent
 {

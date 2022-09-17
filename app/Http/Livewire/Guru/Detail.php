@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Guru;
 
-use App\Models\Guru;
+use App\Models\Kepegawaian\Guru;
 use Livewire\Component;
 
 class Detail extends Component

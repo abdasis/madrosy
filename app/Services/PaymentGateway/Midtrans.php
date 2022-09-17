@@ -2,8 +2,6 @@
 
 namespace App\Services\PaymentGateway;
 
-use App\Models\Transaksi;
-use Carbon\Carbon;
 use Midtrans\Config;
 
 class Midtrans

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Akademik;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Provinsi extends Model
+class TahunAjaran extends Model
 {
     use HasFactory;
-    protected $table = 'indonesia_provinces';
+
+    protected $guarded = [];
 }

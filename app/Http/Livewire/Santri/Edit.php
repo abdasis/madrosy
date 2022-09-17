@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Santri;
 
-use App\Models\Santri;
+use App\Models\Akademik\Santri;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 

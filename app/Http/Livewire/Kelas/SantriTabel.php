@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Kelas;
 
+use App\Models\Akademik\Santri;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Santri;
 
 class SantriTabel extends DataTableComponent
 {

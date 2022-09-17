@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\TahunAjaran;
 
-use App\Models\TahunAjaran;
+use App\Models\Akademik\TahunAjaran;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 

@@ -2,7 +2,7 @@
 
 namespace App\Services\PaymentGateway;
 
-use App\Models\Transaksi;
+use App\Models\Keuangan\Transaksi;
 use Carbon\Carbon;
 
 class MidtranResponse

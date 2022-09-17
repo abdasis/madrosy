@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\RiwayatPendidikan;
 
+use App\Models\Kepegawaian\RiwayatPendidikan;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\RiwayatPendidikan;
 
 class Tabel extends DataTableComponent
 {

@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kelas;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Akademik\Kelas;
 use Illuminate\Database\Seeder;
 
 class KelasSeeder extends Seeder

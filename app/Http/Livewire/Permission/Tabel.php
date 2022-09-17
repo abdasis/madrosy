@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Permission;
 
+use App\Models\Commons\User;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\User;
 
 class Tabel extends DataTableComponent
 {

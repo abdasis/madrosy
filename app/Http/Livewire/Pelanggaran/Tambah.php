@@ -2,8 +2,7 @@
 
 namespace App\Http\Livewire\Pelanggaran;
 
-use App\Models\Pelanggaran;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
+use App\Models\Akademik\Pelanggaran;
 use Livewire\Component;
 
 class Tambah extends Component

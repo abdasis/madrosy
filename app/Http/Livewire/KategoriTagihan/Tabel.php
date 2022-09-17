@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\KategoriTagihan;
 
+use App\Models\Keuangan\KategoriTagihan;
 use App\Traits\KonfirmasiHapus;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\KategoriTagihan;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class Tabel extends DataTableComponent

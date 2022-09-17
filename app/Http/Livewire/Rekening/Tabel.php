@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Rekening;
 
+use App\Models\Keuangan\Rekening;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Rekening;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class Tabel extends DataTableComponent

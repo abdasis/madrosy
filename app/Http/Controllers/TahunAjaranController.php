@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TahunAjaran;
+use App\Models\Akademik\TahunAjaran;
 use Illuminate\Http\Request;
 
 class TahunAjaranController extends Controller
@@ -41,7 +41,7 @@ class TahunAjaranController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TahunAjaran  $tahunAjaran
+     * @param  \App\Models\Akademik\TahunAjaran  $tahunAjaran
      * @return \Illuminate\Http\Response
      */
     public function show(TahunAjaran $tahunAjaran)
@@ -52,7 +52,7 @@ class TahunAjaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TahunAjaran  $tahunAjaran
+     * @param  \App\Models\Akademik\TahunAjaran  $tahunAjaran
      * @return \Illuminate\Http\Response
      */
     public function edit(TahunAjaran $tahunAjaran)
@@ -64,7 +64,7 @@ class TahunAjaranController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TahunAjaran  $tahunAjaran
+     * @param  \App\Models\Akademik\TahunAjaran  $tahunAjaran
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, TahunAjaran $tahunAjaran)
@@ -75,7 +75,7 @@ class TahunAjaranController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TahunAjaran  $tahunAjaran
+     * @param  \App\Models\Akademik\TahunAjaran  $tahunAjaran
      * @return \Illuminate\Http\Response
      */
     public function destroy(TahunAjaran $tahunAjaran)

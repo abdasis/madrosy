@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Jadwal;
 
+use App\Models\Akademik\Jadwal;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Jadwal;
 
 class Tabel extends DataTableComponent
 {

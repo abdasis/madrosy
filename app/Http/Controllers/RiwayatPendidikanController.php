@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RiwayatPendidikan;
 use App\Http\Requests\StoreRiwayatPendidikanRequest;
 use App\Http\Requests\UpdateRiwayatPendidikanRequest;
+use App\Models\Kepegawaian\RiwayatPendidikan;
 
 class RiwayatPendidikanController extends Controller
 {
@@ -42,7 +42,7 @@ class RiwayatPendidikanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Http\Response
      */
     public function show(RiwayatPendidikan $riwayatPendidikan)
@@ -53,7 +53,7 @@ class RiwayatPendidikanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Http\Response
      */
     public function edit(RiwayatPendidikan $riwayatPendidikan)
@@ -65,7 +65,7 @@ class RiwayatPendidikanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateRiwayatPendidikanRequest  $request
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRiwayatPendidikanRequest $request, RiwayatPendidikan $riwayatPendidikan)
@@ -76,7 +76,7 @@ class RiwayatPendidikanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RiwayatPendidikan  $riwayatPendidikan
+     * @param  \App\Models\Kepegawaian\RiwayatPendidikan  $riwayatPendidikan
      * @return \Illuminate\Http\Response
      */
     public function destroy(RiwayatPendidikan $riwayatPendidikan)
