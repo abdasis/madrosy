@@ -114,6 +114,12 @@ Route::middleware([
         Route::get('/detail/{jadwal}', \App\Http\Livewire\Jadwal\Detail::class)->name('jadwal.detail');
     });
 
+    Route::group(['prefix' => 'permission'], function (){
+        Route::get('/', \App\Http\Livewire\Permission\Semua::class)->name('permission.semua');
+        Route::get('/tambah', \App\Http\Livewire\Permission\Tambah::class)->name('permission.tambah');
+        Route::get('/edit/{permission}', \App\Http\Livewire\Permission\Edit::class)->name('permission.edit');
+    });
+
     Route::group(['prefix' => 'absensi'], function (){
         Route::get('scan', Scan::class)->name('absensi.scan');
     });

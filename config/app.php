@@ -198,6 +198,8 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         Laravolt\Indonesia\ServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
     ],
 
     /*

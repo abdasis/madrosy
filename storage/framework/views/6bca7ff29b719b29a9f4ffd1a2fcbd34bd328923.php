@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg"
-      data-sidebar-image="none">
+<html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none">
 <head>
     <?php if (isset($component)) { $__componentOriginal0ffb0a0d50d0f581dbd60338c0b56c81fed4e7d6 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Head::class, [] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
@@ -22,12 +21,23 @@
 </head>
 
 <body>
-<div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-</div>
 <!-- Begin page -->
 <div id="layout-wrapper">
-
+    <?php if (isset($component)) { $__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Loading::class, [] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('loading'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $constructor = (new ReflectionClass(App\View\Components\Loading::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d)): ?>
+<?php $component = $__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d; ?>
+<?php unset($__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d); ?>
+<?php endif; ?>
     <?php if (isset($component)) { $__componentOriginal99db13291ff287454d08b974e14dad64f9e2c6f3 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Header::class, [] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('header'); ?>
@@ -95,7 +105,6 @@
             <!-- container-fluid -->
         </div>
         <!-- End Page-content -->
-
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.footer','data' => []] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('footer'); ?>

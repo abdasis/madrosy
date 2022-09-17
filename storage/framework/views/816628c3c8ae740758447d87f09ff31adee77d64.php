@@ -30,44 +30,28 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgb(0,106,79);
-        display:flex;
-        justify-content: center;
-        align-items: center;
+        background-color: #F3F3F9;
         z-index: 99999;
         overflow: hidden;
     }
-    .loader {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        position: relative;
-        border: 4px solid #Fff;
-        animation: loader 2s infinite ease;
-    }
-    .loader-inner {
-        vertical-align: top;
-        display: inline-block;
-        width: 100%;
-        background-color: #fff;
-        animation: loader-inner 2s infinite ease-in;
+
+    .sidebar-loading{
+        min-height: 100vh;
+        min-width: 250px;
+        max-width: 265px;
     }
 
-    @keyframes loader {
-        0% { transform: rotate(0deg);}
-        25% { transform: rotate(180deg);}
-        50% { transform: rotate(180deg);}
-        75% { transform: rotate(360deg);}
-        100% { transform: rotate(360deg);}
+    .footer {
+        bottom: 0;
+        position: absolute;
+        right: 0;
+        color: var(--vz-footer-color);
+        left: 250px !important;
+        height: 60px;
+        background-color: var(--vz-footer-bg);
     }
 
-    @keyframes loader-inner {
-        0% { height: 0%;}
-        25% { height: 0%;}
-        50% { height: 100%;}
-        75% { height: 100%;}
-        100% { height: 0%;}
-    }
+
 </style>
 
 <script>

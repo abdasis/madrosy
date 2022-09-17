@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg"
-      data-sidebar-image="none">
+<html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none">
 <head>
     <x-head/>
     @vite(['resources/js/app.js'])
@@ -8,12 +7,9 @@
 </head>
 
 <body>
-<div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-</div>
 <!-- Begin page -->
 <div id="layout-wrapper">
-
+    <x-loading/>
     <x-header />
     <!-- ========== App Menu ========== -->
     <x-navbar />
@@ -51,7 +47,6 @@
             <!-- container-fluid -->
         </div>
         <!-- End Page-content -->
-
         <x-footer />
     </div>
     <!-- end main content-->
