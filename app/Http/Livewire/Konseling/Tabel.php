@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Konseling;
 
-use App\Models\Akademik\Konseling;
+use App\Models\Kesiswaan\Konseling;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;

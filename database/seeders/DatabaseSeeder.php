@@ -3,6 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Commons\User;
+use Database\Seeders\Akademik\JadwalSeeder;
+use Database\Seeders\Akademik\KelasSeeder;
+use Database\Seeders\Akademik\MapelSeeder;
+use Database\Seeders\Akademik\TahunAjaranSeeder;
+use Database\Seeders\Kepegawaian\GuruSeeder;
+use Database\Seeders\Kesiswaan\SantriSeeder;
+use Database\Seeders\Keuangan\RekeningSeeder;
 use Illuminate\Database\Seeder;
 use Laravolt\Indonesia\Seeds\CitiesSeeder;
 use Laravolt\Indonesia\Seeds\DistrictsSeeder;

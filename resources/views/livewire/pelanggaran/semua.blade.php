@@ -1,5 +1,4 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <div class="card">
         <div class="card-header d-flex align-items-center border-bottom-dashed">
             <h4 class="card-title flex-grow-1 mb-0">Data Tata Tertib Sekolah</h4>

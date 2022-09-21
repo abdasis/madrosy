@@ -7,6 +7,8 @@ use App\Http\Livewire\KategoriTagihan\Semua;
 use App\Http\Livewire\KategoriTagihan\Tambah;
 use App\Http\Livewire\Kelas\Migrasi;
 use App\Http\Livewire\Kelas\PindahKelasForm;
+use App\Http\Livewire\Presensi\DaftarSiswa;
+use App\Http\Livewire\Presensi\LaporanPresensi;
 use App\Http\Livewire\Rekening\Detail;
 use App\Http\Livewire\Tagihan\AturPerkelas;
 use App\Http\Livewire\Tagihan\Bayar;
@@ -77,21 +79,18 @@ Route::middleware([
         Route::get('/tambah', \App\Http\Livewire\TahunAjaran\Tambah::class)->name('tahun-ajaran.tambah');
         Route::get('/edit/{tahun_ajaran}', \App\Http\Livewire\TahunAjaran\Edit::class)->name('tahun-ajaran.edit');
     });
-
     //moodule tagihan
     Route::group(['prefix' => 'kategori-tagihan'], function (){
         Route::get('/', Semua::class)->name('kategori-tagihan.semua');
         Route::get('tambah', Tambah::class)->name('kategori-tagihan.tambah');
         Route::get('edit/{kategori_tagihan}', Edit::class)->name('kategori-tagihan.edit');
     });
-
     Route::group(['prefix' => 'tagihan'], function (){
         Route::get('/', \App\Http\Livewire\Tagihan\Semua::class)->name('tagihan.semua');
         Route::get('/tambah', \App\Http\Livewire\Tagihan\Tambah::class)->name('tagihan.tambah');
         Route::get('atur-perkelas', AturPerkelas::class)->name('tagihan.atur-perkelas');
         Route::get('/detail/{kode}', \App\Http\Livewire\Tagihan\Detail::class)->name('tagihan.detail');
     });
-
     Route::group(['prefix' => 'kelas'], function (){
         Route::get('/', \App\Http\Livewire\Kelas\Semua::class)->name('kelas.semua');
         Route::get('/tambah', \App\Http\Livewire\Kelas\Tambah::class)->name('kelas.tambah');
@@ -99,29 +98,29 @@ Route::middleware([
         Route::get('/pindah-kelas', Migrasi::class)->name('kelas.migrasi');
         Route::get('/konfirmasi-kelas', PindahKelasForm::class)->name('kelas.konfirmasi');
     });
-
     Route::group(['prefix' => 'mata-pelajaran'], function (){
         Route::get('/', \App\Http\Livewire\Mapel\Semua::class)->name('mapel.semua');
         Route::get('/tambah', \App\Http\Livewire\Mapel\Tambah::class)->name('mapel.tambah');
         Route::get('/edit/{mapel}', \App\Http\Livewire\Mapel\Edit::class)->name('mapel.edit');
         Route::get('/detail/{mapel}', \App\Http\Livewire\Mapel\Detail::class)->name('mapel.detail');
     });
-
     Route::group(['prefix' => 'jadwal'], function (){
         Route::get('/', \App\Http\Livewire\Jadwal\Semua::class)->name('jadwal.semua');
         Route::get('/tambah', \App\Http\Livewire\Jadwal\Tambah::class)->name('jadwal.tambah');
         Route::get('/edit/{jadwal}', \App\Http\Livewire\Jadwal\Edit::class)->name('jadwal.edit');
         Route::get('/detail/{jadwal}', \App\Http\Livewire\Jadwal\Detail::class)->name('jadwal.detail');
     });
-
     Route::group(['prefix' => 'permission'], function (){
         Route::get('/', \App\Http\Livewire\Permission\Semua::class)->name('permission.semua');
         Route::get('/tambah', \App\Http\Livewire\Permission\Tambah::class)->name('permission.tambah');
         Route::get('/edit/{permission}', \App\Http\Livewire\Permission\Edit::class)->name('permission.edit');
     });
-
     Route::group(['prefix' => 'absensi'], function (){
         Route::get('scan', Scan::class)->name('absensi.scan');
+    });
+    Route::group(['prefix' => 'presensi'], function (){
+        Route::get('/daftar-siswa', DaftarSiswa::class)->name('presensi.daftar-siswa');
+        Route::get('/laporan-presensi', \App\Http\Livewire\Prensensi\LaporanPresensi::class)->name('presensi.laporan-presensi');
     });
 });
 

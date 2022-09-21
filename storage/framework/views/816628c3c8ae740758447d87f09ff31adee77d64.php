@@ -41,15 +41,6 @@
         max-width: 265px;
     }
 
-    .footer {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        color: var(--vz-footer-color);
-        left: 250px !important;
-        height: 60px;
-        background-color: var(--vz-footer-bg);
-    }
 
 
 </style>

@@ -210,3 +210,8 @@ Breadcrumbs::for('mapel.detail', function (BreadcrumbTrail $trail, $id){
     $trail->parent('mapel.semua');
     $trail->push('Detail Mata Pelajaran', route('mapel.detail', $id));
 });
+
+Breadcrumbs::for('presensi.laporan-presensi', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Laporan Presensi', route('presensi.laporan-presensi'));
+});

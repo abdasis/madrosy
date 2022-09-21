@@ -227,9 +227,19 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="#absensi">
-                            <i class=" ri-fingerprint-2-line"></i> <span>Presensi</span>
+                        <a class="nav-link menu-link" href="#presensi" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="presensi">
+                            <i class="ri-fingerprint-2-line"></i> <span data-key="t-apps">Presensi</span>
                         </a>
+                        <div class="collapse menu-dropdown" id="presensi">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{route('presensi.daftar-siswa')}}" class="nav-link" data-key="t-calendar"> Absensi </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('presensi.laporan-presensi')}}" class="nav-link" data-key="t-chat"> Laporan Presensi </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="{{route('tahun-ajaran.semua')}}">
@@ -277,3 +287,20 @@
         </div>
     </div>
 </div>
+
+
+{{--
+<div class="row">
+    <div class="col-md-6">
+        <h1>My Skill</h1>
+        --}}
+{{--kode lainnya disini--}}{{--
+
+    </div>
+    <div class="col-md-6">
+        <h1>Knowledge</h1>
+        --}}
+{{--kode lainnya disini--}}{{--
+
+    </div>
+</div>--}}
