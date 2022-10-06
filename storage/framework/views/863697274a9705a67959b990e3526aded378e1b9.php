@@ -2,8 +2,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <?php echo e(now()->year); ?> &copy; <?php echo e(config('app.name')); ?>
-
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">

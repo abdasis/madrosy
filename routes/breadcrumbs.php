@@ -215,3 +215,14 @@ Breadcrumbs::for('presensi.laporan-presensi', function (BreadcrumbTrail $trail){
     $trail->parent('dashboard');
     $trail->push('Laporan Presensi', route('presensi.laporan-presensi'));
 });
+
+
+Breadcrumbs::for('jadwal.semua', function (BreadcrumbTrail $trail){
+    $trail->parent('dashboard');
+    $trail->push('Semua Jadwal', route('jadwal.semua'));
+});
+
+Breadcrumbs::for('jadwal.tambah', function (BreadcrumbTrail $trail){
+    $trail->parent('jadwal.semua');
+    $trail->push('Tambah Jadwal', route('jadwal.tambah'));
+});

@@ -10,6 +10,8 @@ class Jadwal extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function guru()
     {
         return $this->belongsTo(Guru::class);

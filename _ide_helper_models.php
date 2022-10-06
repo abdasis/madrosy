@@ -163,6 +163,8 @@ namespace App\Models\Akademik{
  * @property string|null $alamat
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Kesiswaan\Absensi[] $data_absensi
+ * @property-read int|null $data_absensi_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Akademik\Kelas[] $kelas
  * @property-read int|null $kelas_count
  * @method static \Illuminate\Database\Eloquent\Builder|Santri newModelQuery()
@@ -549,6 +551,7 @@ namespace App\Models\Kesiswaan{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Akademik\Jadwal $jadwal
+ * @property-read \App\Models\Akademik\Santri $santri
  * @method static \Database\Factories\Kesiswaan\AbsensiFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Absensi newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Absensi newQuery()
