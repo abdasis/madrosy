@@ -226,3 +226,8 @@ Breadcrumbs::for('jadwal.tambah', function (BreadcrumbTrail $trail){
     $trail->parent('jadwal.semua');
     $trail->push('Tambah Jadwal', route('jadwal.tambah'));
 });
+
+Breadcrumbs::for('jadwal.edit', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('jadwal.semua');
+    $trail->push('Edit Jadwal', route('jadwal.edit', $id));
+});

@@ -27,7 +27,7 @@
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Hapus">
             <a wire:click.prevent="hapus({{$hapus}})" href="javascript:void(0);" class="text-danger d-inline-block">
-                <i class="ri-delete-bin-line fs-16"></i>
+                <i class="ri-delete-bin-5-line fs-16"></i>
             </a>
         </li>
     @endif

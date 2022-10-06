@@ -63,7 +63,7 @@ class Tabel extends DataTableComponent
                     'editWithModal' => 'mapel.edit',
                     'hapus' => $id
                 ]);
-            })->excludeFromColumnSelect()
+            })->excludeFromColumnSelect(),
         ];
     }
 }

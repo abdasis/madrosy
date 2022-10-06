@@ -33,6 +33,13 @@ class Tabel extends DataTableComponent
                 ->sortable()->deselected(),
             Column::make("Terakhir Diubah", "updated_at")
                 ->sortable()->deselected(),
+            Column::make('Opsi', 'id')->format(function ($id){
+                return view('tombol-aksi', [
+                    'id' => $id,
+                    'edit' => route('jadwal.edit', $id),
+                    'hapus' => $id
+                ]);
+            })->excludeFromColumnSelect(),
         ];
     }
 }
