@@ -14,7 +14,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Kode Jadwal
                             </div>
@@ -22,7 +22,7 @@
                                 <x-form-input name="kode" wire:model="kode" class="border-0 border-bottom"/>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Kelas
                             </div>
@@ -35,7 +35,7 @@
                                 </x-form-select>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Guru
                             </div>
@@ -48,7 +48,7 @@
                                 </x-form-select>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Mata Pelajaran
                             </div>
@@ -61,7 +61,7 @@
                                 </x-form-select>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Jam Mulai
                             </div>
@@ -69,7 +69,7 @@
                                 <x-form-input name="jam_mulai" wire:model="jam_mulai" class="border-0 border-bottom" type="time"/>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Jam Selesai
                             </div>
@@ -77,7 +77,7 @@
                                 <x-form-input name="jam_selesai" wire:model="jam_selesai" class="border-0 border-bottom" type="time"/>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Hari
                             </div>

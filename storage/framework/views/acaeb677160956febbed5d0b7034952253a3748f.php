@@ -15,7 +15,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php endif; ?>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Kode Jadwal
                             </div>
@@ -37,7 +37,7 @@
 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Kelas
                             </div>
@@ -63,7 +63,7 @@
 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Guru
                             </div>
@@ -89,7 +89,7 @@
 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Mata Pelajaran
                             </div>
@@ -115,7 +115,7 @@
 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Jam Mulai
                             </div>
@@ -137,7 +137,7 @@
 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Jam Selesai
                             </div>
@@ -159,7 +159,7 @@
 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
+                        <div class="row align-items-center mb-3 gap-2">
                             <div class="col-md-4 text-start">
                                 Hari
                             </div>
