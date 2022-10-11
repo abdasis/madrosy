@@ -106,9 +106,11 @@ Route::middleware([
     });
     Route::group(['prefix' => 'jadwal'], function (){
         Route::get('/', \App\Http\Livewire\Jadwal\Semua::class)->name('jadwal.semua');
-        Route::get('/tambah', \App\Http\Livewire\Jadwal\Tambah::class)->name('jadwal.tambah');
-        Route::get('/edit/{jadwal}', \App\Http\Livewire\Jadwal\Edit::class)->name('jadwal.edit');
-        Route::get('/detail/{jadwal}', \App\Http\Livewire\Jadwal\Detail::class)->name('jadwal.detail');
+        Route::get('tambah', \App\Http\Livewire\Jadwal\Tambah::class)->name('jadwal.tambah');
+        Route::get('edit/{jadwal}', \App\Http\Livewire\Jadwal\Edit::class)->name('jadwal.edit');
+        Route::get('detail/{jadwal}', \App\Http\Livewire\Jadwal\Detail::class)->name('jadwal.detail');
+        Route::get('perminggu', \App\Http\Livewire\Jadwal\Perminggu::class)->name('jadwal.perminggu');
+
     });
     Route::group(['prefix' => 'permission'], function (){
         Route::get('/', \App\Http\Livewire\Permission\Semua::class)->name('permission.semua');
