@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TransaksiController;
 use App\Http\Livewire\Absensi\Scan;
+use App\Http\Livewire\Jadwal\Perminggu;
 use App\Http\Livewire\KategoriTagihan\Edit;
 use App\Http\Livewire\KategoriTagihan\Semua;
 use App\Http\Livewire\KategoriTagihan\Tambah;
@@ -109,7 +110,7 @@ Route::middleware([
         Route::get('tambah', \App\Http\Livewire\Jadwal\Tambah::class)->name('jadwal.tambah');
         Route::get('edit/{jadwal}', \App\Http\Livewire\Jadwal\Edit::class)->name('jadwal.edit');
         Route::get('detail/{jadwal}', \App\Http\Livewire\Jadwal\Detail::class)->name('jadwal.detail');
-        Route::get('perminggu', \App\Http\Livewire\Jadwal\Perminggu::class)->name('jadwal.perminggu');
+        Route::get('perminggu', Perminggu::class)->name('jadwal.perminggu');
 
     });
     Route::group(['prefix' => 'permission'], function (){
@@ -122,7 +123,7 @@ Route::middleware([
     });
     Route::group(['prefix' => 'presensi'], function (){
         Route::get('/daftar-siswa', DaftarSiswa::class)->name('presensi.daftar-siswa');
-        Route::get('/laporan-presensi', \App\Http\Livewire\Prensensi\LaporanPresensi::class)->name('presensi.laporan-presensi');
+        Route::get('/laporan-presensi', LaporanPresensi::class)->name('presensi.laporan-presensi');
     });
 });
 
