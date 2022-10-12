@@ -1,42 +1,44 @@
 <div>
     
-    <h4>Laporan Absensi Semua Siswa</h4>
-    <p class="text-muted">
-        Data semua absensi akan di tampilkan semua pada halaman ini, silahkan pilih tanggal untuk melihat data absensi pada tanggal tersebut.
-    </p>
-    <div class="table-responsive">
-        <table class="table table-sm table-hover bg-white">
-            <thead class="bg-white">
-            <tr>
-                <th width="5%" class="text-center align-middle">No</th>
-                <th width="20%" class="align-middle">Siswa</th>
-                <?php $__currentLoopData = $data_absensi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tanggal => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <th width="10%" class="text-center"><?php echo e($tanggal); ?></th>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </tr>
-            </thead>
-            <tbody>
-            <?php $__currentLoopData = $data_absensi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $absensi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php $__currentLoopData = $absensi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <tr>
-                        <td class="text-center"><?php echo e($loop->iteration); ?></td>
-                        <td><?php echo e($value->santri->nama_lengkap); ?></td>
-                        <td class="text-center">
-                            <?php if($value->status == 'hadir'): ?>
-                                <i class="ri-checkbox-circle-fill  text-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Hadir"></i>
-                            <?php elseif($value->status == 'izin'): ?>
-                                <i class="ri-information-line text-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Izin"></i>
-                            <?php elseif($value->status == 'sakit'): ?>
-                                <i class="ri-lungs-fill text-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Sakit"></i>
-                            <?php else: ?>
-                                <i class="ri-user-unfollow-line text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Tidak Masuk"></i>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </tbody>
-        </table>
+    <div class="row gy-3">
+        <?php $__currentLoopData = $data_mapel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mapel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-md-4">
+                <!-- Ribbon Shape -->
+                <div class="card ribbon-box border shadow-none mb-lg-0">
+                    <div class="card-body">
+                        <div class="ribbon ribbon-primary ribbon-shape"><?php echo e($mapel->kelas->nama_kelas); ?></div>
+                        <h5 class="fs-14 text-end"><?php echo e(Str::limit($mapel->mapel->nama,20)); ?></h5>
+                        <div class="ribbon-content text-muted mt-4">
+                            <table class="table table-sm">
+                                <tr>
+                                    <td>Senin</td>
+                                    <td>:</td>
+                                    <td><?php echo e($mapel->hari); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Jam Mulai</td>
+                                    <td>:</td>
+                                    <td><?php echo e($mapel->jam_mulai); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Jam Selesai</td>
+                                    <td>:</td>
+                                    <td><?php echo e($mapel->jam_selesai); ?></td>
+                                </tr>
+                            </table>
+                            <a href="<?php echo e(route('presensi.isi-laporan', $mapel)); ?>">
+                                <div class="d-grid">
+                                    <button class="btn btn btn-dark btn-border btn-sm">
+                                        Lihat Presensi
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 </div>
+
 <?php /**PATH /home/aziz/Project/madrosy/resources/views/livewire/presensi/laporan-presensi.blade.php ENDPATH**/ ?>
