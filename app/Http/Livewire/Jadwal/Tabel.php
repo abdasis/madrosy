@@ -21,11 +21,11 @@ class Tabel extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
             Column::make('Mata Pelajaran', 'mapel.nama')
-                ->sortable(),
+                ->sortable()->searchable(),
             Column::make('Kelas', 'kelas.nama_kelas')
-                ->sortable(),
+                ->sortable()->searchable(),
             Column::make('Guru', 'guru.nama')
-                ->sortable(),
+                ->sortable()->searchable(),
             Column::make('Hari', 'hari')->sortable(),
             Column::make('Mulai', 'jam_mulai'),
             Column::make('Selesai', 'jam_selesai'),
