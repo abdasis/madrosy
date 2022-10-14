@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Akademik;
+namespace App\Models\Kesiswaan;
 
-use App\Models\Kesiswaan\Absensi;
+use App\Models\Akademik\Kelas;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

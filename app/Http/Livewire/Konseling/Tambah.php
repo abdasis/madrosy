@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Konseling;
 
 use App\Models\Akademik\Pelanggaran;
-use App\Models\Akademik\Santri;
 use App\Models\Kesiswaan\Konseling;
+use App\Models\Kesiswaan\Santri;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;

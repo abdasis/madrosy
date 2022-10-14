@@ -5,7 +5,7 @@ namespace Database\Factories\Kesiswaan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Akademik\Santri>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kesiswaan\Santri>
  */
 class SantriFactory extends Factory
 {

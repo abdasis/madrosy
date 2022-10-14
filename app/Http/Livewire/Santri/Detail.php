@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Santri;
 
-use App\Models\Akademik\Santri;
+use App\Models\Kesiswaan\Santri;
 use App\Traits\KonfirmasiHapus;
 use Livewire\Component;
 

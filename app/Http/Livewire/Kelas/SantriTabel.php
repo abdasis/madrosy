@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Kelas;
 
-use App\Models\Akademik\Santri;
+use App\Models\Kesiswaan\Santri;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 

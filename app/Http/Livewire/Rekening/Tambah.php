@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Rekening;
 
-use App\Models\Akademik\Santri;
+use App\Models\Kesiswaan\Santri;
 use App\Models\Keuangan\Rekening;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;

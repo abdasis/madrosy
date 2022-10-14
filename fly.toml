@@ -1,0 +1,58 @@
+# fly.toml file generated for esekolah on 2022-10-15T05:14:23+07:00
+
+app = "esekolah"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[build]
+  [build.args]
+    NODE_VERSION = "14"
+    PHP_VERSION = "8.1"
+
+[deploy]
+  release_command = "php /var/www/html/artisan migrate --force"
+
+[env]
+  APP_ENV = "production"
+  APP_URL = "https://esekolah.fly.dev"
+  LOG_CHANNEL = "stderr"
+  LOG_LEVEL = "info"
+  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+  DB_CONNECTION="pgsql"
+  DB_HOST="db.cspvbanxvqwwkuqttsgw.supabase.co"
+  DB_PORT=5432
+  DB_DATABASE="postgres"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+  cmd = []
+  entrypoint = []
+  exec = []
+
+[[services]]
+  http_checks = []
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"

@@ -59,7 +59,7 @@ namespace App\Models\Akademik{
  * @property int $wali_kelas
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Akademik\Santri[] $santri
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Kesiswaan\Santri[] $santri
  * @property-read int|null $santri_count
  * @method static \Database\Factories\Akademik\KelasFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Kelas newModelQuery()
@@ -145,7 +145,7 @@ namespace App\Models\Akademik{
 
 namespace App\Models\Akademik{
 /**
- * App\Models\Akademik\Santri
+ * App\Models\Kesiswaan\Santri
  *
  * @property int $id
  * @property string $nama_lengkap
@@ -167,25 +167,25 @@ namespace App\Models\Akademik{
  * @property-read int|null $data_absensi_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Akademik\Kelas[] $kelas
  * @property-read int|null $kelas_count
- * @method static \Illuminate\Database\Eloquent\Builder|Santri newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Santri newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Santri query()
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereAgama($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereAlamat($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereAnakKe($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereJenisKelamin($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereJumlahSaudara($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereNamaLengkap($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereNamaPanggilan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereNisn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereNoHp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereStatusKeluarga($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereTanggalLahir($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereTempatLahir($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Santri whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereAgama($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereAlamat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereAnakKe($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereJenisKelamin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereJumlahSaudara($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereNamaLengkap($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereNamaPanggilan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereNisn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereNoHp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereStatusKeluarga($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereTanggalLahir($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereTempatLahir($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Santri whereUpdatedAt($value)
  */
 	class Santri extends \Eloquent {}
 }
@@ -551,7 +551,7 @@ namespace App\Models\Kesiswaan{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Akademik\Jadwal $jadwal
- * @property-read \App\Models\Akademik\Santri $santri
+ * @property-read \App\Models\Kesiswaan\Santri $santri
  * @method static \Database\Factories\Kesiswaan\AbsensiFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Absensi newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Absensi newQuery()
@@ -582,7 +582,7 @@ namespace App\Models\Kesiswaan{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Akademik\Pelanggaran $pelanggaran
- * @property-read \App\Models\Akademik\Santri $santri
+ * @property-read \App\Models\Kesiswaan\Santri $santri
  * @property-read \App\Models\Commons\User|null $user
  * @method static \Database\Factories\Kesiswaan\KonselingFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Konseling newModelQuery()
@@ -694,7 +694,7 @@ namespace App\Models\Keuangan{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Commons\User|null $pembuat
- * @property-read \App\Models\Akademik\Santri $santri
+ * @property-read \App\Models\Kesiswaan\Santri $santri
  * @method static \Database\Factories\Keuangan\RekeningFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Rekening newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Rekening newQuery()
@@ -734,7 +734,7 @@ namespace App\Models\Keuangan{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Keuangan\KategoriTagihan $kategori
- * @property-read \App\Models\Akademik\Santri $santri
+ * @property-read \App\Models\Kesiswaan\Santri $santri
  * @property-read \App\Models\Keuangan\Transaksi|null $transaksi
  * @method static \Database\Factories\Keuangan\TagihanFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Tagihan newModelQuery()

@@ -2,7 +2,7 @@
 
 namespace App\Models\Keuangan;
 
-use App\Models\Akademik\Santri;
+use App\Models\Kesiswaan\Santri;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

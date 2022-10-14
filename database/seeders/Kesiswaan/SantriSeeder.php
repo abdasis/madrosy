@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Kesiswaan;
 
-use App\Models\Akademik\Santri;
+use App\Models\Kesiswaan\Santri;
 use Illuminate\Database\Seeder;
 
 class SantriSeeder extends Seeder

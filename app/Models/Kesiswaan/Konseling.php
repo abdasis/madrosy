@@ -3,7 +3,6 @@
 namespace App\Models\Kesiswaan;
 
 use App\Models\Akademik\Pelanggaran;
-use App\Models\Akademik\Santri;
 use App\Models\Commons\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
