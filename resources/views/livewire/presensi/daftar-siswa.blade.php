@@ -24,10 +24,10 @@
                 </div>
                 @foreach ($jadual->kelas->santri as $key => $santri)
                     <div class="d-md-flex d-sm-grid p-2 my-2 rounded gap-3 border justify-content-between align-items-center">
-                        <div class="col-md-1 text-center">{{$loop->iteration}}</div>
-                        <div class="col-md-2 col-sm-12 text-center text-sm-center text-md-start fw-bold">{{$santri->nama_lengkap}}</div>
-                        <div class="col-md-2 col-sm-12 text-center text-sm-center text-md-start my-2 my-md-0 my-lg-0">{{$santri->nisn}}</div>
-                        <div class="col-md-3 col-sm-12 text-center text-sm-center text-md-start">
+                        <div class="col-md-1 text-center text-sm-start text-md-center">{{$loop->iteration}}</div>
+                        <div class="col-md-2 col-sm-12 text-start text-sm-center text-md-start fw-bold">{{$santri->nama_lengkap}}</div>
+                        <div class="col-md-2 col-sm-12 text-start text-sm-center text-md-start my-2 my-md-0 my-lg-0">{{$santri->nisn}}</div>
+                        <div class="col-md-3 col-sm-12 text-start text-sm-center text-md-start">
                             <x-form-input name="keterangan" placeholder="Keterangan" wire:model="keterangan.{{$key}}"/>
                         </div>
                         <div class="col-md-3 col-sm-12 text-center">

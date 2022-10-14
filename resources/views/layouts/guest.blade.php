@@ -31,9 +31,8 @@
         @stack('styles')
     </head>
     <body id="layout-wrapper">
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
-        </div>
+        <x-landing.header/>
+        {{ $slot }}
         <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
         <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>

@@ -1,10 +1,10 @@
 <div>
     {{-- The best athlete wants his opponent at his best. --}}
     <div class="card">
-        <div class="card-header d-flex border-bottom-dashed">
+        <div class="card-header d-flex border-bottom border-light">
             <h4 class="card-title mb-0">Tambah Tahun Ajaran</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-soft-light">
             <div class="row">
                 <div class="col-md-6">
                     <form wire:submit.prevent="simpan">

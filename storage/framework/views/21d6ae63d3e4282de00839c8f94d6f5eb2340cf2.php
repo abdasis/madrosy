@@ -25,10 +25,10 @@
                 </div>
                 <?php $__currentLoopData = $jadual->kelas->santri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $santri): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="d-md-flex d-sm-grid p-2 my-2 rounded gap-3 border justify-content-between align-items-center">
-                        <div class="col-md-1 text-center"><?php echo e($loop->iteration); ?></div>
-                        <div class="col-md-2 col-sm-12 text-center text-sm-center text-md-start fw-bold"><?php echo e($santri->nama_lengkap); ?></div>
-                        <div class="col-md-2 col-sm-12 text-center text-sm-center text-md-start my-2 my-md-0 my-lg-0"><?php echo e($santri->nisn); ?></div>
-                        <div class="col-md-3 col-sm-12 text-center text-sm-center text-md-start">
+                        <div class="col-md-1 text-center text-sm-start text-md-center"><?php echo e($loop->iteration); ?></div>
+                        <div class="col-md-2 col-sm-12 text-start text-sm-center text-md-start fw-bold"><?php echo e($santri->nama_lengkap); ?></div>
+                        <div class="col-md-2 col-sm-12 text-start text-sm-center text-md-start my-2 my-md-0 my-lg-0"><?php echo e($santri->nisn); ?></div>
+                        <div class="col-md-3 col-sm-12 text-start text-sm-center text-md-start">
                             <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(ProtoneMedia\LaravelFormComponents\Components\FormInput::class, ['name' => 'keterangan'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>

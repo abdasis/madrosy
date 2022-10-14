@@ -8,7 +8,9 @@ use App\Http\Livewire\KategoriTagihan\Semua;
 use App\Http\Livewire\KategoriTagihan\Tambah;
 use App\Http\Livewire\Kelas\Migrasi;
 use App\Http\Livewire\Kelas\PindahKelasForm;
+use App\Http\Livewire\Landing\Beranda;
 use App\Http\Livewire\Presensi\DaftarSiswa;
+use App\Http\Livewire\Presensi\IsiLaporan;
 use App\Http\Livewire\Presensi\LaporanPresensi;
 use App\Http\Livewire\Rekening\Detail;
 use App\Http\Livewire\Tagihan\AturPerkelas;
@@ -26,10 +28,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
-
+Route::get('/', Beranda::class)->name('landing.beranda');
 
 Route::middleware([
     'auth:sanctum',
@@ -124,7 +123,7 @@ Route::middleware([
     Route::group(['prefix' => 'presensi'], function (){
         Route::get('/daftar-siswa', DaftarSiswa::class)->name('presensi.daftar-siswa');
         Route::get('/laporan', LaporanPresensi::class)->name('presensi.laporan-presensi');
-        Route::get('/laporan/{jadwal}', \App\Http\Livewire\Presensi\IsiLaporan::class)->name('presensi.isi-laporan');
+        Route::get('/laporan/{jadwal}', IsiLaporan::class)->name('presensi.isi-laporan');
     });
 });
 
