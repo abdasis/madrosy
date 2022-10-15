@@ -26,27 +26,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::create([
-             'name' => 'Abdul Aziz',
-             'email' => 'id.abdasis@gmail.com',
-             'password' => bcrypt('rahasia123'),
-         ]);
+        User::create([
+            'name' => 'Abdul Aziz',
+            'email' => 'id.abdasis@gmail.com',
+            'password' => bcrypt('rahasia123'),
+        ]);
 
-         Role::insert([
-             ['name' => 'Super Admin', 'guard_name' => 'web'],
-             ['name' => 'Guru', 'guard_name' => 'web'],
-             ['name' => 'Siswa', 'guard_name' => 'web'],
-             ['name' => 'Pimpinan', 'guard_name' => 'web'],
-             ['name' => 'Pegawai', 'guard_name' => 'web'],
-             ['name' => 'Wali Murid', 'guard_name' => 'web'],
-         ]);
+        Role::insert([
+            ['name' => 'Super Admin', 'guard_name' => 'web'],
+            ['name' => 'Guru', 'guard_name' => 'web'],
+            ['name' => 'Siswa', 'guard_name' => 'web'],
+            ['name' => 'Pimpinan', 'guard_name' => 'web'],
+            ['name' => 'Pegawai', 'guard_name' => 'web'],
+            ['name' => 'Wali Murid', 'guard_name' => 'web'],
+        ]);
 
         $this->call([
             ProvincesSeeder::class,
             CitiesSeeder::class,
             DistrictsSeeder::class,
             VillagesSeeder::class,
-            SantriSeeder::class,
         ]);
 
         if (app()->environment('local')) {
