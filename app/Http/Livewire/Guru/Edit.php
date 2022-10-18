@@ -6,11 +6,13 @@ use App\Models\Commons\Kabupaten;
 use App\Models\Commons\Kecamatan;
 use App\Models\Commons\Kelurahan;
 use App\Models\Commons\Provinsi;
+use App\Models\Commons\User;
 use App\Models\Kepegawaian\Guru;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 class Edit extends Component
 {
@@ -40,12 +42,14 @@ class Edit extends Component
     public $tanggal_masuk;
     public $foto;
     public $status;
+    public $password;
+    public $role;
 
     public $guru;
 
     public function mount(Guru $guru)
     {
-        $provinsi =  Provinsi::where('code', $guru->provinsi)->first()->code ?? null;
+        $provinsi = Provinsi::where('code', $guru->provinsi)->first()->code ?? null;
         $this->nama = $guru->nama;
         $this->nik = $guru->nik;
         $this->agama = $guru->agama;
@@ -70,8 +74,9 @@ class Edit extends Component
         $this->dusun = $guru->dusun;
         $this->pos = $guru->kode_pos;
         $this->guru = $guru;
-
-
+        $this->user = $guru->user;
+        $this->password = $this->user->password;
+        $this->role = $this->user->getRoleNames()->first() ?? '';
     }
 
     public function rules()
@@ -110,6 +115,10 @@ class Edit extends Component
         try {
             DB::beginTransaction();
             //menyimpan data guru
+            $this->user->update([
+                'email' => $this->email
+            ]);
+            $this->user->syncRoles($this->role);
             $guru = Guru::where('id', $this->guru->id)->update([
                 'nama' => $this->nama,
                 'nik' => $this->nik,
@@ -128,20 +137,18 @@ class Edit extends Component
                 'tanggal_masuk' => $this->tanggal_masuk,
                 'foto' => "https://ui-avatars.com/api/?background=random&color=fff&name={$this->nama}",
                 'user_id' => $this->guru->user->id,
-
                 'provinsi' => $this->provinsi,
                 'kabupaten' => $this->kabupaten,
                 'kecamatan' => $this->kecamatan,
                 'kelurahan' => $this->kelurahan,
                 'dusun' => $this->dusun,
                 'kode_pos' => $this->pos,
-
             ]);
 
             $this->alert('success', 'Data berhasil diperbarui');
 
             DB::commit();
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             Debugbar::info($exception);
             DB::rollBack();
             $this->alert('error', 'Data guru gagal disimpan');
@@ -170,11 +177,12 @@ class Edit extends Component
             $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->get();
         }
 
-        return view('livewire.guru.edit',[
+        return view('livewire.guru.edit', [
             'semua_provinsi' => $semua_provinsi,
             'semua_kabupaten' => $kabupaten ?? [],
             'semua_kecamatan' => $kecamatan ?? [],
             'semua_kelurahan' => $kelurahan ?? [],
+            'data_jabatan' => Role::all(),
         ]);
     }
 }

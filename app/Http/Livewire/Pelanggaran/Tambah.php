@@ -2,13 +2,22 @@
 
 namespace App\Http\Livewire\Pelanggaran;
 
+use App\Http\Livewire\Modal;
 use App\Models\Akademik\Pelanggaran;
 use Livewire\Component;
 
-class Tambah extends Component
+class Tambah extends Modal
 {
     public $kasus;
     public $bobot;
+
+    protected $listeners = ['tambah' => 'show'];
+
+    public function show()
+    {
+        $this->emit('modalTambah', 'tambah-kelas');
+    }
+
 
     public function rules()
     {
@@ -17,6 +26,7 @@ class Tambah extends Component
             'bobot' => 'required|integer|min:1|max:100',
         ];
     }
+
 
     public function messages()
     {

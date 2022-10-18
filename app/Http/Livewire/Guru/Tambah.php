@@ -11,6 +11,7 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 class Tambah extends Component
 {
@@ -40,6 +41,8 @@ class Tambah extends Component
     public $tanggal_masuk;
     public $foto;
     public $status;
+    public $password;
+    public $role;
 
     public function rules()
     {
@@ -64,26 +67,28 @@ class Tambah extends Component
             'status_guru' => 'required',
         ];
     }
-
     public function updated($property)
     {
         $this->validateOnly($property);
     }
-
+    public function updatedNik($value)
+    {
+        $this->password = $value;
+    }
     public function simpan()
     {
         $this->validate();
 
         try {
             DB::beginTransaction();
-            //membuat user guru baru
             $user = User::create([
                 'name' => $this->nama,
                 'email' => $this->email,
                 'password' => bcrypt($this->nik),
             ]);
 
-            //menyimpan data guru
+            $user->assignRole($this->role);
+
             $guru = Guru::create([
                 'nama' => $this->nama,
                 'nik' => $this->nik,
@@ -149,6 +154,7 @@ class Tambah extends Component
             'semua_kabupaten' => $kabupaten ?? [],
             'semua_kecamatan' => $kecamatan ?? [],
             'semua_kelurahan' => $kelurahan ?? [],
+            'data_jabatan' => Role::all(),
         ]);
     }
 }

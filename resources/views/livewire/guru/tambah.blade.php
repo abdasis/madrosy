@@ -6,22 +6,31 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="container">
-                            <div class="form-title">
-                                <h4 class="my-3 fw-bolder">Biodata Pengajar</h4>
-                            </div>
                             <div class="row gy-3">
+                                <div class="form-title">
+                                    <h4 class="my-2 fw-bold d-flex align-items-center">
+                                        <i class="ri-user-follow-line"></i>
+                                        Biodata Pengajar
+                                    </h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show" role="alert">
+                                        <i class="ri-check-double-line me-3 align-middle fs-16"></i><strong>Informasi</strong>
+                                        - Pada form berikut kamu bisa menambahkan guru yang akan di daftarkan pada aplikasi, form yang memiliki tanda bintang wajib kamu isi
+                                    </div>
+                                </div>
 
                                 <div class="col-md-8">
                                     <x-form-input name="nama" wire:model.defer="nama" label="Nama Lengkap"  placeholder="Nama Lengkap" />
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nik"  wire:model.defer="nik" label="NIK" placeholder="352xxxxxxxxx" />
+                                    <x-form-input name="nik"  wire:model="nik" label="NIK" placeholder="352xxxxxxxxx" />
                                 </div>
                                 <div class="col-md-8">
                                     <x-form-input name="tempat_lahir" wire:model.defer="tempat_lahir" label="Tempat Lahir" placeholder="Masukan Tempat Lahir" />
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_lahir" wire:model.defer="tanggal_lahir" type="date" label="Tempat Lahir" />
+                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date" label="Tempat Lahir" />
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-select name="jenis_kelamin" label="Jenis Kelamin" wire:model.defer="jenis_kelamin">
@@ -88,7 +97,7 @@
 
 
                                 <div class="col-md-4">
-                                    <x-form-input name="email" wire:model.defer="email" label="Email" placeholder="Masukan Email" />
+                                    <x-form-input name="email" wire:model="email" label="Email" placeholder="Masukan Email" />
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-input name="no_hp" wire:model.defer="no_hp" label="No HP" placeholder="Masukan No HP" />
@@ -133,7 +142,39 @@
                                     <x-form-input name="tanggal_masuk" wire:model.defer="tanggal_masuk" label="Tahun Masuk" type="date" placeholder="Masukan Tahun Lulus" />
                                 </div>
 
+                                <h4 class="mt-5 fw-bold d-flex align-items-center">
+                                    <i class="ri-lock-line"></i>
+                                    Account Tertaut
+                                </h4>
 
+                                <div class="col-12">
+                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show" role="alert">
+                                        <i class="ri-check-double-line me-3 align-middle fs-16"></i><strong>Informasi</strong>
+                                        - Akun berikut ini sudah otomatis terisi sesuai data yang di inputkan di data sebelumnya, kamu bisa merubah password nanti
+                                        setelah data berhasil ditambahkan
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <x-form-input name="email" wire:model="email" readonly label="Email" />
+                                </div>
+                                <div class="col-md-4">
+                                    <x-form-input
+                                        type="text"
+                                        wire:model="password"
+                                        name="password"
+                                        label="Password"
+                                    />
+                                    <small class="text-muted">Password akan secara default di set dari tanggal lahir</small>
+                                </div>
+                                <div class="col-md-4">
+                                    <x-form-select wire:model="role" name="role" label="Role">
+                                        <option value="">Pilih Roles Pengguna</option>
+                                        @foreach($data_jabatan as $role)
+                                            <option value="{{$role->name}}">{{$role->name}}</option>
+                                        @endforeach
+                                    </x-form-select>
+                                </div>
 
                                 <div class="form-group d-flex justify-content-between my-5">
                                     <button class="btn btn-outline-danger btn-border d-flex align-items-center gap-1">
@@ -146,6 +187,7 @@
                                     </button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

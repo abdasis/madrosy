@@ -7,6 +7,7 @@ use Database\Seeders\Akademik\JadwalSeeder;
 use Database\Seeders\Akademik\KelasSeeder;
 use Database\Seeders\Akademik\MapelSeeder;
 use Database\Seeders\Akademik\TahunAjaranSeeder;
+use Database\Seeders\Commons\RolesSeeder;
 use Database\Seeders\Kepegawaian\GuruSeeder;
 use Database\Seeders\Kesiswaan\SantriSeeder;
 use Database\Seeders\Keuangan\RekeningSeeder;
@@ -26,38 +27,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::create([
+         $user = User::create([
              'name' => 'Abdul Aziz',
              'email' => 'id.abdasis@gmail.com',
              'password' => bcrypt('rahasia123'),
          ]);
 
-         Role::insert([
-             ['name' => 'Super Admin', 'guard_name' => 'web'],
-             ['name' => 'Guru', 'guard_name' => 'web'],
-             ['name' => 'Siswa', 'guard_name' => 'web'],
-             ['name' => 'Pimpinan', 'guard_name' => 'web'],
-             ['name' => 'Pegawai', 'guard_name' => 'web'],
-             ['name' => 'Wali Murid', 'guard_name' => 'web'],
-         ]);
-
-        $this->call([
-            ProvincesSeeder::class,
-            CitiesSeeder::class,
-            DistrictsSeeder::class,
-            VillagesSeeder::class,
-            SantriSeeder::class,
-        ]);
-
         if (app()->environment('local')) {
             $this->call([
+                ProvincesSeeder::class,
+                CitiesSeeder::class,
+                DistrictsSeeder::class,
+                VillagesSeeder::class,
                 GuruSeeder::class,
+                SantriSeeder::class,
                 RekeningSeeder::class,
                 TahunAjaranSeeder::class,
                 KelasSeeder::class,
                 MapelSeeder::class,
                 JadwalSeeder::class,
+                RolesSeeder::class,
+            ]);
+        }else{
+            $this->call([
+                ProvincesSeeder::class,
+                CitiesSeeder::class,
+                DistrictsSeeder::class,
+                VillagesSeeder::class,
+                RolesSeeder::class,
             ]);
         }
+
+        $user->syncRoles('Kepala Sekolah');
     }
 }

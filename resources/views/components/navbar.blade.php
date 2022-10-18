@@ -38,6 +38,7 @@
                             <i class="ri-dashboard-2-line"></i> <span data-key="t-widgets">Dashboard</span>
                         </a>
                     </li>
+                    @hasanyrole('Kepala Sekolah|Guru|BK')
                     <li class="menu-title">
                         <span data-key="t-menu">Kesiswaan</span>
                     </li>
@@ -59,6 +60,27 @@
                             </ul>
                         </div>
                     </li>
+                    @endhasanyrole
+                    @hasanyrole('Kepala Sekolah|BK')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#konseling" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="konseling">
+                            <i class="ri-book-3-line"></i> <span data-key="t-layouts">Konseling</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="konseling">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{route('konseling.tambah')}}" class="nav-link" data-key="t-horizontal">Catat Konseling</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('pelanggaran.semua')}}" class="nav-link" data-key="t-detached">Jenis Pelanggaran</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('konseling.semua')}}" class="nav-link" data-key="t-detached">Riwayat Konseling</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    @endhasanyrole
                     {{--<li class="nav-item">
                         <a class="nav-link menu-link" href="#tahfidz" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tahfidz">
                             <i class="ri-book-2-fill"></i> <span data-key="t-apps">Tahfid</span>
@@ -89,24 +111,7 @@
                             </ul>
                         </div>
                     </li>--}}
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#konseling" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="konseling">
-                            <i class="ri-book-3-line"></i> <span data-key="t-layouts">Konseling</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="konseling">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{{route('konseling.tambah')}}" class="nav-link" data-key="t-horizontal">Catat Konseling</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('pelanggaran.semua')}}" class="nav-link" data-key="t-detached">Jenis Pelanggaran</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('konseling.semua')}}" class="nav-link" data-key="t-detached">Riwayat Konseling</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+
                     {{--<li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                             <i class="ri-book-2-line"></i> <span data-key="t-layouts">Perizinan</span>
@@ -122,44 +127,7 @@
                             </ul>
                         </div>
                     </li>--}}
-                    <li class="menu-title">
-                        <span data-key="t-menu">Keuangan</span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#keuangan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="keuangan">
-                            <i class="ri-bank-fill"></i> <span data-key="t-layouts">e-Money</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="keuangan">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{{route('rekening.semua')}}" target="_self" class="nav-link" data-key="t-horizontal">Data Rekening</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Data Transaksi</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="{{route('dashboard')}}" aria-expanded="false">
-                            <i class="ri-wallet-fill"></i> <span data-key="t-widgets">Tabungan</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#tagihan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tagihan">
-                            <i class="ri-file-list-3-line"></i> <span data-key="t-layouts">Tagihan</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="tagihan">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{{route('kategori-tagihan.semua')}}" target="_self" class="nav-link" data-key="t-horizontal">Kategori Tagihan</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('tagihan.semua')}}" target="_self" class="nav-link" data-key="t-detached">Data Tagihan</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    @hasanyrole('Kepala Sekolah')
                     <li class="menu-title">
                         <span data-key="t-menu">Kepegawaian</span>
                     </li>
@@ -208,9 +176,11 @@
                             </ul>
                         </div>
                     </li>
+                    @endhasanyrole
                     <li class="menu-title">
                         <span data-key="t-menu">Akademik</span>
                     </li>
+                    @hasanyrole('Kepala Sekolah')
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#jadwal" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="jadwal">
                             <i class=" ri-todo-line"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
@@ -226,6 +196,7 @@
                             </ul>
                         </div>
                     </li>
+                    @endhasanyrole
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#presensi" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="presensi">
                             <i class="ri-fingerprint-2-line"></i> <span data-key="t-apps">Presensi</span>
@@ -256,6 +227,7 @@
                             <i class="ri-book-line fs-20"></i> <span>Mata Pelajaran</span>
                         </a>
                     </li>
+                    @hasanyrole('Kepala Sekolah')
                     <li class="menu-title">
                         <span data-key="t-menu">Sistem</span>
                     </li>
@@ -266,14 +238,21 @@
                         <div class="collapse menu-dropdown" id="pengaturan">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
+                                    <a href="{{route('pengaturan.semua')}}" class="nav-link" data-key="t-calendar"> General </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{route('jadwal.tambah')}}" class="nav-link" data-key="t-calendar"> Pengguna </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('permission.semua')}}" class="nav-link" data-key="t-chat"> Permission </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('pengaturan.data-instansi')}}" class="nav-link" data-key="t-chat"> Data Instansi </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
+                    @endhasanyrole
                 </ul>
 
                 <div class="my-3 d-grid px-3">

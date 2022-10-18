@@ -1,0 +1,1 @@
+<?php /**PATH /media/aziz/Data Project/GitHub/madrosy/resources/views/vendor/livewire-tables/stubs/custom.blade.php ENDPATH**/ ?>
