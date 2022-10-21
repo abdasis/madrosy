@@ -2,14 +2,15 @@
 <html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none">
 <head>
     <x-head/>
-    @vite(['resources/js/app.js'])
+    @vite('resources/js/app.js')
     @stack('styles')
 </head>
 
 <body>
+<x-loading/>
+
 <!-- Begin page -->
 <div id="layout-wrapper">
-    <x-loading/>
     <x-header />
     <!-- ========== App Menu ========== -->
     <x-navbar />
@@ -62,12 +63,14 @@
 <script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
 <script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/libs/flatpickr/flatpickr.min.js')}}"></script>
-<script src="{{asset('assets/js/plugins.js')}}"></script>
+<script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
+<script src="{{asset('assets/libs/@simonwep/pickr/pickr.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/form-pickers.init.js')}}"></script><!-- App js -->
+<script src="{{asset('assets/libs/choices.js/public/assets/scripts/choices.min.js')}}"></script>
+<script src="{{asset('assets/libs/flatpickr/flatpickr.min.js')}}"></script>
 <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
 @livewireScripts
 @stack('scripts')
-
 <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <x-livewire-alert::scripts />
 <script>
@@ -79,7 +82,6 @@
         $('#' + component).modal('show');
     });
 </script>
-<script src="{{asset('assets/js/pages/sweetalerts.init.js')}}"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>
 </body>
 </html>

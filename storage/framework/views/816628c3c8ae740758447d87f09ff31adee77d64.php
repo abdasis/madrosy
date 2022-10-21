@@ -8,9 +8,11 @@
 <!-- App favicon -->
 <link rel="shortcut icon" href="<?php echo e(asset('assets/images/favicon.ico')); ?>">
 
-<script src="<?php echo e(asset('assets/js/jquery-3.6.0.min.js')); ?>"></script>
-
-<link href="<?php echo e(asset('assets/libs/sweetalert2/sweetalert2.min.css')); ?>" rel="stylesheet" type="text/css">
+<script src="<?php echo e(asset('assets/libs/jquery/jquery-3.6.1.min.js')); ?>"></script>
+<!-- One of the following themes -->
+<link rel="stylesheet" href="<?php echo e(asset('assets/libs/@simonwep/pickr/themes/classic.min.css')); ?>" /> <!-- 'classic' theme -->
+<link rel="stylesheet" href="<?php echo e(asset('assets/libs/@simonwep/pickr/themes/monolith.min.css')); ?>" /> <!-- 'monolith' theme -->
+<link rel="stylesheet" href="<?php echo e(asset('assets/libs/@simonwep/pickr/themes/nano.min.css')); ?>" /> <!-- 'nano' theme -->
 <!-- Layout config Js -->
 <script src="<?php echo e(asset('assets/js/layout.js')); ?>"></script>
 <!-- Bootstrap Css -->
@@ -21,6 +23,7 @@
 <link href="<?php echo e(asset('assets/css/app.min.css')); ?>" rel="stylesheet" type="text/css" />
 <!-- custom Css-->
 <link href="<?php echo e(asset('assets/css/custom.min.css')); ?>" rel="stylesheet" type="text/css" />
+
 
 
 <style>
@@ -40,8 +43,6 @@
         min-width: 250px;
         max-width: 265px;
     }
-
-
 
 </style>
 

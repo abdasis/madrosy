@@ -40,13 +40,11 @@
                                     <label for="">Tanggal</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="form-group" wire:ignore.self>
+                                    <div class="form-group">
                                         <x-form-input
+                                            type="date"
                                             name="tanggal"
                                             wire:model="tanggal"
-                                            data-provider="flatpickr"
-                                            data-date-format="d F, Y"
-                                            readonly="readonly"
                                             placeholder="Masukan Tanggal"
                                         />
                                     </div>

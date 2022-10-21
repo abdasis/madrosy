@@ -16,14 +16,12 @@
 <?php $component = $__componentOriginal0ffb0a0d50d0f581dbd60338c0b56c81fed4e7d6; ?>
 <?php unset($__componentOriginal0ffb0a0d50d0f581dbd60338c0b56c81fed4e7d6); ?>
 <?php endif; ?>
-    <?php echo app('Illuminate\Foundation\Vite')(['resources/js/app.js']); ?>
+    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
     <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
 
 <body>
-<!-- Begin page -->
-<div id="layout-wrapper">
-    <?php if (isset($component)) { $__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d = $component; } ?>
+<?php if (isset($component)) { $__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d = $component; } ?>
 <?php $component = App\View\Components\Loading::resolve([] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('loading'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -38,6 +36,9 @@
 <?php $component = $__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d; ?>
 <?php unset($__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d); ?>
 <?php endif; ?>
+
+<!-- Begin page -->
+<div id="layout-wrapper">
     <?php if (isset($component)) { $__componentOriginal99db13291ff287454d08b974e14dad64f9e2c6f3 = $component; } ?>
 <?php $component = App\View\Components\Header::resolve([] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('header'); ?>
@@ -134,13 +135,15 @@
 <script src="<?php echo e(asset('assets/libs/node-waves/waves.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/libs/feather-icons/feather.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/pages/plugins/lord-icon-2.1.0.js')); ?>"></script>
-<script type="text/javascript" src="<?php echo e(asset('assets/libs/flatpickr/flatpickr.min.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/js/plugins.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/libs/feather-icons/feather.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/libs/@simonwep/pickr/pickr.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/pages/form-pickers.init.js')); ?>"></script><!-- App js -->
+<script src="<?php echo e(asset('assets/libs/choices.js/public/assets/scripts/choices.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/libs/flatpickr/flatpickr.min.js')); ?>"></script>
 <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
 <?php echo \Livewire\Livewire::scripts(); ?>
 
 <?php echo $__env->yieldPushContent('scripts'); ?>
-
 <script src="<?php echo e(asset('assets/libs/sweetalert2/sweetalert2.min.js')); ?>"></script>
 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'livewire-alert::components.scripts','data' => []] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
@@ -166,7 +169,6 @@
         $('#' + component).modal('show');
     });
 </script>
-<script src="<?php echo e(asset('assets/js/pages/sweetalerts.init.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/app.js')); ?>"></script>
 </body>
 </html>
