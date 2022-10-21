@@ -71,7 +71,7 @@
 <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
 @livewireScripts
 @stack('scripts')
-<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
 <script>
     Livewire.on('modalTambah', function (component) {
