@@ -1,87 +1,35 @@
-<!DOCTYPE html>
-<html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none">
+<!doctype html>
+<html lang="en"
+      data-layout="vertical"
+      data-topbar="light"
+      data-sidebar="dark"
+      data-sidebar-size="lg"
+      data-sidebar-image="none"
+      data-preloader="disable"
+      data-layout-mode="light"
+      data-layout-width="fluid"
+      data-layout-position="fixed"
+      data-layout-style="default">
 <head>
     <x-head/>
-    @vite('resources/js/app.js')
-    @stack('styles')
 </head>
-
 <body>
-<x-loading/>
-
-<!-- Begin page -->
 <div id="layout-wrapper">
-    <x-header />
-    <!-- ========== App Menu ========== -->
-    <x-navbar />
-    <!-- Left Sidebar End -->
-    <!-- Vertical Overlay-->
-    <div class="vertical-overlay"></div>
-
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-
+    <x-header/>
+    <x-navbar/>
     <div class="main-content">
         <div class="page-content">
             <div class="container-fluid">
-                <!-- start page title -->
-                <div class="row">
-                    <div class="col-12">
-                        {{ Breadcrumbs::render() }}
-                    </div>
-                </div>
-                <!-- end page title -->
-
-
-                <div class="row">
-                    <div class="col">
-                        <div class="h-100">
-                            {{$slot}}
-                        </div>
-                        <!-- end .h-100-->
-                    </div>
-                    <!-- end col -->
-                </div>
+                {{Breadcrumbs::render()}}
+                {{$slot}}
             </div>
-            <!-- container-fluid -->
         </div>
-        <!-- End Page-content -->
-        <x-footer />
+        <x-footer/>
     </div>
-    <!-- end main content-->
-
-    <button onclick="topFunction()" class="btn btn-light btn-icon rounded-circle" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
 </div>
-<!-- END layout-wrapper -->
-
-<!-- JAVASCRIPT -->
-<script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
-<script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
-<script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
-<script src="{{asset('assets/libs/feather-icons/feather.min.js')}}"></script>
-<script src="{{asset('assets/libs/@simonwep/pickr/pickr.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/form-pickers.init.js')}}"></script><!-- App js -->
-<script src="{{asset('assets/libs/choices.js/public/assets/scripts/choices.min.js')}}"></script>
-<script src="{{asset('assets/libs/flatpickr/flatpickr.min.js')}}"></script>
-<script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-@livewireScripts
-@stack('scripts')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<x-livewire-alert::scripts />
-<script>
-    Livewire.on('modalTambah', function (component) {
-        $('#'+component).modal('show');
-    });
-
-    Livewire.on('modalEdit', function (component) {
-        $('#' + component).modal('show');
-    });
-</script>
-<script src="{{asset('assets/js/app.js')}}"></script>
+<button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+    <i class="ri-arrow-up-line"></i>
+</button>
+<x-scripts/>
 </body>
 </html>

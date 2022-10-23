@@ -6,13 +6,8 @@
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
 <!-- App favicon -->
-<link rel="shortcut icon" href="<?php echo e(asset('assets/images/favicon.ico')); ?>">
+<link rel="shortcut icon" href="assets/images/favicon.ico">
 
-<script src="<?php echo e(asset('assets/libs/jquery/jquery-3.6.1.min.js')); ?>"></script>
-<!-- One of the following themes -->
-<link rel="stylesheet" href="<?php echo e(asset('assets/libs/@simonwep/pickr/themes/classic.min.css')); ?>" /> <!-- 'classic' theme -->
-<link rel="stylesheet" href="<?php echo e(asset('assets/libs/@simonwep/pickr/themes/monolith.min.css')); ?>" /> <!-- 'monolith' theme -->
-<link rel="stylesheet" href="<?php echo e(asset('assets/libs/@simonwep/pickr/themes/nano.min.css')); ?>" /> <!-- 'nano' theme -->
 <!-- Layout config Js -->
 <script src="<?php echo e(asset('assets/js/layout.js')); ?>"></script>
 <!-- Bootstrap Css -->
@@ -23,6 +18,11 @@
 <link href="<?php echo e(asset('assets/css/app.min.css')); ?>" rel="stylesheet" type="text/css" />
 <!-- custom Css-->
 <link href="<?php echo e(asset('assets/css/custom.min.css')); ?>" rel="stylesheet" type="text/css" />
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
+<?php echo $__env->yieldPushContent('styles'); ?>
 
 
 
