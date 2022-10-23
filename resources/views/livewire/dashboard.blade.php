@@ -1,4 +1,5 @@
 <div>
+    @role('Siswa')
     <div class="row">
         <div class="col-md-6">
             <div class="card overflow-hidden">
@@ -39,4 +40,5 @@
             </div>
         </div>
     </div>
+    @endrole
 </div>
