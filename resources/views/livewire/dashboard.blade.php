@@ -1,4 +1,4 @@
-<x-app-layout>
+<div>
     <div class="row">
         <div class="col-md-6">
             <div class="card overflow-hidden">
@@ -26,18 +26,17 @@
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-body">
-                    <div class="row justify-content-around">
-                        <div class="col text-center">
-                            <img src="{{asset('assets/images/users/avatar-1.jpg')}}" alt="" class="avatar-md rounded-circle">
-                        </div>
-                        <div class="col-md-8">
-                            <h3>{{auth()->user()->name}}</h3>
-                            <p>{{auth()->user()->biodata->alamat}}</p>
+                <div class="card-header border-bottom border-light">
+                    <h5>Jadwal Hari Ini</h5>
+                </div>
+                <div class="card-body bg-soft-light">
+                    <div class="text-center">
+                        <div class="alert alert-info">
+                            Belum ada jadwal hari ini
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+</div>

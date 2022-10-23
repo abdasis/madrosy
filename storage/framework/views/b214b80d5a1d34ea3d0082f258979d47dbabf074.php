@@ -57,7 +57,7 @@
             ->class(['table-responsive table-card my-3' => $customAttributes['wrapper']['default'] ?? true])
             ->except('default')); ?>>
             <table <?php echo e($attributes->merge($customAttributes['table'])
-                ->class(['table table-hover table-nowrap' => $customAttributes['table']['default'] ?? true])
+                ->class(['table table-sm table-striped table-nowrap' => $customAttributes['table']['default'] ?? true])
                 ->except('default')); ?>>
                 <thead <?php echo e($attributes->merge($customAttributes['thead'])
                     ->class(['table-light' => $customAttributes['thead']['default'] ?? true])

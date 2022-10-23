@@ -95,11 +95,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#experience" role="tab" aria-selected="false">
-                                <i class="far fa-envelope"></i> Riwayat Pelatihan
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab" aria-selected="false">
                                 <i class="far fa-envelope"></i> Riwayat Jabatan
                             </a>

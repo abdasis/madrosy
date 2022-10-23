@@ -3,6 +3,7 @@
 namespace App\Models\Commons;
 
 use App\Models\Kepegawaian\Guru;
+use App\Models\Kesiswaan\Santri;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -64,5 +65,10 @@ class User extends Authenticatable
     public function guru()
     {
         return $this->hasOne(Guru::class);
+    }
+
+    public function santri()
+    {
+        return $this->hasOne(Santri::class)->withDefault();
     }
 }

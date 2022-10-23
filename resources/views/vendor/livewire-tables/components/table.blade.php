@@ -61,7 +61,7 @@
     }}>
             <table {{
             $attributes->merge($customAttributes['table'])
-                ->class(['table table-hover table-nowrap' => $customAttributes['table']['default'] ?? true])
+                ->class(['table table-sm table-striped table-nowrap' => $customAttributes['table']['default'] ?? true])
                 ->except('default')
         }}>
                 <thead {{

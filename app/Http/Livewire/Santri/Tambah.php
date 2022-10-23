@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Santri;
 
+use App\Models\Commons\User;
 use App\Models\Kesiswaan\Santri;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -39,6 +40,16 @@ class Tambah extends Component
 
         try {
 
+            \DB::beginTransaction();
+
+            $user = User::create([
+                'name' => $this->nama_lengkap,
+                'email' => $this->email,
+                'password' => bcrypt($this->nisn),
+            ]);
+
+            $user->assignRole('Siswa');
+
             $santri = Santri::create([
                 'nama_lengkap' => $this->nama_lengkap,
                 'nama_panggilan' => $this->nama_panggilan,
@@ -53,12 +64,16 @@ class Tambah extends Component
                 'email' => $this->email,
                 'no_hp' => $this->no_hp,
                 'alamat' => $this->alamat,
+                'user_id' => $user->id,
             ]);
 
             $this->alert('success', "Santri {$santri->nama_lengkap} berhasil ditambahkan");
 
+            \DB::commit();
+
             $this->reset();
         }catch (\Exception $e) {
+            \DB::rollBack();
             $this->alert('error', 'Kesalahan', [
                 'text' => 'Terjadi kesalahan saat menyimpan data',
             ]);

@@ -54,9 +54,7 @@
                                 <li class="nav-item">
                                     <a href="<?php echo e(route('santri.semua')); ?>" class="nav-link" data-key="t-crm"> Semua Siswa </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="index-2.html" class="nav-link" data-key="t-ecommerce"> PPDB Management </a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </li>
@@ -135,10 +133,30 @@
                         </div>
                     </li>
                     <?php endif; ?>
+                    <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
+                    <li class="menu-title">
+                        <span data-key="t-menu">Keuangan</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#tagihan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tagihan">
+                            <i class="ri-wallet-line"></i> <span data-key="t-apps">Penagihan</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="tagihan">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('kategori-tagihan.semua')); ?>" class="nav-link" data-key="t-calendar"> Kategori Tagihan </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('tagihan.semua')); ?>" class="nav-link" data-key="t-chat"> Data Tagihan </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php endif; ?>
+                    <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
                     <li class="menu-title">
                         <span data-key="t-menu">Akademik</span>
                     </li>
-                    <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#jadwal" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="jadwal">
                             <i class=" ri-todo-line"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
@@ -212,21 +230,9 @@
                     </li>
                     <?php endif; ?>
                 </ul>
-
-                <div class="my-3 d-grid px-3">
-                    <button class="btn btn-light waves-effect waves-light align-items-center d-flex gap-1 justify-content-center rounded-pill btn-border ">
-                        <i class="bx bxs-book-bookmark"></i>
-                        <span class="fs-14">Documentasi</span>
-                    </button>
-                </div>
             </div>
             <!-- Sidebar -->
         </div>
     </div>
 </div>
-
-
-
-
-
 <?php /**PATH /home/aziz/Project/madrosy/resources/views/components/navbar.blade.php ENDPATH**/ ?>

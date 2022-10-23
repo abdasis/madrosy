@@ -581,7 +581,7 @@
                             <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
                                     class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
                                     class="align-middle">Lock screen</span></a>
-                            <a class="dropdown-item" href="auth-logout-basic.html"><i
+                            <a class="dropdown-item" href="{{route('auth.keluar')}}"><i
                                     class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
                                     class="align-middle" data-key="t-logout">Logout</span></a>
                         </div>

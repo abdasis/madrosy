@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TransaksiController;
 use App\Http\Livewire\Absensi\Scan;
+use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Jadwal\Perminggu;
 use App\Http\Livewire\KategoriTagihan\Edit;
 use App\Http\Livewire\KategoriTagihan\Semua;
@@ -21,13 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Beranda::class)->name('landing.beranda');
 
 Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
+    'auth',
 ])->group(callback: function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::group(['prefix' => 'santri', 'middleware' => 'role:Kepala Sekolah|Guru|BK'], function () {
         Route::get('/', \App\Http\Livewire\Santri\Semua::class)->name('santri.semua');
         Route::get('tambah', \App\Http\Livewire\Santri\Tambah::class)->name('santri.tambah');
@@ -118,7 +115,17 @@ Route::middleware([
         Route::get('/', \App\Http\Livewire\Setting\Semua::class)->name('pengaturan.semua');
         Route::get('data-instansi', DataInstansi::class)->name('pengaturan.data-instansi');
     });
+
+    Route::group(['auth'], function (){
+        Route::get('kelaur', function (){
+            Auth::logout();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();
+            return redirect()->route('login');
+        })->name('auth.keluar');
+    });
 });
+
 
 Route::post('midtrans-response', [TransaksiController::class, 'midtransResponse'])->name('midtrans.notif');
 Route::get('pembayaran-selesai', [TransaksiController::class, 'pembayaranSelesai'])->name('midtrans.selesai');

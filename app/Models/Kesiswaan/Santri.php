@@ -3,6 +3,7 @@
 namespace App\Models\Kesiswaan;
 
 use App\Models\Akademik\Kelas;
+use App\Models\Commons\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,5 +20,10 @@ class Santri extends Model
     public function data_absensi()
     {
         return $this->hasMany(Absensi::class, 'santri_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault();
     }
 }

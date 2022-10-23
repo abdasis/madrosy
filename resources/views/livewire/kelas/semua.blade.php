@@ -1,7 +1,7 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="card">
-        <div class="card-header border-0 d-flex align-items-center gap-1">
+        <div class="card-header border-0 d-flex align-items-center gap-1 border-bottom border-light">
             <h1 class="card-title flex-grow-1">Data Semua Kelas</h1>
             <button
                 class="btn btn-light btn-border waves-effect d-flex align-items-center gap-1"
@@ -20,7 +20,7 @@
             </a>
 
         </div>
-        <div class="card-body">
+        <div class="card-body bg-soft-light">
             <livewire:kelas.tabel/>
         </div>
     </div>

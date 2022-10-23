@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('no_hp')->nullable()->unique();
             $table->text('alamat')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

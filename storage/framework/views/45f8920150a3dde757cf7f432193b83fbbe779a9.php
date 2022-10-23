@@ -92,7 +92,7 @@
             <?php if($component->paginationIsEnabled() && $rows->lastPage() > 1): ?>
                 <div class="row mt-3">
                     <div class="col-12 col-md-6 overflow-auto">
-                        <?php echo e($rows->links('livewire-tables::specific.bootstrap-4.pagination')); ?>
+                        <?php echo e($rows->onEachSide(1)->links('livewire-tables::specific.bootstrap-4.pagination')); ?>
 
                     </div>
 

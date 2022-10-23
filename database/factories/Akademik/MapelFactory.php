@@ -18,7 +18,7 @@ class MapelFactory extends Factory
     {
         $mapel = ["Pendidikan Agama", "PPKn", "Bahasa Indonesia", "Matematika", "IPA", "IPS", "Bahasa Inggris", "Seni dan Prakarya", "Pendidikan Jasmani", "Informatika", "Program Pengembangan Karakter", "Agama dan Kepercayaan kepada Tuhan YME", "PPKN", "Bahasa Indonesia", "Matematika", "Bahasa Inggris", "Seni dan Prakarya", "Pendidikan Jasmani"];
         return [
-            'kode' => 'MPL'.str_pad($this->faker->randomNumber(2), 5, '0', STR_PAD_LEFT),
+            'kode' => 'MPL'.str_pad($this->faker->unique()->randomNumber(2), 5, '0', STR_PAD_LEFT),
             'nama' => $this->faker->unique()->randomElement($mapel),
             'dibuat_oleh' => 1,
             'diubah_oleh' => 1,

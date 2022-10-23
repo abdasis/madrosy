@@ -624,7 +624,7 @@
                         <div>
                             <button
                                 type="button"
-                                class="btn border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
+                                class="btn border dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
 
                                 @if ($component->isFilterLayoutPopover())
                                     x-on:click="open = !open"
@@ -653,13 +653,13 @@
                         @if ($component->isFilterLayoutPopover())
                             <div
                                 x-cloak
-                                class="dropdown-menu mt-2"
+                                class="dropdown-menu mt-2 shadow-sm"
                                 x-bind:class="{'show' : open}"
                                 role="menu"
                                 style="min-width: 300px"
                             >
-                                <div class="card-header border-bottom-dashed">Filter Data Berdasarkan:</div>
-                                <div class="card-body p-0">
+                                <div class="card-header border-bottom border-light">Filter Data Berdasarkan:</div>
+                                <div class="card-body bg-soft-light p-0">
                                     @foreach($component->getFilters() as $filter)
                                         @if($filter->isVisibleInMenus())
                                             <div wire:key="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}" class="p-2">
@@ -736,7 +736,7 @@
                     >
                         <button
                             x-on:click="open = !open"
-                            class="btn border dropdown-toggle d-sm-block w-100 d-md-flex d-lg-flex align-items-center gap-1"
+                            class="btn border dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
                             type="button"
                             id="columnSelect-{{ $component->getTableName() }}"
                             aria-haspopup="true"
@@ -747,14 +747,16 @@
                         </button>
 
                         <div
-                            class="dropdown-menu dropdown-menu-end mt-2"
+                            class="dropdown-menu shadow-sm dropdown-menu-end mt-2"
                             x-bind:class="{'show' : open}"
                             aria-labelledby="columnSelect-{{ $component->getTableName() }}"
                         >
-                            <div class="card-header border-bottom-dashed">
-                                Pilih Kolom
+                            <div class="card-header py-2 border-bottom border-light">
+                                <span class="my-0">
+                                    Pilih Kolom
+                                </span>
                             </div>
-                            <div class="card-body p-1 pt-2">
+                            <div class="card-body bg-soft-light p-1 pt-2">
                                 @foreach($component->getColumns() as $column)
                                     @if ($column->isVisible() && $column->isSelectable())
                                         <div wire:key="columnSelect-{{ $loop->index }}-{{ $component->getTableName() }}">
