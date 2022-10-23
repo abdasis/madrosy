@@ -66,7 +66,7 @@
         }}>
                 <thead {{
                 $attributes->merge($customAttributes['thead'])
-                    ->class(['table-light' => $customAttributes['thead']['default'] ?? true])
+                    ->class(['' => $customAttributes['thead']['default'] ?? true])
                     ->except('default')
             }}>
                 <tr>

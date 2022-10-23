@@ -6,7 +6,7 @@
       data-sidebar-size="lg"
       data-sidebar-image="true"
       data-preloader="disable"
-      data-layout-mode="{{$preferensi->mode_aplikasi}}"
+      data-layout-mode="{{$preferensi->mode_aplikasi ?? 'light'}}"
       data-layout-width="fluid"
       data-layout-position="fixed"
       data-layout-style="default">

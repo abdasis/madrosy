@@ -21,7 +21,7 @@ class DaftarSiswa extends Component
     {
         $hari_ini = Carbon::now()->isoFormat('dddd');
         $jadual = Jadwal::where('hari', $hari_ini)
-            ->where('guru_id', auth()->id())
+            ->where('guru_id', auth()->user()->guru->id)
             ->where('status', 'aktif')
             ->whereTime('jam_mulai', '<=', Carbon::now()->format('H:i:s'))
             ->whereTime('jam_selesai', '>=', Carbon::now()->format('H:i:s'))

@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <script>document.write(new Date().getFullYear())</script> © Velzon.
+                <?php echo e(now()->format('Y')); ?> © <?php echo e(env('APP_NAME')); ?>.
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Design & Develop by Themesbrand
+                    Dikembangkan Oleh <a href="#">Athmarsoft Indonesia</a>
                 </div>
             </div>
         </div>

@@ -60,7 +60,7 @@
                 ->class(['table table-sm table-striped table-nowrap' => $customAttributes['table']['default'] ?? true])
                 ->except('default')); ?>>
                 <thead <?php echo e($attributes->merge($customAttributes['thead'])
-                    ->class(['table-light' => $customAttributes['thead']['default'] ?? true])
+                    ->class(['' => $customAttributes['thead']['default'] ?? true])
                     ->except('default')); ?>>
                 <tr>
                     <?php echo e($thead); ?>

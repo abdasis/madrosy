@@ -6,7 +6,7 @@
       data-sidebar-size="lg"
       data-sidebar-image="true"
       data-preloader="disable"
-      data-layout-mode="<?php echo e($preferensi->mode_aplikasi); ?>"
+      data-layout-mode="<?php echo e($preferensi->mode_aplikasi ?? 'light'); ?>"
       data-layout-width="fluid"
       data-layout-position="fixed"
       data-layout-style="default">
@@ -106,15 +106,15 @@
 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('mode-aplikasi', [])->html();
-} elseif ($_instance->childHasBeenRendered('3oqU23R')) {
-    $componentId = $_instance->getRenderedChildComponentId('3oqU23R');
-    $componentTag = $_instance->getRenderedChildComponentTagName('3oqU23R');
+} elseif ($_instance->childHasBeenRendered('BMjaz6q')) {
+    $componentId = $_instance->getRenderedChildComponentId('BMjaz6q');
+    $componentTag = $_instance->getRenderedChildComponentTagName('BMjaz6q');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('3oqU23R');
+    $_instance->preserveRenderedChild('BMjaz6q');
 } else {
     $response = \Livewire\Livewire::mount('mode-aplikasi', []);
     $html = $response->html();
-    $_instance->logRenderedChild('3oqU23R', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('BMjaz6q', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

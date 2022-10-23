@@ -91,9 +91,9 @@ Route::middleware([
         Route::get('/detail/{mapel}', \App\Http\Livewire\Mapel\Detail::class)->name('mapel.detail');
     });
     Route::group(['prefix' => 'jadwal'], function () {
-        Route::get('/', \App\Http\Livewire\Jadwal\Semua::class)->name('jadwal.semua');
+        Route::get('/', \App\Http\Livewire\Jadwal\Semua::class)->name('jadwal.semua')->middleware('role:Kepala Sekolah');
         Route::get('tambah', \App\Http\Livewire\Jadwal\Tambah::class)->name('jadwal.tambah')->middleware('role:Kepala Sekolah');
-        Route::get('edit/{jadwal}', \App\Http\Livewire\Jadwal\Edit::class)->name('jadwal.edit')->middleware('role: Kepala Sekolah');
+        Route::get('edit/{jadwal}', \App\Http\Livewire\Jadwal\Edit::class)->name('jadwal.edit')->middleware('role:Kepala Sekolah');
         Route::get('detail/{jadwal}', \App\Http\Livewire\Jadwal\Detail::class)->name('jadwal.detail');
         Route::get('perminggu', Perminggu::class)->name('jadwal.perminggu');
 

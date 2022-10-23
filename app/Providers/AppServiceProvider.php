@@ -31,9 +31,13 @@ class AppServiceProvider extends ServiceProvider
         }
 
         \view()->composer('*', function ($view){
-            $preferensi = auth()->user()->preferensi()->first();
-            if ($preferensi){
-                return $view->with('preferensi', $preferensi);
+            if (auth()->check()){
+                $preferensi = auth()->user()->preferensi()->first();
+                if ($preferensi){
+                    return $view->with('preferensi', $preferensi);
+                }
+            }else{
+                return  redirect('/login');
             }
         });
 

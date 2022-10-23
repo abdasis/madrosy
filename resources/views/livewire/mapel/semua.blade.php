@@ -1,7 +1,7 @@
 <div>
     {{-- Success is as dangerous as failure. --}}
     <div class="card">
-        <div class="card-header d-flex align-items-center border-bottom-dashed bg-white">
+        <div class="card-header d-flex align-items-center border-bottom border-light">
             <h5 class="mb-0 flex-grow-1 ">Data Mata Pelajaran</h5>
             <button class="btn btn-light btn-border waves-effect" wire:click.prevent="$emitTo('mapel.tambah', 'tambah')">
                 <i class="mdi mdi-plus"></i>
