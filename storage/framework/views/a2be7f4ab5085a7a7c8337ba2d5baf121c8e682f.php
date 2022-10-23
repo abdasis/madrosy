@@ -39,9 +39,7 @@
                         </a>
                     </li>
                     <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah|Guru|BK')): ?>
-                    <li class="menu-title">
-                        <span data-key="t-menu">Kesiswaan</span>
-                    </li>
+                  
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                             <i class="las la-user-friends fs-21"></i> <span data-key="t-dashboards">Siswa</span>
@@ -84,9 +82,7 @@
 
                     
                     <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
-                    <li class="menu-title">
-                        <span data-key="t-menu">Kepegawaian</span>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#dataGuru" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="dataGuru">
                             <i class="mdi mdi-school fs-21"></i> <span data-key="t-dashboards">Pengajar</span>
@@ -117,26 +113,10 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#penggajian" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="penggajian">
-                            <i class=" ri-hand-coin-line"></i> <span data-key="t-apps">Penggajian</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="penggajian">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Pengaturan Gaji </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Data Penggajian </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                   
                     <?php endif; ?>
                     <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
-                    <li class="menu-title">
-                        <span data-key="t-menu">Keuangan</span>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#tagihan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tagihan">
                             <i class="ri-wallet-line"></i> <span data-key="t-apps">Penagihan</span>
@@ -154,9 +134,7 @@
                     </li>
                     <?php endif; ?>
                     <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
-                    <li class="menu-title">
-                        <span data-key="t-menu">Akademik</span>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#jadwal" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="jadwal">
                             <i class=" ri-todo-line"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
@@ -204,9 +182,7 @@
                         </a>
                     </li>
                     <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
-                    <li class="menu-title">
-                        <span data-key="t-menu">Sistem</span>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#pengaturan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="pengaturan">
                             <i class="ri-settings-4-line"></i> <span data-key="t-apps">Pengaturan</span>

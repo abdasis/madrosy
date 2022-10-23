@@ -39,9 +39,9 @@
                         </a>
                     </li>
                     @hasanyrole('Kepala Sekolah|Guru|BK')
-                    <li class="menu-title">
+                  {{--  <li class="menu-title">
                         <span data-key="t-menu">Kesiswaan</span>
-                    </li>
+                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                             <i class="las la-user-friends fs-21"></i> <span data-key="t-dashboards">Siswa</span>
@@ -128,9 +128,9 @@
                         </div>
                     </li>--}}
                     @hasanyrole('Kepala Sekolah')
-                    <li class="menu-title">
+                    {{--<li class="menu-title">
                         <span data-key="t-menu">Kepegawaian</span>
-                    </li>
+                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#dataGuru" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="dataGuru">
                             <i class="mdi mdi-school fs-21"></i> <span data-key="t-dashboards">Pengajar</span>
@@ -161,7 +161,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                   {{-- <li class="nav-item">
                         <a class="nav-link menu-link" href="#penggajian" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="penggajian">
                             <i class=" ri-hand-coin-line"></i> <span data-key="t-apps">Penggajian</span>
                         </a>
@@ -175,12 +175,12 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li>--}}
                     @endhasanyrole
                     @hasanyrole('Kepala Sekolah')
-                    <li class="menu-title">
+                    {{--<li class="menu-title">
                         <span data-key="t-menu">Keuangan</span>
-                    </li>
+                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#tagihan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tagihan">
                             <i class="ri-wallet-line"></i> <span data-key="t-apps">Penagihan</span>
@@ -198,9 +198,9 @@
                     </li>
                     @endhasanyrole
                     @hasanyrole('Kepala Sekolah')
-                    <li class="menu-title">
+                    {{--<li class="menu-title">
                         <span data-key="t-menu">Akademik</span>
-                    </li>
+                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#jadwal" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="jadwal">
                             <i class=" ri-todo-line"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
@@ -248,9 +248,9 @@
                         </a>
                     </li>
                     @hasanyrole('Kepala Sekolah')
-                    <li class="menu-title">
+                    {{--<li class="menu-title">
                         <span data-key="t-menu">Sistem</span>
-                    </li>
+                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#pengaturan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="pengaturan">
                             <i class="ri-settings-4-line"></i> <span data-key="t-apps">Pengaturan</span>
