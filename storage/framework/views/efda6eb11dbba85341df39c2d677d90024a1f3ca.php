@@ -299,7 +299,7 @@
                     </div>
                 </div>
 
-                <div class="dropdown topbar-head-dropdown ms-1 d-none header-item">
+                <div class="dropdown topbar-head-dropdown ms-1 header-item">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
                             id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -599,11 +599,18 @@
                     </div>
                 </div>
 
+                <div class="ms-1 header-item d-none d-sm-flex">
+                    <button type="button" onclick="gantiMode()"
+                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                            <i class='bx bx-moon fs-22'></i>
+                    </button>
+                </div>
+
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user avatar-sm border" src="<?php echo e(auth()->user()->profile_photo_url); ?>"
+                            <img class="rounded-circle header-profile-user" src="<?php echo e(auth()->user()->profile_photo_url); ?>"
                                  alt="Header Avatar">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna Adame</span>
@@ -646,4 +653,12 @@
         </div>
     </div>
 </header>
+
+<?php $__env->startPush('scripts'); ?>
+    <script>
+        function gantiMode(){
+            Livewire.emitTo('mode-aplikasi', 'gantiMode')
+        }
+    </script>
+<?php $__env->stopPush(); ?>
 <?php /**PATH /home/aziz/Project/madrosy/resources/views/components/header.blade.php ENDPATH**/ ?>

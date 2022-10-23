@@ -71,4 +71,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Santri::class)->withDefault();
     }
+
+    public function preferensi()
+    {
+        return $this->hasOne(Preferensi::class, 'user_id', 'id')->withDefault();
+    }
 }

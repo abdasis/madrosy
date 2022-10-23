@@ -9,16 +9,20 @@
                     <p class="text-muted">Kamu bisa melakukan perubahan pada data instansi yang sedang kamu kelola saat
                         ini
                     </p>
-                </div>
-                <div class="card-footer border-light border-bottom ">
-                    <a href="{{route('pengaturan.data-instansi')}}">
-                        <button class="btn btn-light btn-border btn-md  shadow-none waves-effect d-flex align-middle float-end">
-                            Atur Sekarang
-                            <i class="ri-arrow-right-line"></i>
-                        </button>
+                    <a href="{{route('pengaturan.data-instansi')}}" class="btn btn-action text-muted d-flex gap-2 align-items-center justify-content-end">
+                        Atur Sekarang
+                        <i class="ri-arrow-right-line"></i>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@push('script')
+    <script>
+        function gantiMode(){
+            alert('Ok')
+        }
+    </script>
+@endpush

@@ -4,9 +4,9 @@
       data-topbar="light"
       data-sidebar="dark"
       data-sidebar-size="lg"
-      data-sidebar-image="none"
+      data-sidebar-image="true"
       data-preloader="disable"
-      data-layout-mode="light"
+      data-layout-mode="<?php echo e($preferensi->mode_aplikasi); ?>"
       data-layout-width="fluid"
       data-layout-position="fixed"
       data-layout-style="default">
@@ -103,6 +103,21 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
+<?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('mode-aplikasi', [])->html();
+} elseif ($_instance->childHasBeenRendered('3oqU23R')) {
+    $componentId = $_instance->getRenderedChildComponentId('3oqU23R');
+    $componentTag = $_instance->getRenderedChildComponentTagName('3oqU23R');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('3oqU23R');
+} else {
+    $response = \Livewire\Livewire::mount('mode-aplikasi', []);
+    $html = $response->html();
+    $_instance->logRenderedChild('3oqU23R', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
 </body>
 </html>
 <?php /**PATH /home/aziz/Project/madrosy/resources/views/layouts/app.blade.php ENDPATH**/ ?>

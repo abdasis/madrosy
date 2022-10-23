@@ -4,9 +4,9 @@
       data-topbar="light"
       data-sidebar="dark"
       data-sidebar-size="lg"
-      data-sidebar-image="none"
+      data-sidebar-image="true"
       data-preloader="disable"
-      data-layout-mode="light"
+      data-layout-mode="{{$preferensi->mode_aplikasi}}"
       data-layout-width="fluid"
       data-layout-position="fixed"
       data-layout-style="default">
@@ -31,5 +31,6 @@
     <i class="ri-arrow-up-line"></i>
 </button>
 <x-scripts/>
+<livewire:mode-aplikasi/>
 </body>
 </html>

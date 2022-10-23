@@ -632,7 +632,7 @@
                         <div>
                             <button
                                 type="button"
-                                class="btn border dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
+                                class="btn border text-muted dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
 
                                 <?php if($component->isFilterLayoutPopover()): ?>
                                     x-on:click="open = !open"
@@ -662,7 +662,7 @@
                         <?php if($component->isFilterLayoutPopover()): ?>
                             <div
                                 x-cloak
-                                class="dropdown-menu mt-2 shadow-sm"
+                                class="dropdown-menu mt-2 py-0 shadow-sm"
                                 x-bind:class="{'show' : open}"
                                 role="menu"
                                 style="min-width: 300px"
@@ -748,7 +748,7 @@
                     >
                         <button
                             x-on:click="open = !open"
-                            class="btn border dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
+                            class="btn border text-muted dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
                             type="button"
                             id="columnSelect-<?php echo e($component->getTableName()); ?>"
                             aria-haspopup="true"
@@ -759,11 +759,11 @@
                         </button>
 
                         <div
-                            class="dropdown-menu shadow-sm dropdown-menu-end mt-2"
+                            class="dropdown-menu shadow-sm py-0 dropdown-menu-end mt-2"
                             x-bind:class="{'show' : open}"
                             aria-labelledby="columnSelect-<?php echo e($component->getTableName()); ?>"
                         >
-                            <div class="card-header py-2 border-bottom border-light">
+                            <div class="card-header py-2 text-muted border-bottom border-light">
                                 <span class="my-0">
                                     Pilih Kolom
                                 </span>
