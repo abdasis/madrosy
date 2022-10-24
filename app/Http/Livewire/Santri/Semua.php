@@ -11,8 +11,8 @@ class Semua extends Component
     {
 
         return view('livewire.santri.semua',[
-            'total_putra' => Santri::where('jenis_kelamin', 'laki-laki')->count(),
-            'total_putri' => Santri::where('jenis_kelamin', 'perempuan')->count(),
+            'total_putra' => Santri::where('jenis_kelamin', 'Laki-Laki')->count(),
+            'total_putri' => Santri::where('jenis_kelamin', 'Perempuan')->count(),
             'total_santri' => Santri::count()
         ]);
     }

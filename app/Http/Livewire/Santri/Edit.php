@@ -76,9 +76,9 @@ class Edit extends Component
                 'alamat' => $this->alamat,
             ]);
 
-            $this->alert('success', 'Berhasil', [
+            $this->flash('success', 'Berhasil', [
                 'text' => "Santri {$this->nama_lengkap} berhasil diperbarui",
-            ]);
+            ], route('santri.semua'));
 
         }catch (\Exception $e) {
             $this->alert('error', 'Kesalahan', [
