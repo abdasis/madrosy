@@ -1,6 +1,6 @@
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-    <x-modal title="Tambah Data Kelas" modal="tambah-kelas">
+    <x-modal title="Tambah Pelanggaran" modal="tambah-kelas">
         <form wire:submit.prevent="simpan">
             <div class="form-group mb-2">
                 <x-form-textarea name="kasus" wire:model="kasus" label="Pelanggaran"

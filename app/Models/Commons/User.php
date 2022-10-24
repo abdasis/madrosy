@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function guru()
     {
-        return $this->hasOne(Guru::class);
+        return $this->hasOne(Guru::class)->withDefault();
     }
 
     public function santri()

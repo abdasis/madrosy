@@ -1,7 +1,7 @@
 <div>
     {{-- Stop trying to control. --}}
     @if($jadual)
-        <div class="row">
+        <div class="row" >
             <div class="col-md-5">
                 <div class="card overflow-hidden">
                     <div class="card-body bg-pattern d-flex">
@@ -149,8 +149,14 @@
             </div>
         </div>
     @else
-        <div class="alert alert-outline alert-danger">
-            <h5>Maaf anda tidak memiliki jadwal mengajar hari ini</h5>
+        <div class="row" style="min-height: 70vh">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
         </div>
     @endif
 </div>

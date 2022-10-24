@@ -123,6 +123,7 @@ class Tambah extends Component
             DB::commit();
         }catch (\Exception $exception){
             Debugbar::info($exception);
+            report($exception);
             DB::rollBack();
             $this->alert('error', 'Data guru gagal disimpan');
         }
