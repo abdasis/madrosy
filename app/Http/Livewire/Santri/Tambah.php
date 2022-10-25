@@ -30,7 +30,7 @@ class Tambah extends Component
         return [
             'nama_lengkap' => 'required',
             'jenis_kelamin' => 'required',
-            'nisn' => 'required|unique:santris|minx:6|max:8',
+            'nisn' => 'required|unique:santris|min:9|max:9',
         ];
     }
 
