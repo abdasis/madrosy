@@ -29,7 +29,7 @@ class Tambah extends Modal
     public function rules()
     {
         return[
-            'nama' => 'required',
+            'nama' => 'required|unique:mapels.nama',
             'kode' => 'required|unique:mapels,kode'
         ];
     }

@@ -34,7 +34,7 @@ class Edit extends Component
     {
         $id = $this->mapel_id;
         return[
-            'nama' => 'required',
+            'nama' => 'required|unique:mapels.nama'.$id,
             'kode' => 'required|unique:mapels,kode,'.$id
         ];
     }
