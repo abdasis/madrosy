@@ -50,7 +50,7 @@ class Edit extends Component
         return [
             'nama_lengkap' => 'required',
             'jenis_kelamin' => 'required',
-            'nisn' => 'required|unique:santris,nisn,' . $this->santri_id,
+            'nisn' => 'required|min_digits::9|max_digits::9|unique:santris,nisn,' . $this->santri_id,
         ];
     }
 
