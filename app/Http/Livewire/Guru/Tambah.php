@@ -81,6 +81,7 @@ class Tambah extends Component
 
         try {
             DB::beginTransaction();
+
             $user = User::create([
                 'name' => $this->nama,
                 'email' => $this->email,
@@ -107,7 +108,6 @@ class Tambah extends Component
                 'tanggal_masuk' => $this->tanggal_masuk,
                 'foto' => "https://ui-avatars.com/api/?background=random&color=fff&name={$this->nama}",
                 'user_id' => $user->id,
-
                 'provinsi' => $this->provinsi,
                 'kabupaten' => $this->kabupaten,
                 'kecamatan' => $this->kecamatan,
