@@ -67,6 +67,8 @@ class Edit extends Component
             'nama_lengkap' => 'required',
             'jenis_kelamin' => 'required',
             'nisn' => 'required|min_digits:9|max_digits:9|unique:santris,nisn,' . $this->santri_id,
+            'jumlah_saudara' => ['required', 'numeric', 'min:1'],
+            'anak_ke' => 'required|lte:jumlah_saudara'
         ];
     }
 
