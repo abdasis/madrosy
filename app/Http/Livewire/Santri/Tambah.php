@@ -31,7 +31,23 @@ class Tambah extends Component
             'nama_lengkap' => 'required',
             'jenis_kelamin' => 'required',
             'nisn' => 'required|unique:santris|min_digits:9|max_digits:9',
+            'jumlah_saudara' => ['required', 'numeric', 'min:1'],
+            'anak_ke' => 'required|lte:jumlah_saudara'
         ];
+    }
+
+    public function updatedJumlahSaudara($value)
+    {
+        if ($value > 1){
+            $this->anak_ke = 1;
+        }else{
+            $this->anak_ke = 1;
+        }
+    }
+
+    public function updated($field)
+    {
+        $this->validateOnly($field);
     }
 
     public function simpan()

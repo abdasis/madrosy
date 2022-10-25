@@ -45,6 +45,22 @@ class Edit extends Component
         $this->alamat           = $santri->alamat;
     }
 
+    public function updatedJumlahSaudara($value)
+    {
+        if ($value > 1){
+            $this->anak_ke = 1;
+        }else{
+            $this->anak_ke = 1;
+        }
+    }
+
+
+    public function updated($field)
+    {
+        return $this->validateOnly($field);
+    }
+
+
     public function rules()
     {
         return [
