@@ -164,6 +164,7 @@
                                         wire:model="password"
                                         name="password"
                                         label="Password"
+                                        readonly
                                     />
                                     <small class="text-muted">Password akan secara default di set dari tanggal lahir</small>
                                 </div>

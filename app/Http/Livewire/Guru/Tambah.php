@@ -131,23 +131,23 @@ class Tambah extends Component
 
     public function render()
     {
-        $semua_provinsi = \Indonesia::allProvinces()->lazy(function ($provinces) {
+        $semua_provinsi = \Indonesia::allProvinces()->sortBy('name')->lazy(function ($provinces) {
             foreach ($provinces as $key => $province) {
                 $provinsi[$key] = $province->name;
             }
         });
 
         if (isset($this->provinsi)) {
-            $kabupaten = Kabupaten::where('province_code', $this->provinsi)->get();
+            $kabupaten = Kabupaten::where('province_code', $this->provinsi)->orderBy('name')->get();
         }
 
         if (isset($this->kabupaten)) {
-            $kecamatan = Kecamatan::where('city_code', $this->kabupaten)->get();
+            $kecamatan = Kecamatan::where('city_code', $this->kabupaten)->orderBy('name')->get();
         }
 
 
         if (isset($this->kecamatan)) {
-            $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->get();
+            $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->orderBy('name')->get();
         }
 
         return view('livewire.guru.tambah',[

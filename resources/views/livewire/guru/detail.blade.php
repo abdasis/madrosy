@@ -6,9 +6,9 @@
                 <div class="text-end p-3">
                     <div class="p-0 ms-auto rounded-circle profile-photo-edit">
                         <input id="profile-foreground-img-file-input" type="file" class="profile-foreground-img-file-input">
-                        <label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light">
+                        {{--<label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light">
                             <i class="ri-image-edit-line align-bottom me-1"></i> Change Cover
-                        </label>
+                        </label>--}}
                     </div>
                 </div>
             </div>
@@ -24,9 +24,9 @@
                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                    <span class="avatar-title rounded-circle bg-light text-body">
-                                                        <i class="ri-camera-fill"></i>
-                                                    </span>
+                                    <span class="avatar-title rounded-circle bg-primary text-body">
+                                        <i class="ri-checkbox-circle-fill text-white"></i>
+                                    </span>
                                 </label>
                             </div>
                         </div>

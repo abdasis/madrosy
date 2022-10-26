@@ -46,11 +46,12 @@
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarDashboards">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{route('santri.tambah')}}" class="nav-link" data-key="t-analytics"> Tambah Siswa </a>
-                            </li>
+
                             <li class="nav-item">
                                 <a href="{{route('santri.semua')}}" class="nav-link" data-key="t-crm"> Semua Siswa </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('santri.tambah')}}" class="nav-link" data-key="t-analytics"> Tambah Siswa </a>
                             </li>
                             {{-- <li class="nav-item">
                                  <a href="index-2.html" class="nav-link" data-key="t-ecommerce"> PPDB Management </a>
@@ -59,26 +60,89 @@
                     </div>
                 </li>
                 @endhasanyrole
-                @hasanyrole('Kepala Sekolah|BK')
+                @hasanyrole('Kepala Sekolah')
+
+                {{--<li class="menu-title">
+                    <span data-key="t-menu">Kepegawaian</span>
+                </li>--}}
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#konseling" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="konseling">
-                        <i class="ri-book-3-line"></i> <span data-key="t-layouts">Konseling</span>
+                    <a class="nav-link menu-link" href="#dataGuru" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="dataGuru">
+                        <i class="mdi mdi-school fs-21"></i> <span data-key="t-dashboards">Guru</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="konseling">
+                    <div class="collapse menu-dropdown" id="dataGuru">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route('konseling.tambah')}}" class="nav-link" data-key="t-horizontal">Catat Konseling</a>
+                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-analytics"> Semua Guru </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('pelanggaran.semua')}}" class="nav-link" data-key="t-detached">Jenis Pelanggaran</a>
+                                <a href="{{route('guru.tambah')}}" class="nav-link" data-key="t-crm"> Tambah Data </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('konseling.semua')}}" class="nav-link" data-key="t-detached">Riwayat Konseling</a>
+                                <a href="{{route('riwayat-pendidikan.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Sekolah </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Pelatihan </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Jabatan </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Mengajar </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Penghargaan </a>
                             </li>
                         </ul>
                     </div>
                 </li>
+                {{-- <li class="nav-item">
+                     <a class="nav-link menu-link" href="#penggajian" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="penggajian">
+                         <i class=" ri-hand-coin-line"></i> <span data-key="t-apps">Penggajian</span>
+                     </a>
+                     <div class="collapse menu-dropdown" id="penggajian">
+                         <ul class="nav nav-sm flex-column">
+                             <li class="nav-item">
+                                 <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Pengaturan Gaji </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Data Penggajian </a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>--}}
                 @endhasanyrole
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('tahun-ajaran.semua')}}">
+                        <i class="ri-calendar-event-line"></i> <span>Tahun Ajaran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('kelas.semua')}}">
+                        <i class="bx bxs-door-open fs-20"></i> <span>Kelas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('mapel.semua')}}">
+                        <i class="ri-book-line fs-20"></i> <span>Mata Pelajaran</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#presensi" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="presensi">
+                        <i class="ri-fingerprint-2-line"></i> <span data-key="t-apps">Presensi</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="presensi">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{route('presensi.daftar-kelas')}}" class="nav-link" data-key="t-calendar"> Absensi </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('presensi.laporan-presensi')}}" class="nav-link" data-key="t-chat"> Laporan Presensi </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 {{--<li class="nav-item">
                     <a class="nav-link menu-link" href="#tahfidz" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tahfidz">
                         <i class="ri-book-2-fill"></i> <span data-key="t-apps">Tahfid</span>
@@ -125,56 +189,27 @@
                         </ul>
                     </div>
                 </li>--}}
-                @hasanyrole('Kepala Sekolah')
-                {{--<li class="menu-title">
-                    <span data-key="t-menu">Kepegawaian</span>
-                </li>--}}
+                @hasanyrole('Kepala Sekolah|BK')
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#dataGuru" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="dataGuru">
-                        <i class="mdi mdi-school fs-21"></i> <span data-key="t-dashboards">Pengajar</span>
+                    <a class="nav-link menu-link" href="#konseling" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="konseling">
+                        <i class="ri-book-3-line"></i> <span data-key="t-layouts">Konseling</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="dataGuru">
+                    <div class="collapse menu-dropdown" id="konseling">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route('guru.tambah')}}" class="nav-link" data-key="t-analytics"> Tambah Pengajar </a>
+                                <a href="{{route('konseling.tambah')}}" class="nav-link" data-key="t-horizontal">Catat Konseling</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Semua Pengajar </a>
+                                <a href="{{route('pelanggaran.semua')}}" class="nav-link" data-key="t-detached">Jenis Pelanggaran</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('riwayat-pendidikan.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Sekolah </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Pelatihan </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Jabatan </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Mengajar </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('guru.semua')}}" class="nav-link" data-key="t-crm"> Riwayat Penghargaan </a>
+                                <a href="{{route('konseling.semua')}}" class="nav-link" data-key="t-detached">Riwayat Konseling</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                {{-- <li class="nav-item">
-                     <a class="nav-link menu-link" href="#penggajian" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="penggajian">
-                         <i class=" ri-hand-coin-line"></i> <span data-key="t-apps">Penggajian</span>
-                     </a>
-                     <div class="collapse menu-dropdown" id="penggajian">
-                         <ul class="nav nav-sm flex-column">
-                             <li class="nav-item">
-                                 <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Pengaturan Gaji </a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Data Penggajian </a>
-                             </li>
-                         </ul>
-                     </div>
-                 </li>--}}
                 @endhasanyrole
+
                 @hasanyrole('Kepala Sekolah')
                 {{--<li class="menu-title">
                     <span data-key="t-menu">Keuangan</span>
@@ -215,36 +250,7 @@
                     </div>
                 </li>
                 @endhasanyrole
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#presensi" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="presensi">
-                        <i class="ri-fingerprint-2-line"></i> <span data-key="t-apps">Presensi</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="presensi">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{route('presensi.daftar-siswa')}}" class="nav-link" data-key="t-calendar"> Absensi </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('presensi.laporan-presensi')}}" class="nav-link" data-key="t-chat"> Laporan Presensi </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{route('tahun-ajaran.semua')}}">
-                        <i class="ri-calendar-event-line"></i> <span>Tahun Ajaran</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{route('kelas.semua')}}">
-                        <i class="bx bxs-door-open fs-20"></i> <span>Kelas</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{route('mapel.semua')}}">
-                        <i class="ri-book-line fs-20"></i> <span>Mata Pelajaran</span>
-                    </a>
-                </li>
+
                 @hasanyrole('Kepala Sekolah')
                 {{--<li class="menu-title">
                     <span data-key="t-menu">Sistem</span>
