@@ -45,7 +45,7 @@
                                             <i class="ri-book-2-line display-6 text-muted"></i>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <h2 class="mb-0">{{$jadual->mapel->nama}}</h2>
+                                            <h5 class="mb-0">{{$jadual->mapel->nama}}</h5>
                                         </div>
                                     </div>
                                 </div>

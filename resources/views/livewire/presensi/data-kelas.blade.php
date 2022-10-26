@@ -76,7 +76,7 @@
                                         <td>{{$jadwal_hari_ini->guru->nama}}</td>
                                     </tr>
                                 </table>
-                                <a href="{{route('presensi.isi-laporan', $jadwal_hari_ini)}}">
+                                <a href="{{route('presensi.daftar-siswa', $jadwal_hari_ini)}}">
                                     <div class="d-grid">
                                         <button class="btn btn btn-dark btn-border btn-sm">
                                             Lihat Presensi
