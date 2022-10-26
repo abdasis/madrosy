@@ -108,7 +108,7 @@ Route::middleware([
     });
     Route::group(['prefix' => 'presensi'], function () {
         Route::get('/daftar-kelas', \App\Http\Livewire\Presensi\DataKelas::class)->name('presensi.daftar-kelas');
-        Route::get('/daftar-siswa', DaftarSiswa::class)->name('presensi.daftar-siswa');
+        Route::get('/daftar-siswa/{jadwal}', DaftarSiswa::class)->name('presensi.daftar-siswa');
         Route::get('/laporan', LaporanPresensi::class)->name('presensi.laporan-presensi');
         Route::get('/laporan/{jadwal}', IsiLaporan::class)->name('presensi.isi-laporan');
     });

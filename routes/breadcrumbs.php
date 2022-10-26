@@ -186,9 +186,9 @@ Breadcrumbs::for('laporan.presensi-laporan', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Data Jadwal', route('presensi.laporan-presensi'));
 });
-Breadcrumbs::for('presensi.daftar-siswa', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('presensi.daftar-siswa', function (BreadcrumbTrail $trail, $jadwal) {
     $trail->parent('laporan.presensi-laporan');
-    $trail->push('Rekam Absensi', route('presensi.daftar-siswa'));
+    $trail->push('Rekam Absensi', route('presensi.daftar-siswa', $jadwal));
 });
 Breadcrumbs::for('presensi.isi-laporan', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('laporan.presensi-laporan');
