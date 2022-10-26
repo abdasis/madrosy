@@ -11,23 +11,29 @@ use Livewire\Component;
 class DaftarSiswa extends Component
 {
     use LivewireAlert;
+
     public $jadual;
     public $status;
     public $santri_id;
     public $keterangan;
     public $sudah_absen;
 
-    public function mount()
+    public function mount(Jadwal $jadwal)
     {
-        $hari_ini = Carbon::now()->isoFormat('dddd');
-        $jadual = Jadwal::where('hari', $hari_ini)
-            ->where('guru_id', auth()->user()->guru->id)
-            ->where('status', 'aktif')
-            ->whereTime('jam_mulai', '<=', Carbon::now()->format('H:i:s'))
-            ->whereTime('jam_selesai', '>=', Carbon::now()->format('H:i:s'))
-            ->first();
+        $hari_ini  = Carbon::now()->isoFormat('dddd');
+        $guru = auth()->user()->guru->id;
+        if ($jadwal->guru_id != $guru){
+            $data_jadwal = Jadwal::where('hari', $hari_ini)
+                ->whereBetween('jam_mulai', [$jadwal->jam_mulai, $jadwal->jam_selesai])
+                ->get();
 
-        $this->jadual = $jadual;
+            if ($data_jadwal->count() > 0){
+                $this->flash('error', 'Kamu sudah memiliki jadwal aktif', [], route('presensi.daftar-kelas'));
+            }
+        }
+
+        $this->jadual = $jadwal;
+
     }
 
     public function cekAbsen($santri_id)
@@ -41,10 +47,10 @@ class DaftarSiswa extends Component
     public function batalkan($absen_id)
     {
         $absensi = Absensi::find($absen_id);
-        if ($absensi){
+        if ($absensi) {
             $absensi->delete();
             $this->alert('success', 'Absensi dibatalkan');
-        }else{
+        } else {
             $this->alert('error', 'Absensi tidak ditemukan');
         }
     }
@@ -60,7 +66,7 @@ class DaftarSiswa extends Component
             ]);
 
             $this->alert('success', 'Berhasil Absen');
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             $this->alert('error', 'Gagal Absen');
         }
     }
