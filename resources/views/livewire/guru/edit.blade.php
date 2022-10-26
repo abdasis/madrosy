@@ -30,7 +30,7 @@
                                     <x-form-input name="tempat_lahir" wire:model.defer="tempat_lahir" label="Tempat Lahir" placeholder="Masukan Tempat Lahir" />
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date" label="Tempat Lahir" />
+                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date" label="Tanggal Lahir" />
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-select name="jenis_kelamin" label="Jenis Kelamin" wire:model.defer="jenis_kelamin">
