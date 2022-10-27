@@ -600,17 +600,24 @@
                 </div>
 
                 <div class="ms-1 header-item d-none d-sm-flex">
+                    <a href="{{route('presensi.scan-qr')}}"
+                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle">
+                        <i class='ri-fingerprint-line fs-22'></i>
+                    </a>
+                </div>
+
+                <div class="ms-1 header-item d-none d-sm-flex">
                     <button type="button" onclick="gantiMode()"
-                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle">
                             <i class='bx bx-moon fs-22'></i>
                     </button>
                 </div>
 
-                <div class="dropdown ms-sm-3 header-item topbar-user">
+                <div class="dropdown ms-sm-3 header-item bg-light topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="{{auth()->user()->profile_photo_url}}"
+                            <img class="rounded-circle border-white header-profile-user" src="{{auth()->user()->profile_photo_url}}"
                                  alt="Header Avatar">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{auth()->user()->name}}</span>

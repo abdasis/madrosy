@@ -111,6 +111,7 @@ Route::middleware([
         Route::get('/daftar-siswa/{jadwal}', DaftarSiswa::class)->name('presensi.daftar-siswa');
         Route::get('/laporan', LaporanPresensi::class)->name('presensi.laporan-presensi');
         Route::get('/laporan/{jadwal}', IsiLaporan::class)->name('presensi.isi-laporan');
+        Route::get('scan-qrcode', \App\Http\Livewire\Presensi\ScanQrcode::class)->name('presensi.scan-qr');
     });
     Route::group(['prefix' => 'pengaturan', 'middleware' => 'role:Kepala Sekolah'], function () {
         Route::get('/', \App\Http\Livewire\Setting\Semua::class)->name('pengaturan.semua');

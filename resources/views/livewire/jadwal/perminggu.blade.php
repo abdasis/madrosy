@@ -1,6 +1,6 @@
 <div>
     {{-- Success is as dangerous as failure. --}}
-    <div class="card">
+    <div class="card rounded-3 border-light">
         <div class="card-header bg-white border-bottom border-light d-flex align-items-center">
             <h5 class="mb-0 flex-grow-1">Data Semua Jadwal</h5>
             <div class="filter-kelas">
