@@ -202,3 +202,8 @@ Breadcrumbs::for('pengaturan.data-instansi', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Data Instansi', route('pengaturan.data-instansi'));
 });
+
+Breadcrumbs::for('presensi.daftar-kelas', function (BreadcrumbTrail $trail){
+    $trail->parent('presensi.laporan-presensi');
+    $trail->push('Daftar Kelas', route('presensi.daftar-kelas'));
+});

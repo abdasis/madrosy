@@ -2,7 +2,7 @@
 <html lang="en"
       data-layout="vertical"
       data-topbar="light"
-      data-sidebar="dark"
+      data-sidebar="light"
       data-sidebar-size="lg"
       data-sidebar-image="true"
       data-preloader="disable"

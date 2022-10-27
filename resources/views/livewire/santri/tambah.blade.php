@@ -1,14 +1,15 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
-    <div class="card py-3">
-        <div class="card-body">
+    <div class="card rounded border-light">
+        <div class="card-header border-bottom border-light">
+            <h5 class="mb-0">Tambah Data Siswa</h5>
+        </div>
+        <div class="card-body bg-soft-light">
+
             <form wire:submit.prevent="simpan">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="container">
-                            <div class="form-title">
-                                <h4 class="my-3 fw-bolder">Data Siswa</h4>
-                            </div>
                             <div class="row gy-3">
                                 <div class="col-md-4">
                                     <x-form-input name="nama_lengkap"  wire:model="nama_lengkap" label="Nama Lengkap" placeholder="Masukan Nama Lengkap" />

@@ -52,6 +52,7 @@ class Tambah extends Modal
         $this->validate();
 
         try {
+
             $mapel = Mapel::create([
                 'kode' => $this->kode,
                 'nama' =>   $this->nama,
