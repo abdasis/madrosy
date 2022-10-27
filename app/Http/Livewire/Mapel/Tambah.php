@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Mapel;
 
 use App\Http\Livewire\Modal;
 use App\Models\Akademik\Mapel;
+use Illuminate\Validation\Rule;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Tambah extends Modal
@@ -21,6 +22,11 @@ class Tambah extends Modal
 
     protected $listeners = ['tambah' => 'show'];
 
+    public function updatedNama($value)
+    {
+
+    }
+
     public function show()
     {
         $this->emit('modalTambah', 'tambah-mapel');
@@ -29,13 +35,20 @@ class Tambah extends Modal
     public function rules()
     {
         return[
-            'nama' => 'required|unique:mapels,nama',
             'kode' => 'required|unique:mapels,kode'
         ];
     }
 
     public function simpan()
     {
+
+        $cek_nama_sama = Mapel::where('nama', 'ilike', $this->nama)->get();
+
+        if ($cek_nama_sama->count() > 0){
+            $this->addError('nama', 'Nama sudah digunakan sebelumnya');
+            return false;
+        }
+
         $this->validate();
 
         try {

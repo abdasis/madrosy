@@ -34,13 +34,23 @@ class Edit extends Component
     {
         $id = $this->mapel_id;
         return[
-            'nama' => 'required|unique:mapels.nama'.$id,
             'kode' => 'required|unique:mapels,kode,'.$id
         ];
     }
 
     public function simpan()
     {
+
+        $cek_nama_sama = Mapel::where('nama', 'ilike', $this->nama)
+            ->where('id', '!=', $this->mapel_id)
+            ->get();
+
+        if ($cek_nama_sama->count() > 0){
+            $this->addError('nama', 'Nama sudah digunakan sebelumnya');
+            return false;
+        }
+
+
         $this->validate();
         try {
             $mapel = Mapel::where('id', $this->mapel_id)->update([
