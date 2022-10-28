@@ -86,7 +86,7 @@
                                 <!-- item -->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                     <div class="d-flex">
-                                        <img src="assets/images/users/avatar-2.jpg"
+                                        <img src="{{asset('assets/images/users/avatar-2.jpg')}}"
                                              class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="m-0">Angela Bernier</h6>
@@ -97,7 +97,7 @@
                                 <!-- item -->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                     <div class="d-flex">
-                                        <img src="assets/images/users/avatar-3.jpg"
+                                        <img src="{{asset('assets/images/users/avatar-3.jpg')}}"
                                              class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="m-0">David Grasso</h6>
@@ -108,7 +108,7 @@
                                 <!-- item -->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                     <div class="d-flex">
-                                        <img src="assets/images/users/avatar-5.jpg"
+                                        <img src="{{asset('assets/images/users/avatar-5.jpg')}}"
                                              class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="m-0">Mike Bunch</h6>
@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="assets/images/products/img-1.png"
+                                        <img src="{{asset('assets/images/products/img-1.png')}}"
                                              class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -188,7 +188,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="assets/images/products/img-2.png"
+                                        <img src="{{asset('assets/images/products/img-2.png')}}"
                                              class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -212,7 +212,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="assets/images/products/img-3.png"
+                                        <img src="{{asset('assets/images/products/img-3.png')}}"
                                              class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -236,7 +236,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="assets/images/products/img-6.png"
+                                        <img src="{{asset('assets/images/products/img-6.png')}}"
                                              class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -260,7 +260,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="assets/images/products/img-5.png"
+                                        <img src="{{asset('assets/images/products/img-5.png')}}"
                                              class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -384,7 +384,7 @@
                                     <div
                                         class="text-reset notification-item d-block dropdown-item position-relative active">
                                         <div class="d-flex">
-                                            <img src="assets/images/users/avatar-2.jpg"
+                                            <img src="{{asset('assets/images/users/avatar-2.jpg')}}"
                                                  class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -440,7 +440,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item position-relative">
                                         <div class="d-flex">
-                                            <img src="assets/images/users/avatar-8.jpg"
+                                            <img src="{{asset('assets/images/users/avatar-8.jpg')}}"
                                                  class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -477,7 +477,7 @@
                                 <div data-simplebar style="max-height: 300px;" class="pe-2">
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="assets/images/users/avatar-3.jpg"
+                                            <img src="{{asset('assets/images/users/avatar-3.jpg')}}"
                                                  class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -503,7 +503,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="assets/images/users/avatar-2.jpg"
+                                            <img src="{{asset('assets/images/users/avatar-2.jpg')}}"
                                                  class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -530,7 +530,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="assets/images/users/avatar-6.jpg"
+                                            <img src="{{asset('assets/images/users/avatar-6.jpg')}}"
                                                  class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -557,7 +557,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="assets/images/users/avatar-8.jpg"
+                                            <img src="{{asset('assets/images/users/avatar-8.jpg')}}"
                                                  class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -589,7 +589,7 @@
                             </div>
                             <div class="tab-pane fade p-4" id="alerts-tab" role="tabpanel" aria-labelledby="alerts-tab">
                                 <div class="w-25 w-sm-50 pt-3 mx-auto">
-                                    <img src="assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">
+                                    <img src="{{asset('assets/images/svg/bell.svg')}}" class="img-fluid" alt="user-pic">
                                 </div>
                                 <div class="text-center pb-5 mt-2">
                                     <h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>

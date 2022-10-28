@@ -16,18 +16,21 @@
 @endpush
 
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.4/html5-qrcode.min.js"
-            integrity="sha512-d8TjiRAJeef4xbbwEMF5bDEjlsJw8h7rxr+SHbUyNocPr+d+ZsI0I6sYklNaHFw3jEeICQxsvkL5KzBdi/qX8g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{asset('assets/libs/qrcode/html5-qrcode.min.js')}}"></script>
 
     <script>
-        function onScanSuccess(decodedText, decodedResult) {
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
-        }
+        const html5QrCode = new Html5Qrcode(
+            "reader", {formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE]});
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+            // ^ this will stop the scanner (video feed) and clear the scan area.
+            let notif = new Audio('{{asset('assets/notifications/berhasil-absen.mp3')}}');
+            notif.play()
+            html5QrCode.stop()
+        };
+        const config = {fps: 10, qrbox: {width: 250, height: 250}};
 
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "reader", {fps: 10, qrbox: 250});
-        html5QrcodeScanner.render(onScanSuccess);
+        // If you want to prefer front camera
+        html5QrCode.start({facingMode: "user"}, config, qrCodeSuccessCallback);
     </script>
 @endpush
 
