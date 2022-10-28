@@ -1,29 +1,21 @@
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
-    <h1>Silahkan lakukan scan qr untuk absensi</h1>
-    <div id="reader" width="600px"></div>
+    <div id="reader" style="width:500px"></div>
 
 </div>
 
 @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.4/html5-qrcode.min.js"
+            integrity="sha512-d8TjiRAJeef4xbbwEMF5bDEjlsJw8h7rxr+SHbUyNocPr+d+ZsI0I6sYklNaHFw3jEeICQxsvkL5KzBdi/qX8g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
-        const html5QrCode = new Html5Qrcode(/* element id */ "reader");
-        function onScanSuccess(decodedText, decodedResult) {
-            // handle the scanned code as you like, for example:
-            console.log(`Code matched = ${decodedText}`, decodedResult);
-        }
-
-        function onScanFailure(error) {
-            // handle scan failure, usually better to ignore and keep scanning.
-            // for example:
-            console.warn(`Code scan error = ${error}`);
-        }
-
-
-        let html5QrcodeScanner = new Html5QrcodeScanner(
-            "reader",
-            {fps: 10, qrbox: {width: 250, height: 250}},
-            /* verbose= */ false);
-        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+        const html5QrCode = new Html5Qrcode("reader");
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+            /* handle success */
+        };
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+        // If you want to prefer back camera
+        html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
     </script>
 @endpush
+

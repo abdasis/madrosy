@@ -18,6 +18,7 @@
         "vite": "^2.9.11"
     },
     "dependencies": {
-        "esbuild-linux-64": "^0.15.11"
+        "esbuild-linux-64": "^0.15.11",
+        "html5-qrcode": "^2.2.4"
     }
 }
