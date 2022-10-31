@@ -21,7 +21,7 @@ class Jadwal extends Model
                 ->causedBy(auth()->id())
                 ->performedOn($jadwal)
                 ->event('Menambah data jadwal')
-                ->log("Menambahakan jadwal baru dengan {$jadwal->mapel->nama}");
+                ->log("Menambahakan jadwal baru dengan nama {$jadwal->mapel->nama}");
         });
 
         static::updated(function ($jadwal) {
