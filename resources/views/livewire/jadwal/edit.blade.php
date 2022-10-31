@@ -19,17 +19,17 @@
                                 Kode Jadwal
                             </div>
                             <div class="col">
-                                <x-form-input name="kode" wire:model="kode" class="border-0 border-bottom"/>
+                                <x-form-input readonly name="kode" wire:model="kode" class="border-0 border-bottom"/>
                             </div>
                         </div>
-                        <div class="row align-items-center mb-2 gap-2">
-                            <div class="col-md-4 text-start">
-                                Kelas
-                            </div>
-                            <div class="col">
-                                <x-form-select wire:model="kelas" name="kelas" class="border-0 border-bottom">
-                                    <option value="">Pilih Kelas</option>
-                                    @foreach($data_kelas as $key => $kelas)
+                            <div class="row align-items-center mb-2 gap-2">
+                                <div class="col-md-4 text-start">
+                                    Kelas
+                                </div>
+                                <div class="col">
+                                    <x-form-select wire:model="kelas" name="kelas" class="border-0 border-bottom">
+                                        <option value="">Pilih Kelas</option>
+                                        @foreach($data_kelas as $key => $kelas)
                                         <option value="{{$kelas->id}}">{{$kelas->nama_kelas}}</option>
                                     @endforeach
                                 </x-form-select>
