@@ -30,14 +30,14 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        \view()->composer('*', function ($view){
-            if (auth()->check()){
+        \view()->composer('layouts.app', function ($view) {
+            if (auth()->check()) {
                 $preferensi = auth()->user()->preferensi()->first();
-                if ($preferensi){
+                if ($preferensi) {
                     return $view->with('preferensi', $preferensi);
                 }
-            }else{
-                return  redirect('/login');
+            } else {
+                return redirect('/login');
             }
         });
 
