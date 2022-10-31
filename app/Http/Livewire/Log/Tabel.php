@@ -17,6 +17,8 @@ class Tabel extends DataTableComponent
         $this->setPrimaryKey('id');
     }
 
+    protected $listeners = ['refresh'];
+
     public function columns(): array
     {
         return [
@@ -34,6 +36,6 @@ class Tabel extends DataTableComponent
 
     public function builder(): Builder
     {
-        return Activity::query();
+        return Activity::query()->latest();
     }
 }

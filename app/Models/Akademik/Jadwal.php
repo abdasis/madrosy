@@ -28,7 +28,7 @@ class Jadwal extends Model
             activity()
                 ->causedBy(auth()->id())
                 ->performedOn($jadwal)
-                ->event('Mengubah Jadwal')
+                ->event('Memperbarui jadwal')
                 ->log("Memperbarui jadwal {$jadwal->mapel->nama}");
         });
 

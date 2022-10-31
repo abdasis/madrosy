@@ -64,7 +64,7 @@ class Edit extends Component
                 bisa menambahkan jadwal yang sama');
             }
 
-            Jadwal::where('id', $this->jadwal_id)->update([
+            Jadwal::find($this->jadwal_id)->update([
                 'kode' => $this->kode,
                 'mapel_id' => $this->mapel,
                 'kelas_id' => $this->kelas,
@@ -78,7 +78,6 @@ class Edit extends Component
             \DB::commit();
         } catch (\Exception $e) {
             \DB::rollback();
-            dd($e);
         }
     }
     function render()
