@@ -22,7 +22,9 @@ class Tabel extends DataTableComponent
         return [
             Column::make("Pada", "created_at")->format(fn($tanggal) => Carbon::parse($tanggal)->diffForHumans())
                 ->sortable(),
-            Column::make('Dibuat', 'user.name'),
+            Column::make('Dibuat', 'id')->format(function ($id, $model) {
+                return Activity::find($id)->causer->name;
+            }),
             Column::make("Event", "event")
                 ->sortable(),
             Column::make('Deskripsi', 'description'),
