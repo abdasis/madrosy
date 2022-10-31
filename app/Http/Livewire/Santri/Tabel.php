@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Santri;
 
+use App\Models\Akademik\Kelas;
 use App\Models\Kesiswaan\Santri;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
@@ -40,6 +41,19 @@ class Tabel extends DataTableComponent
                         $query->where('jenis_kelamin', $value);
                     }
                 }),
+
+            SelectFilter::make('Kelas')
+                ->options(
+                    Kelas::query()->orderBy('nama_kelas')
+                        ->get()
+                        ->keyBy('id')
+                        ->map(fn($kelas) => $kelas->nama_kelas)
+                        ->toArray()
+                )->filter(function (Builder $query, string $kelas) {
+                    return $query->whereHas('kelas', function ($query) use ($kelas) {
+                        return $query->where('id', $kelas);
+                    });
+                })
         ];
     }
 
@@ -61,11 +75,9 @@ class Tabel extends DataTableComponent
                 ->unclickable()
                 ->sortable(),
             Column::make("Tempat Lahir", "tempat_lahir")
-                ->searchable()
                 ->unclickable()
                 ->sortable(),
             Column::make("Tanggal Lahir", "tanggal_lahir")
-                ->searchable()
                 ->unclickable()
                 ->format(fn($tanggal_lahir) => Carbon::parse($tanggal_lahir)->format('d F Y'))
                 ->sortable(),
