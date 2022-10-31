@@ -65,7 +65,7 @@ class Tabel extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Nama", "nama_lengkap")
-                ->searchable()
+                ->searchable(fn(Builder $query, $keyword) => $query->orWhere('nama_lengkap', 'ilike', "%{$keyword}%"))
                 ->html()
                 ->format(function ($nama) {
                     return "<span class='fw-bold text-success'>$nama</span>";
