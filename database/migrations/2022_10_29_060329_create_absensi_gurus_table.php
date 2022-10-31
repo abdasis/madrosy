@@ -14,6 +14,10 @@ return new class extends Migration {
     {
         Schema::create('absensi_gurus', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_absensi');
+            $table->foreignId('guru_id')->constrained();
+            $table->foreignId('jadwal_id')->constrained();
+            $table->dateTime('waktu_absensi');
             $table->timestamps();
         });
     }

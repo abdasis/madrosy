@@ -599,7 +599,7 @@
                     </div>
                 </div>
 
-                <div class="ms-1 header-item d-flex d-md-none d-lg-none">
+                <div class="ms-1 header-item d-flex">
                     <a href="{{route('presensi.scan-qr')}}"
                             class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle">
                         <i class='ri-fingerprint-line fs-22'></i>
