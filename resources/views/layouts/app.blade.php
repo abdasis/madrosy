@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"
       data-layout="vertical"
-      data-topbar="{{$preferensi->mode_aplikasi ?? 'light'}}"
+      data-topbar="light"
       data-sidebar="{{$preferensi->mode_aplikasi ?? 'light'}}"
       data-sidebar-size="lg"
       data-sidebar-image="true"
