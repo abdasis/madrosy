@@ -71,13 +71,13 @@ class Tambah extends Component
             \DB::commit();
         }catch (\Exception $e) {
             \DB::rollback();
-            dd($e);
+            $this->alert('warning', 'Terjadi kesalahan saat menyimpan data');
         }
     }
 
     public function render()
     {
-        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Ahad'];
         return view('livewire.jadwal.tambah', [
             'data_kelas' => Kelas::orderBy('nama_kelas', 'asc')->get(),
             'data_guru' => Guru::orderBy('nama', 'asc')->get(),

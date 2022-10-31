@@ -156,7 +156,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <x-form-input name="email" wire:model="email" readonly label="Email" />
+                                    <x-form-input name="email" wire:model="email" readonly label="Email"/>
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-input
@@ -166,7 +166,7 @@
                                         label="Password"
                                         readonly
                                     />
-                                    <small class="text-muted">Password akan secara default di set dari tanggal lahir</small>
+                                    <small class="text-muted">Password akan secara default di set dari NIK</small>
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-select wire:model="role" name="role" label="Role">
