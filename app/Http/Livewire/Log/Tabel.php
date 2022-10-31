@@ -28,7 +28,7 @@ class Tabel extends DataTableComponent
             Column::make("Event", "event")
                 ->sortable(),
             Column::make('Deskripsi', 'description'),
-            Column::make('Tanggal', 'created_at')->format(fn($tanggal) => Carbon::parse($tanggal)->format('d/m/Y'))
+            Column::make('Tanggal', 'created_at')->format(fn($tanggal) => Carbon::parse($tanggal)->format('d/m/Y H:i'))
         ];
     }
 
