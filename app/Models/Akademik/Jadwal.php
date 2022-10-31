@@ -24,7 +24,7 @@ class Jadwal extends Model
                 ->log("Menambahakan jadwal baru dengan {$jadwal->mapel->nama}");
         });
 
-        static::created(function ($jadwal) {
+        static::updated(function ($jadwal) {
             activity()
                 ->causedBy(auth()->id())
                 ->performedOn($jadwal)
