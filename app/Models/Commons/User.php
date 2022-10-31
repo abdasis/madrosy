@@ -11,6 +11,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\Models\Activity;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -66,5 +67,10 @@ class User extends Authenticatable
     public function preferensi()
     {
         return $this->hasOne(Preferensi::class, 'user_id', 'id')->withDefault();
+    }
+
+    public function log()
+    {
+        return $this->morphOne(Activity::class, 'causer');
     }
 }

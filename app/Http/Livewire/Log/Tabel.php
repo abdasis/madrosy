@@ -20,12 +20,13 @@ class Tabel extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("ID", "id")
-                ->sortable(),
             Column::make("Pada", "created_at")->format(fn($tanggal) => Carbon::parse($tanggal)->diffForHumans())
                 ->sortable(),
+            Column::make('Dibuat', 'user.name'),
             Column::make("Event", "event")
                 ->sortable(),
+            Column::make('Deskripsi', 'description'),
+            Column::make('Tanggal', 'created_at')->format(fn($tanggal) => Carbon::parse($tanggal)->format('d/m/Y'))
         ];
     }
 
