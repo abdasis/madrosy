@@ -86,7 +86,7 @@ class Tabel extends DataTableComponent
                 ->sortable(),
             Column::make('Nama Lengkap', 'nama')
                 ->sortable()
-                ->searchable(),
+                ->searchable(fn(Builder $query, $keyword) => $query->orWhere('nama', 'ilike', "%{$keyword}%")),
             Column::make('Jabatan', 'jabatan')
                 ->sortable(),
             Column::make('Status', 'status_guru')
