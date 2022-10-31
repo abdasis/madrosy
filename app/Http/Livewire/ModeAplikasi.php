@@ -17,16 +17,19 @@ class ModeAplikasi extends Component
         if ($preferensi){
             if ($preferensi->mode_aplikasi == 'light'){
                 $preferensi->update([
-                    'mode_aplikasi' => 'dark'
+                    'mode_aplikasi' => 'dark',
+                    'warna_sidebar' => 'dark'
                 ]);
             }else{
                 $preferensi->update([
-                    'mode_aplikasi' => 'light'
+                    'mode_aplikasi' => 'light',
+                    'warna_sidebar' => 'light'
                 ]);
             }
         }else{
             auth()->user()->preferensi()->create([
-                'mode_aplikasi' => 'light'
+                'mode_aplikasi' => 'light',
+                'warna_sidebar' => 'light'
             ]);
         }
     }
