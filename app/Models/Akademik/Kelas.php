@@ -16,6 +16,35 @@ class Kelas extends Model
         'created_at' => 'datetime:Y-m-d',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::created(function ($kelas) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($kelas)
+                ->event('Menambah data kelas')
+                ->log("Menambahakan kelas baru dengan nama {$kelas->nama_kelas}");
+        });
+
+        static::updated(function ($kelas) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($kelas)
+                ->event('Memperbarui kelas')
+                ->log("Memperbarui kelas {$kelas->nama_kelas}");
+        });
+
+        static::deleted(function ($kelas) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($kelas)
+                ->event('Menghapus kelas')
+                ->log("Menghapus kelas {$kelas->nama_kelas}");
+        });
+    }
+
+
     public function santri()
     {
         return $this->belongsToMany(Santri::class, 'kelas_santri');

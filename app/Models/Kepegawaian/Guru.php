@@ -24,8 +24,29 @@ class Guru extends Model
             $guru->diubah_oleh = auth()->id();
         });
 
-        static::deleted(function ($guru){
+        static::created(function ($guru) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($guru)
+                ->event('Menambah guru')
+                ->log("Menambahakan baru baru {$guru->nama}");
+        });
+
+        static::updated(function ($guru) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($guru)
+                ->event('Memperbarui data guru')
+                ->log("Memperbarui guru {$guru->nama}");
+        });
+
+        static::deleted(function ($guru) {
             $guru->user->delete();
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($guru)
+                ->event('Menghapus data guru')
+                ->log("Menghapus data guru {$guru->nama}");
         });
     }
 
