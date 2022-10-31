@@ -15,7 +15,7 @@ class Jadwal extends Model
 
     public static function boot()
     {
-        static::boot();
+        parent::boot();
         static::created(function ($jadwal) {
             activity()
                 ->causedBy(auth()->id())

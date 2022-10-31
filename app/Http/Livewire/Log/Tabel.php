@@ -24,7 +24,7 @@ class Tabel extends DataTableComponent
                 ->sortable(),
             Column::make("Pada", "created_at")->format(fn($tanggal) => Carbon::parse($tanggal)->diffForHumans())
                 ->sortable(),
-            Column::make("Updated at", "updated_at")
+            Column::make("Event", "event")
                 ->sortable(),
         ];
     }
