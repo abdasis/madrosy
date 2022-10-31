@@ -116,6 +116,7 @@ Route::middleware([
     Route::group(['prefix' => 'pengaturan', 'middleware' => 'role:Kepala Sekolah'], function () {
         Route::get('/', \App\Http\Livewire\Setting\Semua::class)->name('pengaturan.semua');
         Route::get('data-instansi', DataInstansi::class)->name('pengaturan.data-instansi');
+        Route::get('history', \App\Http\Livewire\Log\Semua::class)->name('log.semua');
     });
 
     Route::group(['auth'], function (){

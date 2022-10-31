@@ -268,13 +268,20 @@
                                 <a href="{{route('jadwal.tambah')}}" class="nav-link" data-key="t-calendar"> Pengguna </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('permission.semua')}}" class="nav-link" data-key="t-chat"> Permission </a>
+                                <a href="{{route('permission.semua')}}" class="nav-link" data-key="t-chat">
+                                    Permission </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('pengaturan.data-instansi')}}" class="nav-link" data-key="t-chat"> Data Instansi </a>
+                                <a href="{{route('pengaturan.data-instansi')}}" class="nav-link" data-key="t-chat"> Data
+                                    Instansi </a>
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('log.semua')}}">
+                        <i class="ri-file-paper-2-line fs-20"></i> <span>History</span>
+                    </a>
                 </li>
                 @endhasanyrole
             </ul>

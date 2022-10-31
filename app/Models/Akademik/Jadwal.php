@@ -13,6 +13,34 @@ class Jadwal extends Model
 
     protected $guarded = [];
 
+    public static function boot()
+    {
+        static::boot();
+        static::created(function ($jadwal) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($jadwal)
+                ->event('Menambah data jadwal')
+                ->log("Menambahakan jadwal baru dengan {$jadwal->mapel->nama}");
+        });
+
+        static::created(function ($jadwal) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($jadwal)
+                ->event('Mengubah Jadwal')
+                ->log("Memperbarui jadwal {$jadwal->mapel->nama}");
+        });
+
+        static::deleted(function ($jadwal) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($jadwal)
+                ->event('Menghapus Jadwal')
+                ->log("Menghapus jadwal {$jadwal->mapel->nama}");
+        });
+    }
+
     public function guru()
     {
         return $this->belongsTo(Guru::class);
