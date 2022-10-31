@@ -24,7 +24,7 @@ class Tambah extends Component
     public function mount()
     {
         $max_jadwal = Jadwal::max('id');
-        $this->kode = 'JDW' . str_pad($max_jadwal + 1, 5, '0', STR_PAD_LEFT);
+        $this->kode = 'JDW-' . str_pad($max_jadwal + 1, 5, '0', STR_PAD_LEFT);
     }
 
     public function rules()
