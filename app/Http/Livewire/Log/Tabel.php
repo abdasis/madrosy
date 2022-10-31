@@ -15,9 +15,10 @@ class Tabel extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        $this->setRefreshKeepAlive();
+
     }
 
-    protected $listeners = ['refresh'];
 
     public function columns(): array
     {
