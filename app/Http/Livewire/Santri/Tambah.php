@@ -30,9 +30,11 @@ class Tambah extends Component
         return [
             'nama_lengkap' => 'required',
             'jenis_kelamin' => 'required',
+            'email' => 'required|unique:users,email',
             'nisn' => 'required|unique:santris|min_digits:9|max_digits:9',
             'jumlah_saudara' => ['required', 'numeric', 'min:1'],
-            'anak_ke' => 'required|lte:jumlah_saudara'
+            'anak_ke' => 'required|lte:jumlah_saudara',
+            'no_hp' => 'required|unique:santris,no_hp'
         ];
     }
 
@@ -90,6 +92,7 @@ class Tambah extends Component
             $this->reset();
         }catch (\Exception $e) {
             \DB::rollBack();
+            \Debugbar::info($e);
             $this->alert('error', 'Kesalahan', [
                 'text' => 'Terjadi kesalahan saat menyimpan data',
             ]);

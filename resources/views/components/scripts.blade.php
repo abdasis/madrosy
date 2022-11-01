@@ -12,13 +12,30 @@
 @livewireScripts
 @stack('scripts')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<x-livewire-alert::scripts />
+<x-livewire-alert::scripts/>
 <script>
     Livewire.on('modalTambah', function (component) {
-        $('#'+component).modal('show');
+        $('#' + component).modal('show');
     });
 
     Livewire.on('modalEdit', function (component) {
         $('#' + component).modal('show');
     });
+
+    let updatedForm = false;
+
+    Livewire.hook('element.updated', (el, component) => {
+        updatedForm = true;
+    })
+
+    window.addEventListener('alert', event => {
+        updatedForm = false;
+    })
+
+    window.onbeforeunload = function (e) {
+        if (updatedForm == true) {
+            return "Data yang dibuat belum tersimpan"
+        }
+    };
+
 </script>
