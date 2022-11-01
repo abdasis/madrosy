@@ -1,7 +1,7 @@
 <meta charset="utf-8"/>
 <title><?php echo e(($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title'); ?>
 
-    | <?php echo e(env('APP_NAME')); ?></title>
+    | <?php echo e(config('app.name')); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="Platform Pendaftaran Unit Layanan Statistik" name="description"/>
 <meta content="Abdul Aziz" name="author"/>
