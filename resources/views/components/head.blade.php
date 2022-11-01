@@ -1,6 +1,6 @@
 <meta charset="utf-8"/>
 <title>{{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title' }}
-    | {{env('APP_NAME')}}</title>
+    | {{config('app.name')}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="Platform Pendaftaran Unit Layanan Statistik" name="description"/>
 <meta content="Abdul Aziz" name="author"/>
