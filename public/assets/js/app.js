@@ -228,13 +228,11 @@
             }
             switch (e["data-layout-mode"]) {
                 case"light":
-                    z("data-layout-mode", "light"), document.documentElement.setAttribute("data-layout-mode", "light"), sessionStorage.setItem("data-layout-mode", "light");
+                    z("data-layout-mode", "light"), document.documentElement.setAttribute("data-layout-mode", "light");
                     break;
                 case"dark":
-                    z("data-layout-mode", "dark"), document.documentElement.setAttribute("data-layout-mode", "dark"), sessionStorage.setItem("data-layout-mode", "dark");
+                    z("data-layout-mode", "dark"), document.documentElement.setAttribute("data-layout-mode", "dark");
                     break;
-                default:
-                    sessionStorage.getItem("data-layout-mode") && "dark" == sessionStorage.getItem("data-layout-mode") ? (sessionStorage.setItem("data-layout-mode", "dark"), document.documentElement.setAttribute("data-layout-mode", "dark"), z("data-layout-mode", "dark")) : (sessionStorage.setItem("data-layout-mode", "light"), document.documentElement.setAttribute("data-layout-mode", "light"), z("data-layout-mode", "light"))
             }
             switch (e["data-layout-width"]) {
                 case"fluid":

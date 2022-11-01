@@ -2,7 +2,6 @@
 <html lang="en"
       data-layout="vertical"
       data-topbar="light"
-      data-sidebar="<?php echo e($preferensi->mode_aplikasi ?? 'light'); ?>"
       data-sidebar-size="lg"
       data-sidebar-image="true"
       data-preloader="disable"
@@ -106,15 +105,15 @@
 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('mode-aplikasi', [])->html();
-} elseif ($_instance->childHasBeenRendered('bQA7H4Q')) {
-    $componentId = $_instance->getRenderedChildComponentId('bQA7H4Q');
-    $componentTag = $_instance->getRenderedChildComponentTagName('bQA7H4Q');
+} elseif ($_instance->childHasBeenRendered('VIwdTc3')) {
+    $componentId = $_instance->getRenderedChildComponentId('VIwdTc3');
+    $componentTag = $_instance->getRenderedChildComponentTagName('VIwdTc3');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('bQA7H4Q');
+    $_instance->preserveRenderedChild('VIwdTc3');
 } else {
     $response = \Livewire\Livewire::mount('mode-aplikasi', []);
     $html = $response->html();
-    $_instance->logRenderedChild('bQA7H4Q', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('VIwdTc3', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
