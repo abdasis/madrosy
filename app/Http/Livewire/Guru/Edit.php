@@ -145,9 +145,10 @@ class Edit extends Component
                 'kode_pos' => $this->pos,
             ]);
 
-            $this->alert('success', 'Data berhasil diperbarui');
-
             DB::commit();
+
+            $this->flash('success', 'Data berhasil diperbarui', [], route('guru.semua'));
+
         } catch (\Exception $exception) {
             Debugbar::info($exception);
             DB::rollBack();

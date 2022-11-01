@@ -45,7 +45,7 @@ class Edit extends Modal
                 'nama_kelas' => $this->nama_kelas,
                 'wali_kelas' => $this->wali_kelas,
             ]);
-            $this->alert('success', 'Data berhasil dipebarui');
+            $this->flash('success', 'Data berhasil dipebarui', [], route('kelas.semua'));
             $this->emit('kelasDitambah', $kelas);
             $this->mount();
         }catch (\Exception $e) {

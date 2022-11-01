@@ -624,7 +624,7 @@
                         <div>
                             <button
                                 type="button"
-                                class="btn border text-muted dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
+                                class="btn border text-muted dropdown-toggle w-100 d-sm-grid d-md-flex d-lg-flex align-items-center gap-1"
 
                                 @if ($component->isFilterLayoutPopover())
                                     x-on:click="open = !open"
@@ -736,7 +736,7 @@
                     >
                         <button
                             x-on:click="open = !open"
-                            class="btn border text-muted dropdown-toggle d-sm-block d-md-flex d-lg-flex align-items-center gap-1"
+                            class="btn border text-muted dropdown-toggle d-sm-flex w-100 d-md-flex d-lg-flex align-items-center gap-1"
                             type="button"
                             id="columnSelect-{{ $component->getTableName() }}"
                             aria-haspopup="true"

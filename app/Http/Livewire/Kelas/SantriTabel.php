@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Kelas;
 
 use App\Models\Kesiswaan\Santri;
+use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
@@ -35,6 +36,9 @@ class SantriTabel extends DataTableComponent
         return [
             Column::make('ID', 'id')->deselected(),
             Column::make("Nama", "nama_lengkap")
+                ->searchable(
+                    fn(Builder $query, $searchTerm) => $query->orWhere('nama_lengkap', 'ilike', "%{$searchTerm}%")
+                )
                 ->sortable(),
             Column::make("NISN", "nisn")
                 ->sortable(),

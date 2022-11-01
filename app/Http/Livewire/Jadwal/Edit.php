@@ -74,7 +74,7 @@ class Edit extends Component
                 'jam_selesai' => $this->jam_selesai,
                 'status' => 'aktif',
             ]);
-            $this->alert('success', 'Data berhasil diperbarui');
+            $this->flash('success', 'Data berhasil diperbarui', [], route('jadwal.semua'));
             \DB::commit();
         } catch (\Exception $e) {
             \DB::rollback();

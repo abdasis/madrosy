@@ -60,7 +60,7 @@ class Edit extends Component
                 'diubah_oleh' => auth()->id()
             ]);
             $this->emit('mapelDiperbarui', $mapel);
-            $this->alert('success', 'Data berhasil diperbarui');
+            $this->flash('success', 'Data berhasil diperbarui', [], route('mapel.semua'));
         }catch (\Exception $e){
             \Debugbar::info($e);
             $this->alert('error', 'Data gagal disimpan');
