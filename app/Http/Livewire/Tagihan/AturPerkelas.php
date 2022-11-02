@@ -51,7 +51,6 @@ class AturPerkelas extends Component
 
     public function simpan()
     {
-        \Log::debug($this->all());
         $this->validate();
 
         //1. Ambil data kelas
@@ -72,11 +71,12 @@ class AturPerkelas extends Component
                 }
                 //mengambil nomor tagihan terkahir
                 foreach ($data_siswa as $key => $siswa){
-                    $nomor_tagihan = Tagihan::max('id') + 1;
+                    $nomor_tagihan = (int)Tagihan::max('id');
+                    $kode = "{$kode}-" . str_pad($nomor_tagihan + 1, 8, 0, STR_PAD_LEFT);
                     $tagihan = Tagihan::create([
                         'santri_id' => $siswa->id,
-                        'kategori_tagihan_id' =>$this->kategori_id,
-                        'kode_tagihan' => "{$kode}-".Carbon::now()->format('dmy-') . $nomor_tagihan . "-" . $siswa->id,
+                        'kategori_tagihan_id' => $this->kategori_id,
+                        'kode_tagihan' => $kode,
                         'tgl_dibuat' => $this->tgl_tagihan,
                         'tgl_jatuh_tempo' => $this->tgl_jatuh_tempo,
                         'status' => 'belum dibayar',
@@ -87,9 +87,7 @@ class AturPerkelas extends Component
                    MembuatTagihan::dispatch($tagihan);
                 }
             }
-
             $this->alert('success', 'Tagihan Berhasil Di buatkan');
-
             \DB::commit();
         }catch (\Exception $exception){
             \DB::rollBack();

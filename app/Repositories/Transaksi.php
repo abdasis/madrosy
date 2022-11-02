@@ -28,10 +28,9 @@ class Transaksi implements TransaksiInterface
                 'kode_persetujuan' => 'belum diketahui',
                 'penipuan_status' => 'belum diketahui',
             ]);
-
             return $transaksi;
         }catch (\Exception $e) {
-            Log::error($e->getMessage());
+            \Debugbar::info($e);
         }
 
     }

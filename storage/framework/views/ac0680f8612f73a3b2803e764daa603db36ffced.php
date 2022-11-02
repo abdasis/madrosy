@@ -30,11 +30,28 @@
 <?php endif; ?>
 <script>
     Livewire.on('modalTambah', function (component) {
-        $('#'+component).modal('show');
+        $('#' + component).modal('show');
     });
 
     Livewire.on('modalEdit', function (component) {
         $('#' + component).modal('show');
     });
+
+    let updatedForm = false;
+
+    Livewire.hook('element.updated', (el, component) => {
+        updatedForm = true;
+    })
+
+    window.addEventListener('alert', event => {
+        updatedForm = false;
+    })
+
+    window.onbeforeunload = function (e) {
+        if (updatedForm == true) {
+            return "Data yang dibuat belum tersimpan"
+        }
+    };
+
 </script>
 <?php /**PATH /home/aziz/Project/madrosy/resources/views/components/scripts.blade.php ENDPATH**/ ?>
