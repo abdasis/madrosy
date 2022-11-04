@@ -10,13 +10,13 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Tambah extends Modal
 {
     use LivewireAlert;
+
     public $nama;
     public $kode;
 
     public function mount()
     {
         $kode = Mapel::max('id');
-
         $this->kode = 'MPL-' . str_pad($kode + 1, 3, '0', STR_PAD_LEFT);
     }
 
@@ -34,20 +34,14 @@ class Tambah extends Modal
 
     public function rules()
     {
-        return[
-            'kode' => 'required|unique:mapels,kode'
+        return [
+            'kode' => 'required|unique:mapels,kode',
+            'nama' => 'required|unique:mapels,nama'
         ];
     }
 
     public function simpan()
     {
-
-        $cek_nama_sama = Mapel::where('nama', 'ilike', $this->nama)->get();
-
-        if ($cek_nama_sama->count() > 0){
-            $this->addError('nama', 'Nama sudah digunakan sebelumnya');
-            return false;
-        }
 
         $this->validate();
 
@@ -55,7 +49,7 @@ class Tambah extends Modal
 
             $mapel = Mapel::create([
                 'kode' => $this->kode,
-                'nama' =>   $this->nama,
+                'nama' => $this->nama,
                 'dibuat_oleh' => auth()->id(),
                 'diubah_oleh' => auth()->id()
             ]);
@@ -63,7 +57,7 @@ class Tambah extends Modal
             $this->alert('success', 'Data berhasil disimpan');
             $this->reset();
             $this->mount();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             \Debugbar::info($e);
             $this->alert('error', 'Data gagal disimpan');
         }
