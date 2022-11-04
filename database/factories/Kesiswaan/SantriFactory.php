@@ -19,6 +19,7 @@ class SantriFactory extends Factory
         return [
             'nama_lengkap' => $this->faker->name,
             'nisn' => $this->faker->unique()->numberBetween(100000000, 999999999),
+            'nik' => $this->faker->unique()->numberBetween(100000000, 999999999),
             'jenis_kelamin' => $this->faker->randomElement(['Laki-Laki', 'Perempuan']),
             'tempat_lahir' => $this->faker->city,
             'tanggal_lahir' => $this->faker->dateTimeBetween('-30 years', '-18 years'),

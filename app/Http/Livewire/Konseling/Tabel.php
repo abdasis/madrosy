@@ -5,8 +5,10 @@ namespace App\Http\Livewire\Konseling;
 use App\Models\Kesiswaan\Konseling;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
+use Illuminate\Http\Response;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\Columns\ImageColumn;
 use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
 
 class Tabel extends DataTableComponent
@@ -51,9 +53,11 @@ class Tabel extends DataTableComponent
             Column::make('NISN', 'santri.nisn')
                 ->sortable()
                 ->searchable(),
-            Column::make("Santri", "santri.nama_lengkap")
-                ->sortable()
-                ->searchable(),
+            Column::make('Nama', 'santri.nama_lengkap'),
+            Column::make('Bukti', 'foto_bukti')->format(function ($foto) {
+                $foto = asset($foto);
+                return "<a href='$foto' target='_blank'><img src='$foto' class='avatar-xxs rounded-3' /></a>";
+            })->html(),
             Column::make('Tanggal', 'tanggal')
                 ->sortable()
                 ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d F, Y'))

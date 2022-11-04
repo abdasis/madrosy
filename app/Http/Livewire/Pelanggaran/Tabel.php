@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Pelanggaran;
 
-use App\Models\Akademik\Pelanggaran;
+use App\Models\Kesiswaan\Pelanggaran;
 use App\Traits\KonfirmasiHapus;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;

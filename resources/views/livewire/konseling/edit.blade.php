@@ -52,6 +52,36 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-3">
+                                    <label for="foto_bukti">Photo Bukti</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <x-form-input
+                                            type="file"
+                                            name="foto_buktu"
+                                            wire:model="foto_bukti"
+                                            placeholder="Masukan Tanggal"
+                                        />
+                                        @if($errors->any())
+                                            @foreach($errors->get('foto_bukti') as $error)
+                                                <small class="text-danger">{{$error}}</small>
+                                            @endforeach
+                                        @endif
+                                    </div>
+
+                                    @if(!$errors->has('foto_bukti'))
+                                        @if ($foto_bukti)
+                                            <img style="object-fit: contain"
+                                                 class="avatar-md img-thumbnail img-fluid my-2"
+                                                 src="{{  $foto_bukti->temporaryUrl() }}">
+                                        @elseif($preview_foto)
+                                            <img style="object-fit: contain"
+                                                 class="avatar-md img-thumbnail img-fluid my-2"
+                                                 src="{{  asset($preview_foto) }}">
+                                        @endif
+                                    @endif
+                                </div>
 
                                 <div class="col-md-3">
                                     <label for=""> Keterangan </label>

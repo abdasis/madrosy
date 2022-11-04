@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Models\Akademik;
+namespace App\Models\Kesiswaan;
 
-use App\Models\Kesiswaan\Konseling;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,15 +14,6 @@ class Pelanggaran extends Model
     public static function boot()
     {
         parent::boot();
-        self::creating(function ($model) {
-            $model->dibuat_oleh = auth()->user()->id;
-            $model->diedit_oleh = auth()->user()->id;
-        });
-
-        self::updating(function ($model) {
-            $model->diedit_oleh = auth()->user()->id;
-        });
-
         static::created(function ($pelanggaran) {
             activity()
                 ->causedBy(auth()->id())

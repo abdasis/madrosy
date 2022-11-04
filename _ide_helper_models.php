@@ -128,17 +128,17 @@ namespace App\Models\Akademik{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Kesiswaan\Konseling|null $konseling
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran query()
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereBobot($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereDibuatOleh($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereDieditOleh($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereKasus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pelanggaran whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereBobot($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereDibuatOleh($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereDieditOleh($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereKasus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Kesiswaan\Pelanggaran whereUpdatedAt($value)
  */
 	class Pelanggaran extends \Eloquent {}
 }
@@ -581,7 +581,7 @@ namespace App\Models\Kesiswaan{
  * @property string|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Akademik\Pelanggaran $pelanggaran
+ * @property-read \App\Models\Kesiswaan\Pelanggaran $pelanggaran
  * @property-read \App\Models\Kesiswaan\Santri $santri
  * @property-read \App\Models\Commons\User|null $user
  * @method static \Database\Factories\Kesiswaan\KonselingFactory factory(...$parameters)

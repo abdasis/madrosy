@@ -98,6 +98,11 @@
                                 <a href="<?php echo e(route('mapel.semua')); ?>" class="nav-link" data-key="t-crm">
                                     Mata Pelajaran </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('jadwal.semua')); ?>" class="nav-link" data-key="t-crm">
+                                    Jadwal Pelajaran
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -161,25 +166,6 @@
                             <li class="nav-item">
                                 <a href="<?php echo e(route('tagihan.semua')); ?>" class="nav-link" data-key="t-chat"> Data
                                     Tagihan </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <?php endif; ?>
-                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#jadwal" data-bs-toggle="collapse" role="button"
-                       aria-expanded="false" aria-controls="jadwal">
-                        <i class=" ri-todo-line"></i> <span data-key="t-apps">Jadwal Pelajaran</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="jadwal">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="<?php echo e(route('jadwal.tambah')); ?>" class="nav-link" data-key="t-calendar"> Tambah
-                                    Jadwal </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?php echo e(route('jadwal.semua')); ?>" class="nav-link" data-key="t-chat"> Data Jadwal </a>
                             </li>
                         </ul>
                     </div>

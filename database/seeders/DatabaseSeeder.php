@@ -9,6 +9,7 @@ use Database\Seeders\Akademik\MapelSeeder;
 use Database\Seeders\Akademik\TahunAjaranSeeder;
 use Database\Seeders\Commons\RolesSeeder;
 use Database\Seeders\Kepegawaian\GuruSeeder;
+use Database\Seeders\Kesiswaan\PelanggaranSeeder;
 use Database\Seeders\Kesiswaan\SantriSeeder;
 use Database\Seeders\Keuangan\RekeningSeeder;
 use Illuminate\Database\Seeder;
@@ -47,6 +48,7 @@ class DatabaseSeeder extends Seeder
                 MapelSeeder::class,
                 JadwalSeeder::class,
                 RolesSeeder::class,
+                PelanggaranSeeder::class,
             ]);
         } else {
             $this->call([

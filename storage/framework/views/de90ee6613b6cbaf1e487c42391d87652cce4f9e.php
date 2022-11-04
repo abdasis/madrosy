@@ -1,7 +1,12 @@
 <?php if (! ($breadcrumbs->isEmpty())): ?>
     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-        <h4 class="mb-sm-0"><?php echo e(($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title'); ?></h4>
+        <h4 class="mb-sm-0 d-flex align-items-center gap-2">
+            <a href="<?php echo e(url()->previous()); ?>">
+                <i class="ri-arrow-go-back-line bg-light rounded-circle p-2"></i>
+            </a>
+            <?php echo e(($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title'); ?>
 
+        </h4>
         <div class="page-title-right">
             <ol class="breadcrumb m-0">
                 <?php $__currentLoopData = $breadcrumbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $breadcrumb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

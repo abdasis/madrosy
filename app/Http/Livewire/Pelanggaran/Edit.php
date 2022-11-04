@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Pelanggaran;
 
-use App\Models\Akademik\Pelanggaran;
+use App\Models\Kesiswaan\Pelanggaran;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 

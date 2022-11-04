@@ -10,7 +10,8 @@
                                 <div class="position-relative h-100 d-flex flex-column">
                                     <div class="mb-4">
                                         <a href="{{route('dashboard')}}" class="d-block">
-                                            <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="18">
+                                            <img src="{{asset('assets/images/logo-light.png')}}" class="rounded-3"
+                                                 alt="" height="45">
                                         </a>
                                     </div>
                                     <div class="mt-auto">
@@ -18,9 +19,12 @@
                                             <i class="ri-double-quotes-l display-4 text-success"></i>
                                         </div>
 
-                                        <div id="qoutescarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                                        <div id="qoutescarouselIndicators" class="carousel slide"
+                                             data-bs-ride="carousel">
                                             <div class="carousel-indicators">
-                                                <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#qoutescarouselIndicators"
+                                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                                        aria-label="Slide 1"></button>
                                                 <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                                 <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                             </div>

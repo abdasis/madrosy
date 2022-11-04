@@ -3,8 +3,7 @@
 namespace App\Http\Livewire\Pelanggaran;
 
 use App\Http\Livewire\Modal;
-use App\Models\Akademik\Pelanggaran;
-use Livewire\Component;
+use App\Models\Kesiswaan\Pelanggaran;
 
 class Tambah extends Modal
 {
