@@ -72,7 +72,6 @@ class Tabel extends DataTableComponent
             ->setTableRowUrl(function ($model) {
                 return route('guru.detail', $model->id);
             });
-
         $this->setDefaultReorderSort('order', 'desc');
 
     }
@@ -86,7 +85,7 @@ class Tabel extends DataTableComponent
                 ->sortable(),
             Column::make('Nama Lengkap', 'nama')
                 ->sortable()
-                ->searchable(fn(Builder $query, $keyword) => $query->orWhere('nama', 'ilike', "%{$keyword}%")),
+                ->searchable(fn(Builder $query, $keyword) => $query->orWhere('nama', 'like', "%{$keyword}%")),
             Column::make('Jabatan', 'jabatan')
                 ->sortable(),
             Column::make('Status', 'status_guru')
