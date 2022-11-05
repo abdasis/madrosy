@@ -13,5 +13,5 @@
         </div>
     </div>
     <livewire:pelanggaran.tambah/>
-{{--    <livewire:pelanggaran.edit/>--}}
+    <livewire:pelanggaran.edit/>
 </div>

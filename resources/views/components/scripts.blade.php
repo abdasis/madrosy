@@ -22,7 +22,7 @@
         $('#' + component).modal('show');
     });
 
-    let updatedForm = false;
+    /*let updatedForm = false;
 
     Livewire.hook('element.updated', (el, component) => {
         updatedForm = true;
@@ -36,6 +36,6 @@
         if (updatedForm == true) {
             return "Data yang dibuat belum tersimpan"
         }
-    };
+    };*/
 
 </script>
