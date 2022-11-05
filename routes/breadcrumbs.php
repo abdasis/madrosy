@@ -203,7 +203,12 @@ Breadcrumbs::for('pengaturan.data-instansi', function (BreadcrumbTrail $trail) {
     $trail->push('Data Instansi', route('pengaturan.data-instansi'));
 });
 
-Breadcrumbs::for('presensi.daftar-kelas', function (BreadcrumbTrail $trail){
+Breadcrumbs::for('presensi.daftar-kelas', function (BreadcrumbTrail $trail) {
     $trail->parent('presensi.laporan-presensi');
     $trail->push('Daftar Kelas', route('presensi.daftar-kelas'));
+});
+
+Breadcrumbs::for('log.semua', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Log Activity', route('log.semua'));
 });

@@ -63,13 +63,19 @@
                                     </x-form-select>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="email" wire:model="email" label="Email" placeholder="Masukan Email" />
+                                    <x-form-input name="email" wire:model="email" label="Email"
+                                                  placeholder="Masukan Email"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="no_hp" wire:model="no_hp" label="No HP" placeholder="Masukan No HP" />
+                                    <x-form-input name="no_hp" wire:model="no_hp" label="No HP"
+                                                  placeholder="Masukan No HP"/>
                                 </div>
                                 <div class="col-md-8">
-                                    <x-form-textarea name="alamat" wire:model="alamat" label="Alamat" placeholder="Masukan Alamat" />
+                                    <x-form-input name="foto" label="Foto"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <x-form-textarea name="alamat" wire:model="alamat" label="Alamat"
+                                                     placeholder="Masukan Alamat"/>
                                 </div>
 
                                 <div class="form-group d-flex justify-content-between my-5">

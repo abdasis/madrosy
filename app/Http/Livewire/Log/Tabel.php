@@ -16,7 +16,6 @@ class Tabel extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setRefreshKeepAlive();
-
     }
 
 
@@ -26,7 +25,7 @@ class Tabel extends DataTableComponent
             Column::make("Pada", "created_at")->format(fn($tanggal) => Carbon::parse($tanggal)->diffForHumans())
                 ->sortable(),
             Column::make('Dibuat', 'id')->format(function ($id, $model) {
-                return Activity::find($id)->causer->name;
+                return Activity::find($id)->causer->name ?? '';
             }),
             Column::make("Event", "event")
                 ->sortable(),
