@@ -22,9 +22,16 @@
                 <div class="card-body p-4">
                     <div class="text-center">
                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                            <img src="{{'https://ui-avatars.com/api/?background=random&name=' . $santri->nama_lengkap}}"
-                                 class="rounded-circle avatar-xl img-thumbnail user-profile-image"
-                                 alt="user-profile-image">
+                            @if($santri->avatar)
+                                <img src="{{asset($santri->avatar->nama_file)}}"
+                                     class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                     alt="user-profile-image">
+                            @else
+                                <img
+                                    src="{{'https://ui-avatars.com/api/?background=random&name=' . $santri->nama_lengkap}}"
+                                    class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                    alt="user-profile-image">
+                            @endif
                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
@@ -36,6 +43,12 @@
                         </div>
                         <h5 class="fs-16 mb-1">{{$santri->nama_lengkap}}</h5>
                         <p class="text-muted mb-0">{{$santri->nik}}</p>
+                        <div class="my-2 d-grid">
+                            <button class="btn border-bottom btn-light">
+                                <i class="ri-edit-line"></i>
+                                Sunting Santri
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

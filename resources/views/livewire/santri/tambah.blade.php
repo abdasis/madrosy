@@ -12,22 +12,29 @@
                         <div class="container">
                             <div class="row gy-3">
                                 <div class="col-md-4">
-                                    <x-form-input name="nama_lengkap"  wire:model="nama_lengkap" label="Nama Lengkap" placeholder="Masukan Nama Lengkap" />
+                                    <x-form-input name="nama_lengkap" wire:model="nama_lengkap" label="Nama Lengkap"
+                                                  placeholder="Masukan Nama Lengkap"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nama_panggilan" wire:model="nama_panggilan" label="Nama Panggilan"  placeholder="Masukan Nama Panggilan" />
+                                    <x-form-input name="nisn" label="NISN" wire:model="nisn" placeholder="Masukan NISN"
+                                                  type="number"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nisn" label="NISN" wire:model="nisn" placeholder="Masukan NISN"  type="number" />
+                                    <x-form-input name="nik" label="NIK" wire:model="nik" placeholder="Masukan NIK"
+                                                  type="number"/>
                                 </div>
                                 <div class="col-md-8">
-                                    <x-form-input name="tempat_lahir" wire:model="tempat_lahir" label="Tempat Lahir" placeholder="Masukan Tempat Lahir" />
+                                    <x-form-input name="tempat_lahir" wire:model="tempat_lahir" label="Tempat Lahir"
+                                                  placeholder="Masukan Tempat Lahir"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date" label="Tempat Lahir" />
+                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date"
+                                                  label="Tempat Lahir"/>
                                 </div>
+
                                 <div class="col-md-4">
-                                    <x-form-select name="jenis_kelamin" label="Jenis Kelamin" wire:model="jenis_kelamin">
+                                    <x-form-select name="jenis_kelamin" label="Jenis Kelamin"
+                                                   wire:model="jenis_kelamin">
                                         <option value="">Pilih Jenis</option>
                                         <option value="Laki-Laki">Laki-Laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -71,7 +78,7 @@
                                                   placeholder="Masukan No HP"/>
                                 </div>
                                 <div class="col-md-8">
-                                    <x-form-input name="foto" label="Foto"/>
+                                    <x-form-input name="avatar" wire:model="avatar" type="file" label="Foto"/>
                                 </div>
                                 <div class="col-md-8">
                                     <x-form-textarea name="alamat" wire:model="alamat" label="Alamat"
@@ -90,6 +97,12 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-3">
+                        @if($avatar)
+                            <p>Preview Avatar</p>
+                            <img src="{{$avatar->temporaryUrl()}}" class="img-fluid img-thumbnail rounded-3" alt="">
+                        @endif
                     </div>
                 </div>
             </form>

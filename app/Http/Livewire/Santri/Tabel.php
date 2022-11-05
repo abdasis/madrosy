@@ -24,7 +24,7 @@ class Tabel extends DataTableComponent
             ->setTableRowUrl(function ($id) {
                 return route('santri.detail', $id);
             });
-        $this->setDefaultReorderSort('order', 'desc');
+        $this->setDefaultSort('created_at', 'desc');
 
     }
 
@@ -68,7 +68,8 @@ class Tabel extends DataTableComponent
                 ->searchable(fn(Builder $query, $keyword) => $query->orWhere('nama_lengkap', 'like', "%{$keyword}%"))
                 ->html()
                 ->format(function ($nama) {
-                    return "<span class='fw-bold text-success'>$nama</span>";
+                    $img_url = "https://ui-avatars.com/api/?background=random&name={$nama}";
+                    return "<span class='fw-bold text-success'> <img src='$img_url' class='avatar-xxs me-1 rounded-circle' /> $nama</span>";
                 })
                 ->sortable(),
             Column::make("Jenis Kelamin", "jenis_kelamin")

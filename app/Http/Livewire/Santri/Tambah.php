@@ -6,10 +6,12 @@ use App\Models\Commons\User;
 use App\Models\Kesiswaan\Santri;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Tambah extends Component
 {
     use LivewireAlert;
+    use WithFileUploads;
 
     public $nama_lengkap;
     public $nama_panggilan;
@@ -24,6 +26,8 @@ class Tambah extends Component
     public $email;
     public $no_hp;
     public $alamat;
+    public $avatar;
+    public $nik;
 
     public function rules()
     {
@@ -34,15 +38,17 @@ class Tambah extends Component
             'nisn' => 'required|unique:santris|min_digits:9|max_digits:9',
             'jumlah_saudara' => ['required', 'numeric', 'min:1'],
             'anak_ke' => 'required|lte:jumlah_saudara',
-            'no_hp' => 'required|unique:santris,no_hp'
+            'no_hp' => 'required|unique:santris,no_hp',
+            'avatar' => 'image|max:1024',
+            'nik' => 'required|unique:santris,nik|min_digits:9|max_digits:20',
         ];
     }
 
     public function updatedJumlahSaudara($value)
     {
-        if ($value > 1){
+        if ($value > 1) {
             $this->anak_ke = 1;
-        }else{
+        } else {
             $this->anak_ke = 1;
         }
     }
@@ -83,14 +89,22 @@ class Tambah extends Component
                 'no_hp' => $this->no_hp,
                 'alamat' => $this->alamat,
                 'user_id' => $user->id,
+                'nik' => $this->nik,
             ]);
 
-            $this->alert('success', "Santri {$santri->nama_lengkap} berhasil ditambahkan");
+            $uuid = \Str::uuid();
+            $nama_file = "{$santri->nama_lengkap}-{$uuid}.{$this->avatar->extension()}";
+
+            $santri->avatar()->create([
+                'nama_file' => $this->avatar->storeAs('upload', $nama_file),
+            ]);
 
             \DB::commit();
 
+            $this->alert('success', "Santri {$santri->nama_lengkap} berhasil ditambahkan");
+
             $this->reset();
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             \DB::rollBack();
             \Debugbar::info($e);
             $this->alert('error', 'Kesalahan', [

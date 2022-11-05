@@ -3,6 +3,7 @@
 namespace App\Models\Kesiswaan;
 
 use App\Models\Akademik\Kelas;
+use App\Models\Commons\Avatar;
 use App\Models\Commons\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,5 +26,10 @@ class Santri extends Model
     public function user()
     {
         return $this->belongsTo(User::class)->withDefault();
+    }
+
+    public function avatar()
+    {
+        return $this->morphOne(Avatar::class, 'avatarable');
     }
 }
