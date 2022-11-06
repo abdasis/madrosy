@@ -4,6 +4,11 @@
             <?php echo e(session('salah_kelas')); ?>
 
         </div>
+    <?php elseif(session()->has('jadwal_kosong')): ?>
+        <div class="alert alert-warning text-center">
+            <?php echo e(session('jadwal_kosong')); ?>
+
+        </div>
     <?php else: ?>
         <div id="reader" style="width:auto"></div>
     <?php endif; ?>
@@ -33,6 +38,10 @@
             html5QrCode.stop();
         })
 
+        Livewire.on('jadwalKosong', () => {
+            html5QrCode.stop();
+        })
+
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
             // ^ this will stop the scanner (video feed) and clear the scan area.
             Livewire.emit('discan', decodedResult.decodedText);
@@ -46,7 +55,7 @@
         const config = {fps: 10, qrbox: {width: 250, height: 250}};
 
         // If you want to prefer front camera
-        html5QrCode.start({facingMode: "user"}, config, qrCodeSuccessCallback);
+        html5QrCode.start({facingMode: "environment"}, config, qrCodeSuccessCallback);
     </script>
 <?php $__env->stopPush(); ?>
 

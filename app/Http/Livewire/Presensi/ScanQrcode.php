@@ -21,6 +21,7 @@ class ScanQrcode extends Component
     {
         try {
             $hari_ini = Carbon::now()->isoFormat('dddd');
+
             $jadwal_hari_ini = Jadwal::where('guru_id', auth()->user()->guru->id)
                 ->where('hari', $hari_ini)
                 ->where('status', 'aktif')
@@ -36,30 +37,38 @@ class ScanQrcode extends Component
                     }
                 })->whereNotNull()->first();
 
-            $kelas = Kelas::whereHas('qrcodes', function ($query) use ($kode) {
-                return $query->where('kode', $kode);
-            })->first();
+            if ($jadwal_hari_ini) {
 
-            if ($jadwal_hari_ini->kelas_id != $kelas->id) {
-                $this->emit('salahKelas');
-                session()->flash('salah_kelas', 'Maaf, anda saat ini tidak mempunya jadwal pada kelas ini');
+                $kelas = Kelas::whereHas('qrcodes', function ($query) use ($kode) {
+                    return $query->where('kode', $kode);
+                })->first();
+
+                if ($jadwal_hari_ini->kelas_id != $kelas->id) {
+                    $this->emit('salahKelas');
+                    session()->flash('salah_kelas', 'Maaf, anda saat ini tidak mempunya jadwal pada kelas ini');
+                    return false;
+                }
+
+
+                $absensi = AbsensiGuru::max('id');
+
+                $kode_absensi = "AB-" . str_pad($absensi + 1, 8, 0, STR_PAD_LEFT);
+
+                AbsensiGuru::create([
+                    'kode_absensi' => $kode_absensi,
+                    'jadwal_id' => $jadwal_hari_ini->id,
+                    'guru_id' => auth()->user()->guru->id,
+                    'waktu_absensi' => now(),
+                    'kode_qr' => $kode
+                ]);
+
+                $this->flash('success', 'Berhasil', [], route('presensi.daftar-siswa', $jadwal_hari_ini->id));
+                $this->emit('berhasilScan');
+            } else {
+                $this->emit('jadwalKosong');
+                session()->flash('jadwal_kosong', 'Maaf, tidak ada jadwal yang ditemukan pada hari ini');
                 return false;
             }
-
-
-            $absensi = AbsensiGuru::max('id');
-            $kode_absensi = "AB-" . str_pad($absensi + 1, 8, 0, STR_PAD_LEFT);
-
-            AbsensiGuru::create([
-                'kode_absensi' => $kode_absensi,
-                'jadwal_id' => $jadwal_hari_ini->id,
-                'guru_id' => auth()->user()->guru->id,
-                'waktu_absensi' => now(),
-                'kode_qr' => $kode
-            ]);
-
-            $this->flash('success', 'Berhasil', [], route('presensi.daftar-siswa', $jadwal_hari_ini->id));
-            $this->emit('berhasilScan');
 
         } catch (\Exception $exception) {
             report($exception);

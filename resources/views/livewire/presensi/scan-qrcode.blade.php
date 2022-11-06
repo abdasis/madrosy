@@ -3,6 +3,10 @@
         <div class="alert alert-warning text-center">
             {{session('salah_kelas')}}
         </div>
+    @elseif(session()->has('jadwal_kosong'))
+        <div class="alert alert-warning text-center">
+            {{session('jadwal_kosong')}}
+        </div>
     @else
         <div id="reader" style="width:auto"></div>
     @endif
@@ -29,6 +33,10 @@
             "reader", {formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE]});
 
         Livewire.on('salahKelas', () => {
+            html5QrCode.stop();
+        })
+
+        Livewire.on('jadwalKosong', () => {
             html5QrCode.stop();
         })
 
