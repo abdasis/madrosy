@@ -56,6 +56,7 @@ class Tabel extends DataTableComponent
         try {
             DB::beginTransaction();
             $kelas = Kelas::find($id);
+
             $kode = $kelas->qrcodes()->create([
                 'dibuat_oleh' => auth()->user()->id,
                 'tanggal_dibuat' => now(),
@@ -111,7 +112,7 @@ class Tabel extends DataTableComponent
                 ->sortable(),
             Column::make('QrCode', 'id')->format(function ($qr, $kelas, $row) {
                 if ($kelas->qrcodes->count() > 0) {
-                    $nama_file = "{$kelas->nama_kelas}-{$kelas->qrcodes->first()->kode}";
+                    $nama_file = "{$kelas->nama_kelas}-{$kelas->qrcodes()->latest()->first()->kode}";
                     $nama_file = \Str::slug($nama_file) . '.png';
                     if (file_exists(public_path('qrcode/' . $nama_file))) {
                         return view('livewire.kelas.modal', [

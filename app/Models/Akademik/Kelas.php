@@ -63,6 +63,6 @@ class Kelas extends Model
 
     public function qrcodes()
     {
-        return $this->hasMany(Qrcode::class, 'kelas_id', 'id')->latest();
+        return $this->hasMany(Qrcode::class, 'kelas_id', 'id');
     }
 }
