@@ -30,6 +30,6 @@ class Santri extends Model
 
     public function avatar()
     {
-        return $this->morphOne(Avatar::class, 'avatarable');
+        return $this->morphOne(Avatar::class, 'avatarable')->withDefault();
     }
 }

@@ -44,10 +44,12 @@
                         <h5 class="fs-16 mb-1">{{$santri->nama_lengkap}}</h5>
                         <p class="text-muted mb-0">{{$santri->nik}}</p>
                         <div class="my-2 d-grid">
-                            <button class="btn border-bottom btn-light">
-                                <i class="ri-edit-line"></i>
-                                Sunting Profile
-                            </button>
+                            <a href="{{route('santri.edit', $santri->id)}}">
+                                <button class="btn border-bottom btn-light">
+                                    <i class="ri-edit-line"></i>
+                                    Sunting Profile
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
