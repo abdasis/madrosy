@@ -2,17 +2,27 @@
 
 namespace App\Http\Livewire\Presensi;
 
+use App\Models\AbsensiGuru;
 use App\Models\Akademik\Jadwal;
 use Carbon\Carbon;
 use Livewire\Component;
 
 class DataKelas extends Component
 {
+    public $status_absensi;
+
     public function mount()
     {
+        $hari_ini = now();
+        $guru_id = auth()->user()->guru->id;
 
+        $absensi = AbsensiGuru::where('guru_id', $guru_id)->whereDate('waktu_absensi', now())->get();
 
+        if ($absensi->count() >= 1) {
+            $this->status_absensi = 'valid';
+        }
     }
+
     public function render()
     {
         $hari_ini = Carbon::now()->isoFormat('dddd');
