@@ -46,7 +46,7 @@
                         <div class="my-2 d-grid">
                             <button class="btn border-bottom btn-light">
                                 <i class="ri-edit-line"></i>
-                                Sunting Santri
+                                Sunting Profile
                             </button>
                         </div>
                     </div>

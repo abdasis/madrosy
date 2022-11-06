@@ -45,7 +45,7 @@
                             </span>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Total Santri</p>
+                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Total Siswa</p>
                             <h4 class=" mb-0"><span class="counter-value" data-target="{{$total_santri}}">{{$total_santri}}</span></h4>
                         </div>
                     </div>

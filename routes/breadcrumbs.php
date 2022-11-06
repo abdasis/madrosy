@@ -14,19 +14,19 @@ Breadcrumbs::for('pengaturan.menu', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('santri.semua', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
-    $trail->push('Semua Santri', route('santri.semua'));
+    $trail->push('Semua Siswa', route('santri.semua'));
 });
 Breadcrumbs::for('santri.tambah', function (BreadcrumbTrail $trail) {
     $trail->parent('santri.semua');
-    $trail->push('Tambah Santri', route('santri.tambah'));
+    $trail->push('Tambah Siswa', route('santri.tambah'));
 });
 Breadcrumbs::for('santri.detail', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('santri.semua');
-    $trail->push('Detail Santri', route('santri.detail', $id));
+    $trail->push('Detail Siswa', route('santri.detail', $id));
 });
 Breadcrumbs::for('santri.edit', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('santri.semua');
-    $trail->push('Edit Santri', route('santri.edit', $id));
+    $trail->push('Edit Siswa', route('santri.edit', $id));
 });
 Breadcrumbs::for('guru.semua', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
