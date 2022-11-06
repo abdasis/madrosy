@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Santri;
 
 use App\Models\Kesiswaan\Santri;
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -28,7 +30,6 @@ class Edit extends Component
     public $nik;
     public $avatar;
     public $avatar_saat_ini;
-
     public $santri_id;
 
     public function mount($id)
@@ -54,9 +55,9 @@ class Edit extends Component
 
     public function updatedJumlahSaudara($value)
     {
-        if ($value > 1){
+        if ($value > 1) {
             $this->anak_ke = 1;
-        }else{
+        } else {
             $this->anak_ke = 1;
         }
     }
@@ -87,8 +88,7 @@ class Edit extends Component
 
         try {
 
-            $santri = Santri::where('id', $this->santri_id)->first();
-
+            $santri = Santri::find($this->santri_id);
             $santri->update([
                 'nama_lengkap' => $this->nama_lengkap,
                 'nama_panggilan' => $this->nama_panggilan,
@@ -107,22 +107,23 @@ class Edit extends Component
             ]);
 
             $uuid = \Str::uuid();
-            $nama_file = "{$santri->nama_lengkap}-{$uuid}.{$this->avatar->extension()}";
+            $nama_file = Str::slug($santri->nama_lengkap) . "-{$uuid}.{$this->avatar->extension()}";
 
-
-            $santri->avatar()->update([
-                'nama_file' => $this->avatar->storeAs('upload', $nama_file),
-            ]);
+            $santri->avatar()->updateOrCreate(
+                [
+                    'nama_file' => $this->avatar->storeAs('upload', $nama_file),
+                ]);
 
             $this->flash('success', 'Berhasil', [
                 'text' => "Santri {$this->nama_lengkap} berhasil diperbarui",
             ], route('santri.semua'));
 
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
+            report($e);
+            Debugbar::info($e);
             $this->alert('error', 'Kesalahan', [
                 'text' => 'Terjadi kesalahan saat menyimpan data',
             ]);
-            return;
         }
     }
 
