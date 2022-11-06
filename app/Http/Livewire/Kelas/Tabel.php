@@ -23,7 +23,8 @@ class Tabel extends DataTableComponent
     {
         if ($this->model_id) {
             $kelas = Kelas::find($this->model_id);
-            if (!empty($kelas->jadwal)) {
+
+            if ($kelas->jadwal()->count() > 0) {
                 $this->alert('warning', 'Terdapat Jadwal di Kelas', [
                     'text' => 'Anda tidak bisa menghapus kelas yang memiliki jadwal'
                 ]);
