@@ -1,8 +1,10 @@
 <div>
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
-    <img src="{{$foto}}" class="avatar-xxs rounded-circle" data-bs-toggle="modal" data-bs-target="#modalBukti" alt="">
+    <img src="{{$foto}}" class="avatar-xxs rounded-circle" data-bs-toggle="modal" data-bs-target="#modalBukti-{{$id}}"
+         alt="">
 
-    <div class="modal fade" wire:ignore id="modalBukti" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    <div class="modal fade" wire:ignore id="modalBukti-{{$id}}" tabindex="-1" data-bs-backdrop="static"
+         data-bs-keyboard="false"
          aria-labelledby="modalBuktiLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

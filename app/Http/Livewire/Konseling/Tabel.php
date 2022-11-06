@@ -59,12 +59,13 @@ class Tabel extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Nama', 'santri.nama_lengkap'),
-            Column::make('Bukti', 'foto_bukti')->format(function ($foto) {
+            Column::make('Bukti', 'foto_bukti')->format(function ($foto, $model) {
                 $file = asset($foto);
                 $path = $foto;
                 return view('livewire.konseling.modal', [
                     'foto' => $file,
-                    'path' => $path
+                    'path' => $path,
+                    'id' => $model->id
                 ]);
             })->html(),
             Column::make('Tanggal', 'tanggal')
