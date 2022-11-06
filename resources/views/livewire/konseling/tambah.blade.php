@@ -27,10 +27,13 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <x-form-select name="pelanggaran_id" wire:model="pelanggaran_id" class="form-control">
+                                        <x-form-select name="pelanggaran_id" wire:model="pelanggaran_id"
+                                                       class="form-control">
                                             <option value="">Pilih Pelanggaran</option>
                                             @foreach($semua_pelanggaran as $pelanggaran)
-                                                <option value="{{$pelanggaran->id}}">{{$pelanggaran->kasus}} ({{$pelanggaran->bobot}})</option>
+                                                <option value="{{$pelanggaran->id}}">{{$pelanggaran->kasus}}
+                                                    ({{$pelanggaran->bobot}})
+                                                </option>
                                             @endforeach
                                         </x-form-select>
                                     </div>
@@ -48,6 +51,20 @@
                                             placeholder="Masukan Tanggal"
                                         />
                                     </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <label for=""> Keterangan </label>
+                                </div>
+                                <div class="col-md-9">
+                                    <x-form-textarea
+                                        name="keterangan"
+                                        wire:model="keterangan"
+                                        class="form-control"
+                                        rows="3"
+                                        placeholder="Masukan Layanan Konseling"
+                                    ></x-form-textarea>
                                 </div>
 
 
@@ -75,20 +92,6 @@
                                                  src="{{  $foto_bukti->temporaryUrl() }}">
                                         @endif
                                     @endif
-                                </div>
-
-
-                                <div class="col-md-3">
-                                    <label for=""> Keterangan </label>
-                                </div>
-                                <div class="col-md-9">
-                                    <x-form-textarea
-                                        name="keterangan"
-                                        wire:model="keterangan"
-                                        class="form-control"
-                                        rows="3"
-                                        placeholder="Masukan Layanan Konseling"
-                                    ></x-form-textarea>
                                 </div>
 
 

@@ -53,6 +53,20 @@
                                 </div>
 
                                 <div class="col-md-3">
+                                    <label for=""> Keterangan </label>
+                                </div>
+                                <div class="col-md-9">
+                                    <x-form-textarea
+                                        name="keterangan"
+                                        wire:model="keterangan"
+                                        class="form-control"
+                                        rows="3"
+                                        placeholder="Masukan Layanan Konseling"
+                                    ></x-form-textarea>
+                                </div>
+
+
+                                <div class="col-md-3">
                                     <label for="foto_bukti">Photo Bukti</label>
                                 </div>
                                 <div class="col-md-9">
@@ -83,18 +97,6 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-3">
-                                    <label for=""> Keterangan </label>
-                                </div>
-                                <div class="col-md-9">
-                                    <x-form-textarea
-                                        name="keterangan"
-                                        wire:model="keterangan"
-                                        class="form-control"
-                                        rows="3"
-                                        placeholder="Masukan Layanan Konseling"
-                                    ></x-form-textarea>
-                                </div>
 
                                 <div class="form-group d-flex justify-content-end">
                                     <button class="btn btn-success btn-border d-flex align-items-center gap-1">

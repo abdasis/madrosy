@@ -78,11 +78,11 @@
                                                   placeholder="Masukan No HP"/>
                                 </div>
                                 <div class="col-md-8">
-                                    <x-form-input name="avatar" wire:model="avatar" type="file" label="Foto"/>
-                                </div>
-                                <div class="col-md-8">
                                     <x-form-textarea name="alamat" wire:model="alamat" label="Alamat"
                                                      placeholder="Masukan Alamat"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <x-form-input name="avatar" wire:model="avatar" type="file" label="Foto"/>
                                 </div>
 
                                 <div class="form-group d-flex justify-content-between my-5">

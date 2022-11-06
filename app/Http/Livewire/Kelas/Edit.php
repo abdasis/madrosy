@@ -22,7 +22,7 @@ class Edit extends Modal
         $kelas_kode = $this->kelas_id;
         return[
             'kode_kelas' => 'required|unique:kelas,kode_kelas,' . $kelas_kode,
-            'nama_kelas' => 'required',
+            'nama_kelas' => 'required|unique:kelas,nama_kelas,' . $kelas_kode,
             'wali_kelas' => 'required'
         ];
     }

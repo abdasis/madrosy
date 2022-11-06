@@ -18,7 +18,7 @@ class Tambah extends Modal
     {
         return[
             'kode_kelas' => 'required|unique:kelas,kode_kelas',
-            'nama_kelas' => 'required',
+            'nama_kelas' => 'required|unique:kelas,nama_kelas',
             'wali_kelas' => 'required'
         ];
     }

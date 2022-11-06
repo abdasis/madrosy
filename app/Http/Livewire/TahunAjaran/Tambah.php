@@ -36,7 +36,7 @@ class Tambah extends Component
             $this->alert('success', 'Tahun Ajaran berhasil ditambahkan');
             $this->reset();
         }catch (\Exception $e) {
-            dd($e);
+            report($e);
             $this->alert('error', 'Tahun ajaran gagal ditambahkan');
         }
     }

@@ -130,6 +130,11 @@
                                 <i class="far fa-envelope"></i> Riwayat Penghargaan
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#konseling" role="tab" aria-selected="false">
+                                <i class="far fa-envelope"></i> Data Konseling
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body p-4">
@@ -193,7 +198,7 @@
                         <!--end tab-pane-->
                         <div class="tab-pane" id="riwayat-sekolah" role="tabpanel">
                             <div class="">
-                                <livewire:guru.riwayat-pendidikan-tabel :id="$santri->id">
+                                <livewire:guru.riwayat-pendidikan-tabel :id="$santri->id"/>
                             </div>
                         </div>
                         <!--end tab-pane-->
@@ -208,6 +213,12 @@
                                 <h5 class="text-center">Coming Soon</h5>
                             </div>
                         </div>
+                        <div class="tab-pane" id="konseling" role="tabpanel">
+                            <div class="">
+                                <h1>Hadir</h1>
+                            </div>
+                        </div>
+
                         <!--end tab-pane-->
                     </div>
                 </div>
