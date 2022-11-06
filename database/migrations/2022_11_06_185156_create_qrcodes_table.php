@@ -12,13 +12,12 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('absensi_gurus', function (Blueprint $table) {
+        Schema::create('qrcodes', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_absensi');
-            $table->foreignId('guru_id')->constrained();
-            $table->foreignId('jadwal_id')->constrained();
-            $table->dateTime('waktu_absensi');
-            $table->string('kode_qr');
+            $table->foreignId('kelas_id')->constrained();
+            $table->integer('dibuat_oleh');
+            $table->date('tanggal_dibuat');
+            $table->string('kode');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('absensi_gurus');
+        Schema::dropIfExists('qrcodes');
     }
 };

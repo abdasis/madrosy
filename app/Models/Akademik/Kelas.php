@@ -2,6 +2,7 @@
 
 namespace App\Models\Akademik;
 
+use App\Models\Commons\Qrcode;
 use App\Models\Kepegawaian\Guru;
 use App\Models\Kesiswaan\Santri;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -54,5 +55,10 @@ class Kelas extends Model
     public function guru()
     {
         return $this->belongsTo(Guru::class, 'wali_kelas', 'id');
+    }
+
+    public function qrcodes()
+    {
+        return $this->hasMany(Qrcode::class, 'kelas_id', 'id')->latest();
     }
 }

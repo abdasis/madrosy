@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 9.37.0.
+ * Generated for Laravel 9.38.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14267,6 +14267,20 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Remove the given middleware from the specified group.
+         *
+         * @param string $group
+         * @param string $middleware
+         * @return \Illuminate\Routing\Router
+         * @static
+         */
+        public static function removeMiddlewareFromGroup($group, $middleware)
+        {
+            /** @var \Illuminate\Routing\Router $instance */
+            return $instance->removeMiddlewareFromGroup($group, $middleware);
+        }
+
+        /**
          * Flush the router's middleware groups.
          *
          * @return \Illuminate\Routing\Router
@@ -15761,6 +15775,19 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Session\Store $instance */
             return $instance->getHandler();
+        }
+
+        /**
+         * Set the underlying session handler implementation.
+         *
+         * @param \SessionHandlerInterface $handler
+         * @return void
+         * @static
+         */
+        public static function setHandler($handler)
+        {
+            /** @var \Illuminate\Session\Store $instance */
+            $instance->setHandler($handler);
         }
 
         /**

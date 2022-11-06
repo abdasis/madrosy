@@ -82,7 +82,7 @@ class Edit extends Component
     }
     function render()
     {
-        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Ahad'];
+        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
         return view('livewire.jadwal.edit', [
             'data_kelas' => Kelas::orderBy('nama_kelas', 'asc')->get(),
             'data_guru' => Guru::orderBy('nama', 'asc')->get(),

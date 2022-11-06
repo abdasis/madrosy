@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Kelas;
 
 use App\Models\Akademik\Kelas;
 use App\Traits\KonfirmasiHapus;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\File;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -68,27 +69,35 @@ class Tabel extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('QrCode', 'id')->format(function ($qr, $kelas, $row) {
-                $nama_file = "{$kelas->kode_kelas}-{$kelas->nama_kelas}";
-                $nama_file = \Str::slug($nama_file) . '.png';
-                return view('livewire.kelas.modal', [
-                    'file' => $nama_file,
-                    'id' => $qr
-                ]);
+                if ($kelas->qrcodes->count() > 0) {
+                    $nama_file = "{$kelas->nama_kelas}-{$kelas->qrcodes->first()->kode}";
+                    $nama_file = \Str::slug($nama_file) . '.png';
+                    if (file_exists(public_path('qrcode/' . $nama_file))) {
+                        return view('livewire.kelas.modal', [
+                            'file' => $nama_file,
+                            'id' => $qr
+                        ]);
+                    }
+                } else {
+                    return '';
+                }
+
             })->html()->unclickable(),
             Column::make('Total Siswa', 'id')->format(function ($id, $model) {
                 return $model->santri_count;
             }),
             Column::make("Dibuat Pada", "created_at")
-                ->sortable(),
+                ->sortable()->format(fn($tanggal) => Carbon::parse($tanggal)->format('d-m-Y')),
             Column::make("Diedit Pada", "updated_at")
-                ->sortable(),
+                ->sortable()->format(fn($tanggal) => Carbon::parse($tanggal)->format('d-m-Y')),
             Column::make('Opsi', 'id')->format(function ($id) {
                 return view('tombol-aksi', [
                     'id' => $id,
+                    'regenerate_token' => $id,
                     'editWithModal' => 'kelas.edit',
                     'hapus' => $id
                 ]);
-            })->excludeFromColumnSelect()
+            })->excludeFromColumnSelect()->unclickable()
         ];
     }
 

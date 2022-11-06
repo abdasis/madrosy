@@ -1,5 +1,11 @@
 <div>
-    <div id="reader" style="width:auto"></div>
+    @if(session()->has('salah_kelas'))
+        <div class="alert alert-warning text-center">
+            {{session('salah_kelas')}}
+        </div>
+    @else
+        <div id="reader" style="width:auto"></div>
+    @endif
 </div>
 
 @push('styles')
@@ -21,11 +27,20 @@
     <script>
         const html5QrCode = new Html5Qrcode(
             "reader", {formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE]});
+
+        Livewire.on('salahKelas', () => {
+            html5QrCode.stop();
+        })
+
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
             // ^ this will stop the scanner (video feed) and clear the scan area.
-            let notif = new Audio('{{asset('assets/notifications/berhasil-absen.mp3')}}');
-            notif.play()
-            html5QrCode.stop()
+            Livewire.emit('discan', decodedResult.decodedText);
+
+            Livewire.on('berhasilScan', () => {
+                let notif = new Audio('{{asset('assets/notifications/berhasil-absen.mp3')}}');
+                notif.play()
+                html5QrCode.stop()
+            })
         };
         const config = {fps: 10, qrbox: {width: 250, height: 250}};
 

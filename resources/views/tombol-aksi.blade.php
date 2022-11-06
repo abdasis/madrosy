@@ -1,8 +1,16 @@
 <ul class="list-inline hstack gap-2 mb-0" wire:ignore.self>
+    @if(!empty($regenerate_token))
+        <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+            title="Regenerate Token">
+            <a wire:click.prevent="regenerate()" href="javascript:void(0);" class="text-dark d-inline-block">
+                <i class="ri-restart-fill fs-16"></i>
+            </a>
+        </li>
+    @endif
     @if(!empty($detail))
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Lihat Details">
-            <a  href="{{$detail}}" class="text-muted d-inline-block">
+            <a href="{{$detail}}" class="text-muted d-inline-block">
                 <i class="ri-eye-fill fs-16"></i>
             </a>
         </li>
@@ -10,11 +18,12 @@
     @if(!empty($editWithModal))
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Edit">
-            <a wire:click.prevent="$emitTo('{{$editWithModal}}' , 'edit' , {{$id}})" href="/edit/"  class="text-warning d-inline-block">
+            <a wire:click.prevent="$emitTo('{{$editWithModal}}' , 'edit' , {{$id}})" href="/edit/"
+               class="text-warning d-inline-block">
                 <i class="ri-edit-2-line fs-16"></i>
             </a>
         </li>
-        @endif
+    @endif
     @if(!empty($edit))
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Edit">
@@ -49,4 +58,5 @@
             </div>
         </li>
     @endif
+
 </ul>
