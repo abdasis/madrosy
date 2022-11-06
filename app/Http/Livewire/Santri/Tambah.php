@@ -39,7 +39,7 @@ class Tambah extends Component
             'jumlah_saudara' => ['required', 'numeric', 'min:1'],
             'anak_ke' => 'required|lte:jumlah_saudara',
             'no_hp' => 'required|unique:santris,no_hp',
-            'avatar' => 'image|max:1024',
+            'avatar' => 'image|max:1024|mimes:jpg,png,jpeg,webp',
             'nik' => 'required|unique:santris,nik|min_digits:9|max_digits:20',
         ];
     }
