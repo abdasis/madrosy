@@ -120,6 +120,10 @@ Breadcrumbs::for('kelas.semua', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Semua Kelas', route('kelas.semua'));
 });
+Breadcrumbs::for('detail.kelas', function (BreadcrumbTrail $trail, $id) {
+    $trail->parent('kelas.semua');
+    $trail->push('Rincian Kelas', route('detail.kelas', $id));
+});
 Breadcrumbs::for('kelas.tambah', function (BreadcrumbTrail $trail) {
     $trail->parent('kelas.semua');
     $trail->push('Tambah Kelas', route('kelas.tambah'));

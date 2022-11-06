@@ -2,6 +2,7 @@
 
 namespace App\Models\Akademik;
 
+use App\Models\Kepegawaian\Guru;
 use App\Models\Kesiswaan\Santri;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -48,5 +49,10 @@ class Kelas extends Model
     public function santri()
     {
         return $this->belongsToMany(Santri::class, 'kelas_santri');
+    }
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'wali_kelas', 'id');
     }
 }

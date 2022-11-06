@@ -14,7 +14,9 @@
                     @if(file_exists(storage_path("app/qrcode/{$file}")))
                         <img src="{{asset("qrcode/{$file}")}}" height="230px" class="img-fluid">
                     @else
-                        <div class="alert alert-warning">QR code belum dibuat</div>
+                        <div class="alert alert-warning">QR code belum dibuat, silahkan buat dengan cara
+                            mengedit kelas yang mau dibuat QR code nya
+                        </div>
                     @endif
                 </div>
                 <div class="modal-footer">

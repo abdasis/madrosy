@@ -18,11 +18,11 @@ class Tabel extends DataTableComponent
 
     public function dihapus()
     {
-        if ($this->model_id){
+        if ($this->model_id) {
             $kelas = Kelas::find($this->model_id);
             $kelas->delete();
             $this->alert('success', 'Data berhasil dihapus');
-        }else{
+        } else {
             $this->alert('error', 'Data tidak ditemukan');
         }
     }
@@ -35,7 +35,10 @@ class Tabel extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id')
-        ->setDefaultSort('kode_kelas', 'asc');
+            ->setTableRowUrl(function ($row) {
+                return route('detail.kelas', $row);
+            })
+            ->setDefaultSort('kode_kelas', 'asc');
     }
 
     public function edit($id)

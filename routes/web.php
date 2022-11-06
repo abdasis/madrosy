@@ -59,6 +59,7 @@ Route::middleware([
             Route::get('/edit/{kelas}', \App\Http\Livewire\Kelas\Edit::class)->name('kelas.edit');
             Route::get('/pindah-kelas', Migrasi::class)->name('kelas.migrasi');
             Route::get('/konfirmasi-kelas', PindahKelasForm::class)->name('kelas.konfirmasi');
+            Route::get('/detail/{kelas}', \App\Http\Livewire\Kelas\Detail::class)->name('detail.kelas');
         });
     });
     Route::group(['prefix' => 'guru', 'middleware' => 'role:Kepala Sekolah'], function () {
