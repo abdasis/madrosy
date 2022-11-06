@@ -5,7 +5,9 @@ namespace App\Http\Livewire\Kelas;
 use App\Models\Akademik\Kelas;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
+use Hamcrest\Thingy;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -21,6 +23,13 @@ class Tabel extends DataTableComponent
     {
         if ($this->model_id) {
             $kelas = Kelas::find($this->model_id);
+            if ($kelas->has('jadwal')) {
+                $this->alert('warning', 'Terdapat Jadwal di Kelas', [
+                    'text' => 'Anda tidak bisa menghapus kelas yang memiliki jadwal'
+                ]);
+
+                return false;
+            }
             $kelas->delete();
             $this->alert('success', 'Data berhasil dihapus');
         } else {
@@ -40,6 +49,38 @@ class Tabel extends DataTableComponent
                 return route('detail.kelas', $row);
             })
             ->setDefaultSort('kode_kelas', 'asc');
+    }
+
+    public function regenerate($id)
+    {
+        try {
+            DB::beginTransaction();
+            $kelas = Kelas::find($id);
+            $kode = $kelas->qrcodes()->create([
+                'dibuat_oleh' => auth()->user()->id,
+                'tanggal_dibuat' => now(),
+                'kode' => \Str::uuid()
+            ]);
+
+            $nama_file = "{$kelas->nama_kelas}-{$kode->kode}";
+            $nama_file = \Str::slug($nama_file) . '.png';
+            $path = storage_path('app/qrcode/');
+            if (!file_exists($path)) {
+                File::makeDirectory($path);
+            }
+
+            \QrCode::size(1200)->style('round')->margin(3)->format('png')->generate($kode->kode, storage_path('app/qrcode/') . $nama_file);
+            DB::commit();
+            $this->alert('success', 'Berhasil', [
+                'text' => 'Kode QR berhasil dibuat ulang'
+            ]);
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            $this->alert('warning', 'Kesalahan', [
+                'text' => 'Kesalahaan saat regenerate kode QR'
+            ]);
+        }
     }
 
     public function edit($id)

@@ -46,6 +46,10 @@ class Kelas extends Model
         });
     }
 
+    public function jadwal()
+    {
+        return $this->hasOne(Jadwal::class, 'kelas_id', 'id')->withDefault();
+    }
 
     public function santri()
     {
