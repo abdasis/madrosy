@@ -2,6 +2,7 @@
 
 namespace App\Models\Kepegawaian;
 
+use App\Models\Akademik\Jadwal;
 use App\Models\Commons\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -48,6 +49,11 @@ class Guru extends Model
                 ->event('Menghapus data guru')
                 ->log("Menghapus data guru {$guru->nama}");
         });
+    }
+
+    public function jadwal()
+    {
+        return $this->hasOne(Jadwal::class, 'guru_id', 'id');
     }
 
     public function pendidikan()

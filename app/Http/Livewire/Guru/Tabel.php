@@ -56,13 +56,19 @@ class Tabel extends DataTableComponent
     public function dihapus()
     {
         if ($this->model_id) {
-            $guru = Guru::find($this->model_id)->delete();
+            $guru = Guru::find($this->model_id);
 
-            if ($guru) {
-                $this->alert('success', 'Data berhasil dihapus');
-            } else {
-                $this->alert('error', 'Data gagal dihapus');
+            if (!empty($guru->jadwal)) {
+                $this->alert('warning', 'Guru Memiliki Jadwal', [
+                    'text' => 'Anda tidak bisa menghapus guru yang sudah memiliki jadwal'
+                ]);
+                return false;
             }
+
+
+            $guru->delete();
+            $this->alert('success', 'Data berhasil dihapus');
+
         }
     }
 

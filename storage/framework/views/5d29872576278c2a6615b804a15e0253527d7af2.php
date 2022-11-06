@@ -2,7 +2,8 @@
     <?php if(!empty($regenerate_token)): ?>
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Regenerate Token">
-            <a wire:click.prevent="regenerate()" href="javascript:void(0);" class="text-dark d-inline-block">
+            <a wire:click.prevent="regenerate('<?php echo e($regenerate_token); ?>')" href="javascript:void(0);"
+               class="text-dark d-inline-block">
                 <i class="ri-restart-fill fs-16"></i>
             </a>
         </li>
