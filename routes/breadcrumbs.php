@@ -6,6 +6,12 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
+
+Breadcrumbs::for('pengaturan.menu', function (BreadcrumbTrail $trail) {
+    $trail->parent('pengaturan.semua');
+    $trail->push('Pengaturan Menu', route('pengaturan.menu'));
+});
+
 Breadcrumbs::for('santri.semua', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Semua Santri', route('santri.semua'));

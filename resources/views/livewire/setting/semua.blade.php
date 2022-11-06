@@ -9,7 +9,24 @@
                     <p class="text-muted">Kamu bisa melakukan perubahan pada data instansi yang sedang kamu kelola saat
                         ini
                     </p>
-                    <a href="{{route('pengaturan.data-instansi')}}" class="btn btn-action text-muted d-flex gap-2 align-items-center justify-content-end">
+                    <a href="{{route('pengaturan.data-instansi')}}"
+                       class="btn btn-action text-muted d-flex gap-2 align-items-center justify-content-end">
+                        Atur Sekarang
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-3"><i class="ri-menu-2-line align-middle me-1 text-muted"></i> Penyesuaian
+                        Menu</h4>
+                    <p class="text-muted">
+                        Kamu bisa menyesuaikan menu yang kamu butuhkan
+                    </p>
+                    <a href="{{route('pengaturan.menu')}}"
+                       class="btn btn-action text-muted d-flex gap-2 align-items-center justify-content-end">
                         Atur Sekarang
                         <i class="ri-arrow-right-line"></i>
                     </a>

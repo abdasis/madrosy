@@ -48,6 +48,7 @@
         },
         "files": [
             "app/Helpers/MataUang.php",
+            "app/Helpers/MenuAktif.php",
             "app/Helpers/AmbilKarakterPertama.php"
         ]
     },
