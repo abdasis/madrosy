@@ -21,6 +21,10 @@
 
         </div>
         <div class="card-body bg-soft-light">
+            <div class="alert alert-info">
+                Jika kamu mau print qr code, namun ketika di print file not found. kamu bisa sunting
+                terlebih dahulu kelas yang akan kamu download QRCode nya
+            </div>
             <livewire:kelas.tabel/>
         </div>
     </div>
