@@ -51,7 +51,8 @@ class Edit extends Modal
                 'wali_kelas' => $this->wali_kelas,
             ]);
 
-            $nama_file = encrypt(\Str::slug($kelas->kode_kelas)) . '.png';
+            $nama_file = "{$kelas->kode_kelas}-{$kelas->nama_kelas}";
+            $nama_file = \Str::slug($nama_file) . '.png';
             $path = storage_path('app/qrcode/');
             if (!file_exists($path)) {
                 File::makeDirectory($path);

@@ -32,7 +32,7 @@ class Tabel extends DataTableComponent
             $konseling = Konseling::find($this->model_id);
             $konseling->delete();
             $this->alert('success', 'Data Berhasil Dihapus');
-        }else{
+        } else {
             $this->alert('error', 'Data tidak ditemukan');
         }
     }
@@ -42,6 +42,11 @@ class Tabel extends DataTableComponent
         $this->setPrimaryKey('id');
     }
 
+
+    public function download($foto)
+    {
+        return \response()->download($foto);
+    }
 
 
     public function columns(): array
@@ -55,8 +60,12 @@ class Tabel extends DataTableComponent
                 ->searchable(),
             Column::make('Nama', 'santri.nama_lengkap'),
             Column::make('Bukti', 'foto_bukti')->format(function ($foto) {
-                $foto = asset($foto);
-                return "<a href='$foto' target='_blank'><img src='$foto' class='avatar-xxs rounded-3' /></a>";
+                $file = asset($foto);
+                $path = $foto;
+                return view('livewire.konseling.modal', [
+                    'foto' => $file,
+                    'path' => $path
+                ]);
             })->html(),
             Column::make('Tanggal', 'tanggal')
                 ->sortable()

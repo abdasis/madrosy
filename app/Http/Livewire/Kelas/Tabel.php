@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Kelas;
 use App\Models\Akademik\Kelas;
 use App\Traits\KonfirmasiHapus;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\File;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
@@ -47,6 +48,11 @@ class Tabel extends DataTableComponent
         ]);
     }
 
+    public function download($foto)
+    {
+        return response()->download(storage_path("app/qrcode/{$foto}"));
+    }
+
     public function columns(): array
     {
         return [
@@ -58,10 +64,13 @@ class Tabel extends DataTableComponent
             Column::make('Nama Kelas')
                 ->searchable()
                 ->sortable(),
-            Column::make('QrCode', 'id')->format(function ($qr) {
-                $nama_file = decrypt(\Str::slug($qr)) . '.png';
-                $path = public_path("qrcode/{$nama_file}");
-                return "<a target='_blank' href='$path'><i class='ri-qr-code-line fs-3'></i></a>";
+            Column::make('QrCode', 'id')->format(function ($qr, $kelas, $row) {
+                $nama_file = "{$kelas->kode_kelas}-{$kelas->nama_kelas}";
+                $nama_file = \Str::slug($nama_file) . '.png';
+                return view('livewire.kelas.modal', [
+                    'file' => $nama_file,
+                    'id' => $qr
+                ]);
             })->html(),
             Column::make('Total Siswa', 'id')->format(function ($id, $model) {
                 return $model->santri_count;
