@@ -58,14 +58,19 @@ class Tabel extends DataTableComponent
             Column::make('Nama Kelas')
                 ->searchable()
                 ->sortable(),
-            Column::make('Total Siswa', 'id')->format(function ($id, $model){
+            Column::make('QrCode', 'kode_kelas')->format(function ($qr) {
+                $nama_file = \Str::slug($qr) . '.svg';
+                $path = asset("qrcode/{$nama_file}");
+                return "<a target='_blank' href='$path'><i class='ri-qr-code-line fs-3'></i></a>";
+            })->html(),
+            Column::make('Total Siswa', 'id')->format(function ($id, $model) {
                 return $model->santri_count;
             }),
             Column::make("Dibuat Pada", "created_at")
                 ->sortable(),
             Column::make("Diedit Pada", "updated_at")
                 ->sortable(),
-            Column::make('Opsi', 'id')->format(function ($id){
+            Column::make('Opsi', 'id')->format(function ($id) {
                 return view('tombol-aksi', [
                     'id' => $id,
                     'editWithModal' => 'kelas.edit',
