@@ -58,9 +58,9 @@ class Tabel extends DataTableComponent
             Column::make('Nama Kelas')
                 ->searchable()
                 ->sortable(),
-            Column::make('QrCode', 'kode_kelas')->format(function ($qr) {
-                $nama_file = \Str::slug($qr) . '.svg';
-                $path = asset("qrcode/{$nama_file}");
+            Column::make('QrCode', 'id')->format(function ($qr) {
+                $nama_file = decrypt(\Str::slug($qr)) . '.png';
+                $path = public_path("qrcode/{$nama_file}");
                 return "<a target='_blank' href='$path'><i class='ri-qr-code-line fs-3'></i></a>";
             })->html(),
             Column::make('Total Siswa', 'id')->format(function ($id, $model) {

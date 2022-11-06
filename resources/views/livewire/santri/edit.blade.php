@@ -2,7 +2,7 @@
     {{-- Care about people's approval and you will be their prisoner. --}}
     <div class="card rounded border-light">
         <div class="card-header border-bottom border-light">
-            <h5 class="mb-0">Sunting Santri</h5>
+            <h5 class="mb-0">Sunting Siswa</h5>
         </div>
         <div class="card-body bg-soft-light">
             <form wire:submit.prevent="simpan">

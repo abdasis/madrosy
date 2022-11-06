@@ -9,7 +9,6 @@ function expand($route = '')
     } else {
         $status = 'gagal';
     }
-    Debugbar::info($route);
     return $status;
 }
 

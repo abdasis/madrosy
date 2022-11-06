@@ -48,12 +48,12 @@ class Tambah extends Modal
                 'wali_kelas' => $this->wali_kelas,
             ]);
 
-            $nama_file = \Str::slug($kelas->kode_kelas) . '.svg';
+            $nama_file = encrypt(\Str::slug($kelas->kode_kelas)) . '.svg';
             $path = storage_path('app/qrcode/');
             if (!file_exists($path)) {
                 File::makeDirectory($path);
             }
-            \QrCode::size(1200)->style('round')->margin(3)->format('svg')->generate(encrypt($kelas->id), storage_path("app/qrcode/{$nama_file}"));
+            \QrCode::size(1200)->style('round')->margin(3)->format('png')->generate(encrypt($kelas->id), storage_path('app/qrcode/') . $nama_file);
 
             \DB::commit();
             $this->alert('success', 'Data berhasil ditambahkan');
