@@ -22,10 +22,11 @@
                 <div class="card-body p-4">
                     <div class="text-center">
                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                            @if($santri->avatar)
+                            @if($santri->avatar->nama_file != null)
                                 <img src="{{asset($santri->avatar->nama_file)}}"
                                      class="rounded-circle avatar-xl img-thumbnail user-profile-image"
-                                     alt="user-profile-image">
+                                     alt="user-profile-image"
+                                >
                             @else
                                 <img
                                     src="{{'https://ui-avatars.com/api/?background=random&name=' . $santri->nama_lengkap}}"

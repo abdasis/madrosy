@@ -77,7 +77,7 @@ class Edit extends Component
             'nisn' => 'required|min_digits:9|max_digits:9|unique:santris,nisn,' . $this->santri_id,
             'jumlah_saudara' => ['required', 'numeric', 'min:1'],
             'anak_ke' => 'required|lte:jumlah_saudara',
-            'avatar' => 'image|max:1024',
+            'avatar' => 'sometimes|max:1024',
             'nik' => 'required|min_digits:9|max_digits:20|unique:santris,nik,' . $this->santri_id,
         ];
     }
@@ -106,13 +106,15 @@ class Edit extends Component
                 'nik' => $this->nik,
             ]);
 
-            $uuid = \Str::uuid();
-            $nama_file = Str::slug($santri->nama_lengkap) . "-{$uuid}.{$this->avatar->extension()}";
+            if ($this->avatar) {
+                $uuid = \Str::uuid();
+                $nama_file = Str::slug($santri->nama_lengkap) . "-{$uuid}.{$this->avatar->extension()}";
+                $santri->avatar()->updateOrCreate(
+                    [
+                        'nama_file' => $this->avatar->storeAs('upload', $nama_file),
+                    ]);
+            }
 
-            $santri->avatar()->updateOrCreate(
-                [
-                    'nama_file' => $this->avatar->storeAs('upload', $nama_file),
-                ]);
 
             $this->flash('success', 'Berhasil', [
                 'text' => "Santri {$this->nama_lengkap} berhasil diperbarui",
