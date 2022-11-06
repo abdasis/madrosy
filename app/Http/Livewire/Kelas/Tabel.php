@@ -74,7 +74,7 @@ class Tabel extends DataTableComponent
                     'file' => $nama_file,
                     'id' => $qr
                 ]);
-            })->html(),
+            })->html()->unclickable(),
             Column::make('Total Siswa', 'id')->format(function ($id, $model) {
                 return $model->santri_count;
             }),
