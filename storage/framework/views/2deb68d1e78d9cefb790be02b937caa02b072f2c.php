@@ -362,10 +362,12 @@
 <?php $component->withAttributes(['wire:model.defer' => 'jabatan']); ?>
                                         <option value="">Pilih Jabatan</option>
                                         <option value="Kepala Sekolah">Kepala Sekolah</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
-                                        <option value="Guru Khusus">Guru Khusus</option>
-                                        <option value="Guru Bantu">Bantu</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
+                                        <option value="Wakil Kepala Sekolah">Wakil Kepala Sekolah</option>
+                                        <option value="Komite Sekolah">Komite Sekolah</option>
+                                        <option value="Waka Kurikulum">Waka Kurikulum</option>
+                                        <option value="Waka Kesiswaan">Waka Kesiswaan</option>
+                                        <option value="Guru">Guru</option>
+                                        <option value="Tata Usaha">Tata Usaha</option>
                                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginale3e27020619c7dd176dc386b70690b75269969a6)): ?>
@@ -437,9 +439,11 @@
                                 </h4>
 
                                 <div class="col-12">
-                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show" role="alert">
+                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show"
+                                         role="alert">
                                         <i class="ri-check-double-line me-3 align-middle fs-16"></i><strong>Informasi</strong>
-                                        - Akun berikut ini sudah otomatis terisi sesuai data yang di inputkan di data sebelumnya, kamu bisa merubah password nanti
+                                        - Akun berikut ini sudah otomatis terisi sesuai data yang di inputkan di data
+                                        sebelumnya, kamu bisa merubah password nanti
                                         setelah data berhasil ditambahkan
                                     </div>
                                 </div>

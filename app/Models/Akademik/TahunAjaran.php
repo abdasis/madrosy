@@ -19,7 +19,7 @@ class TahunAjaran extends Model
                 ->causedBy(auth()->id())
                 ->performedOn($tahun_ajaran)
                 ->event('Menambah tahun ajaran')
-                ->log("Menambahakan tahun ajaran baru {$tahun_ajaran->tahun_awal}/{$tahun_ajaran->tahun_akhi}");
+                ->log("Menambahakan tahun ajaran baru {$tahun_ajaran->tahun_awal}/{$tahun_ajaran->tahun_akhir}");
         });
 
         static::updated(function ($tahun_ajaran) {
@@ -27,7 +27,7 @@ class TahunAjaran extends Model
                 ->causedBy(auth()->id())
                 ->performedOn($tahun_ajaran)
                 ->event('Memperbarui tahun ajaran')
-                ->log("Memperbarui tahun ajaran {$tahun_ajaran->tahun_awal}/{$tahun_ajaran->tahun_akhi}");
+                ->log("Memperbarui tahun ajaran {$tahun_ajaran->tahun_awal}/{$tahun_ajaran->tahun_akhir}");
         });
 
         static::deleted(function ($tahun_ajaran) {
@@ -35,7 +35,7 @@ class TahunAjaran extends Model
                 ->causedBy(auth()->id())
                 ->performedOn($tahun_ajaran)
                 ->event('Menghapus tahun ajaran')
-                ->log("Menghapus tahun ajaran {$tahun_ajaran->tahun_awal}/{$tahun_ajaran->tahun_akhi}");
+                ->log("Menghapus tahun ajaran {$tahun_ajaran->tahun_awal}/{$tahun_ajaran->tahun_akhir}");
         });
     }
 

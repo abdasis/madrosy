@@ -123,10 +123,12 @@
                                     <x-form-select name="jabatan" label="Jabatan *" wire:model.defer="jabatan">
                                         <option value="">Pilih Jabatan</option>
                                         <option value="Kepala Sekolah">Kepala Sekolah</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
-                                        <option value="Guru Khusus">Guru Khusus</option>
-                                        <option value="Guru Bantu">Bantu</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
+                                        <option value="Wakil Kepala Sekolah">Wakil Kepala Sekolah</option>
+                                        <option value="Komite Sekolah">Komite Sekolah</option>
+                                        <option value="Waka Kurikulum">Waka Kurikulum</option>
+                                        <option value="Waka Kesiswaan">Waka Kesiswaan</option>
+                                        <option value="Guru">Guru</option>
+                                        <option value="Tata Usaha">Tata Usaha</option>
                                     </x-form-select>
                                 </div>
 

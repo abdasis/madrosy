@@ -36,7 +36,7 @@ class Edit extends Component
     {
         $this->validate();
         try {
-            TahunAjaran::where('id', $this->tahun_ajaran_id)->update([
+            TahunAjaran::find($this->tahun_ajaran_id)->update([
                 'tahun_awal' => $this->tahun_awal,
                 'tahun_akhir' => $this->tahun_akhir,
                 'status' => $this->status

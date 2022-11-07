@@ -22,8 +22,13 @@ class Guru extends Model
             $guru->status = 'aktif';
         });
 
-        static::updating(function ($guru) {
+        static::updated(function ($guru) {
             $guru->diubah_oleh = auth()->id();
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($guru)
+                ->event('Memperbarui data guru')
+                ->log("Memperbarui guru {$guru->nama}");
         });
 
         static::created(function ($guru) {
@@ -32,14 +37,6 @@ class Guru extends Model
                 ->performedOn($guru)
                 ->event('Menambah guru')
                 ->log("Menambahakan baru baru {$guru->nama}");
-        });
-
-        static::updated(function ($guru) {
-            activity()
-                ->causedBy(auth()->id())
-                ->performedOn($guru)
-                ->event('Memperbarui data guru')
-                ->log("Memperbarui guru {$guru->nama}");
         });
 
         static::deleted(function ($guru) {

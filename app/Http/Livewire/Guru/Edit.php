@@ -124,10 +124,9 @@ class Edit extends Component
             $this->user->update([
                 'email' => $this->email
             ]);
-            $this->user->syncRoles($this->role);
-            $guru = Guru::find($this->guru->id);
 
-            $guru->update([
+            $this->user->syncRoles($this->role);
+            $guru = Guru::find($this->guru->id)->update([
                 'nama' => $this->nama,
                 'nik' => $this->nik,
                 'agama' => $this->agama,

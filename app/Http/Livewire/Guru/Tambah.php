@@ -68,7 +68,7 @@ class Tambah extends Component
             'dusun' => 'required',
             'pos' => 'required',
             'status_guru' => 'required',
-            'avatar' => 'image|mimes:jpg,jpeg,jpe,png,svg,webp|max:1024'
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,jpe,png,svg,webp|max:1024'
         ];
     }
 
