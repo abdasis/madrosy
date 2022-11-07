@@ -54,13 +54,15 @@ class Edit extends Component
         $this->validate();
         try {
             $santri = Santri::find($this->santri_id);
-            $nama_file = \Str::slug($santri->nama_lengkap) . '-' . \Str::uuid() . ".{$this->foto_bukti->getClientOriginalExtension()}";
+            if ($this->foto_bukti) {
+                $nama_file = \Str::slug($santri->nama_lengkap) . '-' . \Str::uuid() . ".{$this->foto_bukti->extension()}";
+            }
             Konseling::where('id', $this->konseling_id)->update([
                 'santri_id' => $this->santri_id,
                 'pelanggaran_id' => $this->pelanggaran_id,
                 'tanggal' => Carbon::parse($this->tanggal)->format('Y-m-d'),
                 'keterangan' => $this->keterangan,
-                'foto_bukti' => $this->foto_bukti->storeAs('upload', $nama_file)
+                'foto_bukti' => $this->foto_bukti ? $this->foto_bukti->storeAs('upload', $nama_file) : $this->preview_foto,
             ]);
             $this->alert('success', 'Data Berhasil diperbarui');
         } catch (\Exception $e) {
