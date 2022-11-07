@@ -31,6 +31,7 @@ class Tabel extends DataTableComponent
 
                 return false;
             }
+            $kelas->qrcodes()->delete();
             $kelas->delete();
             $this->alert('success', 'Data berhasil dihapus');
         } else {
