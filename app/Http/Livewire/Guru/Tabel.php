@@ -65,7 +65,8 @@ class Tabel extends DataTableComponent
                 return false;
             }
 
-
+            $guru->pendidikan()->delete();
+            $guru->user()->delete();
             $guru->delete();
             $this->alert('success', 'Data berhasil dihapus');
 
