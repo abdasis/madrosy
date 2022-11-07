@@ -71,7 +71,7 @@ class Edit extends Component
             'nisn' => 'required|min_digits:9|max_digits:9|unique:santris,nisn,' . $this->santri_id,
             'jumlah_saudara' => ['required', 'numeric', 'min:1'],
             'anak_ke' => 'required|lte:jumlah_saudara',
-            'avatar' => 'sometimes|image|max:1024|mimes:jpg,png,jpeg,webp,jpe',
+            'avatar' => 'nullable|max:1024|mimes:jpg,png,jpeg,webp,jpe',
             'nik' => 'required|min_digits:9|max_digits:20|unique:santris,nik,' . $this->santri_id,
         ];
     }

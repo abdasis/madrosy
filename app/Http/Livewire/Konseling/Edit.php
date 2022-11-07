@@ -44,7 +44,7 @@ class Edit extends Component
             'santri_id' => 'required',
             'tanggal' => 'required',
             'pelanggaran_id' => 'required',
-            'foto_bukti' => 'image|max:1024|mimes:jpg,png,jpeg,webp',
+            'foto_bukti' => 'nullable|image|max:1024|mimes:jpg,png,jpeg,webp',
         ];
     }
 
