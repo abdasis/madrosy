@@ -3,6 +3,7 @@
 namespace App\Models\Kepegawaian;
 
 use App\Models\Akademik\Jadwal;
+use App\Models\Commons\Avatar;
 use App\Models\Commons\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -64,5 +65,10 @@ class Guru extends Model
     public function user()
     {
         return $this->belongsTo(User::class)->withDefault();
+    }
+
+    public function avatar()
+    {
+        return $this->morphOne(Avatar::class, 'avatarable');
     }
 }

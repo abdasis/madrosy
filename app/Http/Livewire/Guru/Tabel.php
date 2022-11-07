@@ -78,9 +78,7 @@ class Tabel extends DataTableComponent
         $this->setPrimaryKey('id')
             ->setTableRowUrl(function ($model) {
                 return route('guru.detail', $model->id);
-            });
-        $this->setDefaultReorderSort('order', 'desc');
-
+            })->setDefaultSort('created_at', 'desc');
     }
 
     public function columns(): array

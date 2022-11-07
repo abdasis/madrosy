@@ -131,7 +131,8 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <x-form-select name="status_guru" label="Status Guru" wire:model.defer="status_guru">
+                                    <x-form-select name="status_guru" label="Status Guru"
+                                                   wire:model.defer="status_guru">
                                         <option value="">Pilih Status</option>
                                         <option value="Guru Tetap">Guru Tetap</option>
                                         <option value="Guru Tidak Tetap">Guru Tidak Tetap</option>
@@ -139,7 +140,12 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_masuk" wire:model.defer="tanggal_masuk" label="Tahun Masuk" type="date" placeholder="Masukan Tahun Lulus" />
+                                    <x-form-input name="tanggal_masuk" wire:model.defer="tanggal_masuk"
+                                                  label="Tahun Masuk" type="date" placeholder="Masukan Tahun Lulus"/>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <x-form-input name="avatar" wire:model="avatar" type="file" label="Pilih Avatar"/>
                                 </div>
 
                                 <h4 class="mt-5 fw-bold d-flex align-items-center">
@@ -148,9 +154,11 @@
                                 </h4>
 
                                 <div class="col-12">
-                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show" role="alert">
+                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show"
+                                         role="alert">
                                         <i class="ri-check-double-line me-3 align-middle fs-16"></i><strong>Informasi</strong>
-                                        - Perubahan pada data guru tidak akan merubah account, pengubahan account hanya bisa dilakukan oleh pemiliki akun
+                                        - Perubahan pada data guru tidak akan merubah account, pengubahan account hanya
+                                        bisa dilakukan oleh pemiliki akun
                                     </div>
                                 </div>
 
@@ -187,6 +195,17 @@
                             </div>
 
                         </div>
+                    </div>
+                    <div class="col-md-4">
+                        @if($avatar)
+                            <h5>Preview Avatar</h5>
+                            <img src="{{$avatar->temporaryUrl()}}" class="img-fluid img-thumbnail" alt="">
+                        @else
+                            <h5>Preview Avatar</h5>
+                            <img
+                                src="{{$guru->avatar != null ? asset($guru->avatar->nama_file) : 'https://ui-avatars.com/api/?background=random&name=' . $guru->nama}}"
+                                class="img-fluid img-thumbnail" alt="">
+                        @endif
                     </div>
                 </div>
             </form>

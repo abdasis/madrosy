@@ -11,11 +11,13 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Spatie\Permission\Models\Role;
 
 class Tambah extends Component
 {
     use LivewireAlert;
+    use WithFileUploads;
 
     public $provinsi;
     public $kabupaten;
@@ -43,6 +45,7 @@ class Tambah extends Component
     public $status;
     public $password;
     public $role;
+    public $avatar;
 
     public function rules()
     {
@@ -65,16 +68,20 @@ class Tambah extends Component
             'dusun' => 'required',
             'pos' => 'required',
             'status_guru' => 'required',
+            'avatar' => 'image|mimes:jpg,jpeg,jpe,png,svg,webp|max:1024'
         ];
     }
+
     public function updated($property)
     {
         $this->validateOnly($property);
     }
+
     public function updatedNik($value)
     {
         $this->password = $value;
     }
+
     public function simpan()
     {
         $this->validate();
@@ -116,12 +123,22 @@ class Tambah extends Component
                 'kode_pos' => $this->pos,
             ]);
 
+            if ($this->avatar) {
+                $uuid = \Str::uuid();
+                $nama_file = "{$this->nama}-{$uuid}";
+                $nama_file = \Str::slug($nama_file) . '.' . $this->avatar->extension();
+                $guru->avatar()->create([
+                    'nama_file' => $this->avatar->storeAs('upload', $nama_file),
+                ]);
+            }
+
+
             $this->alert('success', 'Data guru berhasil disimpan');
 
             $this->reset();
 
             DB::commit();
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             Debugbar::info($exception);
             report($exception);
             DB::rollBack();
@@ -150,7 +167,7 @@ class Tambah extends Component
             $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->orderBy('name')->get();
         }
 
-        return view('livewire.guru.tambah',[
+        return view('livewire.guru.tambah', [
             'semua_provinsi' => $semua_provinsi,
             'semua_kabupaten' => $kabupaten ?? [],
             'semua_kecamatan' => $kecamatan ?? [],

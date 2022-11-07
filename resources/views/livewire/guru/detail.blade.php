@@ -20,7 +20,10 @@
                 <div class="card-body p-4">
                     <div class="text-center">
                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                            <img src="{{'https://ui-avatars.com/api/?background=random&name=' . $guru->nama}}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                            <img
+                                src="{{$guru->avatar != null ? asset($guru->avatar->nama_file) : 'https://ui-avatars.com/api/?background=random&name=' . $guru->nama}}"
+                                class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                alt="user-profile-image">
                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">

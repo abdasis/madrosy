@@ -12,11 +12,13 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Spatie\Permission\Models\Role;
 
 class Edit extends Component
 {
     use LivewireAlert;
+    use WithFileUploads;
 
     public $provinsi;
     public $kabupaten;
@@ -44,6 +46,8 @@ class Edit extends Component
     public $status;
     public $password;
     public $role;
+    public $avatar;
+    public $preview_avatar;
 
     public $guru;
 
@@ -77,6 +81,7 @@ class Edit extends Component
         $this->user = $guru->user;
         $this->password = $this->user->password;
         $this->role = $this->user->getRoleNames()->first() ?? '';
+        $this->preview_avatar = $guru->avatar != null ? asset($guru->avatar->nama_file) : 'https://ui-avatars.com/api/?background=random&name=' . $guru->nama;
     }
 
     public function rules()
@@ -100,6 +105,7 @@ class Edit extends Component
             'dusun' => 'required',
             'pos' => 'required',
             'status_guru' => 'required',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp',
         ];
     }
 
@@ -119,7 +125,9 @@ class Edit extends Component
                 'email' => $this->email
             ]);
             $this->user->syncRoles($this->role);
-            $guru = Guru::where('id', $this->guru->id)->update([
+            $guru = Guru::find($this->guru->id);
+
+            $guru->update([
                 'nama' => $this->nama,
                 'nik' => $this->nik,
                 'agama' => $this->agama,
@@ -144,6 +152,15 @@ class Edit extends Component
                 'dusun' => $this->dusun,
                 'kode_pos' => $this->pos,
             ]);
+
+            if ($this->avatar) {
+                $uuid = \Str::uuid();
+                $nama_file = "{$this->nama}-{$uuid}";
+                $nama_file = \Str::slug($nama_file) . '.' . $this->avatar->extension();
+                $guru->avatar()->create([
+                    'nama_file' => $this->avatar->storeAs('upload', $nama_file),
+                ]);
+            }
 
             DB::commit();
 

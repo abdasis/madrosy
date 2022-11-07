@@ -22,11 +22,11 @@
 
                                 <div class="col-md-8">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'nama','label' => 'Nama Lengkap'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'nama','label' => 'Nama Lengkap'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'nama','placeholder' => 'Nama Lengkap']); ?>
@@ -39,11 +39,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'nik','label' => 'NIK'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'nik','label' => 'NIK'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'nik','placeholder' => '352xxxxxxxxx']); ?>
@@ -56,11 +56,11 @@
                                 </div>
                                 <div class="col-md-8">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'tempat_lahir','label' => 'Tempat Lahir'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'tempat_lahir','label' => 'Tempat Lahir'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'tempat_lahir','placeholder' => 'Masukan Tempat Lahir']); ?>
@@ -73,11 +73,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'tanggal_lahir','type' => 'date','label' => 'Tempat Lahir'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'tanggal_lahir','type' => 'date','label' => 'Tempat Lahir'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'tanggal_lahir']); ?>
@@ -90,11 +90,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'jenis_kelamin','label' => 'Jenis Kelamin'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'jenis_kelamin','label' => 'Jenis Kelamin'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'jenis_kelamin']); ?>
@@ -110,11 +110,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'agama','label' => 'Agama'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'agama','label' => 'Agama'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'agama']); ?>
@@ -133,11 +133,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'nama_ibu','label' => 'Nama Ibu'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'nama_ibu','label' => 'Nama Ibu'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'nama_ibu']); ?>
@@ -150,11 +150,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'provinsi','label' => 'Provinsi *'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'provinsi','label' => 'Provinsi *'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'provinsi']); ?>
@@ -171,11 +171,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'kabupaten','label' => 'Kabupaten *'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'kabupaten','label' => 'Kabupaten *'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'kabupaten']); ?>
@@ -192,11 +192,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'kecamatan','label' => 'Kecamatan *'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'kecamatan','label' => 'Kecamatan *'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'kecamatan']); ?>
@@ -213,11 +213,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'kelurahan','label' => 'Keluarahan *'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'kelurahan','label' => 'Keluarahan *'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'kelurahan']); ?>
@@ -234,11 +234,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'dusun','label' => 'Dusun'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'dusun','label' => 'Dusun'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'dusun','placeholder' => 'Masukan Nama Dusun']); ?>
@@ -251,11 +251,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'pos','label' => 'Kode Pos'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'pos','label' => 'Kode Pos'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'pos','placeholder' => 'Masukan Kode Pos']); ?>
@@ -269,11 +269,11 @@
 
                                 <div class="col-md-12">
                                     <?php if (isset($component)) { $__componentOriginal83693b8429d83ac47ac0f5a27736a9481ab05e28 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormTextarea::resolve(['name' => 'tempat_tinggal','label' => 'Alamat'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormTextarea::resolve(['name' => 'tempat_tinggal','label' => 'Alamat'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-textarea'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormTextarea::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormTextarea::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'tempat_tinggal','placeholder' => 'Masukan Alamat']); ?>
@@ -288,11 +288,11 @@
 
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'email','label' => 'Email'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'email','label' => 'Email'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'email','placeholder' => 'Masukan Email']); ?>
@@ -305,11 +305,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'no_hp','label' => 'No HP'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'no_hp','label' => 'No HP'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'no_hp','placeholder' => 'Masukan No HP']); ?>
@@ -322,11 +322,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'pendidikan_terakhir']); ?>
@@ -352,11 +352,11 @@
 
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'jabatan','label' => 'Jabatan *'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'jabatan','label' => 'Jabatan *'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'jabatan']); ?>
@@ -376,11 +376,11 @@
 
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'status_guru','label' => 'Status Guru'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'status_guru','label' => 'Status Guru'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'status_guru']); ?>
@@ -397,14 +397,32 @@
 
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'tanggal_masuk','label' => 'Tahun Masuk','type' => 'date'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'tanggal_masuk','label' => 'Tahun Masuk','type' => 'date'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model.defer' => 'tanggal_masuk','placeholder' => 'Masukan Tahun Lulus']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4)): ?>
+<?php $component = $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4; ?>
+<?php unset($__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4); ?>
+<?php endif; ?>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'avatar','type' => 'file','label' => 'Pilih Avatar'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('form-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['wire:model' => 'avatar']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4)): ?>
@@ -428,11 +446,11 @@
 
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'email','label' => 'Email'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => 'email','label' => 'Email'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'email','readonly' => true]); ?>
@@ -445,11 +463,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['type' => 'text','name' => 'password','label' => 'Password'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['type' => 'text','name' => 'password','label' => 'Password'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'password','readonly' => true]); ?>
@@ -463,11 +481,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <?php if (isset($component)) { $__componentOriginale3e27020619c7dd176dc386b70690b75269969a6 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'role','label' => 'Role'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormSelect::resolve(['name' => 'role','label' => 'Role'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormSelect::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'role']); ?>
@@ -496,6 +514,12 @@
                             </div>
 
                         </div>
+                    </div>
+                    <div class="col-md-4">
+                        <?php if($avatar): ?>
+                            <h5>Preview Avatar</h5>
+                            <img src="<?php echo e($avatar->temporaryUrl()); ?>" class="img-fluid img-thumbnail" alt="">
+                        <?php endif; ?>
                     </div>
                 </div>
             </form>
