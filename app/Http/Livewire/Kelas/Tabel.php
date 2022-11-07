@@ -74,9 +74,9 @@ class Tabel extends DataTableComponent
 
             \QrCode::size(1200)->style('round')->margin(3)->format('png')->generate($kode->kode, storage_path('app/qrcode/') . $nama_file);
             DB::commit();
-            $this->alert('success', 'Berhasil', [
+            $this->flash('success', 'Berhasil', [
                 'text' => 'Kode QR berhasil dibuat ulang'
-            ]);
+            ], route('kelas.semua'));
 
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -113,8 +113,9 @@ class Tabel extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('QrCode', 'id')->format(function ($qr, $kelas, $row) {
-                if ($kelas->qrcodes->count() > 0) {
-                    $nama_file = "{$kelas->nama_kelas}-{$kelas->qrcodes()->latest()->first()->kode}";
+                if ($kelas->qrcodes) {
+                    $kode_terbaru = $kelas->qrcodes()->orderBy('created_at', 'desc')->first()->kode ?? null;
+                    $nama_file = "{$kelas->nama_kelas}-{$kode_terbaru}";
                     $nama_file = \Str::slug($nama_file) . '.png';
                     if (file_exists(public_path('qrcode/' . $nama_file))) {
                         return view('livewire.kelas.modal', [

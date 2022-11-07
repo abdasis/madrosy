@@ -14,6 +14,6 @@ class Qrcode extends Model
 
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'kelas_id', 'id');
+        return $this->belongsTo(Kelas::class, 'kelas_id', 'id')->orderBy('created_at');
     }
 }
