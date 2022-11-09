@@ -98,6 +98,7 @@ Route::middleware([
     Route::group(['prefix' => 'tagihan', 'middleware' => 'role:Kepala Sekolah'], function () {
         Route::get('/', \App\Http\Livewire\Tagihan\Semua::class)->name('tagihan.semua');
         Route::get('/tambah', \App\Http\Livewire\Tagihan\Tambah::class)->name('tagihan.tambah');
+        Route::get('/edit/{tagihan}', \App\Http\Livewire\Tagihan\Edit::class)->name('edit.tagihan');
         Route::get('atur-perkelas', AturPerkelas::class)->name('tagihan.atur-perkelas');
         Route::get('/detail/{kode}', \App\Http\Livewire\Tagihan\Detail::class)->name('tagihan.detail');
         Route::group(['prefix' => 'kategori-tagihan', 'middleware' => 'role:Kepala Sekolah'], function () {

@@ -119,7 +119,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab" aria-selected="false">
+                            <a class="nav-link" data-bs-toggle="tab" href="#data-tagihan" role="tab"
+                               aria-selected="false">
                                 <i class="far fa-envelope"></i> Data Tagihan
                             </a>
                         </li>
@@ -205,9 +206,9 @@
                             </div>
                         </div>
                         <!--end tab-pane-->
-                        <div class="tab-pane" id="experience" role="tabpanel">
+                        <div class="tab-pane" id="data-tagihan" role="tabpanel">
                             <div class="">
-                                <h5 class="text-center">Coming Soon</h5>
+                                <livewire:santri.tabel-tagihan :id="$santri->id"/>
                             </div>
                         </div>
                         <!--end tab-pane-->

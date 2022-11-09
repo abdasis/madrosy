@@ -5,11 +5,15 @@ namespace App\Http\Livewire\Tagihan;
 use App\Models\Keuangan\Tagihan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 class Tabel extends DataTableComponent
 {
+    use LivewireAlert;
+
+
     protected $model = Tagihan::class;
 
     public function configure(): void
@@ -18,6 +22,43 @@ class Tabel extends DataTableComponent
             Log::debug($row);
             return route('tagihan.detail', $row->kode_tagihan);
         });
+    }
+
+    public array $bulkActions = [
+        'hapusMasal' => 'Hapus',
+    ];
+
+    public function hapusMasal()
+    {
+        $this->confirm('Yakin hapus data ini?', [
+            'text' => 'Data yang dihapus tidak dapat dikembalikan',
+            'showConfirmButton' => true,
+            'confirmButtonText' => 'Ya, Yakin',
+            'denyButtonText' => 'Tidak',
+            'cancelButtonText' => 'Batal',
+            'onConfirmed' => 'hapus',
+            'allowOutsideClick' => false,
+            'timer' => null,
+            'iconHtml' => '<img class="img-fluid" src="/assets/icons/sad.png"/>',
+        ]);
+    }
+
+    protected $listeners = ['hapus' => 'dihapus'];
+
+    public function dihapus()
+    {
+        foreach ($this->getSelected() as $terpilih) {
+            $tagihan = Tagihan::find($terpilih);
+            if ($tagihan) {
+                $tagihan->delete();
+                $this->alert('success', 'Data terpilih berhasil dihapus');
+            } else {
+                $this->alert('error', 'Data tidak ditemukan');
+                return false;
+            }
+        }
+
+        $this->clearSelected();
     }
 
     public function columns(): array

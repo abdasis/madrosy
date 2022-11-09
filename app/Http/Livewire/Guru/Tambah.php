@@ -132,7 +132,6 @@ class Tambah extends Component
                 ]);
             }
 
-
             $this->alert('success', 'Data guru berhasil disimpan');
 
             $this->reset();

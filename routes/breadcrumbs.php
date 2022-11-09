@@ -165,6 +165,12 @@ Breadcrumbs::for('tagihan.detail', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('tagihan.semua');
     $trail->push('Detail Tagihan', route('tagihan.detail', $id));
 });
+
+Breadcrumbs::for('edit.tagihan', function (BreadcrumbTrail $trail, $id) {
+    $trail->parent('tagihan.semua');
+    $trail->push('Sunting Tagihan', route('edit.tagihan', $id));
+});
+
 Breadcrumbs::for('mapel.semua', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Semua Mata Pelajaran', route('mapel.semua'));
