@@ -20,6 +20,7 @@ use App\Http\Livewire\Setting\DataInstansi;
 use App\Http\Livewire\Setting\Menu;
 use App\Http\Livewire\Tagihan\AturPerkelas;
 use App\Http\Livewire\Tagihan\Bayar;
+use App\Http\Livewire\Tagihan\TerimaPembayaran;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Beranda::class)->name('landing.beranda');
@@ -100,11 +101,16 @@ Route::middleware([
         Route::get('/tambah', \App\Http\Livewire\Tagihan\Tambah::class)->name('tagihan.tambah');
         Route::get('/edit/{tagihan}', \App\Http\Livewire\Tagihan\Edit::class)->name('edit.tagihan');
         Route::get('atur-perkelas', AturPerkelas::class)->name('tagihan.atur-perkelas');
-        Route::get('/detail/{kode}', \App\Http\Livewire\Tagihan\Detail::class)->name('tagihan.detail');
+        Route::get('/detail/{tagihan}', \App\Http\Livewire\Tagihan\Detail::class)->name('tagihan.detail');
+        Route::get('/terima-pembayaran/{tagihan_id}', TerimaPembayaran::class)->name('terima-pembayaran');
         Route::group(['prefix' => 'kategori-tagihan', 'middleware' => 'role:Kepala Sekolah'], function () {
             Route::get('/', Semua::class)->name('kategori-tagihan.semua');
             Route::get('tambah', Tambah::class)->name('kategori-tagihan.tambah');
             Route::get('edit/{kategori_tagihan}', Edit::class)->name('kategori-tagihan.edit');
+        });
+
+        Route::group(['prefix' => 'pembayaran'], function () {
+            return "ini halaman pembayaran";
         });
 
     });

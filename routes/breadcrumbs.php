@@ -117,6 +117,12 @@ Breadcrumbs::for('kategori-tagihan.tambah', function (BreadcrumbTrail $trail) {
     $trail->parent('kategori-tagihan.semua');
     $trail->push('Tambah Kategori Tagihan', route('kategori-tagihan.tambah'));
 });
+
+Breadcrumbs::for('terima-pembayaran', function (BreadcrumbTrail $trail, $id) {
+    $trail->parent('tagihan.detail', $id);
+    $trail->push('Terima Pembayaran', route('terima-pembayaran', $id));
+});
+
 Breadcrumbs::for('kategori-tagihan.edit', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('kategori-tagihan.semua');
     $trail->push('Edit Kategori Tagihan', route('kategori-tagihan.edit', $id));

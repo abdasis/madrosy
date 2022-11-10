@@ -8,10 +8,13 @@ use Livewire\Component;
 class Detail extends Component
 {
     public $tagihan;
-    public function mount($kode)
+
+    public function mount(Tagihan $tagihan)
     {
-        $this->tagihan = Tagihan::where('kode_tagihan', $kode)->first();
+
+        $this->tagihan = $tagihan;
     }
+
     public function render()
     {
         return view('livewire.tagihan.detail');

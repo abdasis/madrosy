@@ -64,11 +64,13 @@
                     <div id="sisaTagihan" class="accordion-collapse collapse show" aria-labelledby="headingThree"
                          data-bs-parent="#sisaTagihan">
                         <div class="accordion-body border-0">
-                            <button
-                                class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
-                                <i class="ri-money-euro-circle-fill"></i>
-                                Terima Pembayaran
-                            </button>
+                            <a href="{{route('terima-pembayaran', $tagihan)}}">
+                                <button
+                                    class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
+                                    <i class="ri-money-euro-circle-fill"></i>
+                                    Terima Pembayaran
+                                </button>
+                            </a>
                             <div class="daftar-pembayaran my-4">
                                 Pembayaran Diterima:
                             </div>

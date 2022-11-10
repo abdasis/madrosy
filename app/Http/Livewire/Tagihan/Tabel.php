@@ -20,7 +20,7 @@ class Tabel extends DataTableComponent
     {
         $this->setPrimaryKey('id')->setTableRowUrl(function ($row) {
             Log::debug($row);
-            return route('tagihan.detail', $row->kode_tagihan);
+            return route('tagihan.detail', $row);
         });
     }
 

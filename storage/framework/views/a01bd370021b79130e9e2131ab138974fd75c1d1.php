@@ -118,7 +118,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab" aria-selected="false">
+                            <a class="nav-link" data-bs-toggle="tab" href="#data-tagihan" role="tab"
+                               aria-selected="false">
                                 <i class="far fa-envelope"></i> Data Tagihan
                             </a>
                         </li>
@@ -218,9 +219,23 @@ echo $html;
                             </div>
                         </div>
                         <!--end tab-pane-->
-                        <div class="tab-pane" id="experience" role="tabpanel">
+                        <div class="tab-pane" id="data-tagihan" role="tabpanel">
                             <div class="">
-                                <h5 class="text-center">Coming Soon</h5>
+                                <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('santri.tabel-tagihan', ['id' => $santri->id])->html();
+} elseif ($_instance->childHasBeenRendered('l3304534046-1')) {
+    $componentId = $_instance->getRenderedChildComponentId('l3304534046-1');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l3304534046-1');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l3304534046-1');
+} else {
+    $response = \Livewire\Livewire::mount('santri.tabel-tagihan', ['id' => $santri->id]);
+    $html = $response->html();
+    $_instance->logRenderedChild('l3304534046-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
                             </div>
                         </div>
                         <!--end tab-pane-->
