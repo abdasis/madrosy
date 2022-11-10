@@ -109,10 +109,6 @@ Route::middleware([
             Route::get('edit/{kategori_tagihan}', Edit::class)->name('kategori-tagihan.edit');
         });
 
-        Route::group(['prefix' => 'pembayaran'], function () {
-            return "ini halaman pembayaran";
-        });
-
     });
     Route::group(['prefix' => 'permission', 'middleware' => 'role:Kepala Sekolah'], function () {
         Route::get('/', \App\Http\Livewire\Permission\Semua::class)->name('permission.semua');
