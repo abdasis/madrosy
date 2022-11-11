@@ -2,6 +2,7 @@
 
 namespace App\Models\Keuangan;
 
+use App\Models\Commons\User;
 use App\Models\Kesiswaan\Santri;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,12 +26,11 @@ class Tagihan extends Model
 
     public function transaksi()
     {
-        return $this->belongsTo(Transaksi::class, 'kode_tagihan', 'transaksi_id');
+        return $this->hasMany(Transaksi::class, 'order_id', 'kode_tagihan');
     }
 
-    public function pembayaranOffline()
+    public function pembuat()
     {
-        return $this->hasMany(Transaksi::class, 'token', 'kode_tagihan');
+        return $this->belongsTo(User::class, 'dibuat_oleh', 'id');
     }
-
 }

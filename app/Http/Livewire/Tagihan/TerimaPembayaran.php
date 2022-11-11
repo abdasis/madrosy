@@ -73,11 +73,11 @@ class TerimaPembayaran extends Component
                 'waktu_penyelesaian' => now()->toDateTimeString(),
                 'jenis_pembayaran' => $this->metode_pembayaran,
                 'transaksi_id' => \Str::uuid(),
-                'order_id' => \Str::uuid(),
+                'order_id' => $this->tagihan->kode_tagihan,
                 'total' => $this->total_pembayaran,
                 'mata_uang' => 'IDR',
                 'tanda_terima' => auth()->user()->id,
-                'token' => $this->tagihan->kode_tagihan,
+                'token' => \Str::uuid(),
             ]);
 
             $this->alert('success', 'Pembayaran tagihan berhasil disimpan');

@@ -13,7 +13,7 @@ class Transaksi implements TransaksiInterface
             $transaksi = \App\Models\Keuangan\Transaksi::create([
                 'waktu_transaksi' => Carbon::now()->toDateTimeString(),
                 'status_transaksi' => 'pending',
-                'transaksi_id' => $tagihan['kode_tagihan'],
+                'transaksi_id' => \Str::uuid(),
                 'toko' => 'belum diketahui',
                 'keterangan_status' => 'Menunggu pembayaran yang dipilih oleh santri',
                 'kode_status' => 'pending',
@@ -30,7 +30,7 @@ class Transaksi implements TransaksiInterface
             ]);
             return $transaksi;
         }catch (\Exception $e) {
-            \Debugbar::info($e);
+            report($e);
         }
 
     }

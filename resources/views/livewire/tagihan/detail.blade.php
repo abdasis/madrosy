@@ -10,7 +10,8 @@
                              aria-controls="collapseOne">
                             <div class="d-grid ">
                                 <h4>Dibuat Oleh</h4>
-                                <p>Abdul Aziz Pada 12 September 2022</p>
+                                <p>{{$tagihan->pembuat->name}}
+                                    Pada {{\Carbon\Carbon::parse($tagihan->created_at)->isoFormat('DD MMMM YYYY')}}</p>
                             </div>
                         </div>
                     </div>
@@ -57,7 +58,7 @@
                              aria-controls="sisaTagihan">
                             <div class="d-grid ">
                                 <h4>Terima Pembayaran</h4>
-                                <p>Sisa Tagihan Saat ini: 200000</p>
+                                <p>Sisa Tagihan Saat ini: Rp. {{rupiah($sisa_tagihan)}}</p>
                             </div>
                         </div>
                     </div>
@@ -81,7 +82,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($tagihan->pembayaranOffline as $pembayaran)
+                                    @foreach($tagihan->transaksi as $pembayaran)
                                         <tr>
                                             <td>{{\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')}}</td>
                                             <td class="text-end">{{rupiah($pembayaran->total)}}</td>
@@ -141,7 +142,25 @@
                                 <p class="text-muted m-0">: {{$tagihan->kode_tagihan}}</p>
                                 <p class="text-muted m-0">: {{$tagihan->created_at->format('d M Y')}}</p>
                                 <p class="text-muted m-0">: {{$tagihan->created_at->addDays(7)->format('d M Y')}}</p>
-                                <p class="text-muted m-0">: {{Str::title($tagihan->status)}}</p>
+                                <p class="text-muted m-0">:
+                                    @if($status == 'sebagian')
+                                        <span class="badge badge-outline-info">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @elseif($status == 'lunas')
+                                        <span class="badge badge-outline-success">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @elseif($status == 'belum dibayar')
+                                        <span class="badge badge-outline-warning">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @else
+                                        <span class="badge badge-outline-danger">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @endif
+                                </p>
                             </div>
                         </div>
                     </div>
