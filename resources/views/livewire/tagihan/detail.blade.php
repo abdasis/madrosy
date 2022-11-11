@@ -72,7 +72,23 @@
                                 </button>
                             </a>
                             <div class="daftar-pembayaran my-4">
-                                Pembayaran Diterima:
+                                <h5>Data Pembayaran</h5>
+                                <table class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th>Tgl. Pembayaran</th>
+                                        <th class="text-end">Jumlah</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($tagihan->pembayaranOffline as $pembayaran)
+                                        <tr>
+                                            <td>{{\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')}}</td>
+                                            <td class="text-end">{{rupiah($pembayaran->total)}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -122,7 +138,7 @@
                                 <p class="text-muted m-0">Status</p>
                             </div>
                             <div class="col-md-6">
-                                <p class="text-muted m-0">: {{$tagihan->invoice}}</p>
+                                <p class="text-muted m-0">: {{$tagihan->kode_tagihan}}</p>
                                 <p class="text-muted m-0">: {{$tagihan->created_at->format('d M Y')}}</p>
                                 <p class="text-muted m-0">: {{$tagihan->created_at->addDays(7)->format('d M Y')}}</p>
                                 <p class="text-muted m-0">: {{Str::title($tagihan->status)}}</p>
@@ -139,15 +155,15 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>SPP</td>
-                            <td>Bulan Juli</td>
-                            <td class="text-end">20000</td>
+                            <td>{{$tagihan->kategori->nama_kategori}}</td>
+                            <td>{{\Carbon\Carbon::parse($tagihan->tgl_dibuat)->isoFormat('MMMM')}}</td>
+                            <td class="text-end">{{rupiah($tagihan->total_tagihan)}}</td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="total-tagihan d-flex align-items-center justify-content-end gap-2">
                         <h5 class="text-dark">Total:</h5>
-                        <h5 class="text-dark">Rp. 20000</h5>
+                        <h5 class="text-dark text-end">{{rupiah($tagihan->total_tagihan)}}</h5>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -169,3 +185,4 @@
             </div>
         </div>
     </div>
+</div>
