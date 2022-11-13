@@ -85,7 +85,6 @@ class Tabel extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make('id')->sortable(),
             Column::make("NIK", "nik")
                 ->searchable()
                 ->sortable(),

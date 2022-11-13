@@ -35,7 +35,8 @@ class Tabel extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Id", "id")
+            Column::make("Mapel ID", "id")
+                ->deselected()
                 ->sortable(),
             Column::make('Mata Pelajaran', 'mapel.nama')
                 ->sortable()->searchable(),

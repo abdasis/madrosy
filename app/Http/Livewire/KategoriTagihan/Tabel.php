@@ -35,6 +35,7 @@ class Tabel extends DataTableComponent
     {
         return [
             Column::make("ID", 'id')
+                ->deselected()
                 ->sortable(),
             Column::make('Tahun Ajaran', 'tapel.tahun_awal')
                 ->sortable(),
