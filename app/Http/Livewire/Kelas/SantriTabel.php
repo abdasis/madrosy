@@ -36,9 +36,7 @@ class SantriTabel extends DataTableComponent
         return [
             Column::make('ID', 'id')->deselected(),
             Column::make("Nama", "nama_lengkap")
-                ->searchable(
-                    fn(Builder $query, $searchTerm) => $query->orWhere('nama_lengkap', 'ilike', "%{$searchTerm}%")
-                )
+                ->searchable()
                 ->sortable(),
             Column::make("NISN", "nisn")
                 ->sortable(),
