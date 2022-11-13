@@ -7,6 +7,11 @@ Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
 
+Breadcrumbs::for('profile.auth', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Profile', route('profile.auth'));
+});
+
 Breadcrumbs::for('presensi.scan-qr', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Ruang Absensi Guru', route('absensi.scan'));

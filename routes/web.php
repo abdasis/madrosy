@@ -139,6 +139,7 @@ Route::middleware([
             request()->session()->regenerateToken();
             return redirect()->route('login');
         })->name('auth.keluar');
+        Route::get('profile', \App\Http\Livewire\Auth\Profile::class)->name('profile.auth');
     });
 });
 

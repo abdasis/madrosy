@@ -198,7 +198,7 @@
                        aria-expanded="false" aria-controls="pengaturan">
                         <i class="ri-settings-4-line"></i> <span data-key="t-apps">Pengaturan</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="pengaturan">
+                    <div class="collapse menu-dropdown <?php echo e(expand('pengaturan*')); ?>" id="pengaturan">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="<?php echo e(route('pengaturan.semua')); ?>" class="nav-link" data-key="t-calendar">
@@ -213,7 +213,9 @@
                                     Permission </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?php echo e(route('pengaturan.data-instansi')); ?>" class="nav-link" data-key="t-chat"> Data
+                                <a href="<?php echo e(route('pengaturan.data-instansi')); ?>"
+                                   class="nav-link <?php echo e(menuAktif(route('pengaturan.data-instansi'))); ?>" data-key="t-chat">
+                                    Data
                                     Instansi </a>
                             </li>
                         </ul>

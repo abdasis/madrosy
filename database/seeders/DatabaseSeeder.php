@@ -28,14 +28,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'name' => 'Abdul Aziz',
-            'email' => 'id.abdasis@gmail.com',
-            'password' => bcrypt('rahasia123'),
-        ]);
 
         if (app()->environment('local')) {
             $this->call([
+                RolesSeeder::class,
                 ProvincesSeeder::class,
                 CitiesSeeder::class,
                 DistrictsSeeder::class,
@@ -47,7 +43,6 @@ class DatabaseSeeder extends Seeder
                 KelasSeeder::class,
                 MapelSeeder::class,
                 JadwalSeeder::class,
-                RolesSeeder::class,
                 PelanggaranSeeder::class,
             ]);
         } else {
@@ -60,6 +55,5 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $user->syncRoles('Administrator');
     }
 }
