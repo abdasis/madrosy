@@ -51,6 +51,8 @@ class Edit extends Component
 
     public $guru;
 
+    protected $listeners = ['disimpan' => 'simpan'];
+
     public function mount(Guru $guru)
     {
         $provinsi = Provinsi::where('code', $guru->provinsi)->first()->code ?? null;
@@ -120,6 +122,24 @@ class Edit extends Component
     public function updated($property)
     {
         $this->validateOnly($property);
+    }
+
+    public function konfirmasiSimpan()
+    {
+        $this->validate();
+
+        $this->confirm('Yakin akan edit data ini?', [
+            'text' => 'Data lama tidak akan bisa di kembalikan',
+            'showConfirmButton' => true,
+            'confirmButtonText' => 'Ya, Yakin',
+            'denyButtonText' => 'Tidak',
+            'cancelButtonText' => 'Batal',
+            'onConfirmed' => 'disimpan',
+            'allowOutsideClick' => false,
+            'timer' => null,
+            'iconHtml' => '<img class="img-fluid" src="/assets/icons/sad.png"/>',
+        ]);
+
     }
 
     public function simpan()

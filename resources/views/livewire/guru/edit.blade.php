@@ -202,7 +202,8 @@
                                         <i class="las la-undo-alt fs-18"></i>
                                         Reset
                                     </button>
-                                    <button class="btn btn-success btn-border d-flex align-middle gap-1">
+                                    <button wire:click.prevent="konfirmasiSimpan"
+                                            class="btn btn-success btn-border d-flex align-middle gap-1">
                                         <i class="ri-save-line"></i>
                                         Simpan
                                     </button>

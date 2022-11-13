@@ -94,7 +94,8 @@
                                         <i class="ri-delete-back-2-line"></i>
                                         Reset
                                     </button>
-                                    <button class="btn btn-success btn-border d-flex align-middle gap-1">
+                                    <button wire:click.prevent="konfirmasiSimpan"
+                                            class="btn btn-success btn-border d-flex align-middle gap-1">
                                         <i class="ri-save-line"></i>
                                         Simpan
                                     </button>

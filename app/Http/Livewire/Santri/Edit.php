@@ -32,6 +32,8 @@ class Edit extends Component
     public $avatar_saat_ini;
     public $santri_id;
 
+    public $listeners = ['disimpan' => 'simpan'];
+
     public function mount($id)
     {
         $santri = Santri::find($id);
@@ -88,11 +90,27 @@ class Edit extends Component
         return $this->validateOnly($field);
     }
 
-
-    public function simpan()
+    public function konfirmasiSimpan()
     {
         $this->validate();
 
+        $this->confirm('Yakin akan edit data ini?', [
+            'text' => 'Data lama tidak akan bisa di kembalikan',
+            'showConfirmButton' => true,
+            'confirmButtonText' => 'Ya, Yakin',
+            'denyButtonText' => 'Tidak',
+            'cancelButtonText' => 'Batal',
+            'onConfirmed' => 'disimpan',
+            'allowOutsideClick' => false,
+            'timer' => null,
+            'iconHtml' => '<img class="img-fluid" src="/assets/icons/sad.png"/>',
+        ]);
+
+    }
+
+
+    public function simpan()
+    {
         try {
 
             $santri = Santri::find($this->santri_id);
