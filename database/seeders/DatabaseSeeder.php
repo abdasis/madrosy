@@ -60,6 +60,6 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $user->syncRoles('Kepala Sekolah');
+        $user->syncRoles('Administrator');
     }
 }

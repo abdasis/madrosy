@@ -35,7 +35,7 @@
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-widgets">Dashboard</span>
                     </a>
                 </li>
-                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah|Guru|BK')): ?>
+                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator|Guru|BK')): ?>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
                        aria-expanded="<?php echo e(expand('santri*')); ?>" aria-controls="sidebarDashboards">
@@ -58,7 +58,7 @@
                     </div>
                 </li>
                 <?php endif; ?>
-                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
+                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator')): ?>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#dataGuru" data-bs-toggle="collapse" role="button"
@@ -140,7 +140,7 @@
                     </div>
                 </li>
 
-                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah|BK')): ?>
+                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator|BK')): ?>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#konseling" data-bs-toggle="collapse" role="button"
                        aria-expanded="false" aria-controls="konseling">
@@ -168,7 +168,7 @@
                 </li>
                 <?php endif; ?>
 
-                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
+                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator')): ?>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#tagihan" data-bs-toggle="collapse" role="button"
                        aria-expanded="false" aria-controls="tagihan">
@@ -192,7 +192,7 @@
                 </li>
                 <?php endif; ?>
 
-                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Kepala Sekolah')): ?>
+                <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator')): ?>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#pengaturan" data-bs-toggle="collapse" role="button"
                        aria-expanded="false" aria-controls="pengaturan">
