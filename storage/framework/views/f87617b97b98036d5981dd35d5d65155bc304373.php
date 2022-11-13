@@ -416,7 +416,7 @@
                         <?php if($component->isFilterLayoutPopover()): ?>
                             <ul
                                 x-cloak
-                                class="dropdown-menu w-100 mt-md-5"
+                                class="dropdown-menu w-100  mt-md-5"
                                 x-bind:class="{'show' : open}"
                                 role="menu"
                             >
@@ -668,7 +668,7 @@
                                 style="min-width: 300px"
                             >
                                 <div class="card-header border-bottom border-light">Filter Data Berdasarkan:</div>
-                                <div class="card-body bg-soft-light p-0">
+                                <div class="card-body bg-soft-light p-2">
                                     <?php $__currentLoopData = $component->getFilters(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $filter): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($filter->isVisibleInMenus()): ?>
                                             <div wire:key="<?php echo e($component->getTableName()); ?>-filter-<?php echo e($filter->getKey()); ?>" class="p-2">

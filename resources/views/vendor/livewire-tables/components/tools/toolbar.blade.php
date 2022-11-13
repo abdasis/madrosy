@@ -407,7 +407,7 @@
                         @if ($component->isFilterLayoutPopover())
                             <ul
                                 x-cloak
-                                class="dropdown-menu w-100 mt-md-5"
+                                class="dropdown-menu w-100  mt-md-5"
                                 x-bind:class="{'show' : open}"
                                 role="menu"
                             >
@@ -659,7 +659,7 @@
                                 style="min-width: 300px"
                             >
                                 <div class="card-header border-bottom border-light">Filter Data Berdasarkan:</div>
-                                <div class="card-body bg-soft-light p-0">
+                                <div class="card-body bg-soft-light p-2">
                                     @foreach($component->getFilters() as $filter)
                                         @if($filter->isVisibleInMenus())
                                             <div wire:key="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}" class="p-2">

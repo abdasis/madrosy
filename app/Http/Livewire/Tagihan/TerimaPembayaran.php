@@ -26,7 +26,7 @@ class TerimaPembayaran extends Component
         $this->tagihan = $tagihan;
         $this->fill([
             'tanggal_pembayaran' => now()->format('Y-m-d'),
-            'total_pembayaran' => (int)$tagihan->total_tagihan
+            'total_pembayaran' => (int)$tagihan->total_tagihan - $tagihan->transaksi()->sum('total')
         ]);
     }
 

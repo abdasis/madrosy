@@ -18,11 +18,11 @@
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                          data-bs-parent="#dibuatOleh">
                         <div class="accordion-body border-0">
-                            <a href="{{route('edit.tagihan', $tagihan)}}">
+                            <a href="#">
                                 <button
                                     class="btn btn-sm waves-effect btn-warning btn-border d-flex align-items-center gap-1">
                                     <i class="ri-edit-2-line"></i>
-                                    Edit Sekarang
+                                    Beasiswa (Coming soon)
                                 </button>
                             </a>
                         </div>

@@ -105,7 +105,14 @@ class Edit extends Component
             'dusun' => 'required',
             'pos' => 'required',
             'status_guru' => 'required',
-            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
+        ];
+    }
+
+    public function message()
+    {
+        return [
+            'avatar.max' => 'Foto maksimal ukuran 1 Mb'
         ];
     }
 
@@ -120,13 +127,16 @@ class Edit extends Component
 
         try {
             DB::beginTransaction();
-            //menyimpan data guru
+
             $this->user->update([
                 'email' => $this->email
             ]);
 
             $this->user->syncRoles($this->role);
-            $guru = Guru::find($this->guru->id)->update([
+
+            $guru = Guru::find($this->guru->id);
+
+            $guru->update([
                 'nama' => $this->nama,
                 'nik' => $this->nik,
                 'agama' => $this->agama,

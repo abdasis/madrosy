@@ -72,6 +72,13 @@ class Tambah extends Component
         ];
     }
 
+    public function message()
+    {
+        return [
+            'avatar.max' => 'Foto maksimal ukuran 1 Mb'
+        ];
+    }
+
     public function updated($property)
     {
         $this->validateOnly($property);

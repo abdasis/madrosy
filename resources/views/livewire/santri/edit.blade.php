@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date"
-                                                  label="Tempat Lahir"/>
+                                                  label="Tanggal Lahir"/>
                                 </div>
 
                                 <div class="col-md-4">

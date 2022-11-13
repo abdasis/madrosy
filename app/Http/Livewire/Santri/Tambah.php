@@ -44,6 +44,13 @@ class Tambah extends Component
         ];
     }
 
+    public function message()
+    {
+        return [
+            'avatar.max' => 'Foto maksimal ukuran 1 Mb'
+        ];
+    }
+
     public function updatedJumlahSaudara($value)
     {
         if ($value > 1) {

@@ -49,6 +49,13 @@ class Edit extends Component
     }
 
 
+    public function message()
+    {
+        return [
+            'foto_bukti.max' => 'Foto maksimal ukuran 1 Mb'
+        ];
+    }
+
     public function update()
     {
         $this->validate();

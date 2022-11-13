@@ -58,7 +58,7 @@ class Tabel extends DataTableComponent
         if ($this->model_id) {
             $guru = Guru::find($this->model_id);
 
-            if ($guru->jadwal->count() > 0) {
+            if ($guru->jadwal()->count() > 0) {
                 $this->alert('warning', 'Guru Memiliki Jadwal', [
                     'text' => 'Anda tidak bisa menghapus guru yang sudah memiliki jadwal'
                 ]);
@@ -66,8 +66,9 @@ class Tabel extends DataTableComponent
             }
 
             $guru->pendidikan()->delete();
-            $guru->user()->delete();
+
             $guru->delete();
+
             $this->alert('success', 'Data berhasil dihapus');
 
         }

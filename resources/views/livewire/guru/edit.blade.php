@@ -14,26 +14,32 @@
                                     </h4>
                                 </div>
                                 <div class="col-12">
-                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show" role="alert">
+                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show"
+                                         role="alert">
                                         <i class="ri-check-double-line me-3 align-middle fs-16"></i><strong>Informasi</strong>
-                                        - Pada form berikut kamu bisa menambahkan guru yang akan di daftarkan pada aplikasi, form yang memiliki tanda bintang wajib kamu isi
+                                        - Pada form berikut kamu bisa menambahkan guru yang akan di daftarkan pada
+                                        aplikasi, form yang memiliki tanda bintang wajib kamu isi
                                     </div>
                                 </div>
 
                                 <div class="col-md-8">
-                                    <x-form-input name="nama" wire:model.defer="nama" label="Nama Lengkap"  placeholder="Nama Lengkap" />
+                                    <x-form-input name="nama" wire:model.defer="nama" label="Nama Lengkap"
+                                                  placeholder="Nama Lengkap"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nik"  wire:model="nik" label="NIK" placeholder="352xxxxxxxxx" />
+                                    <x-form-input name="nik" wire:model="nik" label="NIK" placeholder="352xxxxxxxxx"/>
                                 </div>
                                 <div class="col-md-8">
-                                    <x-form-input name="tempat_lahir" wire:model.defer="tempat_lahir" label="Tempat Lahir" placeholder="Masukan Tempat Lahir" />
+                                    <x-form-input name="tempat_lahir" wire:model.defer="tempat_lahir"
+                                                  label="Tempat Lahir" placeholder="Masukan Tempat Lahir"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date" label="Tanggal Lahir" />
+                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date"
+                                                  label="Tanggal Lahir"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-select name="jenis_kelamin" label="Jenis Kelamin" wire:model.defer="jenis_kelamin">
+                                    <x-form-select name="jenis_kelamin" label="Jenis Kelamin"
+                                                   wire:model.defer="jenis_kelamin">
                                         <option value="">Pilih Jenis</option>
                                         <option value="Laki-Laki">Laki-Laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -50,7 +56,7 @@
                                     </x-form-select>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nama_ibu" wire:model.defer="nama_ibu" label="Nama Ibu" />
+                                    <x-form-input name="nama_ibu" wire:model.defer="nama_ibu" label="Nama Ibu"/>
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-select name="provinsi" label="Provinsi *" wire:model="provinsi">
@@ -61,7 +67,7 @@
                                     </x-form-select>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-select name="kabupaten" label="Kabupaten *" wire:model="kabupaten" >
+                                    <x-form-select name="kabupaten" label="Kabupaten *" wire:model="kabupaten">
                                         <option value="">Pilih Kabupaten</option>
                                         @foreach ($semua_kabupaten as $kabupaten)
                                             <option value="{{ $kabupaten->code }}">{{ $kabupaten->name }}</option>
@@ -69,7 +75,7 @@
                                     </x-form-select>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-select name="kecamatan" label="Kecamatan *" wire:model="kecamatan" >
+                                    <x-form-select name="kecamatan" label="Kecamatan *" wire:model="kecamatan">
                                         <option value="">Pilih Kecamatan</option>
                                         @foreach ($semua_kecamatan as $kecamatan)
                                             <option value="{{ $kecamatan->code }}">{{ $kecamatan->name }}</option>
@@ -77,7 +83,7 @@
                                     </x-form-select>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-select name="kelurahan" label="Keluarahan *" wire:model="kelurahan" >
+                                    <x-form-select name="kelurahan" label="Keluarahan *" wire:model="kelurahan">
                                         <option value="">Pilih Kelurahan</option>
                                         @foreach ($semua_kelurahan as $kelurahan)
                                             <option value="{{ $kelurahan->code }}">{{ $kelurahan->name }}</option>
@@ -85,25 +91,31 @@
                                     </x-form-select>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="dusun" wire:model.defer="dusun" label="Dusun" placeholder="Masukan Nama Dusun" />
+                                    <x-form-input name="dusun" wire:model.defer="dusun" label="Dusun"
+                                                  placeholder="Masukan Nama Dusun"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="pos" wire:model.defer="pos" label="Kode Pos" placeholder="Masukan Kode Pos" />
+                                    <x-form-input name="pos" wire:model.defer="pos" label="Kode Pos"
+                                                  placeholder="Masukan Kode Pos"/>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <x-form-textarea name="tempat_tinggal" wire:model.defer="tempat_tinggal" label="Alamat" placeholder="Masukan Alamat" />
+                                    <x-form-textarea name="tempat_tinggal" wire:model.defer="tempat_tinggal"
+                                                     label="Alamat" placeholder="Masukan Alamat"/>
                                 </div>
 
 
                                 <div class="col-md-4">
-                                    <x-form-input name="email" wire:model="email" label="Email" placeholder="Masukan Email" />
+                                    <x-form-input name="email" wire:model="email" label="Email"
+                                                  placeholder="Masukan Email"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="no_hp" wire:model.defer="no_hp" label="No HP" placeholder="Masukan No HP" />
+                                    <x-form-input name="no_hp" wire:model.defer="no_hp" label="No HP"
+                                                  placeholder="Masukan No HP"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-select name="pendidikan_terakhir" label="Pendidikan Terakhir" wire:model.defer="pendidikan_terakhir">
+                                    <x-form-select name="pendidikan_terakhir" label="Pendidikan Terakhir"
+                                                   wire:model.defer="pendidikan_terakhir">
                                         <option value="">Pilih Pendidikan</option>
                                         <option value="Tidak Sekolah">Tidak Sekolah</option>
                                         <option value="SD">SD</option>
@@ -119,14 +131,17 @@
                                     </x-form-select>
                                 </div>
 
+
                                 <div class="col-md-4">
                                     <x-form-select name="jabatan" label="Jabatan *" wire:model.defer="jabatan">
                                         <option value="">Pilih Jabatan</option>
                                         <option value="Kepala Sekolah">Kepala Sekolah</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
-                                        <option value="Guru Khusus">Guru Khusus</option>
-                                        <option value="Guru Bantu">Bantu</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
+                                        <option value="Wakil Kepala Sekolah">Wakil Kepala Sekolah</option>
+                                        <option value="Komite Sekolah">Komite Sekolah</option>
+                                        <option value="Waka Kurikulum">Waka Kurikulum</option>
+                                        <option value="Waka Kesiswaan">Waka Kesiswaan</option>
+                                        <option value="Guru">Guru</option>
+                                        <option value="Tata Usaha">Tata Usaha</option>
                                     </x-form-select>
                                 </div>
 
@@ -163,7 +178,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <x-form-input name="email" wire:model="email" readonly label="Email" />
+                                    <x-form-input name="email" wire:model="email" readonly label="Email"/>
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-input

@@ -25,12 +25,14 @@ class Detail extends Component
 
         if ($total_pembayaran >= $tagihan->total_tagihan) {
             $this->status = 'lunas';
-        } elseif ($tagihan && $total_pembayaran < $tagihan->total_tagihan) {
+        } elseif ($total_pembayaran > 0 && $total_pembayaran < $tagihan->total_tagihan) {
             $this->status = 'sebagian';
-        } elseif (!$tagihan || $total_pembayaran < $tagihan->total_tagihan && $tgl_hari_ini->gte($tgl_jatuh_tempo)) {
+        } elseif ($total_pembayaran > 0 || $total_pembayaran < $tagihan->total_tagihan && $tgl_hari_ini->gte($tgl_jatuh_tempo)) {
             $this->status = 'jatuh tempo';
+        } elseif ($total_pembayaran < 1) {
+            $this->status = 'belum dibayar';
         } else {
-            $this->status = 'Belum dibayar';
+            $this->status = 'belum dibayar';
         }
     }
 

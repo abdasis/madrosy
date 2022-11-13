@@ -32,6 +32,13 @@ class Tambah extends Component
         ];
     }
 
+    public function message()
+    {
+        return [
+            'foto_bukti.max' => 'Foto maksimal ukuran 1 Mb'
+        ];
+    }
+
     public function updated($field)
     {
         $this->validateOnly($field);
