@@ -76,7 +76,7 @@ class Edit extends Component
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             'avatar.max' => 'Foto maksimal ukuran 1 Mb'
