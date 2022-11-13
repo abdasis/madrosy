@@ -12,6 +12,11 @@ Breadcrumbs::for('profile.auth', function (BreadcrumbTrail $trail) {
     $trail->push('Profile', route('profile.auth'));
 });
 
+Breadcrumbs::for('sunting-profile', function (BreadcrumbTrail $trail) {
+    $trail->parent('profile.auth');
+    $trail->push('Sunting Profile', route('sunting-profile'));
+});
+
 Breadcrumbs::for('presensi.scan-qr', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Ruang Absensi Guru', route('absensi.scan'));

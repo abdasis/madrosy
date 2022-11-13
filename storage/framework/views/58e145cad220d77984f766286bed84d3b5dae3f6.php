@@ -43,7 +43,6 @@
 <?php elseif($theme === 'bootstrap-4' || $theme === 'bootstrap-5'): ?>
     <tr
         wire:loading.class.delay=""
-        
         <?php if($component->reorderIsEnabled() && $component->currentlyReorderingIsEnabled()): ?>
             wire:sortable.item="<?php echo e($row->getKey()); ?>"
         <?php endif; ?>

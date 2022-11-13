@@ -37,6 +37,14 @@
                         </div>
                         <h5 class="fs-16 mb-1">{{$user['nama_lengkap']}}</h5>
                         <p class="text-muted mb-0">{{$user['nik']}}</p>
+                        <div class="mt-3">
+                            <a href="{{route('sunting-profile')}}">
+                                <button class="btn btn-light border-bottom">
+                                    <i class="ri-lock-line"></i>
+                                    Ganti Password
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,7 +102,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" data-bs-toggle="tab" href="#biodata" role="tab"
                                aria-selected="true">
-                                <i class="fas fa-home"></i> Biodata
+                                <i class="fas fa-home"></i> Profile
                             </a>
                         </li>
                     </ul>
@@ -163,16 +171,6 @@
                                             <h6 class="text-truncate mb-0">{{$user['pendidikan_terakhir']}}</h6>
                                         </div>
                                     </div>
-
-
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                            <div class="avatar-title bg-light rounded-circle fs-20 text-primary">
-                                                <i class="mdi mdi-handshake"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end col-->
                                 </div>
                                 <!--end row-->
                             </form>

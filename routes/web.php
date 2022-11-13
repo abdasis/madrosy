@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\TransaksiController;
 use App\Http\Livewire\Absensi\Scan;
+use App\Http\Livewire\Auth\Profile;
+use App\Http\Livewire\Auth\SuntingProfile;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Jadwal\Perminggu;
 use App\Http\Livewire\KategoriTagihan\Edit;
@@ -139,7 +141,8 @@ Route::middleware([
             request()->session()->regenerateToken();
             return redirect()->route('login');
         })->name('auth.keluar');
-        Route::get('profile', \App\Http\Livewire\Auth\Profile::class)->name('profile.auth');
+        Route::get('profile', Profile::class)->name('profile.auth');
+        Route::get('sunting', SuntingProfile::class)->name('sunting-profile');
     });
 });
 
