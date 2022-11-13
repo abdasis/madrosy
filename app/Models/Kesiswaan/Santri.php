@@ -11,7 +11,37 @@ use Illuminate\Database\Eloquent\Model;
 class Santri extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::updated(function ($santri) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($santri)
+                ->event('Memperbarui data Santri')
+                ->log("Memperbarui santri {$santri->nama_lengkap}");
+        });
+
+        static::created(function ($santri) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($santri)
+                ->event('Menambah Santri')
+                ->log("Menambahakan santri baru {$santri->nama_lengkap}");
+        });
+
+        static::deleted(function ($santri) {
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($santri)
+                ->event('Menghapus data santri')
+                ->log("Menghapus data santri {$santri->nama_lengkap}");
+        });
+    }
 
     public function kelas()
     {

@@ -36,7 +36,7 @@ class Guru extends Model
                 ->causedBy(auth()->id())
                 ->performedOn($guru)
                 ->event('Menambah guru')
-                ->log("Menambahakan baru baru {$guru->nama}");
+                ->log("Menambahakan guru baru {$guru->nama}");
         });
 
         static::deleted(function ($guru) {

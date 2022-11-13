@@ -121,9 +121,7 @@ class Edit extends Component
                 ]);
             }
 
-            $this->flash('success', 'Berhasil', [
-                'text' => "Santri {$this->nama_lengkap} berhasil diperbarui",
-            ], route('santri.semua'));
+            $this->flash('success', "Santri {$this->nama_lengkap} berhasil diperbarui", [], route('santri.semua'));
 
         } catch (\Exception $e) {
             report($e);
