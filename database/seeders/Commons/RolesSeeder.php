@@ -17,7 +17,7 @@ class RolesSeeder extends Seeder
     {
         $roles = [
             [
-                'name' => 'Kepala Sekolah',
+                'name' => 'Administrator',
                 'guard_name' => 'web',
             ],
             [
@@ -32,10 +32,6 @@ class RolesSeeder extends Seeder
                 'name' => 'Siswa',
                 'guard_name' => 'web'
             ],
-            [
-                'name' => 'Tata Usaha',
-                'guard_name' => 'web'
-            ]
         ];
 
         Role::insert($roles);
