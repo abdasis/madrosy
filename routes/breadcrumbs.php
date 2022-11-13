@@ -12,6 +12,11 @@ Breadcrumbs::for('profile.auth', function (BreadcrumbTrail $trail) {
     $trail->push('Profile', route('profile.auth'));
 });
 
+Breadcrumbs::for('reset-password', function (BreadcrumbTrail $trail) {
+    $trail->parent('pengaturan.semua');
+    $trail->push('Reset Password Pengguna', route('reset-password'));
+});
+
 Breadcrumbs::for('sunting-profile', function (BreadcrumbTrail $trail) {
     $trail->parent('profile.auth');
     $trail->push('Sunting Profile', route('sunting-profile'));

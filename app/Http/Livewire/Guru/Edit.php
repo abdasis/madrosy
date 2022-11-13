@@ -106,6 +106,7 @@ class Edit extends Component
             'pos' => 'required',
             'status_guru' => 'required',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
+            'role' => 'required',
         ];
     }
 

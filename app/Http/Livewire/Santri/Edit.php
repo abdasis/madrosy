@@ -96,6 +96,9 @@ class Edit extends Component
         try {
 
             $santri = Santri::find($this->santri_id);
+
+            $santri->user->syncRoles('Siswa');
+
             $santri->update([
                 'nama_lengkap' => $this->nama_lengkap,
                 'nama_panggilan' => $this->nama_panggilan,

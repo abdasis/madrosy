@@ -8,6 +8,15 @@
             </a>
         </li>
     @endif
+    @if(!empty($reset_password))
+        <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+            title="Reset Password">
+            <a wire:click.prevent="reset_password('{{$reset_password}}')" href="javascript:void(0);"
+               class="text-info d-inline-block">
+                <i class="ri-lock-line fs-16"></i>
+            </a>
+        </li>
+    @endif
     @if(!empty($detail))
         <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
             title="Lihat Details">

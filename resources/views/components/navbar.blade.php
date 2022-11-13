@@ -205,12 +205,8 @@
                                     General </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('jadwal.tambah')}}" class="nav-link" data-key="t-calendar">
+                                <a href="{{route('reset-password')}}" class="nav-link" data-key="t-calendar">
                                     Pengguna </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('permission.semua')}}" class="nav-link" data-key="t-chat">
-                                    Permission </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('pengaturan.data-instansi')}}"

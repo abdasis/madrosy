@@ -20,6 +20,7 @@ use App\Http\Livewire\Presensi\ScanQrcode;
 use App\Http\Livewire\Rekening\Detail;
 use App\Http\Livewire\Setting\DataInstansi;
 use App\Http\Livewire\Setting\Menu;
+use App\Http\Livewire\Setting\ResetPassword;
 use App\Http\Livewire\Tagihan\AturPerkelas;
 use App\Http\Livewire\Tagihan\Bayar;
 use App\Http\Livewire\Tagihan\TerimaPembayaran;
@@ -132,6 +133,7 @@ Route::middleware([
         Route::get('data-instansi', DataInstansi::class)->name('pengaturan.data-instansi');
         Route::get('history', \App\Http\Livewire\Log\Semua::class)->name('log.semua');
         Route::get('menu', Menu::class)->name('pengaturan.menu');
+        Route::get('reset-password', ResetPassword::class)->name('reset-password');
     });
 
     Route::group(['auth'], function () {

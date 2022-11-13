@@ -205,12 +205,8 @@
                                     General </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?php echo e(route('jadwal.tambah')); ?>" class="nav-link" data-key="t-calendar">
+                                <a href="<?php echo e(route('reset-password')); ?>" class="nav-link" data-key="t-calendar">
                                     Pengguna </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?php echo e(route('permission.semua')); ?>" class="nav-link" data-key="t-chat">
-                                    Permission </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?php echo e(route('pengaturan.data-instansi')); ?>"

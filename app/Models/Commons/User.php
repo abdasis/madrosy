@@ -73,4 +73,6 @@ class User extends Authenticatable
     {
         return $this->morphOne(Activity::class, 'causer');
     }
+
+
 }
