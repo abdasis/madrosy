@@ -49,8 +49,8 @@ class Tambah extends Component
         try {
             if ($this->foto_bukti){
                 $santri = Santri::find($this->santri_id);
-                $nama_file = \Str::slug($santri->nama_lengkap) . '-' . \Str::uuid() . ".{$this->foto_bukti->getClientOriginalExtension()}";
-                $this->foto_bukti->storeAs('upload', $nama_file);
+                $nama_file = \Str::slug($santri->nama_lengkap) . '-' . \Str::uuid() . ".{$this->foto_bukti->extension()}";
+                $nama_file = $this->foto_bukti->storeAs('upload', $nama_file);
             }else{
                 $nama_file = null;
             }
