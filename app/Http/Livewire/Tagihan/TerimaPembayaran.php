@@ -63,6 +63,12 @@ class TerimaPembayaran extends Component
             }
         }
 
+        //pembayaran tidak boleh melebihi dari tagihan
+        if ($this->total_pembayaran > $this->tagihan->total_tagihan){
+            $this->addError('total_pembayaran', 'Total pembayaran tidak boleh melebihi tagian');
+            return  false;
+        }
+
         try {
             Transaksi::create([
                 'waktu_transaksi' => now(),
