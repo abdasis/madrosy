@@ -65,13 +65,23 @@
                     <div id="sisaTagihan" class="accordion-collapse collapse show" aria-labelledby="headingThree"
                          data-bs-parent="#sisaTagihan">
                         <div class="accordion-body border-0">
-                            <a href="{{route('terima-pembayaran', $tagihan)}}">
+                            @if($status  == 'lunas')
                                 <button
+                                    disabled
                                     class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
-                                    <i class="ri-money-euro-circle-fill"></i>
-                                    Terima Pembayaran
+                                    <i class="ri-check-double-fill"></i>
+                                    Sudah Lunas
                                 </button>
-                            </a>
+                            @else
+                                <a href="{{route('terima-pembayaran', $tagihan)}}">
+                                    <button
+                                        class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
+                                        <i class="ri-money-euro-circle-fill"></i>
+                                        Terima Pembayaran
+                                    </button>
+                                </a>
+                            @endif
+
                             <div class="daftar-pembayaran my-4">
                                 <h5>Data Pembayaran</h5>
                                 <table class="table table-sm">
