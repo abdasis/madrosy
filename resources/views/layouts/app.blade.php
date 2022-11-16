@@ -10,6 +10,8 @@
       data-layout-position="fixed"
       data-layout-style="default">
 <head>
+    <title>{{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title' }}
+        | {{config('app.name')}} </title>
     <x-head/>
 </head>
 <body>

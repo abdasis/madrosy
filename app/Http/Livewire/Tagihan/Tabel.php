@@ -91,6 +91,7 @@ class Tabel extends DataTableComponent
         $this->clearSelected();
     }
 
+
     public function columns(): array
     {
         return [
@@ -103,9 +104,9 @@ class Tabel extends DataTableComponent
             Column::make('Nama Siswa', 'santri.nama_lengkap')->searchable(),
             Column::make('Kategori', 'kategori.nama_kategori'),
             Column::make('Jumlah', 'total_tagihan')->format(fn($total) => rupiah($total)),
-            Column::make('Status', 'status')->format(function ($status) {
+            Column::make('Status', 'status')->format(function ($status, $model, $row) {
                 return view('_partials.boolean-status', [
-                    'status' => $status
+                    'status' => $model->sisa_tagihan
                 ]);
             }),
             Column::make("Jatuh Tempo", "tgl_jatuh_tempo")

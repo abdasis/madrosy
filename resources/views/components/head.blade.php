@@ -1,6 +1,5 @@
 <meta charset="utf-8"/>
-<title>{{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : 'Fallback Title' }}
-    | {{config('app.name')}}</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="Platform Pendaftaran Unit Layanan Statistik" name="description"/>
 <meta content="Abdul Aziz" name="author"/>
@@ -22,28 +21,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
-@vite('resources/js/app.js')
+@vite(['resources/js/app.js', 'resources/sass/app.scss'])
+
 @stack('styles')
-
-
-
-<style>
-    .loader-wrapper {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #F3F3F9;
-        z-index: 99999;
-        overflow: hidden;
-    }
-
-    .sidebar-loading{
-        min-height: 100vh;
-        min-width: 250px;
-        max-width: 265px;
-    }
 
 </style>
 

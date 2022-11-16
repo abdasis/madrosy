@@ -5,6 +5,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+                'resources/sass/app.scss',
                 'resources/js/app.js',
             ],
             refresh: [
@@ -16,6 +17,6 @@ export default defineConfig({
     server: {
         https: false,
         host: '127.0.0.1',
-        port: 8000,
+        port: 3000,
     },
 });
