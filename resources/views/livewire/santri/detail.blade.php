@@ -33,14 +33,6 @@
                                     class="rounded-circle avatar-xl img-thumbnail user-profile-image"
                                     alt="user-profile-image">
                             @endif
-                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                    <span class="avatar-title rounded-circle bg-primary text-body">
-                                        <i class="ri-checkbox-circle-fill text-white"></i>
-                                    </span>
-                                </label>
-                            </div>
                         </div>
                         <h5 class="fs-16 mb-1">{{$santri->nama_lengkap}}</h5>
                         <p class="text-muted mb-0">{{$santri->nik}}</p>
