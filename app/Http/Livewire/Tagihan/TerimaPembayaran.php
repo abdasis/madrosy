@@ -65,7 +65,7 @@ class TerimaPembayaran extends Component
 
         //pembayaran tidak boleh melebihi dari tagihan
         if ($this->total_pembayaran > $this->tagihan->total_tagihan){
-            $this->addError('total_pembayaran', 'Total pembayaran tidak boleh melebihi tagian');
+            $this->addError('total_pembayaran', 'Total pembayaran tidak boleh melebihi tagihan');
             return  false;
         }
 
