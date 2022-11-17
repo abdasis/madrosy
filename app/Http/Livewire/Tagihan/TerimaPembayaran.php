@@ -34,21 +34,11 @@ class TerimaPembayaran extends Component
     {
         return [
             'tanggal_pembayaran' => 'required',
-            'total_pembayaran' => 'required|numeric',
+            'total_pembayaran' => 'required',
             'metode_pembayaran' => 'required',
             'keterangan' => 'required',
             'jumlah_uang_diterima' => 'nullable|numeric'
         ];
-    }
-
-    public function updatedJumlahUangDiterima()
-    {
-        $this->total_kembali = rupiah((int)$this->jumlah_uang_diterima - $this->total_pembayaran);
-    }
-
-    public function updated($field)
-    {
-        $this->validateOnly($field);
     }
 
     public function simpan()

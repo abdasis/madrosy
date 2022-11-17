@@ -33,5 +33,6 @@
 </button>
 <x-scripts/>
 <livewire:mode-aplikasi/>
+@stack('scripts')
 </body>
 </html>

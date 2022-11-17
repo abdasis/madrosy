@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Santri;
 
 use App\Models\Commons\User;
 use App\Models\Kesiswaan\Santri;
+use App\Traits\FormatRupiah;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -58,6 +60,11 @@ class Tambah extends Component
         } else {
             $this->anak_ke = 1;
         }
+    }
+
+    public function formatRupiah($value)
+    {
+        dd($value);
     }
 
     public function updated($field)

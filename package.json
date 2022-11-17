@@ -18,6 +18,8 @@
         "vite": "^2.9.11"
     },
     "dependencies": {
+        "@alpinejs/mask": "^3.10.5",
+        "currency.js": "^2.0.4",
         "esbuild": "^0.15.11",
         "html5-qrcode": "^2.2.4"
     }

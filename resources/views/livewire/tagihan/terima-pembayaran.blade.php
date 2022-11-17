@@ -47,12 +47,12 @@
                             <td>Status</td>
                             <td>:</td>
                             <td>
-                                @if($tagihan->status == 'lunas')
-                                    <span class="badge badge-outline-success">{{$tagihan->status}}</span>
-                                @elseif($tagihan->status == 'belum dibayar')
-                                    <span class="badge badge-outline-warning">{{$tagihan->status}}</span>
+                                @if($tagihan->sisa_tagihan == 'lunas')
+                                    <span class="badge badge-outline-success">{{$tagihan->sisa_tagihan}}</span>
+                                @elseif($tagihan->sisa_tagihan == 'belum dibayar')
+                                    <span class="badge badge-outline-warning">{{$tagihan->sisa_tagihan}}</span>
                                 @else
-                                    <span class="badge badge-soutline-danger">{{$tagihan->status}}</span>
+                                    <span class="badge badge-soutline-danger">{{$tagihan->sisa_tagihan}}</span>
                                 @endif
                             </td>
                         </tr>
@@ -74,9 +74,12 @@
                 </div>
                 <div class="card-body">
                     <form wire:submit.prevent="simpan">
-                        <div class="form-group mb-2">
-                            <x-form-input type="date" name="tanggal_pembayaran" wire:model="tanggal_pembayaran"
-                                          label="Tanggal Pembayaran"/>
+                        <div class="form-group mb-2" wire:ignore>
+                            <x-form-input
+                                type="date" name="tanggal_pembayaran"
+                                wire:model="tanggal_pembayaran"
+                                label="Tanggal Pembayaran"
+                            />
                         </div>
 
                         <div class="form-group mb-2">
@@ -87,16 +90,19 @@
                             </x-form-select>
                         </div>
 
-                        <div class="form-group mb-2">
-                            <x-form-input name="total_pembayaran" wire:model="total_pembayaran"
-                                          label="Jumlah Pembayaran"/>
+                        <div class="form-group mb-2" wire:ignore>
+                            <x-form-input
+                                class="text-end"
+                                name=""
+                                label="Jumlah Pembayaran"
+                                id="total_pembayaran"
+                            />
                         </div>
 
                         <div class="form-group mb-2">
                             <x-form-textarea name="keterangan" wire:model.defer="keterangan"
                                              label="Keterangan Pembayaran"></x-form-textarea>
                         </div>
-
                         <div class="form-group mb-2">
                             <button class="btn btn-primary float-end rounded">
                                 <i class="ri-save-line"></i>
@@ -133,3 +139,18 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        var total_pembayaran = document.getElementById('total_pembayaran');
+        total_pembayaran.addEventListener('keyup', (event) => {
+            var value = total_pembayaran.value.replace(/[^\d,]/g, '');
+            @this.set('total_pembayaran', total_pembayaran);
+            total_pembayaran.value = rupiah(value)
+        })
+
+        Livewire.onLoad(() => {
+            total_pembayaran.value = rupiah(@this.total_pembayaran);
+        })
+    </script>
+@endpush

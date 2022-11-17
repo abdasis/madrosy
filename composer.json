@@ -56,7 +56,12 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/Helpers/MataUang.php",
+            "app/Helpers/MenuAktif.php",
+            "app/Helpers/AmbilKarakterPertama.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [
