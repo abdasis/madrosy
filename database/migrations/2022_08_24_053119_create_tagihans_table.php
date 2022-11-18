@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('santri_id')->constrained();
             $table->foreignId('kategori_tagihan_id')->constrained();
             $table->string('kode_tagihan')->unique();
+            $table->string('kode_transaksi')->unique();
             $table->date('tgl_dibuat');
             $table->date('tgl_jatuh_tempo');
             $table->decimal('total_tagihan', 20,2);
@@ -37,6 +38,8 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('tagihans');
+        Schema::enableForeignKeyConstraints();
     }
 };

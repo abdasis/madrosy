@@ -27,7 +27,7 @@ class Tagihan extends Model
 
     public function transaksi()
     {
-        return $this->hasMany(Transaksi::class, 'order_id', 'kode_tagihan');
+        return $this->hasMany(Transaksi::class, 'kode_referensi', 'kode_transaksi');
     }
 
     public function pembuat()

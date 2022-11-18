@@ -21,6 +21,7 @@ class MembuatTagihan implements ShouldQueue
 
     public function handle()
     {
+
         $transaksi = new Transaksi();
         $transaksi->create($this->tagihan->toArray());
     }

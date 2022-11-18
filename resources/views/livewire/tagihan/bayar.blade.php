@@ -1,7 +1,7 @@
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     <div class="container">
-        <div class="row justify-content-center align-items-center" style="min-height: 90vh">
+        <div class="row justify-content-center align-items-center" style="min-height: 50vh">
             <div class="col-md-5">
                 <div class="card border-light shadow-sm">
                     <div class="card-header d-flex align-items-center border-light border-bottom-dashed">

@@ -99,7 +99,7 @@ Route::middleware([
         Route::get('/detail/{rekening}', Detail::class)->name('rekening.detail');
         Route::get('/edit/{rekening}', \App\Http\Livewire\Rekening\Edit::class)->name('rekening.edit');
     });
-    Route::group(['prefix' => 'tagihan', 'middleware' => 'role:Administrator'], function () {
+    Route::group(['prefix' => 'tagihan', 'middleware' => 'role:Administrator|Siswa'], function () {
         Route::get('/', \App\Http\Livewire\Tagihan\Semua::class)->name('tagihan.semua');
         Route::get('/tambah', \App\Http\Livewire\Tagihan\Tambah::class)->name('tagihan.tambah');
         Route::get('/edit/{tagihan}', \App\Http\Livewire\Tagihan\Edit::class)->name('edit.tagihan');

@@ -63,8 +63,15 @@ class TerimaPembayaran extends Component
             return false;
         }
 
+        $kode_kategori = $this->tagihan->kategori->kode;
+        $kode_transaksi = str_pad(now()->format('myis-') . $this->tagihan->santri_id, 8,0,STR_PAD_LEFT);
+
+        $transaksi = Transaksi::where('kode_referensi', $this->tagihan->kode_transaksi)->first();
+        $transaksi->order_id = "{$kode_kategori}-{$kode_transaksi}";
+
+
         try {
-            Transaksi::create([
+            $transaksi->update([
                 'waktu_transaksi' => now(),
                 'status_transaksi' => 'berhasil',
                 'toko' => "Tata Usaha Sekolah",
@@ -72,8 +79,6 @@ class TerimaPembayaran extends Component
                 'keterangan_status' => 'Uang berhasil diterima oleh TU',
                 'waktu_penyelesaian' => now()->toDateTimeString(),
                 'jenis_pembayaran' => $this->metode_pembayaran,
-                'transaksi_id' => \Str::uuid(),
-                'order_id' => $this->tagihan->kode_tagihan,
                 'total' => $this->total_pembayaran,
                 'mata_uang' => 'IDR',
                 'tanda_terima' => auth()->user()->id,

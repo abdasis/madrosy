@@ -62,15 +62,6 @@ class Tambah extends Component
         }
     }
 
-    public function formatRupiah($value)
-    {
-        dd($value);
-    }
-
-    public function updated($field)
-    {
-        $this->validateOnly($field);
-    }
 
     public function simpan()
     {

@@ -7,6 +7,7 @@ use App\Models\Akademik\Kelas;
 use App\Models\Akademik\TahunAjaran;
 use App\Models\Keuangan\KategoriTagihan;
 use App\Models\Keuangan\Tagihan;
+use App\Repositories\Transaksi;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -71,6 +72,7 @@ class AturPerkelas extends Component
                 if ($kategori){
                     $kode = $kategori->kode;
                 }
+
                 //mengambil nomor tagihan terkahir
                 foreach ($data_siswa as $key => $siswa) {
                     $nomor_tagihan = Tagihan::max('id');
@@ -79,6 +81,7 @@ class AturPerkelas extends Component
                         'santri_id' => $siswa->id,
                         'kategori_tagihan_id' => $this->kategori_id,
                         'kode_tagihan' => $kode_transaksi,
+                        'kode_transaksi' => \Str::uuid(),
                         'tgl_dibuat' => $this->tgl_tagihan,
                         'tgl_jatuh_tempo' => $this->tgl_jatuh_tempo,
                         'status' => 'belum dibayar',
@@ -86,7 +89,8 @@ class AturPerkelas extends Component
                         'keterangan' => $this->notes,
                         'dibuat_oleh' => auth()->id()
                     ]);
-                   MembuatTagihan::dispatch($tagihan);
+                    $transaksi = new Transaksi();
+                    $transaksi->create($tagihan->toArray());
                 }
             }
             $this->alert('success', 'Tagihan Berhasil Di buatkan');

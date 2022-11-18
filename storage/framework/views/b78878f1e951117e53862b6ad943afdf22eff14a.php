@@ -108,15 +108,15 @@
 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('mode-aplikasi', [])->html();
-} elseif ($_instance->childHasBeenRendered('qhjWMaS')) {
-    $componentId = $_instance->getRenderedChildComponentId('qhjWMaS');
-    $componentTag = $_instance->getRenderedChildComponentTagName('qhjWMaS');
+} elseif ($_instance->childHasBeenRendered('hXLpOs5')) {
+    $componentId = $_instance->getRenderedChildComponentId('hXLpOs5');
+    $componentTag = $_instance->getRenderedChildComponentTagName('hXLpOs5');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('qhjWMaS');
+    $_instance->preserveRenderedChild('hXLpOs5');
 } else {
     $response = \Livewire\Livewire::mount('mode-aplikasi', []);
     $html = $response->html();
-    $_instance->logRenderedChild('qhjWMaS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('hXLpOs5', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

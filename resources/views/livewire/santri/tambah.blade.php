@@ -12,23 +12,23 @@
                         <div class="container">
                             <div class="row gy-3">
                                 <div class="col-md-4">
-                                    <x-form-input name="nama_lengkap" wire:model="nama_lengkap" label="Nama Lengkap"
+                                    <x-form-input name="nama_lengkap" wire:model.defer="nama_lengkap" label="Nama Lengkap"
                                                   placeholder="Masukan Nama Lengkap"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nisn" label="NISN" wire:model="nisn" placeholder="Masukan NISN"
+                                    <x-form-input name="nisn" label="NISN" wire:model.defer="nisn" placeholder="Masukan NISN"
                                                   type="number"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nik" label="NIK" wire:model="nik" placeholder="Masukan NIK"
+                                    <x-form-input name="nik" label="NIK" wire:model.defer="nik" placeholder="Masukan NIK"
                                                   type="number"/>
                                 </div>
                                 <div class="col-md-8">
-                                    <x-form-input name="tempat_lahir" wire:model="tempat_lahir" label="Tempat Lahir"
+                                    <x-form-input name="tempat_lahir" wire:model.defer="tempat_lahir" label="Tempat Lahir"
                                                   placeholder="Masukan Tempat Lahir"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date"
+                                    <x-form-input name="tanggal_lahir" wire:model.defer="tanggal_lahir" type="date"
                                                   label="Tanggal Lahir"/>
                                 </div>
 

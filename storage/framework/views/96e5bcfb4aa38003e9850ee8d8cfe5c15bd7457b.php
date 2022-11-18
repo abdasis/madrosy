@@ -44,11 +44,13 @@
                     <div id="terkirim" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
                          data-bs-parent="#terkirim">
                         <div class="accordion-body border-0">
+                           <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator')): ?>
                             <button
                                 class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
                                 <i class="ri-whatsapp-line"></i>
                                 Kirim Ulang
                             </button>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -66,15 +68,14 @@
                     <div id="sisaTagihan" class="accordion-collapse collapse show" aria-labelledby="headingThree"
                          data-bs-parent="#sisaTagihan">
                         <div class="accordion-body border-0">
-                            <div class="btn-group d-flex gap-2">
+                            <div class="d-flex gap-2">
                                 <?php if($status  == 'lunas'): ?>
-                                    <button
-                                        disabled
-                                        class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
+                                    <div class="alert alert-success text-center full-width">
                                         <i class="ri-check-double-fill"></i>
                                         Sudah Lunas
-                                    </button>
+                                    </div>
                                 <?php else: ?>
+                                    <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator')): ?>
                                     <a href="<?php echo e(route('terima-pembayaran', $tagihan)); ?>">
                                         <button
                                             class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
@@ -82,14 +83,16 @@
                                             Terima Pembayaran
                                         </button>
                                     </a>
+                                    <?php endif; ?>
+                                    <a href="<?php echo e(route('tagihan.bayar', Crypt::encryptString($tagihan->kode_transaksi))); ?>">
+                                        <button
+                                            class="btn waves-effect btn-sm btn-primary btn-border d-flex align-items-center gap-1">
+                                            <i class="ri-paypal-line"></i>
+                                            Request Online Pay
+                                        </button>
+                                    </a>
                                 <?php endif; ?>
-                                <a href="<?php echo e(route('tagihan.bayar', Crypt::encryptString($tagihan->kode_tagihan))); ?>">
-                                    <button
-                                        class="btn waves-effect btn-sm btn-primary btn-border d-flex align-items-center gap-1">
-                                        <i class="ri-paypal-line"></i>
-                                        Request Online Pay
-                                    </button>
-                                </a>
+
                             </div>
 
                             <div class="daftar-pembayaran my-4">

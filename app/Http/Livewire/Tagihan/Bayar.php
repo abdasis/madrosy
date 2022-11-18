@@ -18,34 +18,25 @@ class Bayar extends Component
 
     public function mount($kode)
     {
-        $this->transaksi = Transaksi::where('order_id', \Crypt::decryptString($kode))->first();
-        $midtrans = new CreateTokenService($this->transaksi);
-        $kategori = $this->transaksi->tagihan->kategori->kode ?? null;
-        if ($kategori){
-            $kode_tagihan = $kategori;
-        }else{
-            $kode_tagihan = null;
-        }
-        //update kode tagihan dengan waktu sekarang
-        $nomor_tagihan = Tagihan::max('id') + 1;
-        $siswa = $this->transaksi->tagihan->santri;
-        $this->kode = "{$kode_tagihan}-".Carbon::now()->format('dmys-') . $nomor_tagihan . "-" . $siswa->id;
-        $this->transaksi->order_id = $this->kode;
-        $this->token = $midtrans->generateSnapToken();
+
+        $this->transaksi = Transaksi::where('kode_referensi', \Crypt::decryptString($kode))->first();
         $this->tagihan = $this->transaksi->tagihan;
-
-        if ($this->tagihan->status == 'lunas'){
-            return redirect()->route('midtrans.selesai', ['order_id' => \Crypt::encrypt($kode)]);
+        if ($this->tagihan->sisa_tagihan == 'lunas') {
+            $this->flash('info', 'Tagihan sudah berhasil dibayarkan', [], route('tagihan.detail', $tagihan->id));
         }
 
+        //buat kode transaksi
+        $kode_kategori = $this->tagihan->kategori->kode;
+        $kode_transaksi = str_pad(now()->format('myis-') . $this->tagihan->santri_id, 8,0,STR_PAD_LEFT);
+        $this->transaksi->order_id = "{$kode_kategori}-{$kode_transaksi}";
+        $this->transaksi->save();
+
+        $midtrans = new CreateTokenService($this->transaksi);
+        $this->token = $midtrans->generateSnapToken();
     }
 
     public function pay()
     {
-
-        $this->transaksi->update([
-            'order_id' => $this->kode,
-        ]);
 
         $this->emit('snapPay', $this->token);
 
@@ -53,6 +44,6 @@ class Bayar extends Component
 
     public function render()
     {
-        return view('livewire.tagihan.bayar')->layout('layouts.guest');
+        return view('livewire.tagihan.bayar');
     }
 }

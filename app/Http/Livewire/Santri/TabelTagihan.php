@@ -20,13 +20,17 @@ class TabelTagihan extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')
+            ->setTableRowUrl(function ($row){
+               return route('tagihan.detail', $row);
+            });
     }
 
     public function columns(): array
     {
         return [
             Column::make("ID", "id")
+                ->deselected()
                 ->sortable(),
             Column::make("Tgl. Dibuat", "tgl_dibuat")
                 ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d-m-Y'))

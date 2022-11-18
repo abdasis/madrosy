@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="form-group mb-3" wire:ignore>
-                            <x-form-input name="jumlah" class="text-end" id="jumlah" placeholder="Masukan jumlah tagihan" label="Jumlah Tagihan"/>
+                            <x-form-input name="jumlah" class="text-end" id="jumlah" placeholder="Rp. 80.000" label="Jumlah Tagihan"/>
                         </div>
                         <div class="form-gorup mb-3">
                             <x-form-textarea name="notes" wire:model="notes" label="Notes"/>

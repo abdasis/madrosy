@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('kode_persetujuan')->nullable();
             $table->string('penipuan_status')->nullable();
             $table->string('token')->unique();
+            $table->string('kode_referensi');
             $table->timestamps();
         });
     }
