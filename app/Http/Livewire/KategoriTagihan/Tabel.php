@@ -16,14 +16,15 @@ class Tabel extends DataTableComponent
 
     public function dihapus()
     {
-        if ($this->model_id){
+        if ($this->model_id) {
             $kategori = KategoriTagihan::find($this->model_id);
             $kategori->delete();
             $this->alert('success', 'Data berhasil dihapus');
-        }else{
+        } else {
             $this->alert('error', 'Data gagal dihapus');
         }
     }
+
     protected $model = KategoriTagihan::class;
 
     public function configure(): void
@@ -39,8 +40,8 @@ class Tabel extends DataTableComponent
                 ->sortable(),
             Column::make('Tahun Ajaran', 'tapel.tahun_awal')
                 ->sortable(),
-            Column::make('Nama Kategori','nama_kategori')
-                ->format(function ($nama_kategori, $model){
+            Column::make('Nama Kategori', 'nama_kategori')
+                ->format(function ($nama_kategori, $model) {
                     $link = route('tagihan.atur-perkelas', $model->id);
                     return "<a href='{$link}' class='fw-bold text-success'>{$nama_kategori}</a>";
                 })
@@ -62,10 +63,11 @@ class Tabel extends DataTableComponent
                 ->sortable(),
             Column::make("Diubah Pada", "updated_at")
                 ->format(fn($tanggal) => $tanggal->format("d F, Y H:i:s"))
-                ->sortable(),
-            Column::make('Opsi', 'id')->format(function ($id){
-                return view('tombol-aksi',[
-                    'edit' =>  route('kategori-tagihan.edit', $id),
+                ->sortable()
+                ->deselected(),
+            Column::make('Opsi', 'id')->format(function ($id) {
+                return view('tombol-aksi', [
+                    'edit' => route('kategori-tagihan.edit', $id),
                     'hapus' => $id,
                 ]);
             })

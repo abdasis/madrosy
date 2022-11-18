@@ -145,7 +145,7 @@
         var total_pembayaran = document.getElementById('total_pembayaran');
         total_pembayaran.addEventListener('keyup', (event) => {
             var value = total_pembayaran.value.replace(/[^\d,]/g, '');
-            @this.set('total_pembayaran', total_pembayaran);
+            @this.set('total_pembayaran', value);
             total_pembayaran.value = rupiah(value)
         })
 

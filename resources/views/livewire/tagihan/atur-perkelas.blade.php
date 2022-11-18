@@ -44,8 +44,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <x-form-input name="jumlah" wire:model="jumlah" placeholder="Masukan jumlah tagihan" label="Jumlah Tagihan"/>
+                        <div class="form-group mb-3" wire:ignore>
+                            <x-form-input name="jumlah" id="jumlah" placeholder="Masukan jumlah tagihan" label="Jumlah Tagihan"/>
                         </div>
                         <div class="form-gorup mb-3">
                             <x-form-textarea name="notes" wire:model="notes" label="Notes"/>
@@ -102,3 +102,14 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        var jumlah = document.getElementById('jumlah')
+        jumlah.addEventListener('keyup', (event) => {
+            total = jumlah.value.replace(/[^\d,]/g, '')
+            jumlah.value = rupiah(total);
+            @this.set('jumlah', total)
+        })
+    </script>
+@endpush
