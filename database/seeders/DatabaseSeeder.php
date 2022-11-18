@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
             ]);
         } else {
             $this->call([
+                GuruSeeder::class,
                 ProvincesSeeder::class,
                 CitiesSeeder::class,
                 DistrictsSeeder::class,

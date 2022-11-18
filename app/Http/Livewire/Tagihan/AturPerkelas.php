@@ -72,7 +72,6 @@ class AturPerkelas extends Component
                     $kode = $kategori->kode;
                 }
                 //mengambil nomor tagihan terkahir
-
                 foreach ($data_siswa as $key => $siswa) {
                     $nomor_tagihan = Tagihan::max('id');
                     $kode_transaksi = "{$kode}-" . str_pad($nomor_tagihan + 1, 8, 0, STR_PAD_LEFT);
