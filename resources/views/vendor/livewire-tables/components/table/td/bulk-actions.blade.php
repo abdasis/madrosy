@@ -10,7 +10,7 @@
         <x-livewire-tables::table.td.plain>
             <div class="inline-flex rounded-md shadow-sm">
                 <input
-                    wire:model="selected"
+                    wire:model.defer="selected"
                     wire:loading.attr.delay="disabled"
                     value="{{ $row->{$this->getPrimaryKey()} }}"
                     type="checkbox"
@@ -21,7 +21,7 @@
     @elseif ($theme === 'bootstrap-4' || $theme === 'bootstrap-5')
         <x-livewire-tables::table.td.plain>
             <input
-                wire:model="selected"
+                wire:model.defer="selected"
                 wire:loading.attr.delay="disabled"
                 value="{{ $row->{$this->getPrimaryKey()} }}"
                 type="checkbox"

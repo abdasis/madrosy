@@ -4,13 +4,14 @@ namespace App\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class Transaksi implements TransaksiInterface
 {
     public function create(array $tagihan)
     {
         try {
-            $transaksi = \App\Models\Keuangan\Transaksi::create([
+            \App\Models\Keuangan\Transaksi::create([
                 'waktu_transaksi' => Carbon::now()->toDateTimeString(),
                 'status_transaksi' => 'pending',
                 'transaksi_id' => \Str::uuid(),
@@ -27,8 +28,8 @@ class Transaksi implements TransaksiInterface
                 'mata_uang' => 'IDR',
                 'kode_persetujuan' => 'belum diketahui',
                 'penipuan_status' => 'belum diketahui',
+                'token' => Str::uuid()
             ]);
-            return $transaksi;
         }catch (\Exception $e) {
             report($e);
         }

@@ -65,22 +65,31 @@
                     <div id="sisaTagihan" class="accordion-collapse collapse show" aria-labelledby="headingThree"
                          data-bs-parent="#sisaTagihan">
                         <div class="accordion-body border-0">
-                            @if($status  == 'lunas')
-                                <button
-                                    disabled
-                                    class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
-                                    <i class="ri-check-double-fill"></i>
-                                    Sudah Lunas
-                                </button>
-                            @else
-                                <a href="{{route('terima-pembayaran', $tagihan)}}">
+                            <div class="btn-group d-flex gap-2">
+                                @if($status  == 'lunas')
                                     <button
+                                        disabled
                                         class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
-                                        <i class="ri-money-euro-circle-fill"></i>
-                                        Terima Pembayaran
+                                        <i class="ri-check-double-fill"></i>
+                                        Sudah Lunas
+                                    </button>
+                                @else
+                                    <a href="{{route('terima-pembayaran', $tagihan)}}">
+                                        <button
+                                            class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
+                                            <i class="ri-money-euro-circle-fill"></i>
+                                            Terima Pembayaran
+                                        </button>
+                                    </a>
+                                @endif
+                                <a href="{{route('tagihan.bayar', Crypt::encryptString($tagihan->kode_tagihan))}}">
+                                    <button
+                                        class="btn waves-effect btn-sm btn-primary btn-border d-flex align-items-center gap-1">
+                                        <i class="ri-paypal-line"></i>
+                                        Request Online Pay
                                     </button>
                                 </a>
-                            @endif
+                            </div>
 
                             <div class="daftar-pembayaran my-4">
                                 <h5>Data Pembayaran</h5>
@@ -92,7 +101,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($tagihan->transaksi as $pembayaran)
+                                    @foreach($pembayaran_berhasil as $pembayaran)
                                         <tr>
                                             <td>{{\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')}}</td>
                                             <td class="text-end">{{rupiah($pembayaran->total)}}</td>

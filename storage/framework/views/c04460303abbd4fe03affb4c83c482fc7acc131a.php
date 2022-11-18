@@ -33,7 +33,7 @@
 <?php $component->withAttributes([]); ?>
             <div class="inline-flex rounded-md shadow-sm">
                 <input
-                    wire:model="selected"
+                    wire:model.defer="selected"
                     wire:loading.attr.delay="disabled"
                     value="<?php echo e($row->{$this->getPrimaryKey()}); ?>"
                     type="checkbox"
@@ -57,7 +57,7 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
             <input
-                wire:model="selected"
+                wire:model.defer="selected"
                 wire:loading.attr.delay="disabled"
                 value="<?php echo e($row->{$this->getPrimaryKey()}); ?>"
                 type="checkbox"

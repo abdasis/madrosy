@@ -100,7 +100,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(ProtoneMedia\LaravelFormComponents\Components\FormInput::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'jumlah','placeholder' => 'Masukan jumlah tagihan']); ?>
+<?php $component->withAttributes(['class' => 'text-end','id' => 'jumlah','placeholder' => 'Masukan jumlah tagihan']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4)): ?>
@@ -182,9 +182,8 @@
     <script>
         var jumlah = document.getElementById('jumlah')
         jumlah.addEventListener('keyup', (event) => {
-            total = jumlah.value.replace(/[^\d,]/g, '')
-            jumlah.value = rupiah(total);
-            window.livewire.find('<?php echo e($_instance->id); ?>').set('jumlah', total)
+            rupiah(jumlah)
+            window.livewire.find('<?php echo e($_instance->id); ?>').set('jumlah', rupiah(jumlah))
         })
     </script>
 <?php $__env->stopPush(); ?>

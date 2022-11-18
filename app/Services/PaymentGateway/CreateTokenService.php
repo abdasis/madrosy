@@ -16,7 +16,6 @@ class CreateTokenService extends Midtrans
 
     public function generateSnapToken()
     {
-
         $params = [
             'transaction_details' => [
                 'order_id' => $this->transaksi->order_id,
@@ -35,7 +34,7 @@ class CreateTokenService extends Midtrans
             $token =  Snap::getSnapToken($params);
             return $token;
         }catch (\Exception $e){
-            return $e;
+            report($e);
         }
 
     }

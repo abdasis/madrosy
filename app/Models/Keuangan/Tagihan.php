@@ -44,9 +44,8 @@ class Tagihan extends Model
     {
         return Attribute::make(
             get: function ($tagihan){
-                $total_pembayaran = $this->transaksi()->sum('total');
+                $total_pembayaran = $this->transaksi()->where('status_transaksi', 'berhasil')->sum('total');
                 $total_tagihan = $this->total_tagihan;
-
                 $tgl_jatuh_tempo = Carbon::createFromDate($this->tgl_jatuh_tempo);
                 $tgl_hari_ini = Carbon::createFromDate(now());
                 if ($total_pembayaran >= $total_tagihan) {
@@ -58,9 +57,8 @@ class Tagihan extends Model
                 } elseif ($total_pembayaran < 1) {
                     $status = 'belum dibayar';
                 } else {
-                    $status = 'belum dibayar';
+                    $status = 'pending';
                 }
-
                 return $status;
             }
         );

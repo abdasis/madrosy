@@ -18,12 +18,13 @@ class Bayar extends Component
 
     public function mount($kode)
     {
-        $this->transaksi = Transaksi::where('order_id', $kode)->first();
-
+        $this->transaksi = Transaksi::where('order_id', \Crypt::decryptString($kode))->first();
         $midtrans = new CreateTokenService($this->transaksi);
-        $kategori = KategoriTagihan::find($this->transaksi->tagihan->kategori_tagihan_id);
+        $kategori = $this->transaksi->tagihan->kategori->kode ?? null;
         if ($kategori){
-            $kode_tagihan = $kategori->kode;
+            $kode_tagihan = $kategori;
+        }else{
+            $kode_tagihan = null;
         }
         //update kode tagihan dengan waktu sekarang
         $nomor_tagihan = Tagihan::max('id') + 1;
@@ -34,7 +35,7 @@ class Bayar extends Component
         $this->tagihan = $this->transaksi->tagihan;
 
         if ($this->tagihan->status == 'lunas'){
-            return redirect()->route('midtrans.selesai', ['order_id' => $kode]);
+            return redirect()->route('midtrans.selesai', ['order_id' => \Crypt::encrypt($kode)]);
         }
 
     }

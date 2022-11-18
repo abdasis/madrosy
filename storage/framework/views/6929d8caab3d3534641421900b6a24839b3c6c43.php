@@ -227,13 +227,12 @@
     <script>
         var total_pembayaran = document.getElementById('total_pembayaran');
         total_pembayaran.addEventListener('keyup', (event) => {
-            var value = total_pembayaran.value.replace(/[^\d,]/g, '');
-            window.livewire.find('<?php echo e($_instance->id); ?>').set('total_pembayaran', value);
-            total_pembayaran.value = rupiah(value)
+            rupiah(total_pembayaran)
+            window.livewire.find('<?php echo e($_instance->id); ?>').set('total_pembayaran', rupiah(total_pembayaran));
         })
 
         Livewire.onLoad(() => {
-            total_pembayaran.value = rupiah(window.livewire.find('<?php echo e($_instance->id); ?>').total_pembayaran);
+            total_pembayaran.value = modelRupiah(window.livewire.find('<?php echo e($_instance->id); ?>').total_pembayaran);
         })
     </script>
 <?php $__env->stopPush(); ?>

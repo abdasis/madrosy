@@ -37,5 +37,12 @@ const formatRupiah = (money) => {
     ).format(money);
 }
 
-window.rupiah = formatRupiah;
+const setProperty = ((id) => {
+    let total = id.value.replace(/[^\d,]/g, '');
+    id.value = formatRupiah(total);
+    return total;
+})
+
+window.rupiah = setProperty;
+window.modelRupiah = formatRupiah;
 

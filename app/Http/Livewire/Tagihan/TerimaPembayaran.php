@@ -26,8 +26,12 @@ class TerimaPembayaran extends Component
         $this->tagihan = $tagihan;
         $this->fill([
             'tanggal_pembayaran' => now()->format('Y-m-d'),
-            'total_pembayaran' => (int)$tagihan->total_tagihan - $tagihan->transaksi()->sum('total')
+            'total_pembayaran' => (int)$tagihan->total_tagihan - $tagihan->transaksi()->where('status_transaksi', 'berhasil')->sum('total')
         ]);
+
+        if ($tagihan->sisa_tagihan == 'lunas') {
+            $this->flash('info', 'Tagihan sudah berhasil dibayarkan', [], route('tagihan.detail', $tagihan->id));
+        }
     }
 
     public function rules()
@@ -54,9 +58,9 @@ class TerimaPembayaran extends Component
         }
 
         //pembayaran tidak boleh melebihi dari tagihan
-        if ($this->total_pembayaran > $this->tagihan->total_tagihan){
+        if ($this->total_pembayaran > $this->tagihan->total_tagihan) {
             $this->addError('total_pembayaran', 'Total pembayaran tidak boleh melebihi tagihan');
-            return  false;
+            return false;
         }
 
         try {

@@ -144,13 +144,12 @@
     <script>
         var total_pembayaran = document.getElementById('total_pembayaran');
         total_pembayaran.addEventListener('keyup', (event) => {
-            var value = total_pembayaran.value.replace(/[^\d,]/g, '');
-            @this.set('total_pembayaran', value);
-            total_pembayaran.value = rupiah(value)
+            rupiah(total_pembayaran)
+            @this.set('total_pembayaran', rupiah(total_pembayaran));
         })
 
         Livewire.onLoad(() => {
-            total_pembayaran.value = rupiah(@this.total_pembayaran);
+            total_pembayaran.value = modelRupiah(@this.total_pembayaran);
         })
     </script>
 @endpush
