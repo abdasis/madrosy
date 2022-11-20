@@ -70,10 +70,10 @@
                         <div class="accordion-body border-0">
                             <div class="d-flex gap-2">
                                 <?php if($status  == 'lunas'): ?>
-                                    <div class="alert alert-success text-center full-width">
+                                    <button class="btn btn-sm btn-success disabled">
                                         <i class="ri-check-double-fill"></i>
                                         Sudah Lunas
-                                    </div>
+                                    </button>
                                 <?php else: ?>
                                     <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasAnyRole', 'Administrator')): ?>
                                     <a href="<?php echo e(route('terima-pembayaran', $tagihan)); ?>">

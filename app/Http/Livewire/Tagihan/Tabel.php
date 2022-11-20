@@ -99,9 +99,9 @@ class Tabel extends DataTableComponent
             Column::make('Tgl. Dibuat', 'tgl_dibuat')
                 ->sortable()
                 ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d F, Y')),
+            Column::make('Kode Transaksi')->deselected(),
             Column::make('Nama Siswa', 'santri.nama_lengkap')->searchable(),
             Column::make('Kategori', 'kategori.nama_kategori'),
-            Column::make('Jumlah', 'total_tagihan')->format(fn($total) => rupiah($total)),
             Column::make('Status', 'status')->format(function ($id, $model, $row) {
                 return view('_partials.boolean-status', [
                     'status' => $model->sisa_tagihan
@@ -110,6 +110,8 @@ class Tabel extends DataTableComponent
             Column::make("Jatuh Tempo", "tgl_jatuh_tempo")
                 ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d F, Y'))
                 ->sortable(),
+            Column::make('Jumlah', 'total_tagihan')->format(fn($total) => rupiah($total)),
+
         ];
     }
 

@@ -30,21 +30,24 @@ class TabelTagihan extends DataTableComponent
     {
         return [
             Column::make("ID", "id")
-                ->deselected()
-                ->sortable(),
-            Column::make("Tgl. Dibuat", "tgl_dibuat")
-                ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d-m-Y'))
-                ->sortable(),
-            Column::make('Kode Tagihan'),
+                ->sortable()->deselected(),
+            Column::make('kode', 'kode_tagihan')->sortable()->deselected(),
+            Column::make('Tgl. Dibuat', 'tgl_dibuat')
+                ->sortable()
+                ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d F, Y')),
             Column::make('Kode Transaksi')->deselected(),
-            Column::make('Keterangan'),
-            Column::make('Status', 'id')->format(function ($id, $tagihan, $row){
-                return view('_partials.boolean-status',[
-                    'status' => $tagihan->sisa_tagihan
+            Column::make('Nama Siswa', 'santri.nama_lengkap')->searchable(),
+            Column::make('Kategori', 'kategori.nama_kategori'),
+            Column::make('Status', 'status')->format(function ($id, $model, $row) {
+                return view('_partials.boolean-status', [
+                    'status' => $model->sisa_tagihan
                 ]);
             }),
-            Column::make('Total Tagihan')
-                ->format(fn($total) => rupiah($total)),
+            Column::make("Jatuh Tempo", "tgl_jatuh_tempo")
+                ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d F, Y'))
+                ->sortable(),
+            Column::make('Jumlah', 'total_tagihan')->format(fn($total) => rupiah($total)),
+
         ];
     }
 
