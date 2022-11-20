@@ -36,11 +36,15 @@ class TabelTagihan extends DataTableComponent
                 ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d-m-Y'))
                 ->sortable(),
             Column::make('Kode Tagihan'),
+            Column::make('Kode Transaksi')->deselected(),
             Column::make('Keterangan'),
-            Column::make('Status', 'id')->format(function ($id, $model, $row){
-                return $model->sisa_tagihan;
+            Column::make('Status', 'id')->format(function ($id, $tagihan, $row){
+                return view('_partials.boolean-status',[
+                    'status' => $tagihan->sisa_tagihan
+                ]);
             }),
-            Column::make('Total Tagihan')->format(fn($total) => rupiah($total)),
+            Column::make('Total Tagihan')
+                ->format(fn($total) => rupiah($total)),
         ];
     }
 

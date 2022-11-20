@@ -69,10 +69,10 @@
                         <div class="accordion-body border-0">
                             <div class="d-flex gap-2">
                                 @if($status  == 'lunas')
-                                    <div class="alert alert-success text-center full-width">
+                                    <button class="btn btn-sm btn-success disabled">
                                         <i class="ri-check-double-fill"></i>
                                         Sudah Lunas
-                                    </div>
+                                    </button>
                                 @else
                                     @hasanyrole('Administrator')
                                     <a href="{{route('terima-pembayaran', $tagihan)}}">

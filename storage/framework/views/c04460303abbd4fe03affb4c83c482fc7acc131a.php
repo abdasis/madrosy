@@ -57,7 +57,7 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
             <input
-                wire:model.defer="selected"
+                wire:model="selected"
                 wire:loading.attr.delay="disabled"
                 value="<?php echo e($row->{$this->getPrimaryKey()}); ?>"
                 type="checkbox"

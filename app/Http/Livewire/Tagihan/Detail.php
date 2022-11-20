@@ -22,9 +22,7 @@ class Detail extends Component
         $this->pembayaran_berhasil = $tagihan->transaksi()->where('status_transaksi', 'berhasil')->get();
         $tgl_jatuh_tempo = Carbon::createFromDate($tagihan->tgl_jatuh_tempo);
         $tgl_hari_ini = Carbon::createFromDate(now());
-
         $this->sisa_tagihan = $tagihan->total_tagihan - $total_pembayaran;
-
         if ($total_pembayaran >= $tagihan->total_tagihan) {
             $this->status = 'lunas';
         } elseif ($total_pembayaran > 0 && $total_pembayaran < $tagihan->total_tagihan) {
