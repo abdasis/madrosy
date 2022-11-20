@@ -21,7 +21,7 @@
     @elseif ($theme === 'bootstrap-4' || $theme === 'bootstrap-5')
         <x-livewire-tables::table.td.plain>
             <input
-                wire:model.defer="selected"
+                wire:model="selected"
                 wire:loading.attr.delay="disabled"
                 value="{{ $row->{$this->getPrimaryKey()} }}"
                 type="checkbox"

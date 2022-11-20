@@ -37,7 +37,9 @@ class TabelTagihan extends DataTableComponent
                 ->sortable(),
             Column::make('Kode Tagihan'),
             Column::make('Keterangan'),
-            Column::make('Status'),
+            Column::make('Status', 'id')->format(function ($id, $model, $row){
+                return $model->sisa_tagihan;
+            }),
             Column::make('Total Tagihan')->format(fn($total) => rupiah($total)),
         ];
     }

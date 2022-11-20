@@ -17,8 +17,6 @@ class Tabel extends DataTableComponent
     use LivewireAlert;
 
 
-    protected $model = Tagihan::class;
-
     public function configure(): void
     {
         $this->setPrimaryKey('id')->setTableRowUrl(function ($row) {
@@ -104,7 +102,7 @@ class Tabel extends DataTableComponent
             Column::make('Nama Siswa', 'santri.nama_lengkap')->searchable(),
             Column::make('Kategori', 'kategori.nama_kategori'),
             Column::make('Jumlah', 'total_tagihan')->format(fn($total) => rupiah($total)),
-            Column::make('Status', 'status')->format(function ($status, $model, $row) {
+            Column::make('Status', 'status')->format(function ($id, $model, $row) {
                 return view('_partials.boolean-status', [
                     'status' => $model->sisa_tagihan
                 ]);
@@ -113,5 +111,10 @@ class Tabel extends DataTableComponent
                 ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d F, Y'))
                 ->sortable(),
         ];
+    }
+
+    public function builder(): Builder
+    {
+        return Tagihan::query();
     }
 }
