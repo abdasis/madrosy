@@ -94,7 +94,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <strong>Total: {{$data_santri->count()}} Santri</strong>
+                            <strong>Total: {{$data_santri->count()}} Siswa</strong>
                         </div>
                     </div>
                 </div>
