@@ -112,9 +112,10 @@
 <?php endif; ?>
                         </div>
 
-                        <div class="form-group mb-2" wire:ignore>
-                            <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
-<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['name' => '','label' => 'Jumlah Pembayaran'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+                        <div class="inner-form mb-2">
+                            <div class="form-group" wire:ignore>
+                                <?php if (isset($component)) { $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4 = $component; } ?>
+<?php $component = ProtoneMedia\LaravelFormComponents\Components\FormInput::resolve(['label' => 'Jumlah Pembayaran','name' => ''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -128,6 +129,20 @@
 <?php $component = $__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4; ?>
 <?php unset($__componentOriginalc6dc29918f642c0cf8bf87f6c59d196df1a6e1b4); ?>
 <?php endif; ?>
+                            </div>
+                            <?php $__errorArgs = ['total_pembayaran'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <small class="text-danger">
+                                <?php echo e($message); ?>
+
+                            </small>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group mb-2">

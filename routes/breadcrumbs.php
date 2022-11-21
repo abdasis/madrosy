@@ -7,6 +7,11 @@ Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
 
+Breadcrumbs::for('detail-pembayaran', function (BreadcrumbTrail $trail, $id){
+    $trail->parent('tagihan.detail', $id);
+    $trail->push('Detail Pembayaran', route('detail-pembayaran', $id));
+});
+
 Breadcrumbs::for('profile.auth', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Profile', route('profile.auth'));

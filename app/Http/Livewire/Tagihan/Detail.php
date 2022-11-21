@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Tagihan;
 
 use App\Models\Keuangan\Tagihan;
+use App\Models\Keuangan\Transaksi;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -34,6 +35,12 @@ class Detail extends Component
         } else {
             $this->status = 'belum dibayar';
         }
+    }
+
+    public function showModal($id)
+    {
+        $transaksi = Transaksi::find($id);
+        dd($transaksi);
     }
 
     public function render()

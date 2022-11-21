@@ -87,7 +87,7 @@
                                         <button
                                             class="btn waves-effect btn-sm btn-primary btn-border d-flex align-items-center gap-1">
                                             <i class="ri-paypal-line"></i>
-                                            Request Online Pay
+                                            Pembayaran Online
                                         </button>
                                     </a>
                                 @endif
@@ -100,13 +100,19 @@
                                     <thead>
                                     <tr>
                                         <th>Tgl. Pembayaran</th>
+                                        <th>Method</th>
                                         <th class="text-end">Jumlah</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($pembayaran_berhasil as $pembayaran)
                                         <tr>
-                                            <td>{{\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')}}</td>
+                                            <td>
+                                                <a href="{{route('detail-pembayaran', $pembayaran->id)}}" class="fw-bold">
+                                                    {{\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')}}
+                                                </a>
+                                            </td>
+                                            <td>{{$pembayaran->jenis_pembayaran}}</td>
                                             <td class="text-end">{{rupiah($pembayaran->total)}}</td>
                                         </tr>
                                     @endforeach
@@ -227,3 +233,4 @@
         </div>
     </div>
 </div>
+

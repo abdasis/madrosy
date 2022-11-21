@@ -21,7 +21,7 @@ class TransaksiController extends Controller
             }
 
             if ($request->transaction_status != 'settlement') {
-                $status = 'belum dibayar';
+                $status = $request->transaction_status;
             } else {
                 $status = 'berhasil';
             }
@@ -56,13 +56,13 @@ class TransaksiController extends Controller
 
     public function pembayaranSelesai(Request $request)
     {
-        $transaksi = Transaksi::where('order', $request->order_id)->first();
+        $transaksi = Transaksi::where('order_id', $request->order_id)->first();
         return view('midtrans.pembayaran-selesai', compact('transaksi'));
     }
 
     public function pembayaranPending(Request $request)
     {
-        $transaksi = Transaksi::where('order', $request->order_id)->firstOrFail();
+        $transaksi = Transaksi::where('order_id', $request->order_id)->firstOrFail();
 
         $tagihan = $transaksi->tagihan;
 

@@ -88,7 +88,7 @@
                                         <button
                                             class="btn waves-effect btn-sm btn-primary btn-border d-flex align-items-center gap-1">
                                             <i class="ri-paypal-line"></i>
-                                            Request Online Pay
+                                            Pembayaran Online
                                         </button>
                                     </a>
                                 <?php endif; ?>
@@ -101,13 +101,20 @@
                                     <thead>
                                     <tr>
                                         <th>Tgl. Pembayaran</th>
+                                        <th>Method</th>
                                         <th class="text-end">Jumlah</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php $__currentLoopData = $pembayaran_berhasil; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pembayaran): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <td><?php echo e(\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')); ?></td>
+                                            <td>
+                                                <a href="<?php echo e(route('detail-pembayaran', $pembayaran->id)); ?>" class="fw-bold">
+                                                    <?php echo e(\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')); ?>
+
+                                                </a>
+                                            </td>
+                                            <td><?php echo e($pembayaran->jenis_pembayaran); ?></td>
                                             <td class="text-end"><?php echo e(rupiah($pembayaran->total)); ?></td>
                                         </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -232,4 +239,5 @@
         </div>
     </div>
 </div>
+
 <?php /**PATH C:\Users\abdas\Documents\GitHub\madrosy\resources\views/livewire/tagihan/detail.blade.php ENDPATH**/ ?>

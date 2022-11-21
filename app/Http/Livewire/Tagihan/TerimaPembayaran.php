@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Tagihan;
 use App\Models\Keuangan\Tagihan;
 use App\Models\Keuangan\Transaksi;
 use Barryvdh\Debugbar\Facades\Debugbar;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -58,24 +59,29 @@ class TerimaPembayaran extends Component
         }
 
         //pembayaran tidak boleh melebihi dari tagihan
-        if ($this->total_pembayaran > $this->tagihan->total_tagihan) {
+        $total_dibayar = $this->tagihan->transaksi->where('status_transaksi', 'berhasil')->sum('total');
+        $total_tagihan = $this->tagihan->total_tagihan - $total_dibayar;
+        if ($this->total_pembayaran > $total_tagihan) {
             $this->addError('total_pembayaran', 'Total pembayaran tidak boleh melebihi tagihan');
             return false;
         }
 
         $kode_kategori = $this->tagihan->kategori->kode;
-        $kode_transaksi = str_pad(now()->format('myis-') . $this->tagihan->santri_id, 8,0,STR_PAD_LEFT);
+        $nomor_transaksi = Transaksi::max('id');
+        $kode_transaksi = str_pad(now()->format('dmy-') . "{$this->tagihan->santri_id} - {$nomor_transaksi}", 8,0,STR_PAD_LEFT);
 
         $transaksi = Transaksi::where('kode_referensi', $this->tagihan->kode_transaksi)->first();
         $transaksi->order_id = "{$kode_kategori}-{$kode_transaksi}";
 
 
         try {
-            $transaksi->update([
+            Transaksi::create([
                 'waktu_transaksi' => now(),
                 'status_transaksi' => 'berhasil',
                 'toko' => "Tata Usaha Sekolah",
                 'kode_status' => 200,
+                'order_id' => $transaksi->order_id,
+                'transaksi_id' => $kode_transaksi,
                 'keterangan_status' => 'Uang berhasil diterima oleh TU',
                 'waktu_penyelesaian' => now()->toDateTimeString(),
                 'jenis_pembayaran' => $this->metode_pembayaran,
@@ -83,6 +89,7 @@ class TerimaPembayaran extends Component
                 'mata_uang' => 'IDR',
                 'tanda_terima' => auth()->user()->id,
                 'token' => \Str::uuid(),
+                'kode_referensi' => $this->tagihan->kode_transaksi,
             ]);
 
             $this->alert('success', 'Pembayaran tagihan berhasil disimpan');

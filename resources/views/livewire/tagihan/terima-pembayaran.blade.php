@@ -90,13 +90,20 @@
                             </x-form-select>
                         </div>
 
-                        <div class="form-group mb-2" wire:ignore>
-                            <x-form-input
-                                class="text-end"
-                                name=""
-                                label="Jumlah Pembayaran"
-                                id="total_pembayaran"
-                            />
+                        <div class="inner-form mb-2">
+                            <div class="form-group" wire:ignore>
+                                <x-form-input
+                                    class="text-end"
+                                    label="Jumlah Pembayaran"
+                                    id="total_pembayaran"
+                                    name=""
+                                />
+                            </div>
+                            @error('total_pembayaran')
+                            <small class="text-danger">
+                                {{$message}}
+                            </small>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-2">

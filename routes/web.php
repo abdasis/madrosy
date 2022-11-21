@@ -23,6 +23,7 @@ use App\Http\Livewire\Setting\Menu;
 use App\Http\Livewire\Setting\ResetPassword;
 use App\Http\Livewire\Tagihan\AturPerkelas;
 use App\Http\Livewire\Tagihan\Bayar;
+use App\Http\Livewire\Tagihan\DetailPembayaran;
 use App\Http\Livewire\Tagihan\TerimaPembayaran;
 use Illuminate\Support\Facades\Route;
 
@@ -111,7 +112,7 @@ Route::middleware([
             Route::get('tambah', Tambah::class)->name('kategori-tagihan.tambah');
             Route::get('edit/{kategori_tagihan}', Edit::class)->name('kategori-tagihan.edit');
         });
-
+        Route::get('/detail-pembayaran/{id}', DetailPembayaran::class)->name('detail-pembayaran');
     });
     Route::group(['prefix' => 'permission', 'middleware' => 'role:Administrator'], function () {
         Route::get('/', \App\Http\Livewire\Permission\Semua::class)->name('permission.semua');

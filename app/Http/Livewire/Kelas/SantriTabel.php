@@ -20,17 +20,27 @@ class SantriTabel extends DataTableComponent
 
     public function filters(): array
     {
+
+
+        $kelas = Kelas::query()->orderBy('nama_kelas')
+            ->get()
+            ->keyBy('id')
+            ->map(fn($kelas) => $kelas->nama_kelas)->toArray();
+
+        array_unshift($kelas,'None');
+
         return [
             SelectFilter::make('Kelas')
                 ->options(
-                    Kelas::query()->orderBy('nama_kelas')
-                        ->get()
-                        ->keyBy('id')
-                        ->map(fn($kelas) => $kelas->nama_kelas)->toArray(),
+                    $kelas
                 )->filter(function (Builder $query, string $kelas) {
-                    $query->whereHas('kelas', function ($query) use ($kelas) {
-                        $query->where('id', $kelas);
-                    });
+                    if ($kelas  != 0){
+                        $query->whereHas('kelas', function ($query) use ($kelas) {
+                            $query->where('id', $kelas);
+                        });
+                    }else{
+                        $query->whereDoesntHave('kelas');
+                    }
                 })
         ];
     }
