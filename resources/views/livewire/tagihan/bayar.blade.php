@@ -51,7 +51,7 @@
                             </table>
                         </div>
                         <div class="my-3 d-grid">
-                            <button wire:click.prevent="pay()" class="btn btn-success btn-border">
+                            <button id="btn-bayar" class="btn btn-success btn-border">
                                 Bayar Sekarang
                             </button>
                         </div>
@@ -68,9 +68,12 @@
             data-client-key="{{config('midtrans.client_key')}}">
     </script>
 
-    <script type="text/javascript">
-        Livewire.on('snapPay', (data) => {
-            window.snap.pay(@this.token);
+    <script>
+        Livewire.onLoad(() => {
+            var btnBayar = document.getElementById('btn-bayar');
+            btnBayar.addEventListener('click', () => {
+                window.snap.pay(@this.token);
+            })
         })
     </script>
 @endpush

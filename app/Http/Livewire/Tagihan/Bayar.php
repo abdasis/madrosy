@@ -44,13 +44,6 @@ class Bayar extends Component
 
     }
 
-    public function pay()
-    {
-
-        $this->emit('snapPay', $this->token);
-
-    }
-
     public function render()
     {
         return view('livewire.tagihan.bayar');
