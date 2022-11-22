@@ -169,7 +169,7 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
                             </table>
-                            <strong>Total: <?php echo e($data_santri->count()); ?> Santri</strong>
+                            <strong>Total: <?php echo e($data_santri->count()); ?> Siswa</strong>
                         </div>
                     </div>
                 </div>

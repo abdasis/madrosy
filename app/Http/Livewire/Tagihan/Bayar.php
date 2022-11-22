@@ -32,10 +32,13 @@ class Bayar extends Component
         //buat kode transaksi
         $kode_kategori = $this->tagihan->kategori->kode;
         $kode_transaksi = str_pad(now()->format('myis-') . $this->tagihan->santri_id, 8, 0, STR_PAD_LEFT);
-        $this->transaksi->order_id = "{$kode_kategori}-{$kode_transaksi}";
-        $this->transaksi->save();
+
+        $this->transaksi->update([
+            'order_id' =>  "{$kode_kategori}-{$kode_transaksi}"
+        ]);
 
         $midtrans = new CreateTokenService($this->transaksi);
+
         $this->token = $midtrans->generateSnapToken();
     }
 
