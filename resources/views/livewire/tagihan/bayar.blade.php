@@ -6,9 +6,11 @@
                 <div class="card border-light shadow-sm">
                     <div class="card-header d-flex align-items-center border-light border-bottom-dashed">
                         <h5 class="card-title mb-0 flex-grow-1">Pembayaran Tagihan</h5>
-                        <h5 class="text-success">
-                            Batal
-                        </h5>
+                        <a href="{{route('tagihan.detail', $tagihan->id)}}">
+                            <h5 class="text-success">
+                                Batal
+                            </h5>
+                        </a>
                     </div>
                     <div class="card-body">
                        <div class="card-text py-0 my-0 text-center">

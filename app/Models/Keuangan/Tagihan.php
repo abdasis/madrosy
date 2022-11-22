@@ -46,8 +46,8 @@ class Tagihan extends Model
             get: function ($tagihan){
                 $total_pembayaran = $this->transaksi()->where('status_transaksi', 'berhasil')->sum('total');
                 $total_tagihan = $this->total_tagihan;
-                $tgl_jatuh_tempo = Carbon::createFromDate($this->tgl_jatuh_tempo);
-                $tgl_hari_ini = Carbon::createFromDate(now());
+                $tgl_jatuh_tempo = Carbon::parse($this->tgl_jatuh_tempo);
+                $tgl_hari_ini = Carbon::now();
                 if ($total_pembayaran >= $total_tagihan) {
                     $status = 'lunas';
                 } elseif ($total_pembayaran > 0 && $total_pembayaran < $total_tagihan) {

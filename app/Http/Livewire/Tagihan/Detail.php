@@ -24,24 +24,9 @@ class Detail extends Component
         $tgl_jatuh_tempo = Carbon::createFromDate($tagihan->tgl_jatuh_tempo);
         $tgl_hari_ini = Carbon::createFromDate(now());
         $this->sisa_tagihan = $tagihan->total_tagihan - $total_pembayaran;
-        if ($total_pembayaran >= $tagihan->total_tagihan) {
-            $this->status = 'lunas';
-        } elseif ($total_pembayaran > 0 && $total_pembayaran < $tagihan->total_tagihan) {
-            $this->status = 'sebagian';
-        } elseif ($total_pembayaran > 0 || $total_pembayaran < $tagihan->total_tagihan && $tgl_hari_ini->gte($tgl_jatuh_tempo)) {
-            $this->status = 'jatuh tempo';
-        } elseif ($total_pembayaran < 1) {
-            $this->status = 'belum dibayar';
-        } else {
-            $this->status = 'belum dibayar';
-        }
+        $this->status = $tagihan->sisa_tagihan;
     }
 
-    public function showModal($id)
-    {
-        $transaksi = Transaksi::find($id);
-        dd($transaksi);
-    }
 
     public function render()
     {

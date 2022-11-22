@@ -120,6 +120,7 @@ class Tabel extends DataTableComponent
             //menghapus data avatar kalau santri dihapus
             $santri->avatar()->delete();
 
+
             $santri->delete();
 
             $this->alert('success', "Data berhasil dihapus");

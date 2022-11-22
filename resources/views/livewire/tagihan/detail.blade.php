@@ -168,8 +168,8 @@
                             </div>
                             <div class="col-md-6">
                                 <p class="text-muted m-0">: {{$tagihan->kode_tagihan}}</p>
-                                <p class="text-muted m-0">: {{$tagihan->created_at->format('d M Y')}}</p>
-                                <p class="text-muted m-0">: {{$tagihan->created_at->addDays(7)->format('d M Y')}}</p>
+                                <p class="text-muted m-0">: {{Carbon\Carbon::parse($tagihan->tgl_dibuat)->isoFormat('DD MMM YYYY')}}</p>
+                                <p class="text-muted m-0">: {{Carbon\Carbon::parse($tagihan->tgl_jatuh_tempo)->isoFormat('DD MMM YYYY')}}</p>
                                 <p class="text-muted m-0">:
                                     @if($status == 'sebagian')
                                         <span class="badge badge-outline-info">
@@ -181,6 +181,10 @@
                                         </span>
                                     @elseif($status == 'belum dibayar')
                                         <span class="badge badge-outline-warning">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @elseif($status == 'jatuh tempo')
+                                        <span class="badge badge-outline-danger">
                                             {{Str::title($status)}}
                                         </span>
                                     @else
