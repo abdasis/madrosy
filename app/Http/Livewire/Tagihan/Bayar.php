@@ -37,9 +37,11 @@ class Bayar extends Component
             'order_id' =>  "{$kode_kategori}-{$kode_transaksi}"
         ]);
 
+
         $midtrans = new CreateTokenService($this->transaksi);
 
         $this->token = $midtrans->generateSnapToken();
+
     }
 
     public function pay()

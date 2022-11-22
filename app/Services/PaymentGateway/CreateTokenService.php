@@ -16,8 +16,6 @@ class CreateTokenService extends Midtrans
 
     public function generateSnapToken()
     {
-
-
         try {
             $params = [
                 'transaction_details' => [
@@ -30,12 +28,11 @@ class CreateTokenService extends Midtrans
                     'last_name' => '',
                     'email' => $this->transaksi->tagihan->santri->email,
                     'phone' => $this->transaksi->tagihan->santri->no_hp,
+                    'address' => $this->transaksi->tagihan->santri->alamat,
                 ],
             ];
 
-            $token =  Snap::getSnapToken($params);
-
-            return $token;
+            return Snap::getSnapToken($params);
         }catch (\Exception $e){
             report($e);
         }
