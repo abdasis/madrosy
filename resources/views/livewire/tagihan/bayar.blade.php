@@ -70,7 +70,7 @@
 
     <script type="text/javascript">
         Livewire.on('snapPay', (data) => {
-            window.snap.pay(data);
+            window.snap.pay(@this.token);
         })
     </script>
 @endpush
