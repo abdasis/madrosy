@@ -75,6 +75,7 @@ class Edit extends Component
             'anak_ke' => 'required|lte:jumlah_saudara',
             'avatar' => 'nullable|max:1024|mimes:jpg,png,jpeg,webp,jpe',
             'nik' => 'required|min_digits:9|max_digits:20|unique:santris,nik,' . $this->santri_id,
+            'email' => 'email|unique:users,email'
         ];
     }
 

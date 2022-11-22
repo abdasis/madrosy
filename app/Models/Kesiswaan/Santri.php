@@ -5,6 +5,7 @@ namespace App\Models\Kesiswaan;
 use App\Models\Akademik\Kelas;
 use App\Models\Commons\Avatar;
 use App\Models\Commons\User;
+use App\Models\Keuangan\Tagihan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -61,5 +62,10 @@ class Santri extends Model
     public function avatar()
     {
         return $this->morphOne(Avatar::class, 'avatarable')->latest()->withDefault();
+    }
+
+    public function tagihan()
+    {
+        return $this->hasMany(Tagihan::class , 'santri_id', 'id');
     }
 }

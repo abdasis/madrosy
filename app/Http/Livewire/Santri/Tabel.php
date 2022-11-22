@@ -107,7 +107,21 @@ class Tabel extends DataTableComponent
     {
         if ($this->model_id) {
             $santri = Santri::find($this->model_id);
+
+            if ($santri->tagihan()->count() > 0){
+                $this->alert('warning', 'Tidak bisa menghapus santri yang sudah memiliki tanggungan');
+                session()->flash('error', 'Santri yang sudah memiliki tagihan tidak dapat di hapus, kamu bisa hapus tagihan nnya terlebih dahulu');
+                return false;
+            }
+
+            //menghapus data absensi dulu
+            $santri->data_absensi()->delete();
+
+            //menghapus data avatar kalau santri dihapus
+            $santri->avatar()->delete();
+
             $santri->delete();
+
             $this->alert('success', "Data berhasil dihapus");
         } else {
             $this->alert('error', "Data gagal dihapus");

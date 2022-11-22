@@ -18,6 +18,7 @@ class SantriTabel extends DataTableComponent
         $this->setPrimaryKey('id');
     }
 
+
     public function filters(): array
     {
 

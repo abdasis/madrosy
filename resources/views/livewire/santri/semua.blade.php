@@ -55,6 +55,9 @@
     </div>
     <div class="card">
         <div class="card-body">
+            @if(session()->has('error'))
+                <div class="alert alert-danger">{{session()->get('error')}}</div>
+            @endif
             <livewire:santri.tabel/>
         </div>
     </div>
