@@ -1,6 +1,6 @@
-# fly.toml file generated for esekolah on 2022-10-15T05:14:23+07:00
+# fly.toml file generated for schoola on 2022-10-20T08:22:55+07:00
 
-app = "esekolah"
+app = "schoola"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -10,26 +10,16 @@ processes = []
     NODE_VERSION = "14"
     PHP_VERSION = "8.1"
 
-[deploy]
-  release_command = "php /var/www/html/artisan migrate --force"
-
 [env]
   APP_ENV = "production"
-  APP_URL = "https://esekolah.fly.dev"
   LOG_CHANNEL = "stderr"
   LOG_LEVEL = "info"
   LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
-  DB_CONNECTION="pgsql"
-  DB_HOST="db.cspvbanxvqwwkuqttsgw.supabase.co"
-  DB_PORT=5432
-  DB_DATABASE="postgres"
+  APP_URL = "https://schoola.fly.dev"
 
 [experimental]
   allowed_public_ports = []
   auto_rollback = true
-  cmd = []
-  entrypoint = []
-  exec = []
 
 [[services]]
   http_checks = []
