@@ -67,3 +67,9 @@
         });
     </script>
 </x-guest-layout>
+
+
+<div class="form-group">
+    <label for=""></label>
+    <input type="text" onChange={handleChange} value={this.state.nama_lengkap}>
+</div>

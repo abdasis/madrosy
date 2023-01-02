@@ -28,7 +28,6 @@
 @elseif ($theme === 'bootstrap-4' || $theme === 'bootstrap-5')
     <tr
         wire:loading.class.delay=""
-        
         @if ($component->reorderIsEnabled() && $component->currentlyReorderingIsEnabled())
             wire:sortable.item="{{ $row->getKey() }}"
         @endif

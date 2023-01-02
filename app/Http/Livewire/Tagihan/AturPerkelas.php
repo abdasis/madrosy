@@ -7,6 +7,7 @@ use App\Models\Akademik\Kelas;
 use App\Models\Akademik\TahunAjaran;
 use App\Models\Keuangan\KategoriTagihan;
 use App\Models\Keuangan\Tagihan;
+use App\Repositories\Transaksi;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -35,6 +36,7 @@ class AturPerkelas extends Component
         ];
     }
 
+
     public function updated($field)
     {
         $this->validateOnly($field);
@@ -51,7 +53,6 @@ class AturPerkelas extends Component
 
     public function simpan()
     {
-        \Log::debug($this->all());
         $this->validate();
 
         //1. Ambil data kelas
@@ -65,18 +66,22 @@ class AturPerkelas extends Component
         {
             \DB::beginTransaction();
             if ($data_siswa){
+
                 //mengambil kode kategori tagihan
                 $kategori = KategoriTagihan::find($this->kategori_id);
                 if ($kategori){
                     $kode = $kategori->kode;
                 }
+
                 //mengambil nomor tagihan terkahir
-                foreach ($data_siswa as $key => $siswa){
-                    $nomor_tagihan = Tagihan::max('id') + 1;
+                foreach ($data_siswa as $key => $siswa) {
+                    $nomor_tagihan = Tagihan::max('id');
+                    $kode_transaksi = "{$kode}-" . str_pad($nomor_tagihan + 1, 8, 0, STR_PAD_LEFT);
                     $tagihan = Tagihan::create([
                         'santri_id' => $siswa->id,
-                        'kategori_tagihan_id' =>$this->kategori_id,
-                        'kode_tagihan' => "{$kode}-".Carbon::now()->format('dmy-') . $nomor_tagihan . "-" . $siswa->id,
+                        'kategori_tagihan_id' => $this->kategori_id,
+                        'kode_tagihan' => $kode_transaksi,
+                        'kode_transaksi' => \Str::uuid(),
                         'tgl_dibuat' => $this->tgl_tagihan,
                         'tgl_jatuh_tempo' => $this->tgl_jatuh_tempo,
                         'status' => 'belum dibayar',
@@ -84,12 +89,11 @@ class AturPerkelas extends Component
                         'keterangan' => $this->notes,
                         'dibuat_oleh' => auth()->id()
                     ]);
-                   MembuatTagihan::dispatch($tagihan);
+                    $transaksi = new Transaksi();
+                    $transaksi->create($tagihan->toArray());
                 }
             }
-
             $this->alert('success', 'Tagihan Berhasil Di buatkan');
-
             \DB::commit();
         }catch (\Exception $exception){
             \DB::rollBack();

@@ -4,35 +4,32 @@ namespace App\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class Transaksi implements TransaksiInterface
 {
     public function create(array $tagihan)
     {
-        try {
-            $transaksi = \App\Models\Keuangan\Transaksi::create([
-                'waktu_transaksi' => Carbon::now()->toDateTimeString(),
-                'status_transaksi' => 'pending',
-                'transaksi_id' => $tagihan['kode_tagihan'],
-                'toko' => 'belum diketahui',
-                'keterangan_status' => 'Menunggu pembayaran yang dipilih oleh santri',
-                'kode_status' => 'pending',
-                'tanda_terima' => 'belum diketahui',
-                'waktu_penyelesaian' => 'belum diketahui',
-                'jenis_pembayaran' => 'belum diketahui',
-                'kode_pembayaran' => 'belum diketahui',
-                'order_id' => $tagihan['kode_tagihan'],
-                'merchant_id' => 'belum diketahui',
-                'total' => $tagihan['total_tagihan'],
-                'mata_uang' => 'IDR',
-                'kode_persetujuan' => 'belum diketahui',
-                'penipuan_status' => 'belum diketahui',
-            ]);
-
-            return $transaksi;
-        }catch (\Exception $e) {
-            Log::error($e->getMessage());
-        }
+        \App\Models\Keuangan\Transaksi::create([
+            'waktu_transaksi' => Carbon::now()->toDateTimeString(),
+            'status_transaksi' => 'pending',
+            'toko' => 'belum diketahui',
+            'keterangan_status' => 'Menunggu pembayaran yang dipilih oleh santri',
+            'kode_status' => 'pending',
+            'transaksi_id' => $tagihan['kode_transaksi'],
+            'tanda_terima' => 'belum diketahui',
+            'waktu_penyelesaian' => 'belum diketahui',
+            'jenis_pembayaran' => 'belum diketahui',
+            'kode_pembayaran' => 'belum diketahui',
+            'order_id' => $tagihan['kode_tagihan'],
+            'merchant_id' => 'belum diketahui',
+            'total' => $tagihan['total_tagihan'],
+            'mata_uang' => 'IDR',
+            'kode_persetujuan' => 'belum diketahui',
+            'penipuan_status' => 'belum diketahui',
+            'token' => Str::uuid(),
+            'kode_referensi' => $tagihan['kode_transaksi']
+        ]);
 
     }
 }

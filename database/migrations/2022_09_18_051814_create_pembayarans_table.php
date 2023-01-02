@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
+            $table->date('tgl_pembayaran');
+            $table->foreignId('tagihan_id')->constrained();
+            $table->string('jumlah');
+            $table->string('total_uang_diterima');
+            $table->string('jumlah_kembalian');
+            $table->text('keterangan');
+            $table->bigInteger('dibuat_oleh');
             $table->timestamps();
         });
     }

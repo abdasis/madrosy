@@ -27,10 +27,19 @@ class PindahKelasForm extends Component
         //membuat array santri untuk di asosiasikan ke kelas baru
         foreach ($this->siswa_terpilih as $santri){
             $santri->kelas()->sync($this->kelas_id);
+
+            $kelas = Kelas::find($this->kelas_id);
+
+            activity()
+                ->causedBy(auth()->id())
+                ->performedOn($santri)
+                ->event('Memindahkan Kelas')
+                ->log("Memindah siswa {$santri->nama_lengkap} ke {$kelas->nama_kelas}");
         }
 
         //hapus session siswa yang terpilih
         \Session::forget('data_santri');
+
 
         //redirect ke halaman kelas
         $this->flash('success', 'Data berhasil di pindah kelas', [], route('kelas.semua'));

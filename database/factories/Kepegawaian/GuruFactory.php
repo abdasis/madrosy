@@ -20,7 +20,7 @@ class GuruFactory extends Factory
             'nama' => $this->faker->name,
             'nik' => $this->faker->numberBetween(100000000, 999999999),
             'agama' => $this->faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha']),
-            'jenis_kelamin' => $this->faker->randomElement(['Laki-laki', 'Perempuan']),
+            'jenis_kelamin' => $this->faker->randomElement(['Laki-Laki', 'Perempuan']),
             'tempat_lahir' => $this->faker->randomElement(['Jakarta', 'Bandung', 'Surabaya', 'Malang', 'Yogyakarta']),
             'tanggal_lahir' => $this->faker->dateTimeBetween('-30 years', '-18 years'),
             'nama_ibu' => $this->faker->name('female'),

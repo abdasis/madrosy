@@ -1,7 +1,7 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="card">
-        <div class="card-header border-0 d-flex align-items-center gap-1">
+        <div class="card-header border-0 d-flex align-items-center gap-1 border-bottom border-light">
             <h1 class="card-title flex-grow-1">Data Semua Kelas</h1>
             <button
                 class="btn btn-light btn-border waves-effect d-flex align-items-center gap-1"
@@ -20,7 +20,11 @@
             </a>
 
         </div>
-        <div class="card-body">
+        <div class="card-body bg-soft-light">
+            <div class="alert alert-info">
+                Jika kamu mau print qr code, namun ketika di print file not found. kamu bisa sunting
+                terlebih dahulu kelas yang akan kamu download QRCode nya
+            </div>
             <livewire:kelas.tabel/>
         </div>
     </div>

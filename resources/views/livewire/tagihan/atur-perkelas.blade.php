@@ -44,8 +44,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <x-form-input name="jumlah" wire:model="jumlah" placeholder="Masukan jumlah tagihan" label="Jumlah Tagihan"/>
+                        <div class="form-group mb-3" wire:ignore>
+                            <x-form-input name="jumlah" class="text-end" id="jumlah" placeholder="Rp. 80.000" label="Jumlah Tagihan"/>
                         </div>
                         <div class="form-gorup mb-3">
                             <x-form-textarea name="notes" wire:model="notes" label="Notes"/>
@@ -94,7 +94,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <strong>Total: {{$data_santri->count()}} Santri</strong>
+                            <strong>Total: {{$data_santri->count()}} Siswa</strong>
                         </div>
                     </div>
                 </div>
@@ -102,3 +102,13 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        var jumlah = document.getElementById('jumlah')
+        jumlah.addEventListener('keyup', (event) => {
+            rupiah(jumlah)
+            @this.set('jumlah', rupiah(jumlah))
+        })
+    </script>
+@endpush

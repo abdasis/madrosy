@@ -7,10 +7,13 @@ use App\Models\Keuangan\Tagihan;
 use App\Models\Keuangan\Transaksi;
 use App\Services\PaymentGateway\CreateTokenService;
 use Carbon\Carbon;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class Bayar extends Component
 {
+    use LivewireAlert;
+
     public $transaksi;
     public $token;
     public $tagihan;
@@ -18,40 +21,31 @@ class Bayar extends Component
 
     public function mount($kode)
     {
-        $this->transaksi = Transaksi::where('order_id', $kode)->first();
 
-        $midtrans = new CreateTokenService($this->transaksi);
-        $kategori = KategoriTagihan::find($this->transaksi->tagihan->kategori_tagihan_id);
-        if ($kategori){
-            $kode_tagihan = $kategori->kode;
-        }
-        //update kode tagihan dengan waktu sekarang
-        $nomor_tagihan = Tagihan::max('id') + 1;
-        $siswa = $this->transaksi->tagihan->santri;
-        $this->kode = "{$kode_tagihan}-".Carbon::now()->format('dmys-') . $nomor_tagihan . "-" . $siswa->id;
-        $this->transaksi->order_id = $this->kode;
-        $this->token = $midtrans->generateSnapToken();
+        $this->transaksi = Transaksi::where('kode_referensi', \Crypt::decryptString($kode))->firstOrFail();
         $this->tagihan = $this->transaksi->tagihan;
 
-        if ($this->tagihan->status == 'lunas'){
-            return redirect()->route('midtrans.selesai', ['order_id' => $kode]);
+        if ($this->tagihan->sisa_tagihan == 'lunas') {
+            $this->flash('info', 'Tagihan sudah berhasil dibayarkan', [], route('tagihan.detail', $this->tagihan->id));
         }
 
-    }
-
-    public function pay()
-    {
+        //buat kode transaksi
+        $kode_kategori = $this->tagihan->kategori->kode;
+        $kode_transaksi = str_pad(now()->format('myis-') . $this->tagihan->santri_id, 8, 0, STR_PAD_LEFT);
 
         $this->transaksi->update([
-            'order_id' => $this->kode,
+            'order_id' =>  "{$kode_kategori}-{$kode_transaksi}"
         ]);
 
-        $this->emit('snapPay', $this->token);
+
+        $midtrans = new CreateTokenService($this->transaksi);
+
+        $this->token = $midtrans->generateSnapToken();
 
     }
 
     public function render()
     {
-        return view('livewire.tagihan.bayar')->layout('layouts.guest');
+        return view('livewire.tagihan.bayar');
     }
 }

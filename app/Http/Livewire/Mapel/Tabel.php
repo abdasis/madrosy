@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Mapel;
 
 use App\Models\Akademik\Mapel;
 use App\Traits\KonfirmasiHapus;
+use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
@@ -51,13 +52,13 @@ class Tabel extends DataTableComponent
                 ->sortable(),
             Column::make('Nama', 'nama')
                 ->sortable()->searchable(),
-             Column::make('Dibuat Oleh', 'pembuat.name')
+            Column::make('Dibuat Oleh', 'pembuat.name')
                 ->sortable()->searchable(),
             Column::make("Dibuat Pada", "created_at")
-                ->sortable(),
+                ->sortable()->format(fn($tanggal) => Carbon::parse($tanggal)->format('d-m-Y')),
             Column::make("Terakhir Diedit", "updated_at")
-                ->sortable(),
-            Column::make('Opsi', 'id')->format(function ($id){
+                ->sortable()->format(fn($tanggal) => Carbon::parse($tanggal)->format('d-m-Y')),
+            Column::make('Opsi', 'id')->format(function ($id) {
                 return view('tombol-aksi', [
                     'id' => $id,
                     'editWithModal' => 'mapel.edit',

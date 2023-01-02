@@ -34,13 +34,15 @@ class Edit extends Component
     {
         $id = $this->mapel_id;
         return[
-            'nama' => 'required',
-            'kode' => 'required|unique:mapels,kode,'.$id
+            'kode' => 'required|unique:mapels,kode,' . $id,
+            'nama' => 'required|unique:mapels,nama'
         ];
     }
 
     public function simpan()
     {
+
+
         $this->validate();
         try {
             $mapel = Mapel::where('id', $this->mapel_id)->update([
@@ -50,7 +52,7 @@ class Edit extends Component
                 'diubah_oleh' => auth()->id()
             ]);
             $this->emit('mapelDiperbarui', $mapel);
-            $this->alert('success', 'Data berhasil diperbarui');
+            $this->flash('success', 'Data berhasil diperbarui', [], route('mapel.semua'));
         }catch (\Exception $e){
             \Debugbar::info($e);
             $this->alert('error', 'Data gagal disimpan');

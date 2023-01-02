@@ -15,7 +15,7 @@
     >
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header pb-3 border-bottom border-bottom-dashed d-flex align-items-center">
+                <div class="modal-header pb-3 border-bottom border-bottom border-light d-flex align-items-center">
                     <h5 class="modal-title" id="exampleModalLabel">{{$title}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

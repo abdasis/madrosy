@@ -1,20 +1,54 @@
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card ribbon-box ribbon-fill ribbon-sm">
-                <div class="card-header border-bottom-dashed">
-                    <div class="ribbon ribbon-success"><i class="ri-checkbox-circle-fill"></i></div>
-                    <a class="d-flex align-items-center" data-bs-toggle="collapse" href="#contactInitiated1" role="button" aria-expanded="false" aria-controls="contactInitiated1">
-                        <div class="flex-shrink-0">
-{{--                            <img src="assets/images/users/avatar-5.jpg" alt="" class="avatar-xs rounded-circle">--}}
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h6 class="fs-14 mb-1">{{$santri->nama_lengkap}} @if($santri->nama_panggilan)({{$santri->nama_panggilan}})@endif</h6>
-                            <p class="text-muted mb-0">{{$santri->nisn}}</p>
-                        </div>
-                    </a>
+    <div class="position-relative mx-n4 mt-n4">
+        <div class="profile-wid-bg profile-setting-img">
+            <img src="{{asset('assets/images/profile-bg.jpg')}}" class="profile-wid-img" alt="">
+            <div class="overlay-content">
+                <div class="text-end p-3">
+                    <div class="p-0 ms-auto rounded-circle profile-photo-edit">
+                        <input id="profile-foreground-img-file-input" type="file"
+                               class="profile-foreground-img-file-input">
+                        {{--<label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light">
+                            <i class="ri-image-edit-line align-bottom me-1"></i> Change Cover
+                        </label>--}}
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xxl-3 col-md-3 col-sm-12">
+            <div class="card mt-n5">
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
+                            @if($santri->avatar->nama_file != null)
+                                <img src="{{asset($santri->avatar->nama_file)}}"
+                                     class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                     alt="user-profile-image"
+                                >
+                            @else
+                                <img
+                                    src="{{'https://ui-avatars.com/api/?background=random&name=' . $santri->nama_lengkap}}"
+                                    class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                    alt="user-profile-image">
+                            @endif
+                        </div>
+                        <h5 class="fs-16 mb-1">{{$santri->nama_lengkap}}</h5>
+                        <p class="text-muted mb-0">{{$santri->nik}}</p>
+                        <div class="my-2 d-grid">
+                            <a href="{{route('santri.edit', $santri->id)}}">
+                                <button class="btn border-bottom btn-light">
+                                    <i class="ri-edit-line"></i>
+                                    Sunting Profile
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end card-->
+            <div class="card">
                 <div class="card-body">
                     <div class="biodata-singkat">
                         <ul class="list-unstyled vstack gap-2 mb-0">
@@ -25,7 +59,9 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">Umur</h6>
-                                        <small class="text-muted">{{\Carbon\Carbon::parse($santri->tanggal_lahir)->diffInYears(now())}} thn</small>
+                                        <small
+                                            class="text-muted">{{\Carbon\Carbon::parse($santri->tanggal_lahir)->diffInYears()}}
+                                            thn</small>
                                     </div>
                                 </div>
                             </li>
@@ -55,110 +91,135 @@
                     </div>
                 </div>
             </div>
+            <!--end card-->
         </div>
-        <div class="col-md-9">
-            <div class="card">
-                <div class="card-header border-0">
-                    <h5 class="card-title">Biodata Santri</h5>
-                </div>
+        <!--end col-->
+        <div class="col-xxl-9 col-md-9 col-sm-12">
+            <div class="card mt-xxl-n5">
                 <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link fw-semibold active" data-bs-toggle="tab" href="#productnav-all" role="tab" aria-selected="true">
-                                        Bidata Santri
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link fw-semibold" data-bs-toggle="tab" href="#productnav-published" role="tab" aria-selected="false">
-                                        Biodata Orang Tua
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link fw-semibold" data-bs-toggle="tab" href="#productnav-draft" role="tab" aria-selected="false">
-                                        Total Transaksi  <span class="badge badge-soft-danger align-middle rounded-pill ms-1">12</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-auto">
-                            <div id="selection-element" style="display: none;">
-                                <div class="my-n1 d-flex align-items-center text-muted">
-                                    Select <div id="select-content" class="text-body fw-semibold px-1"></div> Result <button type="button" class="btn btn-link link-danger p-0 ms-3" data-bs-toggle="modal" data-bs-target="#removeItemModal">Remove</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#biodata" role="tab"
+                               aria-selected="true">
+                                <i class="fas fa-home"></i> Biodata
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#riwayat-sekolah" role="tab"
+                               aria-selected="false">
+                                <i class="far fa-user"></i> Data Ortu
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#data-tagihan" role="tab"
+                               aria-selected="false">
+                                <i class="far fa-envelope"></i> Data Tagihan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab" aria-selected="false">
+                                <i class="far fa-envelope"></i> Transaksi Tabungan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab" aria-selected="false">
+                                <i class="far fa-envelope"></i> Riwayat Penghargaan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#konseling" role="tab" aria-selected="false">
+                                <i class="far fa-envelope"></i> Data Konseling
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="card-body">
-                    <div class="tab-content text-muted">
-                        <div class="tab-pane active" id="productnav-all" role="tabpanel">
-                            <table class="table table-borderless">
-                                <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>:</td>
-                                    <td>{{$santri->nama_lengkap}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Panggilan</td>
-                                    <td>:</td>
-                                    <td>{{$santri->nama_panggilan ?? '-'}}</td>
-                                </tr>
-                                <tr>
-                                    <td>NISN</td>
-                                    <td>:</td>
-                                    <td>{{$santri->nisn}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kelas</td>
-                                    <td>:</td>
-                                    <td>{{$santri->kelas->first()->nama_kelas ?? 'none'}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td>:</td>
-                                    <td>{{$santri->jenis_kelamin}}</td>
-                                </tr>
-                                <tr>
-                                    <td>TTL</td>
-                                    <td>:</td>
-                                    <td>{{$santri->tempat_lahir}}, {{\Carbon\Carbon::parse($santri->tanggal_lahir)->format('d F Y')}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Agama</td>
-                                    <td>:</td>
-                                    <td>{{$santri->agama}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td>:</td>
-                                    <td>{{$santri->alamat}}</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <!-- end tab pane -->
+                <div class="card-body p-4">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="biodata" role="tabpanel">
+                            <form action="javascript:void(0);">
+                                <div class="row gy-3">
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0 avatar-xs align-self-center me-3">
+                                            <div class="avatar-title bg-light rounded-circle fs-20 text-primary">
+                                                <i class="ri-home-2-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="mb-1">Tempat Tinggal</p>
+                                            <h6 class="text-truncate mb-0">{{$santri->tempat_lahir}}</h6>
+                                        </div>
+                                    </div>
 
-                        <div class="tab-pane" id="productnav-published" role="tabpanel">
-                            <div class="py-4 text-center">
-                                <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#405189,secondary:#0ab39c" style="width:72px;height:72px">
-                                </lord-icon>
-                                <h5 class="mt-4">Belum Ada Data Orang Tua yang Ditambahkan</h5>
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0 avatar-xs align-self-center me-3">
+                                            <div class="avatar-title bg-light rounded-circle fs-20 text-primary">
+                                                <i class="ri-calendar-event-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="mb-1">Tanggal Lahir</p>
+                                            <h6 class="text-truncate mb-0">{{\Carbon\Carbon::parse($santri->tanggal_lahir)->format('d F, Y')}}</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0 avatar-xs align-self-center me-3">
+                                            <div class="avatar-title bg-light rounded-circle fs-20 text-primary">
+                                                <i class="mdi mdi-mosque"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="mb-1">Agama</p>
+                                            <h6 class="text-truncate mb-0">{{$santri->agama}}</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0 avatar-xs align-self-center me-3">
+                                            <div class="avatar-title bg-light rounded-circle fs-20 text-primary">
+                                                <i class="mdi mdi-gender-male-female"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="mb-1">Jenis Kelamin</p>
+                                            <h6 class="text-truncate mb-0">{{$santri->jenis_kelamin}}</h6>
+                                        </div>
+                                    </div>
+
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </form>
+                        </div>
+                        <!--end tab-pane-->
+                        <div class="tab-pane" id="riwayat-sekolah" role="tabpanel">
+                            <div class="">
+                                <livewire:guru.riwayat-pendidikan-tabel :id="$santri->id"/>
                             </div>
                         </div>
-                        <!-- end tab pane -->
-
-                        <div class="tab-pane" id="productnav-draft" role="tabpanel">
-                            <div class="py-4 text-center">
-                                <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#405189,secondary:#0ab39c" style="width:72px;height:72px">
-                                </lord-icon>
-                                <h5 class="mt-4">Sorry! No Result Found</h5>
+                        <!--end tab-pane-->
+                        <div class="tab-pane" id="data-tagihan" role="tabpanel">
+                            <div class="">
+                                <livewire:santri.tabel-tagihan :id="$santri->id"/>
                             </div>
                         </div>
-                        <!-- end tab pane -->
+                        <!--end tab-pane-->
+                        <div class="tab-pane" id="privacy" role="tabpanel">
+                            <div class="">
+                                <h5 class="text-center">Coming Soon</h5>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="konseling" role="tabpanel">
+                            <div class="">
+                                <h1>Hadir</h1>
+                            </div>
+                        </div>
+
+                        <!--end tab-pane-->
                     </div>
                 </div>
             </div>
         </div>
+        <!--end col-->
     </div>
 </div>

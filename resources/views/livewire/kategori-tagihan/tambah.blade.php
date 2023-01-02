@@ -2,16 +2,11 @@
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="card">
         <div class="card-body">
-            <div class="row">
+            <div class="row justify-content-between align-items-center">
                 <div class="col-md-6">
-                    <div class="alert alert-success alert-top-border alert-dismissible fade show" role="alert">
-                        <i class="ri-information-fill me-3 align-middle fs-16 text-success"></i>
-                        <span>Kamu bisa menambahkan kategori tagihan sesuai kebutuhan dari sekolah</span>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
                     <form wire:submit.prevent="simpan">
                         <div class="form-group mb-3">
-                            <x-form-input type="text" name="nama_kategori" label="Nama Kategori" wire:model="nama_kategori" />
+                            <x-form-input type="text" name="nama_kategori" label="Nama Kategori" wire:model="nama_kategori" placeholder="e.g: Daftar Ulang" />
                         </div>
                         <div class="form-group mb-3">
                             <x-form-select name="tahun_ajaran_id" label="Tahun Ajaran" wire:model="tahun_ajaran_id">
@@ -36,7 +31,7 @@
                             </x-form-group>
                         </div>
                         <div class="form-gorup mb-3">
-                            <x-form-textarea name="keterangan" wire:model="keterangan" label="Keterangan"/>
+                            <x-form-textarea placeholder="Masukan keterangan tagihan" name="keterangan" wire:model="keterangan" label="Keterangan"/>
                         </div>
                         <div class="form-group mb-3">
                             <button
@@ -47,7 +42,19 @@
                         </div>
                     </form>
                 </div>
+                <div class="col-md-5">
+                    <div class="alert alert-secondary fade show" role="alert">
+                        <i class="ri-question-line align-middle fs-16"></i> Bantuan <br>
+                        <ul>
+                            <li>Nama Kategori Sesuaikan dengan Nama Tagihan yang akan dibuat, e.g <strong>Daftar Ulang</strong></li>
+                            <li>Pilih tahun ajaran yang sedang aktif saat ini</li>
+                            <li>Jenis tagihan bisa kamu pilih sesuaikan dengan kebutuhan dari tagihan, misal untuk SPP di set ke bulanan</li>
+                            <li>Pembayarna yang bisa di angsur, kamu bisa mengirim tagihan nantinya sesuai yang ingin dibayarkan oleh wali murid</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+

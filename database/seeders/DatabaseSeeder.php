@@ -7,7 +7,9 @@ use Database\Seeders\Akademik\JadwalSeeder;
 use Database\Seeders\Akademik\KelasSeeder;
 use Database\Seeders\Akademik\MapelSeeder;
 use Database\Seeders\Akademik\TahunAjaranSeeder;
+use Database\Seeders\Commons\RolesSeeder;
 use Database\Seeders\Kepegawaian\GuruSeeder;
+use Database\Seeders\Kesiswaan\PelanggaranSeeder;
 use Database\Seeders\Kesiswaan\SantriSeeder;
 use Database\Seeders\Keuangan\RekeningSeeder;
 use Illuminate\Database\Seeder;
@@ -26,37 +28,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Abdul Aziz',
-            'email' => 'id.abdasis@gmail.com',
-            'password' => bcrypt('rahasia123'),
-        ]);
-
-        Role::insert([
-            ['name' => 'Super Admin', 'guard_name' => 'web'],
-            ['name' => 'Guru', 'guard_name' => 'web'],
-            ['name' => 'Siswa', 'guard_name' => 'web'],
-            ['name' => 'Pimpinan', 'guard_name' => 'web'],
-            ['name' => 'Pegawai', 'guard_name' => 'web'],
-            ['name' => 'Wali Murid', 'guard_name' => 'web'],
-        ]);
-
-        $this->call([
-            ProvincesSeeder::class,
-            CitiesSeeder::class,
-            DistrictsSeeder::class,
-            VillagesSeeder::class,
-        ]);
 
         if (app()->environment('local')) {
             $this->call([
+                RolesSeeder::class,
+                ProvincesSeeder::class,
+                CitiesSeeder::class,
+                DistrictsSeeder::class,
+                VillagesSeeder::class,
                 GuruSeeder::class,
+                SantriSeeder::class,
                 RekeningSeeder::class,
                 TahunAjaranSeeder::class,
                 KelasSeeder::class,
                 MapelSeeder::class,
                 JadwalSeeder::class,
+                PelanggaranSeeder::class,
+            ]);
+        } else {
+            $this->call([
+                GuruSeeder::class,
+                ProvincesSeeder::class,
+                CitiesSeeder::class,
+                DistrictsSeeder::class,
+                VillagesSeeder::class,
+                RolesSeeder::class,
             ]);
         }
+
     }
 }

@@ -27,10 +27,13 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <x-form-select name="pelanggaran_id" wire:model="pelanggaran_id" class="form-control">
+                                        <x-form-select name="pelanggaran_id" wire:model="pelanggaran_id"
+                                                       class="form-control">
                                             <option value="">Pilih Pelanggaran</option>
                                             @foreach($semua_pelanggaran as $pelanggaran)
-                                                <option value="{{$pelanggaran->id}}">{{$pelanggaran->kasus}} ({{$pelanggaran->bobot}})</option>
+                                                <option value="{{$pelanggaran->id}}">{{$pelanggaran->kasus}}
+                                                    ({{$pelanggaran->bobot}})
+                                                </option>
                                             @endforeach
                                         </x-form-select>
                                     </div>
@@ -40,13 +43,11 @@
                                     <label for="">Tanggal</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="form-group" wire:ignore.self>
+                                    <div class="form-group">
                                         <x-form-input
+                                            type="date"
                                             name="tanggal"
                                             wire:model="tanggal"
-                                            data-provider="flatpickr"
-                                            data-date-format="d F, Y"
-                                            readonly="readonly"
                                             placeholder="Masukan Tanggal"
                                         />
                                     </div>
@@ -65,6 +66,34 @@
                                         placeholder="Masukan Layanan Konseling"
                                     ></x-form-textarea>
                                 </div>
+
+
+                                <div class="col-md-3">
+                                    <label for="foto_bukti">Photo Bukti</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <x-form-input
+                                            type="file"
+                                            name="tanggal"
+                                            wire:model="foto_bukti"
+                                            placeholder="Masukan Tanggal"
+                                        />
+                                        @if($errors->any())
+                                            @foreach($errors->get('foto_bukti') as $error)
+                                                <small class="text-danger">{{$error}}</small>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                    @if(!$errors->has('foto_bukti'))
+                                        @if ($foto_bukti)
+                                            <img style="object-fit: contain"
+                                                 class="avatar-md img-thumbnail img-fluid my-2"
+                                                 src="{{  $foto_bukti->temporaryUrl() }}">
+                                        @endif
+                                    @endif
+                                </div>
+
 
                                 <div class="form-group d-flex justify-content-end">
                                     <button class="btn btn-success btn-border d-flex align-items-center gap-1">

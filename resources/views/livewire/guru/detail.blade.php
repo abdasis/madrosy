@@ -6,29 +6,24 @@
                 <div class="text-end p-3">
                     <div class="p-0 ms-auto rounded-circle profile-photo-edit">
                         <input id="profile-foreground-img-file-input" type="file" class="profile-foreground-img-file-input">
-                        <label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light">
+                        {{--<label for="profile-foreground-img-file-input" class="profile-photo-edit btn btn-light">
                             <i class="ri-image-edit-line align-bottom me-1"></i> Change Cover
-                        </label>
+                        </label>--}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-xxl-3">
+        <div class="col-xxl-3 col-md-3">
             <div class="card mt-n5">
                 <div class="card-body p-4">
                     <div class="text-center">
                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                            <img src="{{'https://ui-avatars.com/api/?background=random&name=' . $guru->nama}}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
-                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                    <span class="avatar-title rounded-circle bg-light text-body">
-                                                        <i class="ri-camera-fill"></i>
-                                                    </span>
-                                </label>
-                            </div>
+                            <img
+                                src="{{$guru->avatar != null ? asset($guru->avatar->nama_file) : 'https://ui-avatars.com/api/?background=random&name=' . $guru->nama}}"
+                                class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                alt="user-profile-image">
                         </div>
                         <h5 class="fs-16 mb-1">{{$guru->nama}}</h5>
                         <p class="text-muted mb-0">{{$guru->nik}}</p>
@@ -92,11 +87,6 @@
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" href="#riwayat-sekolah" role="tab" aria-selected="false">
                                 <i class="far fa-user"></i> Riwayat Sekolah
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#experience" role="tab" aria-selected="false">
-                                <i class="far fa-envelope"></i> Riwayat Pelatihan
                             </a>
                         </li>
                         <li class="nav-item">
@@ -200,8 +190,8 @@
                         </div>
                         <!--end tab-pane-->
                         <div class="tab-pane" id="riwayat-sekolah" role="tabpanel">
-                            <div class="">
-                                <livewire:guru.riwayat-pendidikan-tabel :id="$guru->id">
+                            <div>
+                                <livewire:guru.riwayat-pendidikan-tabel :id="$guru->id"/>
                             </div>
                         </div>
                         <!--end tab-pane-->
@@ -223,5 +213,4 @@
         </div>
         <!--end col-->
     </div>
-
 </div>

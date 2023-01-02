@@ -6,15 +6,19 @@ use App\Models\Commons\Kabupaten;
 use App\Models\Commons\Kecamatan;
 use App\Models\Commons\Kelurahan;
 use App\Models\Commons\Provinsi;
+use App\Models\Commons\User;
 use App\Models\Kepegawaian\Guru;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Spatie\Permission\Models\Role;
 
 class Edit extends Component
 {
     use LivewireAlert;
+    use WithFileUploads;
 
     public $provinsi;
     public $kabupaten;
@@ -40,12 +44,18 @@ class Edit extends Component
     public $tanggal_masuk;
     public $foto;
     public $status;
+    public $password;
+    public $role;
+    public $avatar;
+    public $preview_avatar;
 
     public $guru;
 
+    protected $listeners = ['disimpan' => 'simpan'];
+
     public function mount(Guru $guru)
     {
-        $provinsi =  Provinsi::where('code', $guru->provinsi)->first()->code ?? null;
+        $provinsi = Provinsi::where('code', $guru->provinsi)->first()->code ?? null;
         $this->nama = $guru->nama;
         $this->nik = $guru->nik;
         $this->agama = $guru->agama;
@@ -70,8 +80,10 @@ class Edit extends Component
         $this->dusun = $guru->dusun;
         $this->pos = $guru->kode_pos;
         $this->guru = $guru;
-
-
+        $this->user = $guru->user;
+        $this->password = $this->user->password;
+        $this->role = $this->user->getRoleNames()->first() ?? '';
+        $this->preview_avatar = $guru->avatar != null ? asset($guru->avatar->nama_file) : 'https://ui-avatars.com/api/?background=random&name=' . $guru->nama;
     }
 
     public function rules()
@@ -95,6 +107,15 @@ class Edit extends Component
             'dusun' => 'required',
             'pos' => 'required',
             'status_guru' => 'required',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
+            'role' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'avatar.max' => 'Foto maksimal ukuran 1 Mb'
         ];
     }
 
@@ -103,14 +124,40 @@ class Edit extends Component
         $this->validateOnly($property);
     }
 
+    public function konfirmasiSimpan()
+    {
+        $this->validate();
+
+        $this->confirm('Yakin akan edit data ini?', [
+            'text' => 'Data lama tidak akan bisa di kembalikan',
+            'showConfirmButton' => true,
+            'confirmButtonText' => 'Ya, Yakin',
+            'denyButtonText' => 'Tidak',
+            'cancelButtonText' => 'Batal',
+            'onConfirmed' => 'disimpan',
+            'allowOutsideClick' => false,
+            'timer' => null,
+            'iconHtml' => '<img class="img-fluid" src="/assets/icons/sad.png"/>',
+        ]);
+
+    }
+
     public function simpan()
     {
         $this->validate();
 
         try {
             DB::beginTransaction();
-            //menyimpan data guru
-            $guru = Guru::where('id', $this->guru->id)->update([
+
+            $this->user->update([
+                'email' => $this->email
+            ]);
+
+            $this->user->syncRoles($this->role);
+
+            $guru = Guru::find($this->guru->id);
+
+            $guru->update([
                 'nama' => $this->nama,
                 'nik' => $this->nik,
                 'agama' => $this->agama,
@@ -128,20 +175,28 @@ class Edit extends Component
                 'tanggal_masuk' => $this->tanggal_masuk,
                 'foto' => "https://ui-avatars.com/api/?background=random&color=fff&name={$this->nama}",
                 'user_id' => $this->guru->user->id,
-
                 'provinsi' => $this->provinsi,
                 'kabupaten' => $this->kabupaten,
                 'kecamatan' => $this->kecamatan,
                 'kelurahan' => $this->kelurahan,
                 'dusun' => $this->dusun,
                 'kode_pos' => $this->pos,
-
             ]);
 
-            $this->alert('success', 'Data berhasil diperbarui');
+            if ($this->avatar) {
+                $uuid = \Str::uuid();
+                $nama_file = "{$this->nama}-{$uuid}";
+                $nama_file = \Str::slug($nama_file) . '.' . $this->avatar->extension();
+                $guru->avatar()->create([
+                    'nama_file' => $this->avatar->storeAs('upload', $nama_file),
+                ]);
+            }
 
             DB::commit();
-        }catch (\Exception $exception){
+
+            $this->flash('success', 'Data berhasil diperbarui', [], route('guru.semua'));
+
+        } catch (\Exception $exception) {
             Debugbar::info($exception);
             DB::rollBack();
             $this->alert('error', 'Data guru gagal disimpan');
@@ -170,11 +225,12 @@ class Edit extends Component
             $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->get();
         }
 
-        return view('livewire.guru.edit',[
+        return view('livewire.guru.edit', [
             'semua_provinsi' => $semua_provinsi,
             'semua_kabupaten' => $kabupaten ?? [],
             'semua_kecamatan' => $kecamatan ?? [],
             'semua_kelurahan' => $kelurahan ?? [],
+            'data_jabatan' => Role::all(),
         ]);
     }
 }

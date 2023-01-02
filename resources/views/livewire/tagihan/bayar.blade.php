@@ -1,14 +1,16 @@
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     <div class="container">
-        <div class="row justify-content-center align-items-center" style="min-height: 90vh">
+        <div class="row justify-content-center align-items-center" style="min-height: 50vh">
             <div class="col-md-5">
                 <div class="card border-light shadow-sm">
                     <div class="card-header d-flex align-items-center border-light border-bottom-dashed">
                         <h5 class="card-title mb-0 flex-grow-1">Pembayaran Tagihan</h5>
-                        <h5 class="text-success">
-                            Batal
-                        </h5>
+                        <a href="{{route('tagihan.detail', $tagihan->id)}}">
+                            <h5 class="text-success">
+                                Batal
+                            </h5>
+                        </a>
                     </div>
                     <div class="card-body">
                        <div class="card-text py-0 my-0 text-center">
@@ -49,7 +51,7 @@
                             </table>
                         </div>
                         <div class="my-3 d-grid">
-                            <button wire:click.prevent="pay()" class="btn btn-success btn-border">
+                            <button id="btn-bayar" class="btn btn-success btn-border">
                                 Bayar Sekarang
                             </button>
                         </div>
@@ -66,9 +68,12 @@
             data-client-key="{{config('midtrans.client_key')}}">
     </script>
 
-    <script type="text/javascript">
-        Livewire.on('snapPay', (data) => {
-            window.snap.pay(data);
+    <script>
+        Livewire.onLoad(() => {
+            var btnBayar = document.getElementById('btn-bayar');
+            btnBayar.addEventListener('click', () => {
+                window.snap.pay(@this.token);
+            })
         })
     </script>
 @endpush

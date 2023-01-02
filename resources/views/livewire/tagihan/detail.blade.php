@@ -10,18 +10,21 @@
                              aria-controls="collapseOne">
                             <div class="d-grid ">
                                 <h4>Dibuat Oleh</h4>
-                                <p>Abdul Aziz Pada 12 September 2022</p>
+                                <p>{{$tagihan->pembuat->name}}
+                                    Pada {{\Carbon\Carbon::parse($tagihan->created_at)->isoFormat('DD MMMM YYYY')}}</p>
                             </div>
                         </div>
                     </div>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                          data-bs-parent="#dibuatOleh">
                         <div class="accordion-body border-0">
-                            <button
-                                class="btn btn-sm waves-effect btn-light btn-border d-flex align-items-center gap-1">
-                                <i class="ri-edit-2-line"></i>
-                                Edit Sekarang
-                            </button>
+                            <a href="#">
+                                <button
+                                    class="btn btn-sm waves-effect btn-warning btn-border d-flex align-items-center gap-1">
+                                    <i class="ri-edit-2-line"></i>
+                                    Beasiswa (Coming soon)
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -40,11 +43,13 @@
                     <div id="terkirim" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
                          data-bs-parent="#terkirim">
                         <div class="accordion-body border-0">
+                           @hasanyrole('Administrator')
                             <button
                                 class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
                                 <i class="ri-whatsapp-line"></i>
                                 Kirim Ulang
                             </button>
+                            @endhasanyrole
                         </div>
                     </div>
                 </div>
@@ -55,20 +60,64 @@
                              aria-controls="sisaTagihan">
                             <div class="d-grid ">
                                 <h4>Terima Pembayaran</h4>
-                                <p>Sisa Tagihan Saat ini: 200000</p>
+                                <p>Sisa Tagihan Saat ini: Rp. {{rupiah($sisa_tagihan)}}</p>
                             </div>
                         </div>
                     </div>
                     <div id="sisaTagihan" class="accordion-collapse collapse show" aria-labelledby="headingThree"
                          data-bs-parent="#sisaTagihan">
                         <div class="accordion-body border-0">
-                            <button
-                                class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
-                                <i class="ri-money-euro-circle-fill"></i>
-                                Terima Pembayaran
-                            </button>
+                            <div class="d-flex gap-2">
+                                @if($status  == 'lunas')
+                                    <button class="btn btn-sm btn-success disabled">
+                                        <i class="ri-check-double-fill"></i>
+                                        Sudah Lunas
+                                    </button>
+                                @else
+                                    @hasanyrole('Administrator')
+                                    <a href="{{route('terima-pembayaran', $tagihan)}}">
+                                        <button
+                                            class="btn waves-effect btn-sm btn-success btn-border d-flex align-items-center gap-1">
+                                            <i class="ri-money-euro-circle-fill"></i>
+                                            Terima Pembayaran
+                                        </button>
+                                    </a>
+                                    @endhasanyrole
+                                    <a href="{{route('tagihan.bayar', Crypt::encryptString($tagihan->kode_transaksi))}}">
+                                        <button
+                                            class="btn waves-effect btn-sm btn-primary btn-border d-flex align-items-center gap-1">
+                                            <i class="ri-paypal-line"></i>
+                                            Pembayaran Online
+                                        </button>
+                                    </a>
+                                @endif
+
+                            </div>
+
                             <div class="daftar-pembayaran my-4">
-                                Pembayaran Diterima:
+                                <h5>Data Pembayaran</h5>
+                                <table class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th>Tgl. Pembayaran</th>
+                                        <th>Method</th>
+                                        <th class="text-end">Jumlah</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($pembayaran_berhasil as $pembayaran)
+                                        <tr>
+                                            <td>
+                                                <a href="{{route('detail-pembayaran', $pembayaran->id)}}" class="fw-bold">
+                                                    {{\Carbon\Carbon::parse($pembayaran->waktu_transaksi)->isoFormat('DD MMMM YYYY')}}
+                                                </a>
+                                            </td>
+                                            <td>{{$pembayaran->jenis_pembayaran}}</td>
+                                            <td class="text-end">{{rupiah($pembayaran->total)}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -118,10 +167,32 @@
                                 <p class="text-muted m-0">Status</p>
                             </div>
                             <div class="col-md-6">
-                                <p class="text-muted m-0">: {{$tagihan->invoice}}</p>
-                                <p class="text-muted m-0">: {{$tagihan->created_at->format('d M Y')}}</p>
-                                <p class="text-muted m-0">: {{$tagihan->created_at->addDays(7)->format('d M Y')}}</p>
-                                <p class="text-muted m-0">: {{Str::title($tagihan->status)}}</p>
+                                <p class="text-muted m-0">: {{$tagihan->kode_tagihan}}</p>
+                                <p class="text-muted m-0">: {{Carbon\Carbon::parse($tagihan->tgl_dibuat)->isoFormat('DD MMM YYYY')}}</p>
+                                <p class="text-muted m-0">: {{Carbon\Carbon::parse($tagihan->tgl_jatuh_tempo)->isoFormat('DD MMM YYYY')}}</p>
+                                <p class="text-muted m-0">:
+                                    @if($status == 'sebagian')
+                                        <span class="badge badge-outline-info">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @elseif($status == 'lunas')
+                                        <span class="badge badge-outline-success">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @elseif($status == 'belum dibayar')
+                                        <span class="badge badge-outline-warning">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @elseif($status == 'jatuh tempo')
+                                        <span class="badge badge-outline-danger">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @else
+                                        <span class="badge badge-outline-danger">
+                                            {{Str::title($status)}}
+                                        </span>
+                                    @endif
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -135,15 +206,15 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>SPP</td>
-                            <td>Bulan Juli</td>
-                            <td class="text-end">20000</td>
+                            <td>{{$tagihan->kategori->nama_kategori}}</td>
+                            <td>{{\Carbon\Carbon::parse($tagihan->tgl_dibuat)->isoFormat('MMMM')}}</td>
+                            <td class="text-end">{{rupiah($tagihan->total_tagihan)}}</td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="total-tagihan d-flex align-items-center justify-content-end gap-2">
                         <h5 class="text-dark">Total:</h5>
-                        <h5 class="text-dark">Rp. 20000</h5>
+                        <h5 class="text-dark text-end">{{rupiah($tagihan->total_tagihan)}}</h5>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -165,3 +236,5 @@
             </div>
         </div>
     </div>
+</div>
+

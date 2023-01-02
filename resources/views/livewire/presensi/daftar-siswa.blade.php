@@ -1,21 +1,81 @@
 <div>
     {{-- Stop trying to control. --}}
     @if($jadual)
-        <div class="alert alert-outline alert-info">
-            <h5>Selamat Datang {{auth()->user()->name}}</h5>
-            <p>Pada hari ini anda sedang mengajar di kelas <strong
-                    class="text-dark">{{$jadual->kelas->nama_kelas}}</strong> mapel <strong
-                    class="text-dark">{{$jadual->mapel->nama}}</strong> silahkan melakukan absensi siswa terlebih dahulu
-            </p>
-            Pelajaran di mulai dari jam {{\Carbon\Carbon::parse($jadual->jam_mulai)->format('H:i')}} dan berakhir
-            jam {{\Carbon\Carbon::parse($jadual->jam_selesai)->format('H:i')}}
+        <div class="row" >
+            <div class="col-md-5">
+                <div class="card overflow-hidden">
+                    <div class="card-body bg-pattern d-flex">
+                        <div class="flex-grow-1">
+                            <h4 class="fs-18 lh-base mb-0">
+                                Hallo, {{auth()->user()->name}}
+                            </h4>
+                            <p class="mb-0 mt-2 pt-1 text-muted">
+                                Selamat datang di ruang kelas <strong>{{$jadual->kelas->nama_kelas}}</strong> jangan
+                                lupa melakukan absensi terlebih dahulu sebelum memulai pelajaran hari ini
+                            </p>
+                        </div>
+                        <img src="assets/images/bg-d.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-7">
+                <div class="card crm-widget">
+                    <div class="card-body p-0">
+                        <div class="row row-cols-md-3 row-cols-1">
+                            <div class="col col-lg border-end">
+                                <div class="py-4 px-3">
+                                    <h5 class="text-muted text-uppercase fs-13">Total Siswa</i>
+                                    </h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-group-line display-6 text-muted"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h2 class="mb-0"><span class="counter-value" data-target="{{$jadual->kelas->santri->count()}}">{{$jadual->kelas->santri->count()}}</span></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+                            <div class="col col-lg border-end">
+                                <div class="mt-3 mt-md-0 py-4 px-3">
+                                    <h5 class="text-muted text-uppercase fs-13">Jadwal Hari Ini</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-book-2-line display-6 text-muted"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="mb-0">{{$jadual->mapel->nama}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+                            <div class="col col-lg border-end">
+                                <div class="mt-3 mt-md-0 py-4 px-3">
+                                    <h5 class="text-muted text-uppercase fs-13">
+                                        Kelas
+                                    </h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <i class="ri-door-open-line display-6 text-muted"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h2 class="mb-0">{{$jadual->kelas->nama_kelas}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end card body -->
+                </div>
+            </div>
         </div>
         <div class="card border-light rounded">
             <div class="card-header border-bottom border-light">
                 <h5 class="card-title mb-0">Siswa di Kelas ini</h5>
             </div>
             <div class="card-body bg-soft-light">
-                <div class="d-none d-md-flex d-lg-flex p-2 gap-3 bg-white border rounded justify-content-between align-items-center">
+                <div class="d-none d-md-flex d-lg-flex p-2 gap-3 border rounded justify-content-between align-items-center">
                     <div class="col-md-1 text-center">NO</div>
                     <div class="col-md-2">Nama</div>
                     <div class="col-md-2">Nis</div>
@@ -89,8 +149,14 @@
             </div>
         </div>
     @else
-        <div class="alert alert-outline alert-danger">
-            <h5>Maaf anda tidak memiliki jadwal mengajar hari ini</h5>
+        <div class="row" style="min-height: 70vh">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
         </div>
     @endif
 </div>

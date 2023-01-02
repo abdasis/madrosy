@@ -24,7 +24,7 @@ class Tambah extends Component
     public function mount()
     {
         $max_jadwal = Jadwal::max('id');
-        $this->kode = 'JDW' . str_pad($max_jadwal + 1, 5, '0', STR_PAD_LEFT);
+        $this->kode = 'JDW-' . str_pad($max_jadwal + 1, 5, '0', STR_PAD_LEFT);
     }
 
     public function rules()
@@ -71,13 +71,13 @@ class Tambah extends Component
             \DB::commit();
         }catch (\Exception $e) {
             \DB::rollback();
-            dd($e);
+            $this->alert('warning', 'Terjadi kesalahan saat menyimpan data');
         }
     }
 
     public function render()
     {
-        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
         return view('livewire.jadwal.tambah', [
             'data_kelas' => Kelas::orderBy('nama_kelas', 'asc')->get(),
             'data_guru' => Guru::orderBy('nama', 'asc')->get(),

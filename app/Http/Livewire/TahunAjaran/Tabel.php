@@ -36,10 +36,13 @@ class Tabel extends DataTableComponent
     {
         return [
             Column::make("ID", "id")
+                ->deselected()
                 ->sortable(),
             Column::make('Tahun Awal', 'tahun_awal')
+                ->searchable()
                 ->sortable(),
             Column::make('Tahun Akhir', 'tahun_akhir')
+                ->searchable()
                 ->sortable(),
             BooleanColumn::make('status', 'status')
                 ->setCallback(function (string $row, $value) {

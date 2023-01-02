@@ -14,6 +14,9 @@ return [
         'showConfirmButton' => false,
         'background' => '#fff',
         'timerProgressBar' => true,
+        'customClass' => [
+
+        ]
     ],
     'confirm' => [
         'icon' => 'warning',

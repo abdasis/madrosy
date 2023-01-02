@@ -4,22 +4,28 @@ namespace App\Http\Livewire\Mapel;
 
 use App\Http\Livewire\Modal;
 use App\Models\Akademik\Mapel;
+use Illuminate\Validation\Rule;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Tambah extends Modal
 {
     use LivewireAlert;
+
     public $nama;
     public $kode;
 
     public function mount()
     {
         $kode = Mapel::max('id');
-
         $this->kode = 'MPL-' . str_pad($kode + 1, 3, '0', STR_PAD_LEFT);
     }
 
     protected $listeners = ['tambah' => 'show'];
+
+    public function updatedNama($value)
+    {
+
+    }
 
     public function show()
     {
@@ -28,20 +34,22 @@ class Tambah extends Modal
 
     public function rules()
     {
-        return[
-            'nama' => 'required',
-            'kode' => 'required|unique:mapels,kode'
+        return [
+            'kode' => 'required|unique:mapels,kode',
+            'nama' => 'required|unique:mapels,nama'
         ];
     }
 
     public function simpan()
     {
+
         $this->validate();
 
         try {
+
             $mapel = Mapel::create([
                 'kode' => $this->kode,
-                'nama' =>   $this->nama,
+                'nama' => $this->nama,
                 'dibuat_oleh' => auth()->id(),
                 'diubah_oleh' => auth()->id()
             ]);
@@ -49,7 +57,7 @@ class Tambah extends Modal
             $this->alert('success', 'Data berhasil disimpan');
             $this->reset();
             $this->mount();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             \Debugbar::info($e);
             $this->alert('error', 'Data gagal disimpan');
         }

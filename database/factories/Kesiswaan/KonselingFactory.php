@@ -22,6 +22,7 @@ class KonselingFactory extends Factory
             'kasus' => $this->faker->text(),
             'layanan' => $this->faker->text(),
             'dibuat_oleh' => 1,
+            'foto_bukti' => $this->faker->unique()->imageUrl()
         ];
     }
 }

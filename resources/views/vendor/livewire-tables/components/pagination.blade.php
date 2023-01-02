@@ -75,7 +75,7 @@
             @if ($component->paginationIsEnabled() && $rows->lastPage() > 1)
                 <div class="row mt-3">
                     <div class="col-12 col-md-6 overflow-auto">
-                        {{ $rows->links('livewire-tables::specific.bootstrap-4.pagination') }}
+                        {{ $rows->onEachSide(1)->links('livewire-tables::specific.bootstrap-4.pagination') }}
                     </div>
 
                     <div class="col-12 col-md-6 text-center text-md-end text-muted">

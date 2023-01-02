@@ -64,7 +64,7 @@ class Edit extends Component
                 bisa menambahkan jadwal yang sama');
             }
 
-            Jadwal::where('id', $this->jadwal_id)->update([
+            Jadwal::find($this->jadwal_id)->update([
                 'kode' => $this->kode,
                 'mapel_id' => $this->mapel,
                 'kelas_id' => $this->kelas,
@@ -74,16 +74,15 @@ class Edit extends Component
                 'jam_selesai' => $this->jam_selesai,
                 'status' => 'aktif',
             ]);
-            $this->alert('success', 'Data berhasil diperbarui');
+            $this->flash('success', 'Data berhasil diperbarui', [], route('jadwal.semua'));
             \DB::commit();
         } catch (\Exception $e) {
             \DB::rollback();
-            dd($e);
         }
     }
     function render()
     {
-        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
         return view('livewire.jadwal.edit', [
             'data_kelas' => Kelas::orderBy('nama_kelas', 'asc')->get(),
             'data_guru' => Guru::orderBy('nama', 'asc')->get(),

@@ -16,26 +16,25 @@ class CreateTokenService extends Midtrans
 
     public function generateSnapToken()
     {
-
-        $params = [
-            'transaction_details' => [
-                'order_id' => $this->transaksi->order_id,
-                'gross_amount' => $this->transaksi->total,
-            ],
-
-            'customer_details' => [
-                'first_name' => $this->transaksi->tagihan->santri->nama_lengkap,
-                'last_name' => '',
-                'email' => $this->transaksi->tagihan->santri->email,
-                'phone' => $this->transaksi->tagihan->santri->no_hp,
-            ],
-        ];
-
         try {
-            $token =  Snap::getSnapToken($params);
-            return $token;
+            $params = [
+                'transaction_details' => [
+                    'order_id' => $this->transaksi->order_id,
+                    'gross_amount' => $this->transaksi->total,
+                ],
+
+                'customer_details' => [
+                    'first_name' => $this->transaksi->tagihan->santri->nama_lengkap,
+                    'last_name' => '',
+                    'email' => $this->transaksi->tagihan->santri->email,
+                    'phone' => $this->transaksi->tagihan->santri->no_hp,
+                    'address' => $this->transaksi->tagihan->santri->alamat,
+                ],
+            ];
+
+            return Snap::getSnapToken($params);
         }catch (\Exception $e){
-            return $e;
+            report($e);
         }
 
     }

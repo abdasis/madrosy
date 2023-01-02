@@ -11,10 +11,13 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Spatie\Permission\Models\Role;
 
 class Tambah extends Component
 {
     use LivewireAlert;
+    use WithFileUploads;
 
     public $provinsi;
     public $kabupaten;
@@ -40,6 +43,9 @@ class Tambah extends Component
     public $tanggal_masuk;
     public $foto;
     public $status;
+    public $password;
+    public $role;
+    public $avatar;
 
     public function rules()
     {
@@ -62,6 +68,16 @@ class Tambah extends Component
             'dusun' => 'required',
             'pos' => 'required',
             'status_guru' => 'required',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,jpe,png,svg,webp|max:1024',
+            'role' => 'required'
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'avatar.max' => 'Foto maksimal ukuran 1 Mb'
         ];
     }
 
@@ -70,20 +86,26 @@ class Tambah extends Component
         $this->validateOnly($property);
     }
 
+    public function updatedNik($value)
+    {
+        $this->password = $value;
+    }
+
     public function simpan()
     {
         $this->validate();
 
         try {
             DB::beginTransaction();
-            //membuat user guru baru
+
             $user = User::create([
                 'name' => $this->nama,
                 'email' => $this->email,
                 'password' => bcrypt($this->nik),
             ]);
 
-            //menyimpan data guru
+            $user->assignRole($this->role);
+
             $guru = Guru::create([
                 'nama' => $this->nama,
                 'nik' => $this->nik,
@@ -102,7 +124,6 @@ class Tambah extends Component
                 'tanggal_masuk' => $this->tanggal_masuk,
                 'foto' => "https://ui-avatars.com/api/?background=random&color=fff&name={$this->nama}",
                 'user_id' => $user->id,
-
                 'provinsi' => $this->provinsi,
                 'kabupaten' => $this->kabupaten,
                 'kecamatan' => $this->kecamatan,
@@ -111,13 +132,23 @@ class Tambah extends Component
                 'kode_pos' => $this->pos,
             ]);
 
+            if ($this->avatar) {
+                $uuid = \Str::uuid();
+                $nama_file = "{$this->nama}-{$uuid}";
+                $nama_file = \Str::slug($nama_file) . '.' . $this->avatar->extension();
+                $guru->avatar()->create([
+                    'nama_file' => $this->avatar->storeAs('upload', $nama_file),
+                ]);
+            }
+
             $this->alert('success', 'Data guru berhasil disimpan');
 
             $this->reset();
 
             DB::commit();
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             Debugbar::info($exception);
+            report($exception);
             DB::rollBack();
             $this->alert('error', 'Data guru gagal disimpan');
         }
@@ -125,30 +156,31 @@ class Tambah extends Component
 
     public function render()
     {
-        $semua_provinsi = \Indonesia::allProvinces()->lazy(function ($provinces) {
+        $semua_provinsi = \Indonesia::allProvinces()->sortBy('name')->lazy(function ($provinces) {
             foreach ($provinces as $key => $province) {
                 $provinsi[$key] = $province->name;
             }
         });
 
         if (isset($this->provinsi)) {
-            $kabupaten = Kabupaten::where('province_code', $this->provinsi)->get();
+            $kabupaten = Kabupaten::where('province_code', $this->provinsi)->orderBy('name')->get();
         }
 
         if (isset($this->kabupaten)) {
-            $kecamatan = Kecamatan::where('city_code', $this->kabupaten)->get();
+            $kecamatan = Kecamatan::where('city_code', $this->kabupaten)->orderBy('name')->get();
         }
 
 
         if (isset($this->kecamatan)) {
-            $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->get();
+            $kelurahan = Kelurahan::where('district_code', $this->kecamatan)->orderBy('name')->get();
         }
 
-        return view('livewire.guru.tambah',[
+        return view('livewire.guru.tambah', [
             'semua_provinsi' => $semua_provinsi,
             'semua_kabupaten' => $kabupaten ?? [],
             'semua_kecamatan' => $kecamatan ?? [],
             'semua_kelurahan' => $kelurahan ?? [],
+            'data_jabatan' => Role::all(),
         ]);
     }
 }

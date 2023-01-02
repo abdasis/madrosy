@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_lengkap');
             $table->string('nama_panggilan')->nullable();
             $table->string('nisn', 30)->unique();
+            $table->string('nik');
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('no_hp')->nullable()->unique();
             $table->text('alamat')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

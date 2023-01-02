@@ -6,22 +6,31 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="container">
-                            <div class="form-title">
-                                <h4 class="my-3 fw-bolder">Biodata Pengajar</h4>
-                            </div>
                             <div class="row gy-3">
+                                <div class="form-title">
+                                    <h4 class="my-2 fw-bold d-flex align-items-center">
+                                        <i class="ri-user-follow-line"></i>
+                                        Biodata Pengajar
+                                    </h4>
+                                </div>
+                                <div class="col-12">
+                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show" role="alert">
+                                        <i class="ri-check-double-line me-3 align-middle fs-16"></i><strong>Informasi</strong>
+                                        - Pada form berikut kamu bisa menambahkan guru yang akan di daftarkan pada aplikasi, form yang memiliki tanda bintang wajib kamu isi
+                                    </div>
+                                </div>
 
                                 <div class="col-md-8">
                                     <x-form-input name="nama" wire:model.defer="nama" label="Nama Lengkap"  placeholder="Nama Lengkap" />
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="nik"  wire:model.defer="nik" label="NIK" placeholder="352xxxxxxxxx" />
+                                    <x-form-input name="nik"  wire:model="nik" label="NIK" placeholder="352xxxxxxxxx" />
                                 </div>
                                 <div class="col-md-8">
                                     <x-form-input name="tempat_lahir" wire:model.defer="tempat_lahir" label="Tempat Lahir" placeholder="Masukan Tempat Lahir" />
                                 </div>
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_lahir" wire:model.defer="tanggal_lahir" type="date" label="Tempat Lahir" />
+                                    <x-form-input name="tanggal_lahir" wire:model="tanggal_lahir" type="date" label="Tempat Lahir" />
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-select name="jenis_kelamin" label="Jenis Kelamin" wire:model.defer="jenis_kelamin">
@@ -88,7 +97,7 @@
 
 
                                 <div class="col-md-4">
-                                    <x-form-input name="email" wire:model.defer="email" label="Email" placeholder="Masukan Email" />
+                                    <x-form-input name="email" wire:model="email" label="Email" placeholder="Masukan Email" />
                                 </div>
                                 <div class="col-md-4">
                                     <x-form-input name="no_hp" wire:model.defer="no_hp" label="No HP" placeholder="Masukan No HP" />
@@ -114,15 +123,18 @@
                                     <x-form-select name="jabatan" label="Jabatan *" wire:model.defer="jabatan">
                                         <option value="">Pilih Jabatan</option>
                                         <option value="Kepala Sekolah">Kepala Sekolah</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
-                                        <option value="Guru Khusus">Guru Khusus</option>
-                                        <option value="Guru Bantu">Bantu</option>
-                                        <option value="Wali Kelas">Wali Kelas</option>
+                                        <option value="Wakil Kepala Sekolah">Wakil Kepala Sekolah</option>
+                                        <option value="Komite Sekolah">Komite Sekolah</option>
+                                        <option value="Waka Kurikulum">Waka Kurikulum</option>
+                                        <option value="Waka Kesiswaan">Waka Kesiswaan</option>
+                                        <option value="Guru">Guru</option>
+                                        <option value="Tata Usaha">Tata Usaha</option>
                                     </x-form-select>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <x-form-select name="status_guru" label="Status Guru" wire:model.defer="status_guru">
+                                    <x-form-select name="status_guru" label="Status Guru"
+                                                   wire:model.defer="status_guru">
                                         <option value="">Pilih Status</option>
                                         <option value="Guru Tetap">Guru Tetap</option>
                                         <option value="Guru Tidak Tetap">Guru Tidak Tetap</option>
@@ -130,10 +142,50 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <x-form-input name="tanggal_masuk" wire:model.defer="tanggal_masuk" label="Tahun Masuk" type="date" placeholder="Masukan Tahun Lulus" />
+                                    <x-form-input name="tanggal_masuk" wire:model.defer="tanggal_masuk"
+                                                  label="Tahun Masuk" type="date" placeholder="Masukan Tahun Lulus"/>
                                 </div>
 
+                                <div class="col-md-12">
+                                    <x-form-input name="avatar" wire:model="avatar" type="file" label="Pilih Avatar"/>
+                                </div>
 
+                                <h4 class="mt-5 fw-bold d-flex align-items-center">
+                                    <i class="ri-lock-line"></i>
+                                    Account Tertaut
+                                </h4>
+
+                                <div class="col-12">
+                                    <div class="alert alert-secondary alert-border-left alert-dismissible fade show"
+                                         role="alert">
+                                        <i class="ri-check-double-line me-3 align-middle fs-16"></i><strong>Informasi</strong>
+                                        - Akun berikut ini sudah otomatis terisi sesuai data yang di inputkan di data
+                                        sebelumnya, kamu bisa merubah password nanti
+                                        setelah data berhasil ditambahkan
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <x-form-input name="email" wire:model="email" readonly label="Email"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <x-form-input
+                                        type="text"
+                                        wire:model="password"
+                                        name="password"
+                                        label="Password"
+                                        readonly
+                                    />
+                                    <small class="text-muted">Password akan secara default di set dari NIK</small>
+                                </div>
+                                <div class="col-md-4">
+                                    <x-form-select wire:model="role" name="role" label="Role">
+                                        <option value="">Pilih Roles Pengguna</option>
+                                        @foreach($data_jabatan as $role)
+                                            <option value="{{$role->name}}">{{$role->name}}</option>
+                                        @endforeach
+                                    </x-form-select>
+                                </div>
 
                                 <div class="form-group d-flex justify-content-between my-5">
                                     <button class="btn btn-outline-danger btn-border d-flex align-items-center gap-1">
@@ -146,7 +198,14 @@
                                     </button>
                                 </div>
                             </div>
+
                         </div>
+                    </div>
+                    <div class="col-md-4">
+                        @if($avatar)
+                            <h5>Preview Avatar</h5>
+                            <img src="{{$avatar->temporaryUrl()}}" class="img-fluid img-thumbnail" alt="">
+                        @endif
                     </div>
                 </div>
             </form>

@@ -5,8 +5,10 @@ namespace App\Http\Livewire\Konseling;
 use App\Models\Kesiswaan\Konseling;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
+use Illuminate\Http\Response;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\Columns\ImageColumn;
 use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
 
 class Tabel extends DataTableComponent
@@ -30,7 +32,7 @@ class Tabel extends DataTableComponent
             $konseling = Konseling::find($this->model_id);
             $konseling->delete();
             $this->alert('success', 'Data Berhasil Dihapus');
-        }else{
+        } else {
             $this->alert('error', 'Data tidak ditemukan');
         }
     }
@@ -40,6 +42,11 @@ class Tabel extends DataTableComponent
         $this->setPrimaryKey('id');
     }
 
+
+    public function download($foto)
+    {
+        return \response()->download($foto);
+    }
 
 
     public function columns(): array
@@ -51,9 +58,16 @@ class Tabel extends DataTableComponent
             Column::make('NISN', 'santri.nisn')
                 ->sortable()
                 ->searchable(),
-            Column::make("Santri", "santri.nama_lengkap")
-                ->sortable()
-                ->searchable(),
+            Column::make('Nama', 'santri.nama_lengkap'),
+            Column::make('Bukti', 'foto_bukti')->format(function ($foto, $model) {
+                $file = asset($foto);
+                $path = $foto;
+                return view('livewire.konseling.modal', [
+                    'foto' => $file,
+                    'path' => $path,
+                    'id' => $model->id
+                ]);
+            })->html(),
             Column::make('Tanggal', 'tanggal')
                 ->sortable()
                 ->format(fn($tanggal) => Carbon::parse($tanggal)->format('d F, Y'))

@@ -2,6 +2,8 @@
 /public/build
 /public/hot
 /public/storage
+/public/upload
+/public/qrcode
 /storage/*.key
 /vendor
 .env
@@ -14,3 +16,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+_ide_helper.php
+_ide_helper_models.php

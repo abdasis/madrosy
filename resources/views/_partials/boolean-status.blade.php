@@ -7,7 +7,11 @@
         {{Str::title($status)}}
     </div>
 @elseif($status == 'jatuh tempo')
-    <div class="badge badge-danger">
+    <div class="badge badge-outline-danger">
+        {{Str::title($status)}}
+    </div>
+@elseif($status == 'sebagian')
+    <div class="badge badge-outline-info">
         {{Str::title($status)}}
     </div>
 @endif

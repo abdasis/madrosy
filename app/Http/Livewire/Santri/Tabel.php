@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Santri;
 
+use App\Models\Akademik\Kelas;
 use App\Models\Kesiswaan\Santri;
 use App\Traits\KonfirmasiHapus;
 use Carbon\Carbon;
@@ -23,7 +24,7 @@ class Tabel extends DataTableComponent
             ->setTableRowUrl(function ($id) {
                 return route('santri.detail', $id);
             });
-        $this->setDefaultReorderSort('order', 'desc');
+        $this->setDefaultSort('created_at', 'desc');
 
     }
 
@@ -40,32 +41,44 @@ class Tabel extends DataTableComponent
                         $query->where('jenis_kelamin', $value);
                     }
                 }),
+
+            SelectFilter::make('Kelas')
+                ->options(
+                    Kelas::query()->orderBy('nama_kelas')
+                        ->get()
+                        ->keyBy('id')
+                        ->map(fn($kelas) => $kelas->nama_kelas)
+                        ->toArray()
+                )->filter(function (Builder $query, string $kelas) {
+                    return $query->whereHas('kelas', function ($query) use ($kelas) {
+                        return $query->where('id', $kelas);
+                    });
+                })
         ];
     }
 
     public function columns(): array
     {
         return [
-            Column::make('#', 'id')->searchable()->sortable(),
+            Column::make('Santri ID', 'id')->sortable()->deselected(),
             Column::make("NISN", "nisn")
                 ->searchable()
                 ->sortable(),
             Column::make("Nama", "nama_lengkap")
-                ->searchable()
+                ->searchable(fn(Builder $query, $keyword) => $query->orWhere('nama_lengkap', 'like', "%{$keyword}%"))
                 ->html()
                 ->format(function ($nama) {
-                    return "<span class='fw-bold text-success'>$nama</span>";
+                    $img_url = "https://ui-avatars.com/api/?background=random&name={$nama}";
+                    return "<span class='fw-bold text-success'> <img src='$img_url' class='avatar-xxs me-1 rounded-circle' /> $nama</span>";
                 })
                 ->sortable(),
             Column::make("Jenis Kelamin", "jenis_kelamin")
                 ->unclickable()
                 ->sortable(),
             Column::make("Tempat Lahir", "tempat_lahir")
-                ->searchable()
                 ->unclickable()
                 ->sortable(),
             Column::make("Tanggal Lahir", "tanggal_lahir")
-                ->searchable()
                 ->unclickable()
                 ->format(fn($tanggal_lahir) => Carbon::parse($tanggal_lahir)->format('d F Y'))
                 ->sortable(),
@@ -94,7 +107,22 @@ class Tabel extends DataTableComponent
     {
         if ($this->model_id) {
             $santri = Santri::find($this->model_id);
+
+            if ($santri->tagihan()->count() > 0){
+                $this->alert('warning', 'Tidak bisa menghapus santri yang sudah memiliki tanggungan');
+                session()->flash('error', 'Santri yang sudah memiliki tagihan tidak dapat di hapus, kamu bisa hapus tagihan nnya terlebih dahulu');
+                return false;
+            }
+
+            //menghapus data absensi dulu
+            $santri->data_absensi()->delete();
+
+            //menghapus data avatar kalau santri dihapus
+            $santri->avatar()->delete();
+
+
             $santri->delete();
+
             $this->alert('success', "Data berhasil dihapus");
         } else {
             $this->alert('error', "Data gagal dihapus");

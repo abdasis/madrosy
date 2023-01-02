@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Kesiswaan;
 
+use App\Models\Kesiswaan\Pelanggaran;
 use Illuminate\Database\Seeder;
 
 class PelanggaranSeeder extends Seeder
@@ -13,6 +14,6 @@ class PelanggaranSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Pelanggaran::factory()->count(10)->create();
     }
 }

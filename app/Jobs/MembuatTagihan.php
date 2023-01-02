@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Keuangan\Tagihan;
+use App\Repositories\Transaksi;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -20,7 +21,8 @@ class MembuatTagihan implements ShouldQueue
 
     public function handle()
     {
-        $transaksi = new \App\Repositories\Transaksi();
+
+        $transaksi = new Transaksi();
         $transaksi->create($this->tagihan->toArray());
     }
 }
