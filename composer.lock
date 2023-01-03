@@ -2337,16 +2337,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.13.1",
+            "version": "v2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "8e241881c123f96c55fb7cddfb63408958427919"
+                "reference": "a0ab21b7f9505d8fcdea6abf03a280455de5973d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/8e241881c123f96c55fb7cddfb63408958427919",
-                "reference": "8e241881c123f96c55fb7cddfb63408958427919",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/a0ab21b7f9505d8fcdea6abf03a280455de5973d",
+                "reference": "a0ab21b7f9505d8fcdea6abf03a280455de5973d",
                 "shasum": ""
             },
             "require": {
@@ -2354,7 +2354,7 @@
                 "illuminate/console": "^9.21",
                 "illuminate/support": "^9.21",
                 "jenssegers/agent": "^2.6",
-                "laravel/fortify": "^1.13.3",
+                "laravel/fortify": "^1.15",
                 "php": "^8.0.2"
             },
             "conflict": {
@@ -2403,7 +2403,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2022-12-16T16:44:02+00:00"
+            "time": "2023-01-03T15:37:09+00:00"
         },
         {
             "name": "laravel/octane",
@@ -8797,16 +8797,16 @@
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
-            "version": "2.2.5",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-                "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19"
+                "reference": "c42125b83a4fa63b187fdf29f9c93cb7733da30c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/4348a3a06651827a27d989ad1d13efec6bb49b19",
-                "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/c42125b83a4fa63b187fdf29f9c93cb7733da30c",
+                "reference": "c42125b83a4fa63b187fdf29f9c93cb7733da30c",
                 "shasum": ""
             },
             "require": {
@@ -8844,9 +8844,9 @@
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "support": {
                 "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
-                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.5"
+                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
-            "time": "2022-09-12T13:28:28+00:00"
+            "time": "2023-01-03T09:29:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -9704,16 +9704,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v7.2.1",
+            "version": "v7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "cb8c951b0ea7bd109265cf6a821ab5612d9cbcb9"
+                "reference": "c20931e9ecd3d10246ebb8f1ec70ecebfb77b122"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/cb8c951b0ea7bd109265cf6a821ab5612d9cbcb9",
-                "reference": "cb8c951b0ea7bd109265cf6a821ab5612d9cbcb9",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/c20931e9ecd3d10246ebb8f1ec70ecebfb77b122",
+                "reference": "c20931e9ecd3d10246ebb8f1ec70ecebfb77b122",
                 "shasum": ""
             },
             "require": {
@@ -9771,22 +9771,22 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/dusk/issues",
-                "source": "https://github.com/laravel/dusk/tree/v7.2.1"
+                "source": "https://github.com/laravel/dusk/tree/v7.3.0"
             },
-            "time": "2022-12-16T14:37:35+00:00"
+            "time": "2023-01-03T09:39:52+00:00"
         },
         {
             "name": "laravel/sail",
-            "version": "v1.16.6",
+            "version": "v1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "2e8be54590bde421eb04e461a1421302a5b22cca"
+                "reference": "7d69da7b2bdb8cbe8da6663eb2ae0e00c884bf80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/2e8be54590bde421eb04e461a1421302a5b22cca",
-                "reference": "2e8be54590bde421eb04e461a1421302a5b22cca",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/7d69da7b2bdb8cbe8da6663eb2ae0e00c884bf80",
+                "reference": "7d69da7b2bdb8cbe8da6663eb2ae0e00c884bf80",
                 "shasum": ""
             },
             "require": {
@@ -9833,7 +9833,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-12-19T15:41:32+00:00"
+            "time": "2022-12-22T14:46:08+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -11996,16 +11996,16 @@
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "1.6.3",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "2db918babd96f87b73fc26e4195f5a19328dd123"
+                "reference": "1a2b4bd3d48c72526c0ba417687e5c56b5cf49bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/2db918babd96f87b73fc26e4195f5a19328dd123",
-                "reference": "2db918babd96f87b73fc26e4195f5a19328dd123",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/1a2b4bd3d48c72526c0ba417687e5c56b5cf49bc",
+                "reference": "1a2b4bd3d48c72526c0ba417687e5c56b5cf49bc",
                 "shasum": ""
             },
             "require": {
@@ -12082,7 +12082,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-26T15:13:03+00:00"
+            "time": "2023-01-03T19:28:04+00:00"
         },
         {
             "name": "theseer/tokenizer",
