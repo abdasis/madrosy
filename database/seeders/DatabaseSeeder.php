@@ -47,12 +47,12 @@ class DatabaseSeeder extends Seeder
             ]);
         } else {
             $this->call([
+                RolesSeeder::class,
                 GuruSeeder::class,
                 ProvincesSeeder::class,
                 CitiesSeeder::class,
                 DistrictsSeeder::class,
                 VillagesSeeder::class,
-                RolesSeeder::class,
             ]);
         }
 
